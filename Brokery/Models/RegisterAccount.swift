@@ -1,14 +1,15 @@
 //
-//  Authentication.swift
+//  RegisterAccount.swift
 //  Brokery
 //
-//  Created by ToqaMohsen on 11/13/19.
+//  Created by ToqaMohsen on 11/14/19.
 //  Copyright © 2019 Toqa. All rights reserved.
 //
 
 import Foundation
 
-struct UserLogin : Codable{
+struct AccountDto : Codable{
     var email : String?
     var password : String?
+    var mobile : String?
 }
