@@ -1,27 +1,22 @@
 //
-//  RegisterationViewController.swift
+//  AddAssetViewController.swift
 //  Brokery
 //
-//  Created by ToqaMohsen on 11/8/19.
+//  Created by ToqaDev on 11/14/19.
 //  Copyright © 2019 Toqa. All rights reserved.
 //
 
 import UIKit
 
-class RegisterationViewController: UIViewController {
+class AddAssetViewController: UIViewController {
 
-    @IBOutlet var emailTextField: UITextField!
-    @IBOutlet var passwordTextField: UITextField!
-    @IBOutlet var mobileNumberTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
-    @IBAction func registerBtnAction(_ sender: UIButton) {
-    }
-    
+
     /*
     // MARK: - Navigation
 

@@ -13,6 +13,9 @@
 		EF11D1C12375E2E7005C8F0C /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF11D1C02375E2E7005C8F0C /* Login.storyboard */; };
 		EF11D1C52375E538005C8F0C /* RegisterationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF11D1C42375E538005C8F0C /* RegisterationViewController.swift */; };
 		EF11D1C72375E550005C8F0C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF11D1C62375E550005C8F0C /* LoginViewController.swift */; };
+		EF471567237D7AE90036DC1E /* Assets.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF471566237D7AE90036DC1E /* Assets.storyboard */; };
+		EF471569237D7B7C0036DC1E /* AddAssetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF471568237D7B7C0036DC1E /* AddAssetViewController.swift */; };
+		EF47156B237D7B900036DC1E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF47156A237D7B900036DC1E /* HomeViewController.swift */; };
 		EF60C8E82374903D0051F57F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF60C8E72374903D0051F57F /* AppDelegate.swift */; };
 		EF60C8EA2374903D0051F57F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF60C8E92374903D0051F57F /* ViewController.swift */; };
 		EF60C8ED2374903D0051F57F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF60C8EB2374903D0051F57F /* Main.storyboard */; };
@@ -20,6 +23,7 @@
 		EF60C8F22374903E0051F57F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF60C8F02374903E0051F57F /* LaunchScreen.storyboard */; };
 		EF60C8FD2374903E0051F57F /* BrokeryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF60C8FC2374903E0051F57F /* BrokeryTests.swift */; };
 		EF60C9082374903E0051F57F /* BrokeryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF60C9072374903E0051F57F /* BrokeryUITests.swift */; };
+		EFA4582D237B723C00F16581 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA4582C237B723C00F16581 /* Authentication.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +55,9 @@
 		EF11D1C02375E2E7005C8F0C /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		EF11D1C42375E538005C8F0C /* RegisterationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterationViewController.swift; sourceTree = "<group>"; };
 		EF11D1C62375E550005C8F0C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		EF471566237D7AE90036DC1E /* Assets.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Assets.storyboard; sourceTree = "<group>"; };
+		EF471568237D7B7C0036DC1E /* AddAssetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAssetViewController.swift; sourceTree = "<group>"; };
+		EF47156A237D7B900036DC1E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		EF60C8E42374903D0051F57F /* Brokery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Brokery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF60C8E72374903D0051F57F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EF60C8E92374903D0051F57F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -64,6 +71,7 @@
 		EF60C9032374903E0051F57F /* BrokeryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BrokeryUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF60C9072374903E0051F57F /* BrokeryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrokeryUITests.swift; sourceTree = "<group>"; };
 		EF60C9092374903E0051F57F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EFA4582C237B723C00F16581 /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
 		FEED9E3D84053DC03673B09B /* Pods_BrokeryUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BrokeryUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -123,6 +131,7 @@
 			children = (
 				EF60C8EB2374903D0051F57F /* Main.storyboard */,
 				EF11D1C02375E2E7005C8F0C /* Login.storyboard */,
+				EF471566237D7AE90036DC1E /* Assets.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -132,6 +141,8 @@
 			children = (
 				EF11D1C42375E538005C8F0C /* RegisterationViewController.swift */,
 				EF11D1C62375E550005C8F0C /* LoginViewController.swift */,
+				EF471568237D7B7C0036DC1E /* AddAssetViewController.swift */,
+				EF47156A237D7B900036DC1E /* HomeViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -161,6 +172,7 @@
 		EF60C8E62374903D0051F57F /* Brokery */ = {
 			isa = PBXGroup;
 			children = (
+				EFA4582B237B720500F16581 /* Models */,
 				EF11D1C32375E4D6005C8F0C /* ViewControllers */,
 				EF11D1BF2375E2B8005C8F0C /* Storyboards */,
 				EF60C8E72374903D0051F57F /* AppDelegate.swift */,
@@ -188,6 +200,14 @@
 				EF60C9092374903E0051F57F /* Info.plist */,
 			);
 			path = BrokeryUITests;
+			sourceTree = "<group>";
+		};
+		EFA4582B237B720500F16581 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				EFA4582C237B723C00F16581 /* Authentication.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -300,6 +320,7 @@
 			files = (
 				EF11D1C12375E2E7005C8F0C /* Login.storyboard in Resources */,
 				EF60C8F22374903E0051F57F /* LaunchScreen.storyboard in Resources */,
+				EF471567237D7AE90036DC1E /* Assets.storyboard in Resources */,
 				EF60C8EF2374903E0051F57F /* Assets.xcassets in Resources */,
 				EF60C8ED2374903D0051F57F /* Main.storyboard in Resources */,
 			);
@@ -426,7 +447,10 @@
 				EF11D1C72375E550005C8F0C /* LoginViewController.swift in Sources */,
 				EF60C8EA2374903D0051F57F /* ViewController.swift in Sources */,
 				EF11D1C52375E538005C8F0C /* RegisterationViewController.swift in Sources */,
+				EFA4582D237B723C00F16581 /* Authentication.swift in Sources */,
 				EF60C8E82374903D0051F57F /* AppDelegate.swift in Sources */,
+				EF47156B237D7B900036DC1E /* HomeViewController.swift in Sources */,
+				EF471569237D7B7C0036DC1E /* AddAssetViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
