@@ -10,13 +10,29 @@ import UIKit
 
 class AddAssetViewController: UIViewController {
 
+    @IBOutlet var assetAddressTextField: UITextField!
+    @IBOutlet var assetNameTextField: UITextField!
+    @IBOutlet var assetDescriptionTextField: UITextField!
+    @IBOutlet var hashtagTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func hashtagBtnAction(_ sender: UIButton) {
+    }
+    @IBAction func setLocationBtnAction(_ sender: UIButton) {
+    }
+    @IBAction func addPhotoBtnAction(_ sender: UIButton) {
+    }
+    
+    @IBAction func statusSegmantedControlAction(_ sender: UISegmentedControl) {
+    }
+    
+    @IBAction func saveBtnAction(_ sender: UIButton) {
+    }
+    
     /*
     // MARK: - Navigation
 

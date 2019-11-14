@@ -16,6 +16,7 @@
 		EF471567237D7AE90036DC1E /* Assets.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF471566237D7AE90036DC1E /* Assets.storyboard */; };
 		EF471569237D7B7C0036DC1E /* AddAssetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF471568237D7B7C0036DC1E /* AddAssetViewController.swift */; };
 		EF47156B237D7B900036DC1E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF47156A237D7B900036DC1E /* HomeViewController.swift */; };
+		EF47156D237D8D380036DC1E /* MarketPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF47156C237D8D380036DC1E /* MarketPlaceViewController.swift */; };
 		EF60C8E82374903D0051F57F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF60C8E72374903D0051F57F /* AppDelegate.swift */; };
 		EF60C8EA2374903D0051F57F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF60C8E92374903D0051F57F /* ViewController.swift */; };
 		EF60C8ED2374903D0051F57F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF60C8EB2374903D0051F57F /* Main.storyboard */; };
@@ -58,6 +59,7 @@
 		EF471566237D7AE90036DC1E /* Assets.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Assets.storyboard; sourceTree = "<group>"; };
 		EF471568237D7B7C0036DC1E /* AddAssetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAssetViewController.swift; sourceTree = "<group>"; };
 		EF47156A237D7B900036DC1E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		EF47156C237D8D380036DC1E /* MarketPlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketPlaceViewController.swift; sourceTree = "<group>"; };
 		EF60C8E42374903D0051F57F /* Brokery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Brokery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF60C8E72374903D0051F57F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EF60C8E92374903D0051F57F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 				EF11D1C62375E550005C8F0C /* LoginViewController.swift */,
 				EF471568237D7B7C0036DC1E /* AddAssetViewController.swift */,
 				EF47156A237D7B900036DC1E /* HomeViewController.swift */,
+				EF47156C237D8D380036DC1E /* MarketPlaceViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -446,6 +449,7 @@
 			files = (
 				EF11D1C72375E550005C8F0C /* LoginViewController.swift in Sources */,
 				EF60C8EA2374903D0051F57F /* ViewController.swift in Sources */,
+				EF47156D237D8D380036DC1E /* MarketPlaceViewController.swift in Sources */,
 				EF11D1C52375E538005C8F0C /* RegisterationViewController.swift in Sources */,
 				EFA4582D237B723C00F16581 /* Authentication.swift in Sources */,
 				EF60C8E82374903D0051F57F /* AppDelegate.swift in Sources */,
