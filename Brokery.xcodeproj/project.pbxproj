@@ -10,6 +10,11 @@
 		1562E3360F5558E7945DA249 /* Pods_Brokery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA5A8FA673DCE72FC9A3D73B /* Pods_Brokery.framework */; };
 		9C2D79ABBDEDD40B64EDFAC0 /* Pods_BrokeryTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B2D43084C45313A239AFD37 /* Pods_BrokeryTests.framework */; };
 		C63E01E9B3E1ABA03CE72119 /* Pods_BrokeryUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEED9E3D84053DC03673B09B /* Pods_BrokeryUITests.framework */; };
+		EF0ED3E12380506800F7A7D6 /* LoginPostRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0ED3E02380506800F7A7D6 /* LoginPostRequest.swift */; };
+		EF0ED3E3238050E600F7A7D6 /* AuthenticateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0ED3E2238050E600F7A7D6 /* AuthenticateService.swift */; };
+		EF0ED3E52380518D00F7A7D6 /* RegisterationPostRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0ED3E42380518D00F7A7D6 /* RegisterationPostRequest.swift */; };
+		EF0ED3E7238051CC00F7A7D6 /* RegisterationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0ED3E6238051CC00F7A7D6 /* RegisterationService.swift */; };
+		EF0ED3E92380546800F7A7D6 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0ED3E82380546800F7A7D6 /* BaseModel.swift */; };
 		EF11D1C12375E2E7005C8F0C /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF11D1C02375E2E7005C8F0C /* Login.storyboard */; };
 		EF11D1C52375E538005C8F0C /* RegisterationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF11D1C42375E538005C8F0C /* RegisterationViewController.swift */; };
 		EF11D1C72375E550005C8F0C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF11D1C62375E550005C8F0C /* LoginViewController.swift */; };
@@ -55,6 +60,11 @@
 		BA3C6B1FC8324C4F9D554AD6 /* Pods-BrokeryUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BrokeryUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BrokeryUITests/Pods-BrokeryUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		CA5A8FA673DCE72FC9A3D73B /* Pods_Brokery.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Brokery.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED92DD0390071BE92B1EE8D8 /* Pods-BrokeryUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BrokeryUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BrokeryUITests/Pods-BrokeryUITests.release.xcconfig"; sourceTree = "<group>"; };
+		EF0ED3E02380506800F7A7D6 /* LoginPostRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPostRequest.swift; sourceTree = "<group>"; };
+		EF0ED3E2238050E600F7A7D6 /* AuthenticateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticateService.swift; sourceTree = "<group>"; };
+		EF0ED3E42380518D00F7A7D6 /* RegisterationPostRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterationPostRequest.swift; sourceTree = "<group>"; };
+		EF0ED3E6238051CC00F7A7D6 /* RegisterationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterationService.swift; sourceTree = "<group>"; };
+		EF0ED3E82380546800F7A7D6 /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
 		EF11D1C02375E2E7005C8F0C /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		EF11D1C42375E538005C8F0C /* RegisterationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterationViewController.swift; sourceTree = "<group>"; };
 		EF11D1C62375E550005C8F0C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -157,6 +167,8 @@
 		EF47156E237DD6C40036DC1E /* Requests */ = {
 			isa = PBXGroup;
 			children = (
+				EF0ED3E02380506800F7A7D6 /* LoginPostRequest.swift */,
+				EF0ED3E42380518D00F7A7D6 /* RegisterationPostRequest.swift */,
 			);
 			path = Requests;
 			sourceTree = "<group>";
@@ -164,6 +176,8 @@
 		EF47156F237DD6D00036DC1E /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				EF0ED3E2238050E600F7A7D6 /* AuthenticateService.swift */,
+				EF0ED3E6238051CC00F7A7D6 /* RegisterationService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -231,6 +245,7 @@
 			children = (
 				EFA4582C237B723C00F16581 /* Authentication.swift */,
 				EF471570237DD6EC0036DC1E /* RegisterAccount.swift */,
+				EF0ED3E82380546800F7A7D6 /* BaseModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -444,18 +459,20 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Brokery/Pods-Brokery-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
 				"${BUILT_PRODUCTS_DIR}/JSONModel/JSONModel.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
-				"${BUILT_PRODUCTS_DIR}/Simplicity/Simplicity.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSONModel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Simplicity.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -470,15 +487,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF11D1C72375E550005C8F0C /* LoginViewController.swift in Sources */,
+				EF0ED3E12380506800F7A7D6 /* LoginPostRequest.swift in Sources */,
 				EF60C8EA2374903D0051F57F /* ViewController.swift in Sources */,
 				EF47156D237D8D380036DC1E /* MarketPlaceViewController.swift in Sources */,
+				EF0ED3E7238051CC00F7A7D6 /* RegisterationService.swift in Sources */,
+				EF0ED3E3238050E600F7A7D6 /* AuthenticateService.swift in Sources */,
 				EF11D1C52375E538005C8F0C /* RegisterationViewController.swift in Sources */,
 				EF471571237DD6EC0036DC1E /* RegisterAccount.swift in Sources */,
 				EF471573237DDB130036DC1E /* Constants.swift in Sources */,
+				EF0ED3E92380546800F7A7D6 /* BaseModel.swift in Sources */,
 				EFA4582D237B723C00F16581 /* Authentication.swift in Sources */,
 				EF60C8E82374903D0051F57F /* AppDelegate.swift in Sources */,
 				EF47156B237D7B900036DC1E /* HomeViewController.swift in Sources */,
 				EF471569237D7B7C0036DC1E /* AddAssetViewController.swift in Sources */,
+				EF0ED3E52380518D00F7A7D6 /* RegisterationPostRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
