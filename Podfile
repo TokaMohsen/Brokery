@@ -7,11 +7,10 @@ target 'Brokery' do
 
   # Pods for Brokery
 
-   #pod 'Simplicity'
    pod 'SDWebImage', '~> 4.0'
     pod 'AFNetworking', '~> 3.0'
     pod 'JSONModel' ,'~> 1.3.0'
-   pod 'FBSDKLoginKit'
+   #pod 'FBSDKLoginKit'
   target 'BrokeryTests' do
     inherit! :search_paths
     # Pods for testing

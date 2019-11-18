@@ -22,8 +22,14 @@ class AuthenticateService : BaseModel  {
     
     typealias serviceCompletionBlock = (_ data: BaseModel?, _ error: Error?) -> Void
     var requestParameters: [String: Any]?
+    
     func authenticate(completionBlock : @escaping serviceCompletionBlock) {
-        LoginPostRequest.performAuthentication(parameters: [String : Any]) { (data, error) in
+        guard let parameters = self.requestParameters else {
+            completionBlock(nil, nil)
+            return
+        }
+        
+        LoginPostRequest.performAuthentication(parameters: parameters) { (data, error) in
             if data != nil
             {
                 if let data = data {
