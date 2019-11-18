@@ -7,17 +7,13 @@
 //
 
 import Foundation
+typealias JSON = [String: Any]
+
 public  class BaseModel : Codable {
-    
+
     var success: Bool?
     var code: String?
     var count: Int?
     var result: String?
-    
-//    override init() {
-//        
-//        super.init()
-//    }
-    
-    
+
 }

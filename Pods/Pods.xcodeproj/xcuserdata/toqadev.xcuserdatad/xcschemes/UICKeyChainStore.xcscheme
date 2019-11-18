@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "355AA3574091FCB6ADD2056F7C059F11"
-               BlueprintName = "SDWebImage"
+               BlueprintIdentifier = "576580BF4A94CA23580F82EB3194115B"
+               BlueprintName = "UICKeyChainStore"
                ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "SDWebImage.framework">
+               BuildableName = "UICKeyChainStore.framework">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
