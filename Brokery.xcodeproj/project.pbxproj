@@ -678,18 +678,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					"-framework",
-					"\"AFNetworking\"",
-					"-framework",
-					"\"JSONModel\"",
-					"-framework",
-					"\"SDWebImage\"",
-					"-framework",
-					"\"Simplicity\"",
-					"-ObjC",
-				);
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = toqa.toqa.Brokery;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -708,18 +697,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					"-framework",
-					"\"AFNetworking\"",
-					"-framework",
-					"\"JSONModel\"",
-					"-framework",
-					"\"SDWebImage\"",
-					"-framework",
-					"\"Simplicity\"",
-					"-ObjC",
-				);
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = toqa.toqa.Brokery;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
