@@ -1,8 +1,8 @@
 FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/AFNetworking" "${PODS_CONFIGURATION_BUILD_DIR}/JSONModel" "${PODS_CONFIGURATION_BUILD_DIR}/Reachability" "${PODS_CONFIGURATION_BUILD_DIR}/SDWebImage" "${PODS_CONFIGURATION_BUILD_DIR}/UICKeyChainStore"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/AFNetworking/AFNetworking.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/JSONModel/JSONModel.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/Reachability/Reachability.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/SDWebImage/SDWebImage.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/UICKeyChainStore/UICKeyChainStore.framework/Headers"
 LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
-OTHER_CFLAGS = $(inherited) -iquote "${PODS_CONFIGURATION_BUILD_DIR}/AFNetworking/AFNetworking.framework/Headers" -iquote "${PODS_CONFIGURATION_BUILD_DIR}/JSONModel/JSONModel.framework/Headers" -iquote "${PODS_CONFIGURATION_BUILD_DIR}/Reachability/Reachability.framework/Headers" -iquote "${PODS_CONFIGURATION_BUILD_DIR}/SDWebImage/SDWebImage.framework/Headers" -iquote "${PODS_CONFIGURATION_BUILD_DIR}/UICKeyChainStore/UICKeyChainStore.framework/Headers"
-OTHER_LDFLAGS = $(inherited) -framework "AFNetworking" -framework "JSONModel" -framework "Reachability" -framework "SDWebImage" -framework "UICKeyChainStore"
+OTHER_LDFLAGS = $(inherited) -framework "AFNetworking" -framework "CoreGraphics" -framework "ImageIO" -framework "JSONModel" -framework "MobileCoreServices" -framework "Reachability" -framework "SDWebImage" -framework "Security" -framework "SystemConfiguration" -framework "UICKeyChainStore"
 PODS_BUILD_DIR = ${BUILD_DIR}
 PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
 PODS_PODFILE_DIR_PATH = ${SRCROOT}/.

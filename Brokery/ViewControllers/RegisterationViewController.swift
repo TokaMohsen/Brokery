@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RegisterationViewController: UIViewController {
+class RegisterationViewController: BaseViewController {
 
     @IBOutlet var emailTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!

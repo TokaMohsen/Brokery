@@ -9,9 +9,10 @@
 import Foundation
 
 struct UserLogin : Codable{
-    var email : String?
-    var password : String?
+    var email : String
+    var password : String
 }
+
 extension UserLogin {
     init?(json: JSON) {
         guard let email = json["email"] as? String else {
