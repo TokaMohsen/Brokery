@@ -34,6 +34,7 @@
 		EFA4582D237B723C00F16581 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA4582C237B723C00F16581 /* Authentication.swift */; };
 		EFACC9252382FB5300586134 /* ServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFACC9242382FB5300586134 /* ServiceError.swift */; };
 		EFACC9272382FCC600586134 /* WebClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFACC9262382FCC600586134 /* WebClient.swift */; };
+		EFB50BE9238414F600188EED /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB50BE8238414F600188EED /* StringExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +93,7 @@
 		EFA4582C237B723C00F16581 /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
 		EFACC9242382FB5300586134 /* ServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceError.swift; sourceTree = "<group>"; };
 		EFACC9262382FCC600586134 /* WebClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebClient.swift; sourceTree = "<group>"; };
+		EFB50BE8238414F600188EED /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		FEED9E3D84053DC03673B09B /* Pods_BrokeryUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BrokeryUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -211,6 +213,7 @@
 		EF60C8E62374903D0051F57F /* Brokery */ = {
 			isa = PBXGroup;
 			children = (
+				EFB50BE5238414C400188EED /* Extensions */,
 				EFACC9232382FB2C00586134 /* Network */,
 				EF11D1C32375E4D6005C8F0C /* ViewControllers */,
 				EF11D1BF2375E2B8005C8F0C /* Storyboards */,
@@ -262,6 +265,14 @@
 				EFACC9262382FCC600586134 /* WebClient.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		EFB50BE5238414C400188EED /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				EFB50BE8238414F600188EED /* StringExtension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -514,6 +525,7 @@
 				EF0ED3E92380546800F7A7D6 /* BaseModel.swift in Sources */,
 				EFA4582D237B723C00F16581 /* Authentication.swift in Sources */,
 				EF60C8E82374903D0051F57F /* AppDelegate.swift in Sources */,
+				EFB50BE9238414F600188EED /* StringExtension.swift in Sources */,
 				EF47156B237D7B900036DC1E /* HomeViewController.swift in Sources */,
 				EF471569237D7B7C0036DC1E /* AddAssetViewController.swift in Sources */,
 				EF0ED3E52380518D00F7A7D6 /* RegisterationPostRequest.swift in Sources */,
