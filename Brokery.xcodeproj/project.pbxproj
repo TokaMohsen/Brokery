@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1562E3360F5558E7945DA249 /* Pods_Brokery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA5A8FA673DCE72FC9A3D73B /* Pods_Brokery.framework */; };
 		9C2D79ABBDEDD40B64EDFAC0 /* Pods_BrokeryTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B2D43084C45313A239AFD37 /* Pods_BrokeryTests.framework */; };
+		A2390C35238321EC001B0475 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2390C34238321EC001B0475 /* BaseViewController.swift */; };
 		C63E01E9B3E1ABA03CE72119 /* Pods_BrokeryUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEED9E3D84053DC03673B09B /* Pods_BrokeryUITests.framework */; };
 		EF0ED3E12380506800F7A7D6 /* LoginPostRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0ED3E02380506800F7A7D6 /* LoginPostRequest.swift */; };
 		EF0ED3E3238050E600F7A7D6 /* AuthenticateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0ED3E2238050E600F7A7D6 /* AuthenticateService.swift */; };
@@ -59,6 +60,7 @@
 		2B2D43084C45313A239AFD37 /* Pods_BrokeryTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BrokeryTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C25408F282BDE5719E6A6B2 /* Pods-Brokery.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Brokery.release.xcconfig"; path = "Pods/Target Support Files/Pods-Brokery/Pods-Brokery.release.xcconfig"; sourceTree = "<group>"; };
 		8E25E3B97BDEAD9DE35EF725 /* Pods-Brokery.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Brokery.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Brokery/Pods-Brokery.debug.xcconfig"; sourceTree = "<group>"; };
+		A2390C34238321EC001B0475 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		BA3C6B1FC8324C4F9D554AD6 /* Pods-BrokeryUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BrokeryUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BrokeryUITests/Pods-BrokeryUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		CA5A8FA673DCE72FC9A3D73B /* Pods_Brokery.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Brokery.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED92DD0390071BE92B1EE8D8 /* Pods-BrokeryUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BrokeryUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BrokeryUITests/Pods-BrokeryUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 				EF471568237D7B7C0036DC1E /* AddAssetViewController.swift */,
 				EF47156A237D7B900036DC1E /* HomeViewController.swift */,
 				EF47156C237D8D380036DC1E /* MarketPlaceViewController.swift */,
+				A2390C34238321EC001B0475 /* BaseViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -505,6 +508,7 @@
 				EF0ED3E12380506800F7A7D6 /* LoginPostRequest.swift in Sources */,
 				EF60C8EA2374903D0051F57F /* ViewController.swift in Sources */,
 				EF47156D237D8D380036DC1E /* MarketPlaceViewController.swift in Sources */,
+				A2390C35238321EC001B0475 /* BaseViewController.swift in Sources */,
 				EF0ED3E7238051CC00F7A7D6 /* RegisterationService.swift in Sources */,
 				EF0ED3E3238050E600F7A7D6 /* AuthenticateService.swift in Sources */,
 				EF11D1C52375E538005C8F0C /* RegisterationViewController.swift in Sources */,

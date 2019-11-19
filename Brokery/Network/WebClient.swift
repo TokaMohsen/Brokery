@@ -19,11 +19,13 @@ enum RequestMethod: String {
 
 final class WebClient {
     private var baseUrl: String
-    
+
     init(baseUrl: String) {
         self.baseUrl = baseUrl
     }
+    
     typealias JSON = [String: Any]
+    var errorDelegate: HandleErrorDelegate?
 
     func load(path: String, method: RequestMethod, params: JSON, completion: @escaping (Any?, ServiceError?) -> ()) -> URLSessionDataTask? {
         // Checking internet connection availability
@@ -49,7 +51,7 @@ final class WebClient {
         
         
         // Sending request to the server.
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+        let task = URLSession.shared.dataTask(with: request) {[weak self] data, response, error in
             // Parsing incoming data
             var object: Any? = nil
             if let data = data {
@@ -60,7 +62,7 @@ final class WebClient {
                 completion(object, nil)
             } else {
                 let error = (object as? JSON).flatMap(ServiceError.init) ?? ServiceError.other
-                completion(nil, error)
+                self?.errorDelegate?.handleError(error: error)
             }
         }
         

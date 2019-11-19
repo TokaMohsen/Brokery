@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddAssetViewController: UIViewController {
+class AddAssetViewController: BaseViewController {
 
     @IBOutlet var assetAddressTextField: UITextField!
     @IBOutlet var assetNameTextField: UITextField!
