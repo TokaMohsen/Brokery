@@ -10,10 +10,12 @@ import Foundation
 
 let serviceFailureMsg = "service failed"
 let filterFailureMsg = "Keyword doesn't match any hashtag"
+let missingRequiredMsg = "This field is required"
+let regexErrorMsg = "This field format is not correct"
 
 let BaseAPIURL = "https://rebsapp.com"
 let AuthentactionURL = "/api/Account/Authenticate"
-let RegisterAccountURL = "/api/Account/RegisterAccount"
+let RegisterAccountURL = "/api/User/Register"
 let loginWithFacebookURL = "/api/Account/LoginByFaceBook"
 let LoginWithGoogleURL = "/api/Account/RegisterAccount"
 let AccountGetAllURL = "/api/Account/GetAll"

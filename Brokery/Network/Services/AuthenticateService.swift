@@ -12,7 +12,7 @@ final class AuthenticateService {
     private let client = WebClient(baseUrl: BaseAPIURL)
     
     @discardableResult
-    func Register(forUser user: UserLogin, completion: @escaping ([UserLogin]?, ServiceError?) -> ()) -> URLSessionDataTask? {
+    func authenticate (forUser user: UserLogin, errorDelegate : HandleErrorDelegate,completion: @escaping ([UserLogin]?, ServiceError?) -> ()) -> URLSessionDataTask? {
         
         
         let params: JSON = ["user_email": user.email,

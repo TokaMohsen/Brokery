@@ -12,11 +12,12 @@ final class RegisterationService {
     private let client = WebClient(baseUrl: BaseAPIURL)
     
     @discardableResult
-    func Register(forUser user: AccountDto, completion: @escaping ([AccountDto]?, ServiceError?) -> ()) -> URLSessionDataTask? {
+    func Register(forUser user: AccountDto, errordelegate : HandleErrorDelegate ,completion: @escaping ([AccountDto]?, ServiceError?) -> ()) -> URLSessionDataTask? {
         
         
-        let params: JSON = ["user_email": user.email,
-                            "user_password": user.password
+        let params: JSON = ["email": user.email,
+                            "password": user.password,
+                            "mobile" : user.mobile
                             ]
         
         return client.load(path: RegisterAccountURL, method: .post, params: params) { result, error in

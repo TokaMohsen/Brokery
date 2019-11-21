@@ -19,37 +19,37 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="d15-7b-7Bg">
-                                <rect key="frame" x="20" y="40" width="335" height="550"/>
+                                <rect key="frame" x="20" y="40" width="335" height="687"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="asset name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xqE-D4-orl" userLabel="assetNameTextField">
-                                        <rect key="frame" x="0.0" y="0.0" width="335" height="60"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="77"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="asset description" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3ib-fl-eHn" userLabel="assetDescriptionTextField">
-                                        <rect key="frame" x="0.0" y="70" width="335" height="60"/>
+                                        <rect key="frame" x="0.0" y="87" width="335" height="77.5"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="asset address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="39f-fu-IwB" userLabel="assetAddressTextField">
-                                        <rect key="frame" x="0.0" y="140" width="335" height="60"/>
+                                        <rect key="frame" x="0.0" y="174.5" width="335" height="77"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7bQ-0m-A4d" userLabel="locationView">
-                                        <rect key="frame" x="0.0" y="210" width="335" height="60"/>
+                                        <rect key="frame" x="0.0" y="261.5" width="335" height="77"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fDW-Es-4XH" userLabel="locationTitle">
-                                                <rect key="frame" x="0.0" y="10" width="65.5" height="40"/>
+                                                <rect key="frame" x="0.0" y="10" width="65.5" height="57"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cak-kP-Kqp" userLabel="setLocationBtn">
-                                                <rect key="frame" x="115.5" y="10" width="209.5" height="40"/>
+                                                <rect key="frame" x="115.5" y="10" width="209.5" height="57"/>
                                                 <color key="backgroundColor" red="0.4577703488" green="0.16995118789999999" blue="0.78997461930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                                 <state key="normal" title="Location">
@@ -60,7 +60,7 @@
                                                 </connections>
                                             </button>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gps-location-map-marker-pin-navigation-13-11053" translatesAutoresizingMaskIntoConstraints="NO" id="bjq-f9-QR1">
-                                                <rect key="frame" x="115.5" y="0.0" width="50" height="60"/>
+                                                <rect key="frame" x="115.5" y="0.0" width="50" height="77"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="50" id="Qd6-Lj-rXg"/>
@@ -83,16 +83,16 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0p9-Hw-i6s" userLabel="statusView">
-                                        <rect key="frame" x="0.0" y="280" width="335" height="60"/>
+                                        <rect key="frame" x="0.0" y="348.5" width="335" height="77"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZF2-7N-Ehq" userLabel="statusTitle">
-                                                <rect key="frame" x="10" y="10" width="49.5" height="40"/>
+                                                <rect key="frame" x="10" y="10" width="49.5" height="57"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="EGp-9y-mBA">
-                                                <rect key="frame" x="109.5" y="10" width="215.5" height="41"/>
+                                                <rect key="frame" x="109.5" y="10" width="215.5" height="58"/>
                                                 <segments>
                                                     <segment title="Active"/>
                                                     <segment title="Inactive"/>
@@ -116,7 +116,7 @@
                                         <viewLayoutGuide key="safeArea" id="wDU-Gf-mvB"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ReU-ZZ-IBD" userLabel="addPhotoView">
-                                        <rect key="frame" x="0.0" y="350" width="335" height="60"/>
+                                        <rect key="frame" x="0.0" y="435.5" width="335" height="77.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Photo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mjP-B9-x0w" userLabel="addPhotoTitle">
                                                 <rect key="frame" x="0.0" y="10" width="215" height="40"/>
@@ -161,16 +161,16 @@
                                         <viewLayoutGuide key="safeArea" id="61v-km-gzH"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="suv-FZ-z1C" userLabel="hashtagView">
-                                        <rect key="frame" x="0.0" y="420" width="335" height="60"/>
+                                        <rect key="frame" x="0.0" y="523" width="335" height="77"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="add hashtag" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yct-5g-B9c" userLabel="hashtagTextField">
-                                                <rect key="frame" x="10" y="10" width="185" height="40"/>
+                                                <rect key="frame" x="10" y="10" width="185" height="57"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="08J-Vx-2hW" userLabel="hashtagAddBtn">
-                                                <rect key="frame" x="225" y="10" width="100" height="40"/>
+                                                <rect key="frame" x="225" y="10" width="100" height="57"/>
                                                 <color key="backgroundColor" red="0.4577703488" green="0.16995118789999999" blue="0.78997461930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="100" id="eqB-NQ-GOb"/>
@@ -180,7 +180,7 @@
                                                 </connections>
                                             </button>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add-icon" translatesAutoresizingMaskIntoConstraints="NO" id="Rpv-FE-D5Q">
-                                                <rect key="frame" x="225" y="10" width="100" height="40"/>
+                                                <rect key="frame" x="225" y="10" width="100" height="57"/>
                                             </imageView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -199,7 +199,7 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cfI-ll-K2F" userLabel="saveBtn">
-                                        <rect key="frame" x="0.0" y="490" width="335" height="60"/>
+                                        <rect key="frame" x="0.0" y="610" width="335" height="77"/>
                                         <color key="backgroundColor" red="0.4577703488" green="0.16995118789999999" blue="0.78997461930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                         <state key="normal" title="Save">
@@ -235,7 +235,7 @@
         <!--View Controller-->
         <scene sceneID="AxR-gt-DIC">
             <objects>
-                <viewController id="8Sa-A0-mhO" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeViewController" id="8Sa-A0-mhO" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="M63-8j-pVU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

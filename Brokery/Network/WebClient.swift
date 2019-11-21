@@ -48,8 +48,6 @@ final class WebClient {
         let request = URLRequest(baseUrl: baseUrl, path: path, method: method, params: params)
         
         
-        
-        
         // Sending request to the server.
         let task = URLSession.shared.dataTask(with: request) {[weak self] data, response, error in
             // Parsing incoming data
@@ -81,6 +79,10 @@ extension URL {
         
         switch method {
         case .get:
+            components.queryItems = params.map {
+                URLQueryItem(name: $0.key, value: String(describing: $0.value))
+            }
+        case .post:
             components.queryItems = params.map {
                 URLQueryItem(name: $0.key, value: String(describing: $0.value))
             }
