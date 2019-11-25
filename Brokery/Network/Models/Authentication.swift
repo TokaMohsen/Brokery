@@ -8,12 +8,12 @@
 
 import Foundation
 
-struct UserLogin : Codable{
+struct UIUserLogin : Codable{
     var email : String
     var password : String
 }
 
-extension UserLogin {
+extension UIUserLogin {
     init?(json: JSON) {
         guard let email = json["email"] as? String else {
             return nil

@@ -28,7 +28,7 @@ class LoginViewController: BaseViewController {
         {            let params: JSON = ["email": email,
                                          "password": password
             ]
-            var userInfo =  UserLogin(json: params)
+            var userInfo =  UIUserLogin(json: params)
             
             userInfo?.email = email
             userInfo?.password = password

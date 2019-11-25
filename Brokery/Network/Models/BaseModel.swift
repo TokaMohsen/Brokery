@@ -15,5 +15,6 @@ public  class BaseModel : Codable {
     var code: String?
     var count: Int?
     var result: String?
+    var token : String?
 
 }

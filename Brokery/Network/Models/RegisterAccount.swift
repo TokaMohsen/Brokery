@@ -8,21 +8,15 @@
 
 import Foundation
 
-struct AccountDto : Codable{
+struct UIAccountDto : Codable {
     var email : String
     var password : String
-    var mobile : String?
-}
-extension AccountDto {
-    init?(json: JSON) {
-        guard let email = json["email"] as? String else {
-            return nil
-        }
-        guard let password = json["password"] as? String else {
-            return nil
-        }
+    var mobile : String
+    var name : String
+    init(email : String , password : String , mobile : String , name : String) {
         self.email = email
         self.password = password
-        self.mobile = json["mobile"] as? String
+        self.mobile = mobile
+        self.name = name
     }
 }

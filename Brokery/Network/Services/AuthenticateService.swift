@@ -7,21 +7,22 @@
 //
 
 import Foundation
+import UICKeyChainStore
 
 final class AuthenticateService {
     private let client = WebClient(baseUrl: BaseAPIURL)
     
     @discardableResult
-    func authenticate (forUser user: UserLogin, errorDelegate : HandleErrorDelegate,completion: @escaping ([UserLogin]?, ServiceError?) -> ()) -> URLSessionDataTask? {
+    func authenticate (forUser user: UIUserLogin, errorDelegate : HandleErrorDelegate,completion: @escaping (UserLogin?, ServiceError?) -> ()) -> URLSessionDataTask? {
         
         
-        let params: JSON = ["user_email": user.email,
-                            "user_password": user.password
+        let params: JSON = ["email": user.email,
+                            "password": user.password
         ]
         
         return client.load(path: AuthentactionURL, method: .post, params: params) { result, error in
-            let dictionaries = result as? [JSON]
-            completion(dictionaries?.compactMap(UserLogin.init), error)
+            let dictionaries = result as? UserLogin
+            completion(dictionaries, error)
         }
     }
 }

@@ -27,7 +27,7 @@ final class WebClient {
     typealias JSON = [String: Any]
     var errorDelegate: HandleErrorDelegate?
 
-    func load(path: String, method: RequestMethod, params: JSON, completion: @escaping (Any?, ServiceError?) -> ()) -> URLSessionDataTask? {
+    func load(path: String, method: RequestMethod, params: JSON?, completion: @escaping (Any?, ServiceError?) -> ()) -> URLSessionDataTask? {
         // Checking internet connection availability
         if !Reachability.forInternetConnection().isReachable() {
             completion(nil, ServiceError.noInternetConnection)
@@ -36,17 +36,18 @@ final class WebClient {
         
         
         // Adding common parameters
-//        var parameters = params
-//        if let token =  UICKeyChainStore.string(forKey: "application_token") {
-//            parameters["token"] = token
-//        }
-        
+      if let params = params{
+        var parameters = params
+        if let token =  UICKeyChainStore.string(forKey: "application_token") {
+            parameters["token"] = String(format: "%@ %@", tokenPrefix, token)
+        }
+   }
         
         
         
         // Creating the URLRequest object
         let request = URLRequest(baseUrl: baseUrl, path: path, method: method, params: params)
-        
+//let requests = URLRequest(
         
         // Sending request to the server.
         let task = URLSession.shared.dataTask(with: request) {[weak self] data, response, error in
@@ -73,19 +74,21 @@ final class WebClient {
 extension URL {
     typealias JSON = [String: Any]
 
-    init(baseUrl: String, path: String, params: JSON, method: RequestMethod) {
+    init(baseUrl: String, path: String, params: JSON?, method: RequestMethod) {
         var components = URLComponents(string: baseUrl)!
         components.path += path
         
         switch method {
         case .get:
+            if let params = params{
             components.queryItems = params.map {
                 URLQueryItem(name: $0.key, value: String(describing: $0.value))
-            }
+                }}
         case .post:
+            if let params = params{
             components.queryItems = params.map {
                 URLQueryItem(name: $0.key, value: String(describing: $0.value))
-            }
+                }}
         default:
             break
         }
@@ -97,14 +100,21 @@ extension URL {
 extension URLRequest {
     typealias JSON = [String: Any]
 
-    init(baseUrl: String, path: String, method: RequestMethod, params: JSON) {
+    init(baseUrl: String, path: String, method: RequestMethod, params: JSON?) {
+       
         let url = URL(baseUrl: baseUrl, path: path, params: params, method: method)
         self.init(url: url)
         httpMethod = method.rawValue
         setValue("application/json", forHTTPHeaderField: "Accept")
         setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        if let accessToken = LocalStore.getUserToken(){
+         setValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
+        }
         switch method {
         case .post, .put:
+            httpBody = try! JSONSerialization.data(withJSONObject: params, options: [])
+        case .get:
             httpBody = try! JSONSerialization.data(withJSONObject: params, options: [])
         default:
             break
