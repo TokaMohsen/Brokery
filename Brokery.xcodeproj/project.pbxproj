@@ -54,6 +54,7 @@
 		EF11D1C12375E2E7005C8F0C /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF11D1C02375E2E7005C8F0C /* Login.storyboard */; };
 		EF11D1C52375E538005C8F0C /* RegisterationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF11D1C42375E538005C8F0C /* RegisterationViewController.swift */; };
 		EF11D1C72375E550005C8F0C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF11D1C62375E550005C8F0C /* LoginViewController.swift */; };
+		EF15DF4F239039F5006BF447 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF15DF4E239039F5006BF447 /* LoginService.swift */; };
 		EF1AC521238D2EE8004FB127 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EF1AC520238D2EE8004FB127 /* GoogleService-Info.plist */; };
 		EF46195B238E7E03008F453D /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF461957238E7E03008F453D /* Cache.swift */; };
 		EF46195C238E7E03008F453D /* CacheItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF461958238E7E03008F453D /* CacheItem.swift */; };
@@ -155,6 +156,7 @@
 		EF11D1C02375E2E7005C8F0C /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		EF11D1C42375E538005C8F0C /* RegisterationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterationViewController.swift; sourceTree = "<group>"; };
 		EF11D1C62375E550005C8F0C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		EF15DF4E239039F5006BF447 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
 		EF1AC520238D2EE8004FB127 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EF461957238E7E03008F453D /* Cache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
 		EF461958238E7E03008F453D /* CacheItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CacheItem.swift; sourceTree = "<group>"; };
@@ -299,6 +301,7 @@
 			isa = PBXGroup;
 			children = (
 				EFD5796323894DB0004C6808 /* GetUserInfoByToken.swift */,
+				EF15DF4E239039F5006BF447 /* LoginService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -730,6 +733,7 @@
 				EF47156D237D8D380036DC1E /* MarketPlaceViewController.swift in Sources */,
 				EF461962238E7E10008F453D /* WebClient.swift in Sources */,
 				A29E579323894B8B000B7F09 /* AssetTable.swift in Sources */,
+				EF15DF4F239039F5006BF447 /* LoginService.swift in Sources */,
 				EFD5796423894DB0004C6808 /* GetUserInfoByToken.swift in Sources */,
 				EF0C8530238AC033008A0C32 /* ContactHashTagDto.swift in Sources */,
 				EF0C8541238AC033008A0C32 /* GalleryItemTypeDto.swift in Sources */,

@@ -13,10 +13,18 @@ struct UIAccountDto : Decodable {
     var password : String
     var mobile : String
     var name : String
-    init(email : String , password : String , mobile : String , name : String) {
-        self.email = email
-        self.password = password
-        self.mobile = mobile
-        self.name = name
-    }
+    var userProfile : userProfile
+//    init(email : String , password : String , mobile : String , name : String) {
+//        self.email = email
+//        self.password = password
+//        self.mobile = mobile
+//        self.name = email
+//        self.userProfile.FullName = name
+//    }
 }
+
+struct userProfile : Decodable {
+    var FullName : String
+}
+
+

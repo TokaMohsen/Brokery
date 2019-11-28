@@ -57,10 +57,13 @@ class RegisterationViewController: BaseViewController {
             activityIndicator.startAnimating()
             
             var userinfo = Resource<Object , CustomError>(jsonDecoder: JSONDecoder(), path: RegisterAccountURL, method: .post)
+            
+             let user =  userProfile.init(FullName: fullname)
             userinfo.params = ["email": emailTxt,
                                "password": passwordTxt,
                                "mobile": mobileTxt,
-                               "name": emailTxt]
+                               "name": emailTxt ,
+                               "userProfile" : user]
             
             registerationTask = RegisterationViewController.sharedWebClient.load(resource: userinfo, urlMethod: .post) {[weak self] response in
                 guard let controller = self else { return }

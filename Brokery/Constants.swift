@@ -14,6 +14,9 @@ let missingRequiredMsg = "This field is required"
 let regexErrorMsg = "This field format is not correct"
 
 let tokenPrefix = "bearer"
+let facebookPasswordConst = "FaceBook"
+let googlePasswordConst = "Google"
+
 let BaseAPIURL = "https://rebsapp.com"
 let AuthentactionURL = "/api/Account/Authenticate"
 let RegisterAccountURL = "/api/User/Register"
