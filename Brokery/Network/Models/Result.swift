@@ -8,21 +8,10 @@
 import Foundation
 
 
-public struct Result: Codable {
-
-
-    public var success: Bool
-
-    public var data: BaseModel?
-
-    public var count: Int64?
-
-    public var code: String?
-    public init(success: Bool, data: BaseModel?, count: Int64?, code: String?) { 
-        self.success = success
-        self.data = data
-        self.count = count
-        self.code = code
-    }
+public struct Object: Decodable {
+    var success: Bool
+    var data: UserDto?
+    var count: Int?
+    var code: String?
 
 }

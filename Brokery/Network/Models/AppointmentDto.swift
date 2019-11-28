@@ -8,34 +8,34 @@
 import Foundation
 
 
-public struct AppointmentDto: Codable {
+public struct AppointmentDto: Decodable {
 
 
-    public var _id: String
+    public var id: String?
 
-    public var dateTime: Date
+    public var dateTime: String?
 
-    public var status: Int
+    public var status: Int?
 
-    public var _description: String?
+    public var description: String?
 
-    public var assetId: String
+    public var assetId: String?
 
-    public var brokerId: String
+    public var brokerId: String?
 
-    public var developerId: String
+    public var developerId: String?
 
-    public var contactId: String
+    public var contactId: String?
 
     public var customerId: String?
 
-    public var createdBy: String
+    public var createdBy: String?
 
-    public var createdAt: Date
+    public var createdAt: String?
 
     public var updatedBy: String?
 
-    public var updatedAt: Date?
+    public var updatedAt: String?
 
     public var asset: AssetDto?
 
@@ -50,49 +50,6 @@ public struct AppointmentDto: Codable {
     public var developer: UserDto?
 
     public var updatedByNavigation: UserDto?
-    public init(_id: String, dateTime: Date, status: Int, _description: String?, assetId: String, brokerId: String, developerId: String, contactId: String, customerId: String?, createdBy: String, createdAt: Date, updatedBy: String?, updatedAt: Date?, asset: AssetDto?, broker: UserDto?, contact: ContactDto?, createdByNavigation: UserDto?, customer: UserDto?, developer: UserDto?, updatedByNavigation: UserDto?) { 
-        self._id = _id
-        self.dateTime = dateTime
-        self.status = status
-        self._description = _description
-        self.assetId = assetId
-        self.brokerId = brokerId
-        self.developerId = developerId
-        self.contactId = contactId
-        self.customerId = customerId
-        self.createdBy = createdBy
-        self.createdAt = createdAt
-        self.updatedBy = updatedBy
-        self.updatedAt = updatedAt
-        self.asset = asset
-        self.broker = broker
-        self.contact = contact
-        self.createdByNavigation = createdByNavigation
-        self.customer = customer
-        self.developer = developer
-        self.updatedByNavigation = updatedByNavigation
-    }
-    public enum CodingKeys: String, CodingKey { 
-        case _id = "id"
-        case dateTime
-        case status
-        case _description = "description"
-        case assetId
-        case brokerId
-        case developerId
-        case contactId
-        case customerId
-        case createdBy
-        case createdAt
-        case updatedBy
-        case updatedAt
-        case asset
-        case broker
-        case contact
-        case createdByNavigation
-        case customer
-        case developer
-        case updatedByNavigation
-    }
+   
 
 }

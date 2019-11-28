@@ -21,7 +21,8 @@ class AssetCard: UITableViewCell {
         super.awakeFromNib()
     }
     
-    func setup(_ asset: AssetModel) {
-        
-    } 
+    func setup(_ asset: AssetDto) {
+        appartementName.text = asset.title
+        appartementDescription.text = asset.description
+    }
 }

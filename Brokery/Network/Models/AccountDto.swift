@@ -8,12 +8,12 @@
 import Foundation
 
 
-public class AccountDto: Codable {
+public class AccountDto: Decodable {
 
 
     public var _id: String
 
-    public var name: String
+    public var name: String?
 
     public var parentAccountId: String?
 
@@ -23,19 +23,19 @@ public class AccountDto: Codable {
 
     public var _description: String?
 
-    public var isActive: Bool
+    public var isActive: Bool?
 
-    public var isDeleted: Bool
+    public var isDeleted: Bool?
 
     public var photo: String?
 
     public var createdBy: String?
 
-    public var createdAt: Date?
+    public var createdAt: String?
 
     public var updatedBy: String?
 
-    public var updatedAt: Date?
+    public var updatedAt: String?
 
     public var admin: UserDto?
 
@@ -50,49 +50,5 @@ public class AccountDto: Codable {
     public var inverseParentAccount: [AccountDto]?
 
     public var user: [UserDto]?
-    public init(_id: String, name: String, parentAccountId: String?, adminId: String?, address: String?, _description: String?, isActive: Bool, isDeleted: Bool, photo: String?, createdBy: String?, createdAt: Date?, updatedBy: String?, updatedAt: Date?, admin: UserDto?, createdByNavigation: UserDto?, parentAccount: AccountDto?, updatedByNavigation: UserDto?, asset: [AssetDto]?, inverseParentAccount: [AccountDto]?, user: [UserDto]?) { 
-        self._id = _id
-        self.name = name
-        self.parentAccountId = parentAccountId
-        self.adminId = adminId
-        self.address = address
-        self._description = _description
-        self.isActive = isActive
-        self.isDeleted = isDeleted
-        self.photo = photo
-        self.createdBy = createdBy
-        self.createdAt = createdAt
-        self.updatedBy = updatedBy
-        self.updatedAt = updatedAt
-        self.admin = admin
-        self.createdByNavigation = createdByNavigation
-        self.parentAccount = parentAccount
-        self.updatedByNavigation = updatedByNavigation
-        self.asset = asset
-        self.inverseParentAccount = inverseParentAccount
-        self.user = user
-    }
-    public enum CodingKeys: String, CodingKey { 
-        case _id = "id"
-        case name
-        case parentAccountId
-        case adminId
-        case address
-        case _description = "description"
-        case isActive
-        case isDeleted
-        case photo
-        case createdBy
-        case createdAt
-        case updatedBy
-        case updatedAt
-        case admin
-        case createdByNavigation
-        case parentAccount
-        case updatedByNavigation
-        case asset
-        case inverseParentAccount
-        case user
-    }
-
+    
 }

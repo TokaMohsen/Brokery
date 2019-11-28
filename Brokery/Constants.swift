@@ -12,6 +12,7 @@ let serviceFailureMsg = "service failed"
 let filterFailureMsg = "Keyword doesn't match any hashtag"
 let missingRequiredMsg = "This field is required"
 let regexErrorMsg = "This field format is not correct"
+
 let tokenPrefix = "bearer"
 let BaseAPIURL = "https://rebsapp.com"
 let AuthentactionURL = "/api/Account/Authenticate"

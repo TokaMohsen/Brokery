@@ -8,21 +8,21 @@
 import Foundation
 
 
-public struct UserGroupUserDto: Codable {
+public struct UserGroupUserDto: Decodable {
 
 
-    public var _id: Int
+    public var _id: Int?
 
-    public var userId: String
+    public var userId: String?
 
-    public var userGroupId: Int
+    public var userGroupId: Int?
 
-    public var isDeleted: Bool
+    public var isDeleted: Bool?
 
     weak var user: UserDto?
 
     weak var userGroup: UserGroupDto?
-    public init(_id: Int, userId: String, userGroupId: Int, isDeleted: Bool, user: UserDto?, userGroup: UserGroupDto?) { 
+    public init(_id: Int?, userId: String?, userGroupId: Int?, isDeleted: Bool?, user: UserDto?, userGroup: UserGroupDto?) { 
         self._id = _id
         self.userId = userId
         self.userGroupId = userGroupId

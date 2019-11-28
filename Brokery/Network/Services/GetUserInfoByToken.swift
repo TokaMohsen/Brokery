@@ -12,13 +12,14 @@ final class GetUserInfoByTokenService {
     private let client = WebClient(baseUrl: BaseAPIURL)
     
     @discardableResult
-    func fetch(forUser user: UIAccountDto, errordelegate : HandleErrorDelegate ,completion: @escaping (AccountDto?, ServiceError?) -> ()) -> URLSessionDataTask? {
+    func fetch( errordelegate : HandleErrorDelegate ,completion: @escaping (UserDto?, ServiceError?) -> ()) -> URLSessionDataTask? {
 
-        return client.load(path: getUserInfoByTokenURL, method: .get, params: [:]) { result, error in
-            let dictionaries = result as? AccountDto
-                //[JSON]
-            completion(dictionaries, error)
-        }
+//        return client.load(path: getUserInfoByTokenURL, method: .get, params: [:]) { result, error in
+//            let dictionaries = result as? UserDto
+//                //[JSON]
+//            completion(dictionaries, error)
+//        }
+        return nil
     }
 }
 

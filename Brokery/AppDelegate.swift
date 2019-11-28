@@ -8,6 +8,8 @@
 
 import UIKit
 import UICKeyChainStore
+import Firebase
+
 //import "FBSDKCoreKit/FBSDKCoreKit.h"
 
 @UIApplicationMain
@@ -20,6 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
        let keychainStore = UICKeyChainStore.init()
         keychainStore.accessibility = .always
+        FirebaseApp.configure()
         return true
     }
     

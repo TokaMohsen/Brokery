@@ -7,54 +7,89 @@
 //
 
 import UIKit
+//import FacebookLogin
+import FBSDKLoginKit
+import Firebase
+//import FacebookCore
+import FirebaseAuth
 
 class LoginViewController: BaseViewController {
     
     @IBOutlet var emailTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+
+    private lazy var getUserInfoByTokenService = GetUserInfoByTokenService.init()
+    static let sharedWebClient = WebClient.init(baseUrl: BaseAPIURL)
     
-    private lazy var authenticateService = AuthenticateService.init()
+    var postUserLoginInfoTask: URLSessionDataTask!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        //        let loginButton = FBLoginButton()
+        //        loginButton.delegate = self
+    }
+    @IBAction func loginWithFacebookAction(_ sender: UIButton) {
     }
     
     fileprivate func loginUser(email: String , password: String)
     {
-        
-        if (email.isValidEmail() && !password.isEmpty)
-        {            let params: JSON = ["email": email,
-                                         "password": password
-            ]
-            var userInfo =  UIUserLogin(json: params)
-            
-            userInfo?.email = email
-            userInfo?.password = password
-            
-            authenticateService.authenticate(forUser: userInfo!, errorDelegate: self) { (data, error) in
-                if (error != nil)
-                {
-                    self.handleError(error: error!)
-                }
-                else
-                {
-                    print(data as Any)
-                    let infoStoryboard = UIStoryboard(name: "Assets", bundle: nil)
-                    if let HomeVC = infoStoryboard.instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController {
-                        self.navigationController?.pushViewController(HomeVC, animated: true)
+       
+                    if let accessToken = LocalStore.getUserToken(){
+                        self.getUserInfoByTokenService.fetch(errordelegate: self) { (data, error) in
+                            if (error != nil)
+                            {
+                                self.handleError(error: error!)
+                            }
+                            else
+                            {
+                                // print(data as Any)
+                                let infoStoryboard = UIStoryboard(name: "Assets", bundle: nil)
+                                if let HomeVC = infoStoryboard.instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController {
+                                    self.navigationController?.pushViewController(HomeVC, animated: true)
+                                }
+                            }
+                        }
                     }
-                    
                 }
-            }
-        }
-    }
+
     
     @IBAction func loginBtnAction(_ sender: UIButton) {
-                if let emailTxt = emailTextField.text , let passwordTxt = passwordTextField.text {
-                    self.loginUser(email: emailTxt, password: passwordTxt)
+        if let emailTxt = emailTextField.text , let passwordTxt = passwordTextField.text {
+            // self.loginUser(email: emailTxt, password: passwordTxt)
+            postUserLoginInfoTask?.cancel()
+            
+            activityIndicator.startAnimating()
+            
+            var userinfo = Resource<Object , CustomError>(jsonDecoder: JSONDecoder(), path: AuthentactionURL, method: .post)
+            userinfo.params = ["email": emailTxt,
+                               "password": passwordTxt]
+            
+            postUserLoginInfoTask = LoginViewController.sharedWebClient.load(resource: userinfo, urlMethod: .post) {[weak self] response in
+                guard let controller = self else { return }
+                DispatchQueue.main.async {
+                    controller.activityIndicator.stopAnimating()
+                    
+                    if let mappedResponse = response.value?.data
+                    {
+                        if let token = mappedResponse.token{
+                            LocalStore.storeUserToken(token:token)
+                        }
+                        let homeStoryboard = UIStoryboard(name: "Assets", bundle: nil)
+                        if let HomeVC = homeStoryboard.instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController {
+                            UIApplication.shared.keyWindow?.rootViewController = HomeVC
+                            controller.dismiss(animated: true, completion: nil)
+                        }
+                      
+                    } else if let error = response.error {
+                        //controller.handleError(error)
+                    }
                 }
+            }
+            
+        }
     }
     
     @IBAction func registerBtnAction(_ sender: UIButton) {
@@ -65,7 +100,53 @@ class LoginViewController: BaseViewController {
         }
         
     }
+    
     @IBAction func loginWithFacebookBtnAction(_ sender: UIButton) {
+        let fbLoginManager = LoginManager()
+        fbLoginManager.logIn(permissions: ["public_profile", "email"], from: self) { (result, error) in
+            if let error = error {
+                print("Failed to login: \(error.localizedDescription)")
+                return
+            }
+            
+            guard let accessToken = AccessToken.current else {
+                print("Failed to get access token")
+                return
+            }
+            
+            let credential = FacebookAuthProvider.credential(withAccessToken: accessToken.tokenString)
+         
+            // Perform login by calling Firebase APIs
+            Auth.auth().signIn(with: credential, completion: { (user, error) in
+                if let error = error {
+                    print("Login error: \(error.localizedDescription)")
+                    let alertController = UIAlertController(title: "Login Error", message: error.localizedDescription, preferredStyle: .alert)
+                    let okayAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                    alertController.addAction(okayAction)
+                    self.present(alertController, animated: true, completion: nil)
+                    
+                    return
+                }
+                else
+                {
+                    LocalStore.storeUserToken(token:accessToken.tokenString)
+
+                }
+                
+                // Present the main view
+                let homeStoryboard = UIStoryboard(name: "Assets", bundle: nil)
+                if let HomeVC = homeStoryboard.instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController {
+                    self.navigationController?.pushViewController(HomeVC, animated: true)
+                }
+                
+                //                if let viewController = self.storyboard?.instantiateViewController(withIdentifier: "MainView") {
+                //                    UIApplication.shared.keyWindow?.rootViewController = viewController
+                //                    self.dismiss(animated: true, completion: nil)
+                //                }
+                
+            })
+            
+        }
     }
     @IBAction func loginWithGoogleBtnAction(_ sender: UIButton) {
     }

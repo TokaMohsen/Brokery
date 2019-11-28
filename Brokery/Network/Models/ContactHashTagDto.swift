@@ -8,7 +8,7 @@
 import Foundation
 
 
-public struct ContactHashTagDto: Codable {
+public struct ContactHashTagDto: Decodable {
 
 
     public var _id: Int

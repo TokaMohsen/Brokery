@@ -8,7 +8,7 @@
 import Foundation
 
 
-public struct UserTypeDto: Codable {
+public struct UserTypeDto: Decodable {
 
 
     public var _id: Int
@@ -17,10 +17,10 @@ public struct UserTypeDto: Codable {
 
     public var text: String?
 
-    public var isActive: Bool
+    public var isActive: Bool?
 
     public var user: [UserDto]?
-    public init(_id: Int, code: String?, text: String?, isActive: Bool, user: [UserDto]?) { 
+    public init(_id: Int, code: String?, text: String?, isActive: Bool?, user: [UserDto]?) { 
         self._id = _id
         self.code = code
         self.text = text

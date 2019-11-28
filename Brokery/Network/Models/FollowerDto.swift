@@ -8,23 +8,23 @@
 import Foundation
 
 
-public struct FollowerDto: Codable {
+public struct FollowerDto: Decodable {
 
 
     public var _id: Int
 
-    public var followerId: String
+    public var followerId: String?
 
-    public var followeeId: String
+    public var followeeId: String?
 
-    public var isDeleted: Bool
+    public var isDeleted: Bool?
 
     public var followee: UserDto?
 
     public var follower: UserDto?
 
     public var followerNavigation: UserDto?
-    public init(_id: Int, followerId: String, followeeId: String, isDeleted: Bool, followee: UserDto?, follower: UserDto?, followerNavigation: UserDto?) { 
+    public init(_id: Int, followerId: String?, followeeId: String?, isDeleted: Bool?, followee: UserDto?, follower: UserDto?, followerNavigation: UserDto?) { 
         self._id = _id
         self.followerId = followerId
         self.followeeId = followeeId

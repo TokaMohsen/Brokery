@@ -8,7 +8,7 @@
 import Foundation
 
 
-public struct UserGroupPrivilegeDto: Codable {
+public struct UserGroupPrivilegeDto: Decodable {
 
 
     public var _id: Int

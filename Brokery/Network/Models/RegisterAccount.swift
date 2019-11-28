@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct UIAccountDto : Codable {
+struct UIAccountDto : Decodable {
     var email : String
     var password : String
     var mobile : String

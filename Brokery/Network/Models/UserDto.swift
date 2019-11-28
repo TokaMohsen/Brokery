@@ -8,10 +8,10 @@
 import Foundation
 
 
-public class UserDto: Codable {
+public class UserDto: Decodable {
 
 
-    public var _id: String
+    public var id: String?
 
     public var name: String?
 
@@ -27,40 +27,29 @@ public class UserDto: Codable {
 
     public var userProfileId: String?
 
-    public var isSuperAdmin: Bool
+    public var isSuperAdmin: Bool?
 
-    public var isAdmin: Bool
+    public var isAdmin: Bool?
 
-    public var isActive: Bool
+    public var isActive: Bool?
 
-    public var isDeleted: Bool
+    public var isDeleted: Bool?
 
     public var createdBy: String?
 
-    public var createdAt: Date
+    public var createdAt: String?
 
     public var updatedBy: String?
-
-    public var updatedAt: Date?
-
-    public var account: AccountDto?
-
-    public var userProfile: UserProfileDto?
-
-    public var userType: UserTypeDto?
-
-    public var assetGalleryIdNavigation: AssetGalleryDto?
-
+    public var updatedAt: String?
+    public var account: [AccountDto]?
+    public var userProfile: [UserProfileDto]?
+    public var userType: [UserTypeDto]?
+    public var assetGalleryIdNavigation: [AssetGalleryDto]?
     public var accountAdmin: [AccountDto]?
-
-     var appointmentBroker: [AppointmentDto]?
-
-     var appointmentCustomer: [AppointmentDto]?
-
-     var appointmentDeveloper: [AppointmentDto]?
-
+    public var appointmentBroker: [AppointmentDto]?
+    public var appointmentCustomer: [AppointmentDto]?
+    public var appointmentDeveloper: [AppointmentDto]?
     public var assetOwner: [AssetDto]?
-
     public var contactBroker: [ContactDto]?
 
     public var contactCustomer: [ContactDto]?
@@ -82,85 +71,8 @@ public class UserDto: Codable {
     public var userGroupUser: [UserGroupUserDto]?
 
     public var userHashTag: [UserHashTagDto]?
-
     public var token: String?
-    public init(_id: String, name: String?, email: String?, mobile: String?, password: String?, userTypeId: Int?, accountId: String?, userProfileId: String?, isSuperAdmin: Bool, isAdmin: Bool, isActive: Bool, isDeleted: Bool, createdBy: String?, createdAt: Date, updatedBy: String?, updatedAt: Date?, account: AccountDto?, userProfile: UserProfileDto?, userType: UserTypeDto?, assetGalleryIdNavigation: AssetGalleryDto?, accountAdmin: [AccountDto]?, appointmentBroker: [AppointmentDto]?, appointmentCustomer: [AppointmentDto]?, appointmentDeveloper: [AppointmentDto]?, assetOwner: [AssetDto]?, contactBroker: [ContactDto]?, contactCustomer: [ContactDto]?, followee: [FollowerDto]?, follower: [FollowerDto]?, followerFollowerNavigation: [FollowerDto]?, messageFromUser: [MessageDto]?, messageToUser: [MessageDto]?, notificationFromUser: [NotificationDto]?, notificationToUser: [NotificationDto]?, userGroupUser: [UserGroupUserDto]?, userHashTag: [UserHashTagDto]?, token: String?) { 
-        self._id = _id
-        self.name = name
-        self.email = email
-        self.mobile = mobile
-        self.password = password
-        self.userTypeId = userTypeId
-        self.accountId = accountId
-        self.userProfileId = userProfileId
-        self.isSuperAdmin = isSuperAdmin
-        self.isAdmin = isAdmin
-        self.isActive = isActive
-        self.isDeleted = isDeleted
-        self.createdBy = createdBy
-        self.createdAt = createdAt
-        self.updatedBy = updatedBy
-        self.updatedAt = updatedAt
-        self.account = account
-        self.userProfile = userProfile
-        self.userType = userType
-        self.assetGalleryIdNavigation = assetGalleryIdNavigation
-        self.accountAdmin = accountAdmin
-        self.appointmentBroker = appointmentBroker
-        self.appointmentCustomer = appointmentCustomer
-        self.appointmentDeveloper = appointmentDeveloper
-        self.assetOwner = assetOwner
-        self.contactBroker = contactBroker
-        self.contactCustomer = contactCustomer
-        self.followee = followee
-        self.follower = follower
-        self.followerFollowerNavigation = followerFollowerNavigation
-        self.messageFromUser = messageFromUser
-        self.messageToUser = messageToUser
-        self.notificationFromUser = notificationFromUser
-        self.notificationToUser = notificationToUser
-        self.userGroupUser = userGroupUser
-        self.userHashTag = userHashTag
-        self.token = token
-    }
-    public enum CodingKeys: String, CodingKey { 
-        case _id = "id"
-        case name
-        case email
-        case mobile
-        case password
-        case userTypeId
-        case accountId
-        case userProfileId
-        case isSuperAdmin
-        case isAdmin
-        case isActive
-        case isDeleted
-        case createdBy
-        case createdAt
-        case updatedBy
-        case updatedAt
-        case account
-        case userProfile
-        case userType
-        case assetGalleryIdNavigation
-        case accountAdmin
-        case appointmentBroker
-        case appointmentCustomer
-        case appointmentDeveloper
-        case assetOwner
-        case contactBroker
-        case contactCustomer
-        case followee
-        case follower
-        case followerFollowerNavigation
-        case messageFromUser
-        case messageToUser
-        case notificationFromUser
-        case notificationToUser
-        case userGroupUser
-        case userHashTag
-        case token
-    }
+    public var tokenSocialMedia : String?
 
+   
 }

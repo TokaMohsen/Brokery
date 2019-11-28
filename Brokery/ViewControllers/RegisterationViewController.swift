@@ -15,62 +15,68 @@ class RegisterationViewController: BaseViewController {
     @IBOutlet var passwordTextField: UITextField!
     @IBOutlet var mobileNumberTextField: UITextField!
     
-    private lazy var registerationService = RegisterationService.init()
-    private lazy var getUserInfoByTokenService = GetUserInfoByTokenService.init()
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
+   
+    private lazy var getUserInfoByTokenService = GetUserInfoByTokenService.init()
+    static let sharedWebClient = WebClient.init(baseUrl: BaseAPIURL)
+
+     var registerationTask: URLSessionDataTask!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
+       
     }
     
-    fileprivate func registerUser(email: String , password: String , mobile : String , fullname : String)
+    //it should be move to home screen to get all user data
+    fileprivate func getUserData(token : String)
     {
-        
-        if (email.isValidEmail() && mobile.isValidMobileNumber() && !password.isEmpty && !fullname.isEmpty ){
-//        {            let params: JSON = ["email": email,
-//                                         "password": password,
-//                                         "mobile": mobile,
-//                                         "name": email
-//            ]
-            let userInfo = UIAccountDto(email: email , password: password , mobile: mobile , name: email)
-            
-//            userInfo.email = email
-//            userInfo.mobile = mobile
-//            userInfo.password = password
-//            userInfo.name = email
-            
-            registerationService.Register(forUser: userInfo, errorDelegate: self) { (data, error) in
+        if let accessToken = LocalStore.getUserToken(){
+            self.getUserInfoByTokenService.fetch(errordelegate: self) { (data, error) in
                 if (error != nil)
                 {
                     self.handleError(error: error!)
                 }
                 else
                 {
-                    if let accessToken = LocalStore.getUserToken(){
-                        self.getUserInfoByTokenService.fetch(forUser: userInfo, errordelegate: self) { (data, error) in
-                            if (error != nil)
-                            {
-                                self.handleError(error: error!)
-                            }
-                            else
-                            {
-                                print(data as Any)
-                                let infoStoryboard = UIStoryboard(name: "Assets", bundle: nil)
-                                if let HomeVC = infoStoryboard.instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController {
-                                    self.navigationController?.pushViewController(HomeVC, animated: true)
-                                }
-                            }
-                        }
-                        
+                    print(data as Any)
+                    let infoStoryboard = UIStoryboard(name: "Assets", bundle: nil)
+                    if let HomeVC = infoStoryboard.instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController {
+                        self.navigationController?.pushViewController(HomeVC, animated: true)
                     }
                 }
             }
+            
+        }
     }
-    }
+ 
+  
     @IBAction func registerBtnAction(_ sender: UIButton) {
         if let emailTxt = emailTextField.text , let passwordTxt = passwordTextField.text , let mobileTxt = mobileNumberTextField.text , let fullname = fullNameTextField.text {
-            self.registerUser(email: emailTxt, password: passwordTxt, mobile: mobileTxt, fullname: fullname)
+            
+            registerationTask?.cancel()
+            activityIndicator.startAnimating()
+            
+            var userinfo = Resource<Object , CustomError>(jsonDecoder: JSONDecoder(), path: RegisterAccountURL, method: .post)
+            userinfo.params = ["email": emailTxt,
+                               "password": passwordTxt,
+                               "mobile": mobileTxt,
+                               "name": emailTxt]
+            
+            registerationTask = RegisterationViewController.sharedWebClient.load(resource: userinfo, urlMethod: .post) {[weak self] response in
+                guard let controller = self else { return }
+                DispatchQueue.main.async {
+                    controller.activityIndicator.stopAnimating()
+                    
+                    if let mappedResponse = response.value?.data {
+                        if let token = mappedResponse.token{
+                            LocalStore.storeUserToken(token:token)
+                        }
+                    } else if let error = response.error {
+                        controller.handleError(error: error)
+                    }
+                }
+            }
+           
         }
     }
     

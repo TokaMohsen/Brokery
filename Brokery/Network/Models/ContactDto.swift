@@ -8,14 +8,14 @@
 import Foundation
 
 
-public struct ContactDto: Codable {
+public struct ContactDto: Decodable {
 
 
-    public var _id: String
+    public var id: String
 
     public var fullName: String?
 
-    public var gender: Int
+    public var gender: Int?
 
     public var mobile: String?
 
@@ -25,19 +25,19 @@ public struct ContactDto: Codable {
 
     public var photo: String?
 
-    public var brokerId: String
+    public var brokerId: String?
 
     public var customerId: String?
 
-    public var isDeleted: Bool
+    public var isDeleted: Bool?
 
     public var createdBy: String?
 
-    public var createdAt: Date
+    public var createdAt: String?
 
     public var updatedBy: String?
 
-    public var updatedAt: Date?
+    public var updatedAt: String?
 
     public var tages: [String]?
 
@@ -52,51 +52,5 @@ public struct ContactDto: Codable {
     public var appointment: [AppointmentDto]?
 
     public var contactHashTag: [ContactHashTagDto]?
-    public init(_id: String, fullName: String?, gender: Int, mobile: String?, email: String?, address: String?, photo: String?, brokerId: String, customerId: String?, isDeleted: Bool, createdBy: String?, createdAt: Date, updatedBy: String?, updatedAt: Date?, tages: [String]?, broker: UserDto?, createdByNavigation: UserDto?, customer: UserDto?, updatedByNavigation: UserDto?, appointment: [AppointmentDto]?, contactHashTag: [ContactHashTagDto]?) { 
-        self._id = _id
-        self.fullName = fullName
-        self.gender = gender
-        self.mobile = mobile
-        self.email = email
-        self.address = address
-        self.photo = photo
-        self.brokerId = brokerId
-        self.customerId = customerId
-        self.isDeleted = isDeleted
-        self.createdBy = createdBy
-        self.createdAt = createdAt
-        self.updatedBy = updatedBy
-        self.updatedAt = updatedAt
-        self.tages = tages
-        self.broker = broker
-        self.createdByNavigation = createdByNavigation
-        self.customer = customer
-        self.updatedByNavigation = updatedByNavigation
-        self.appointment = appointment
-        self.contactHashTag = contactHashTag
-    }
-    public enum CodingKeys: String, CodingKey { 
-        case _id = "id"
-        case fullName
-        case gender
-        case mobile
-        case email
-        case address
-        case photo
-        case brokerId
-        case customerId
-        case isDeleted
-        case createdBy
-        case createdAt
-        case updatedBy
-        case updatedAt
-        case tages
-        case broker
-        case createdByNavigation
-        case customer
-        case updatedByNavigation
-        case appointment
-        case contactHashTag
-    }
 
 }

@@ -10,7 +10,7 @@ import UIKit
 
 class AssetTable: UIView {
     @IBOutlet weak var assetTableView: UITableView!
-    var assets = [AssetModel]()
+    var assets = [AssetDto]()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -19,7 +19,7 @@ class AssetTable: UIView {
         assetTableView.register(UINib(nibName: "AssetCard", bundle: nil), forCellReuseIdentifier: "AssetCard")
     }
     
-    func setupTableView(assets: [AssetModel]) {
+    func setupTableView(assets: [AssetDto]) {
         self.assets = assets
         assetTableView.reloadData()
     }

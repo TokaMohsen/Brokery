@@ -9,14 +9,10 @@ import Foundation
 
 
 public struct UserLogin: Codable {
-
-
-    public var email: String
-
-    public var password: String
-    public init(email: String, password: String) { 
-        self.email = email
-        self.password = password
-    }
+    public var email: String?
+    public var name: String?
+    public var password: String?
+    public var token: String?
+    public var userProfile: UserProfileDto?
 
 }

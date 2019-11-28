@@ -8,21 +8,21 @@
 import Foundation
 
 
-public struct UserHashTagDto: Codable {
+public struct UserHashTagDto: Decodable {
 
 
-    public var _id: Int
+    public var _id: Int?
 
-    public var userId: String
+    public var userId: String?
 
-    public var hashTagId: String
+    public var hashTagId: String?
 
-    public var isDeleted: Bool
+    public var isDeleted: Bool?
 
     public var hashTag: HashTagDto?
 
     public var user: UserDto?
-    public init(_id: Int, userId: String, hashTagId: String, isDeleted: Bool, hashTag: HashTagDto?, user: UserDto?) { 
+    public init(_id: Int?, userId: String?, hashTagId: String?, isDeleted: Bool?, hashTag: HashTagDto?, user: UserDto?) { 
         self._id = _id
         self.userId = userId
         self.hashTagId = hashTagId

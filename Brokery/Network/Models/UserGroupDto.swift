@@ -8,7 +8,7 @@
 import Foundation
 
 
-public class UserGroupDto: Codable {
+public class UserGroupDto: Decodable {
 
 
     public var _id: Int

@@ -11,12 +11,27 @@ import UICKeyChainStore
 
 class LocalStore {
     static func storeUserToken (token : String){
-        UICKeyChainStore.setString(token, forKey: "application_token")
+        let defaults = UserDefaults.standard
+        defaults.set(token, forKey: "movie")
+        defaults.synchronize()
+        
+       // UICKeyChainStore.setString(token, forKey: "application_token")
     }
     static func getUserToken()-> String? {
-        if let token =  UICKeyChainStore.string(forKey: "application_token") {
+//        if let token =  UICKeyChainStore.string(forKey: "application_token") {
+//            return token
+//        }
+//
+//       return nil
+        
+        let defaults = UserDefaults.standard
+        if let token = defaults.string(forKey: "movie")
+        {
             return token
         }
-       return nil
+        return nil 
+    }
+    static func deleteUserToken (token : String){
+        UserDefaults.standard.removeObject(forKey: "application_token")
     }
 }

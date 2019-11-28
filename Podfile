@@ -13,7 +13,14 @@ target 'Brokery' do
     pod 'Reachability'
    #pod 'SwiftKeychainWrapper' ,'~> 3.2'
     pod 'UICKeyChainStore'
-  #pod 'FBSDKLoginKit'
+   pod 'Firebase/Analytics'
+   pod 'Firebase/Auth'
+
+# Pods for Facebook
+  pod 'Bolts'
+  pod 'FBSDKCoreKit'
+  pod 'FBSDKLoginKit'
+
   target 'BrokeryTests' do
     inherit! :search_paths
     # Pods for testing

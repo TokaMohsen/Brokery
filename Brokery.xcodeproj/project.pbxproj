@@ -50,12 +50,21 @@
 		EF0C8543238AC033008A0C32 /* NotificationDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0C8521238AC032008A0C32 /* NotificationDto.swift */; };
 		EF0C8544238AC033008A0C32 /* UserStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0C8522238AC032008A0C32 /* UserStatus.swift */; };
 		EF0C8545238AC033008A0C32 /* FollowerDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0C8523238AC033008A0C32 /* FollowerDto.swift */; };
-		EF0ED3E3238050E600F7A7D6 /* AuthenticateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0ED3E2238050E600F7A7D6 /* AuthenticateService.swift */; };
-		EF0ED3E7238051CC00F7A7D6 /* RegisterationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0ED3E6238051CC00F7A7D6 /* RegisterationService.swift */; };
 		EF0ED3E92380546800F7A7D6 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0ED3E82380546800F7A7D6 /* BaseModel.swift */; };
 		EF11D1C12375E2E7005C8F0C /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF11D1C02375E2E7005C8F0C /* Login.storyboard */; };
 		EF11D1C52375E538005C8F0C /* RegisterationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF11D1C42375E538005C8F0C /* RegisterationViewController.swift */; };
 		EF11D1C72375E550005C8F0C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF11D1C62375E550005C8F0C /* LoginViewController.swift */; };
+		EF1AC521238D2EE8004FB127 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EF1AC520238D2EE8004FB127 /* GoogleService-Info.plist */; };
+		EF46195B238E7E03008F453D /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF461957238E7E03008F453D /* Cache.swift */; };
+		EF46195C238E7E03008F453D /* CacheItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF461958238E7E03008F453D /* CacheItem.swift */; };
+		EF46195D238E7E03008F453D /* CachedWebClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF461959238E7E03008F453D /* CachedWebClient.swift */; };
+		EF46195E238E7E03008F453D /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF46195A238E7E03008F453D /* CustomError.swift */; };
+		EF461961238E7E10008F453D /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF46195F238E7E10008F453D /* Reachability.swift */; };
+		EF461962238E7E10008F453D /* WebClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF461960238E7E10008F453D /* WebClient.swift */; };
+		EF461966238E7E1E008F453D /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF461963238E7E1E008F453D /* Resource.swift */; };
+		EF461967238E7E1E008F453D /* ClientResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF461964238E7E1E008F453D /* ClientResult.swift */; };
+		EF461968238E7E1E008F453D /* Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF461965238E7E1E008F453D /* Path.swift */; };
+		EF46196E238E7E41008F453D /* WebError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF46196C238E7E41008F453D /* WebError.swift */; };
 		EF471567237D7AE90036DC1E /* Assets.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF471566237D7AE90036DC1E /* Assets.storyboard */; };
 		EF471569237D7B7C0036DC1E /* AddAssetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF471568237D7B7C0036DC1E /* AddAssetViewController.swift */; };
 		EF47156B237D7B900036DC1E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF47156A237D7B900036DC1E /* HomeViewController.swift */; };
@@ -69,9 +78,7 @@
 		EF60C8F22374903E0051F57F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF60C8F02374903E0051F57F /* LaunchScreen.storyboard */; };
 		EF60C8FD2374903E0051F57F /* BrokeryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF60C8FC2374903E0051F57F /* BrokeryTests.swift */; };
 		EF60C9082374903E0051F57F /* BrokeryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF60C9072374903E0051F57F /* BrokeryUITests.swift */; };
-		EFA4582D237B723C00F16581 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA4582C237B723C00F16581 /* Authentication.swift */; };
 		EFACC9252382FB5300586134 /* ServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFACC9242382FB5300586134 /* ServiceError.swift */; };
-		EFACC9272382FCC600586134 /* WebClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFACC9262382FCC600586134 /* WebClient.swift */; };
 		EFB50BE9238414F600188EED /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB50BE8238414F600188EED /* StringExtension.swift */; };
 		EFD5796223894612004C6808 /* LocalStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD5796123894612004C6808 /* LocalStore.swift */; };
 		EFD5796423894DB0004C6808 /* GetUserInfoByToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD5796323894DB0004C6808 /* GetUserInfoByToken.swift */; };
@@ -144,12 +151,21 @@
 		EF0C8521238AC032008A0C32 /* NotificationDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationDto.swift; sourceTree = "<group>"; };
 		EF0C8522238AC032008A0C32 /* UserStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserStatus.swift; sourceTree = "<group>"; };
 		EF0C8523238AC033008A0C32 /* FollowerDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowerDto.swift; sourceTree = "<group>"; };
-		EF0ED3E2238050E600F7A7D6 /* AuthenticateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticateService.swift; sourceTree = "<group>"; };
-		EF0ED3E6238051CC00F7A7D6 /* RegisterationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterationService.swift; sourceTree = "<group>"; };
 		EF0ED3E82380546800F7A7D6 /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
 		EF11D1C02375E2E7005C8F0C /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		EF11D1C42375E538005C8F0C /* RegisterationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterationViewController.swift; sourceTree = "<group>"; };
 		EF11D1C62375E550005C8F0C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		EF1AC520238D2EE8004FB127 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		EF461957238E7E03008F453D /* Cache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
+		EF461958238E7E03008F453D /* CacheItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CacheItem.swift; sourceTree = "<group>"; };
+		EF461959238E7E03008F453D /* CachedWebClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CachedWebClient.swift; sourceTree = "<group>"; };
+		EF46195A238E7E03008F453D /* CustomError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
+		EF46195F238E7E10008F453D /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		EF461960238E7E10008F453D /* WebClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebClient.swift; sourceTree = "<group>"; };
+		EF461963238E7E1E008F453D /* Resource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Resource.swift; path = RESTClient/Resource.swift; sourceTree = "<group>"; };
+		EF461964238E7E1E008F453D /* ClientResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ClientResult.swift; path = RESTClient/ClientResult.swift; sourceTree = "<group>"; };
+		EF461965238E7E1E008F453D /* Path.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Path.swift; path = RESTClient/Path.swift; sourceTree = "<group>"; };
+		EF46196C238E7E41008F453D /* WebError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WebError.swift; path = RESTClient/Models/WebError.swift; sourceTree = "<group>"; };
 		EF471566237D7AE90036DC1E /* Assets.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Assets.storyboard; sourceTree = "<group>"; };
 		EF471568237D7B7C0036DC1E /* AddAssetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAssetViewController.swift; sourceTree = "<group>"; };
 		EF47156A237D7B900036DC1E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -169,9 +185,7 @@
 		EF60C9032374903E0051F57F /* BrokeryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BrokeryUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF60C9072374903E0051F57F /* BrokeryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrokeryUITests.swift; sourceTree = "<group>"; };
 		EF60C9092374903E0051F57F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EFA4582C237B723C00F16581 /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
 		EFACC9242382FB5300586134 /* ServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceError.swift; sourceTree = "<group>"; };
-		EFACC9262382FCC600586134 /* WebClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebClient.swift; sourceTree = "<group>"; };
 		EFB50BE8238414F600188EED /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		EFD5796123894612004C6808 /* LocalStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStore.swift; sourceTree = "<group>"; };
 		EFD5796323894DB0004C6808 /* GetUserInfoByToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserInfoByToken.swift; sourceTree = "<group>"; };
@@ -263,18 +277,27 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
-		EF47156E237DD6C40036DC1E /* Requests */ = {
+		EF46196F238E805C008F453D /* Cache */ = {
 			isa = PBXGroup;
 			children = (
+				EF461957238E7E03008F453D /* Cache.swift */,
+				EF461959238E7E03008F453D /* CachedWebClient.swift */,
+				EF461958238E7E03008F453D /* CacheItem.swift */,
 			);
-			path = Requests;
+			path = Cache;
+			sourceTree = "<group>";
+		};
+		EF461970238E8099008F453D /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				EF46195F238E7E10008F453D /* Reachability.swift */,
+			);
+			path = Utility;
 			sourceTree = "<group>";
 		};
 		EF47156F237DD6D00036DC1E /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				EF0ED3E2238050E600F7A7D6 /* AuthenticateService.swift */,
-				EF0ED3E6238051CC00F7A7D6 /* RegisterationService.swift */,
 				EFD5796323894DB0004C6808 /* GetUserInfoByToken.swift */,
 			);
 			path = Services;
@@ -305,6 +328,7 @@
 		EF60C8E62374903D0051F57F /* Brokery */ = {
 			isa = PBXGroup;
 			children = (
+				EF461970238E8099008F453D /* Utility */,
 				EF0C8501238AAEA7008A0C32 /* Brokery.entitlements */,
 				EFB50BE5238414C400188EED /* Extensions */,
 				EFACC9232382FB2C00586134 /* Network */,
@@ -316,8 +340,13 @@
 				EF60C8EE2374903E0051F57F /* Assets.xcassets */,
 				EF60C8F02374903E0051F57F /* LaunchScreen.storyboard */,
 				EF60C8F32374903E0051F57F /* Info.plist */,
+				EF1AC520238D2EE8004FB127 /* GoogleService-Info.plist */,
 				EF471572237DDB130036DC1E /* Constants.swift */,
 				EFD5796123894612004C6808 /* LocalStore.swift */,
+				EF461965238E7E1E008F453D /* Path.swift */,
+				EF461963238E7E1E008F453D /* Resource.swift */,
+				EF461964238E7E1E008F453D /* ClientResult.swift */,
+				EF46196C238E7E41008F453D /* WebError.swift */,
 			);
 			path = Brokery;
 			sourceTree = "<group>";
@@ -377,7 +406,6 @@
 				EF0C8503238AC030008A0C32 /* UserProfileDto.swift */,
 				EF0C8522238AC032008A0C32 /* UserStatus.swift */,
 				EF0C850D238AC031008A0C32 /* UserTypeDto.swift */,
-				EFA4582C237B723C00F16581 /* Authentication.swift */,
 				EF471570237DD6EC0036DC1E /* RegisterAccount.swift */,
 				EF0ED3E82380546800F7A7D6 /* BaseModel.swift */,
 				A29E579423894E84000B7F09 /* AssetModel.swift */,
@@ -388,11 +416,12 @@
 		EFACC9232382FB2C00586134 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				EF46196F238E805C008F453D /* Cache */,
 				EF47156F237DD6D00036DC1E /* Services */,
-				EF47156E237DD6C40036DC1E /* Requests */,
 				EFA4582B237B720500F16581 /* Models */,
 				EFACC9242382FB5300586134 /* ServiceError.swift */,
-				EFACC9262382FCC600586134 /* WebClient.swift */,
+				EF46195A238E7E03008F453D /* CustomError.swift */,
+				EF461960238E7E10008F453D /* WebClient.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -519,6 +548,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF11D1C12375E2E7005C8F0C /* Login.storyboard in Resources */,
+				EF1AC521238D2EE8004FB127 /* GoogleService-Info.plist in Resources */,
 				EF60C8F22374903E0051F57F /* LaunchScreen.storyboard in Resources */,
 				A29E578C23893AE2000B7F09 /* AssetCard.xib in Resources */,
 				EF471567237D7AE90036DC1E /* Assets.storyboard in Resources */,
@@ -621,20 +651,32 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Brokery/Pods-Brokery-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/JSONModel/JSONModel.framework",
 				"${BUILT_PRODUCTS_DIR}/Reachability/Reachability.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/UICKeyChainStore/UICKeyChainStore.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSONModel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UICKeyChainStore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -649,7 +691,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF0C8539238AC033008A0C32 /* AssetDto.swift in Sources */,
-				EFACC9272382FCC600586134 /* WebClient.swift in Sources */,
+				EF461967238E7E1E008F453D /* ClientResult.swift in Sources */,
 				EF0C8534238AC033008A0C32 /* Success.swift in Sources */,
 				EF11D1C72375E550005C8F0C /* LoginViewController.swift in Sources */,
 				EF0C8545238AC033008A0C32 /* FollowerDto.swift in Sources */,
@@ -659,23 +701,27 @@
 				EF60C8EA2374903D0051F57F /* ViewController.swift in Sources */,
 				A29E578E23893AF1000B7F09 /* AssetCard.swift in Sources */,
 				EF47156D237D8D380036DC1E /* MarketPlaceViewController.swift in Sources */,
+				EF461962238E7E10008F453D /* WebClient.swift in Sources */,
 				A29E579323894B8B000B7F09 /* AssetTable.swift in Sources */,
 				EFD5796423894DB0004C6808 /* GetUserInfoByToken.swift in Sources */,
 				EF0C8530238AC033008A0C32 /* ContactHashTagDto.swift in Sources */,
 				EF0C8541238AC033008A0C32 /* GalleryItemTypeDto.swift in Sources */,
 				A2390C35238321EC001B0475 /* BaseViewController.swift in Sources */,
 				EF0C8532238AC033008A0C32 /* AccountDto.swift in Sources */,
+				EF461961238E7E10008F453D /* Reachability.swift in Sources */,
 				EF0C853F238AC033008A0C32 /* MessageDto.swift in Sources */,
 				EF0C852E238AC033008A0C32 /* UserGroupPrivilegeDto.swift in Sources */,
 				EF0C852C238AC033008A0C32 /* UserDto.swift in Sources */,
+				EF46195D238E7E03008F453D /* CachedWebClient.swift in Sources */,
 				EF0C8524238AC033008A0C32 /* UserLogin.swift in Sources */,
 				EFD5796223894612004C6808 /* LocalStore.swift in Sources */,
-				EF0ED3E7238051CC00F7A7D6 /* RegisterationService.swift in Sources */,
 				EF0C8543238AC033008A0C32 /* NotificationDto.swift in Sources */,
-				EF0ED3E3238050E600F7A7D6 /* AuthenticateService.swift in Sources */,
 				A29E579523894E84000B7F09 /* AssetModel.swift in Sources */,
 				EF0C8544238AC033008A0C32 /* UserStatus.swift in Sources */,
+				EF46195B238E7E03008F453D /* Cache.swift in Sources */,
 				EF11D1C52375E538005C8F0C /* RegisterationViewController.swift in Sources */,
+				EF461968238E7E1E008F453D /* Path.swift in Sources */,
+				EF46195E238E7E03008F453D /* CustomError.swift in Sources */,
 				EF0C8536238AC033008A0C32 /* AccountStatus.swift in Sources */,
 				EF0C8528238AC033008A0C32 /* UserGroupUserDto.swift in Sources */,
 				EF0C8540238AC033008A0C32 /* AssetTypeDto.swift in Sources */,
@@ -689,8 +735,8 @@
 				EF0C8529238AC033008A0C32 /* AppointmentDto.swift in Sources */,
 				EF0C8531238AC033008A0C32 /* FavoriteAssetDto.swift in Sources */,
 				EF0ED3E92380546800F7A7D6 /* BaseModel.swift in Sources */,
-				EFA4582D237B723C00F16581 /* Authentication.swift in Sources */,
 				EF0C8533238AC033008A0C32 /* AppointmentStatus.swift in Sources */,
+				EF461966238E7E1E008F453D /* Resource.swift in Sources */,
 				EF60C8E82374903D0051F57F /* AppDelegate.swift in Sources */,
 				EF0C8525238AC033008A0C32 /* UserProfileDto.swift in Sources */,
 				EF0C8538238AC033008A0C32 /* AssetGalleryDto.swift in Sources */,
@@ -700,10 +746,12 @@
 				EF0C853B238AC033008A0C32 /* Filter.swift in Sources */,
 				EF0C852B238AC033008A0C32 /* AssetStatus.swift in Sources */,
 				EF0C8527238AC033008A0C32 /* AssetTypeStatus.swift in Sources */,
+				EF46196E238E7E41008F453D /* WebError.swift in Sources */,
 				EF47156B237D7B900036DC1E /* HomeViewController.swift in Sources */,
 				EF471569237D7B7C0036DC1E /* AddAssetViewController.swift in Sources */,
 				EF0C852D238AC033008A0C32 /* UserGroupDto.swift in Sources */,
 				EF0C853E238AC033008A0C32 /* UserPassword.swift in Sources */,
+				EF46195C238E7E03008F453D /* CacheItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -888,7 +936,7 @@
 					"@executable_path/Frameworks",
 				);
 				OTHER_LDFLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = toqa.toqa.Brokery;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rebs.Brokery;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -909,7 +957,7 @@
 					"@executable_path/Frameworks",
 				);
 				OTHER_LDFLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = toqa.toqa.Brokery;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rebs.Brokery;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";

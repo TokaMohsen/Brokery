@@ -8,7 +8,7 @@
 import Foundation
 
 
-public struct AssetTypeDto: Codable {
+public struct AssetTypeDto: Decodable {
 
 
     public var _id: Int

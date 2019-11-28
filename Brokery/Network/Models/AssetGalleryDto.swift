@@ -8,30 +8,30 @@
 import Foundation
 
 
-public struct AssetGalleryDto: Codable {
+public struct AssetGalleryDto: Decodable {
 
 
-    public var _id: String
+    public var id: String?
 
     public var name: String?
 
     public var path: String?
 
-    public var _description: String?
+    public var description: String?
 
-    public var isActive: Bool
+    public var isActive: Bool?
 
-    public var assetId: String
+    public var assetId: String?
 
-    public var itemTypeId: Int
+    public var itemTypeId: Int?
 
     public var createdBy: String?
 
-    public var createdAt: Date
+    public var createdAt: Date?
 
     public var updatedBy: String?
 
-    public var updatedAt: Date?
+    public var updatedAt: String?
 
     public var asset: AssetDto?
 
@@ -40,39 +40,5 @@ public struct AssetGalleryDto: Codable {
     public var itemType: GalleryItemTypeDto?
 
     public var updatedByNavigation: UserTypeDto?
-    public init(_id: String, name: String?, path: String?, _description: String?, isActive: Bool, assetId: String, itemTypeId: Int, createdBy: String?, createdAt: Date, updatedBy: String?, updatedAt: Date?, asset: AssetDto?, createdByNavigation: UserDto?, itemType: GalleryItemTypeDto?, updatedByNavigation: UserTypeDto?) { 
-        self._id = _id
-        self.name = name
-        self.path = path
-        self._description = _description
-        self.isActive = isActive
-        self.assetId = assetId
-        self.itemTypeId = itemTypeId
-        self.createdBy = createdBy
-        self.createdAt = createdAt
-        self.updatedBy = updatedBy
-        self.updatedAt = updatedAt
-        self.asset = asset
-       // self.createdByNavigation = createdByNavigation
-        self.itemType = itemType
-        self.updatedByNavigation = updatedByNavigation
-    }
-    public enum CodingKeys: String, CodingKey { 
-        case _id = "id"
-        case name
-        case path
-        case _description = "description"
-        case isActive
-        case assetId
-        case itemTypeId
-        case createdBy
-        case createdAt
-        case updatedBy
-        case updatedAt
-        case asset
-        case createdByNavigation
-        case itemType
-        case updatedByNavigation
-    }
-
+   
 }

@@ -8,7 +8,7 @@
 import Foundation
 
 
-public struct GalleryItemTypeDto: Codable {
+public struct GalleryItemTypeDto: Decodable {
 
 
     public var _id: Int

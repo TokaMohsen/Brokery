@@ -11,11 +11,11 @@ import Foundation
 public struct UserProfileDto: Codable {
 
 
-    public var _id: String
+    public var id: String
 
     public var fullName: String?
 
-    public var gender: Int
+    public var gender: Int?
 
     public var address: String?
 
@@ -23,32 +23,10 @@ public struct UserProfileDto: Codable {
 
     public var createdBy: String?
 
-    public var createdAt: Date
+    public var createdAt: String?
 
     public var updatedBy: String?
 
-    public var updatedAt: Date?
-    public init(_id: String, fullName: String?, gender: Int, address: String?, photo: String?, createdBy: String?, createdAt: Date, updatedBy: String?, updatedAt: Date?) { 
-        self._id = _id
-        self.fullName = fullName
-        self.gender = gender
-        self.address = address
-        self.photo = photo
-        self.createdBy = createdBy
-        self.createdAt = createdAt
-        self.updatedBy = updatedBy
-        self.updatedAt = updatedAt
-    }
-    public enum CodingKeys: String, CodingKey { 
-        case _id = "id"
-        case fullName
-        case gender
-        case address
-        case photo
-        case createdBy
-        case createdAt
-        case updatedBy
-        case updatedAt
-    }
-
+    public var updatedAt: String?
+    
 }
