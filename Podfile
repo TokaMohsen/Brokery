@@ -15,6 +15,7 @@ target 'Brokery' do
     pod 'UICKeyChainStore'
    pod 'Firebase/Analytics'
    pod 'Firebase/Auth'
+   pod 'GoogleSignIn'
 
 # Pods for Facebook
   pod 'Bolts'

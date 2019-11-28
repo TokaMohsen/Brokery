@@ -10,10 +10,10 @@ import UIKit
 //import FacebookLogin
 import FBSDKLoginKit
 import Firebase
-//import FacebookCore
+import GoogleSignIn
 import FirebaseAuth
 
-class LoginViewController: BaseViewController {
+class LoginViewController: BaseViewController , GIDSignInDelegate {
     
     @IBOutlet var emailTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
@@ -26,34 +26,37 @@ class LoginViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+   
+        GIDSignIn.sharedInstance()?.presentingViewController = self
         
-        // Do any additional setup after loading the view.
-        //        let loginButton = FBLoginButton()
-        //        loginButton.delegate = self
+        // Automatically sign in the user.
+        GIDSignIn.sharedInstance()?.restorePreviousSignIn()
     }
+    
+    
     @IBAction func loginWithFacebookAction(_ sender: UIButton) {
     }
     
     fileprivate func loginUser(email: String , password: String)
     {
-       
-                    if let accessToken = LocalStore.getUserToken(){
-                        self.getUserInfoByTokenService.fetch(errordelegate: self) { (data, error) in
-                            if (error != nil)
-                            {
-                                self.handleError(error: error!)
-                            }
-                            else
-                            {
-                                // print(data as Any)
-                                let infoStoryboard = UIStoryboard(name: "Assets", bundle: nil)
-                                if let HomeVC = infoStoryboard.instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController {
-                                    self.navigationController?.pushViewController(HomeVC, animated: true)
-                                }
-                            }
-                        }
+        
+        if let accessToken = LocalStore.getUserToken(){
+            self.getUserInfoByTokenService.fetch(errordelegate: self) { (data, error) in
+                if (error != nil)
+                {
+                    self.handleError(error: error!)
+                }
+                else
+                {
+                    // print(data as Any)
+                    let infoStoryboard = UIStoryboard(name: "Assets", bundle: nil)
+                    if let HomeVC = infoStoryboard.instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController {
+                        self.navigationController?.pushViewController(HomeVC, animated: true)
                     }
                 }
+            }
+        }
+    }
 
     
     @IBAction func loginBtnAction(_ sender: UIButton) {
@@ -139,16 +142,32 @@ class LoginViewController: BaseViewController {
                     self.navigationController?.pushViewController(HomeVC, animated: true)
                 }
                 
-                //                if let viewController = self.storyboard?.instantiateViewController(withIdentifier: "MainView") {
-                //                    UIApplication.shared.keyWindow?.rootViewController = viewController
-                //                    self.dismiss(animated: true, completion: nil)
-                //                }
-                
             })
             
         }
     }
     @IBAction func loginWithGoogleBtnAction(_ sender: UIButton) {
+        GIDSignIn.sharedInstance().delegate = self
+       // GIDSignIn.sharedInstance().uiDelegate = self
+        GIDSignIn.sharedInstance().signIn()
+     
+    }
+    
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        self.fetchGoogleUser(with: user)
+    }
+    
+    func fetchGoogleUser(with user: GIDGoogleUser?) {
+        if user != nil {
+            if let token = user?.authentication.idToken
+            {
+                LocalStore.storeUserToken(token: token)
+                let homeStoryboard = UIStoryboard(name: "Assets", bundle: nil)
+                if let HomeVC = homeStoryboard.instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController {
+                    self.navigationController?.pushViewController(HomeVC, animated: true)
+                }
+            }
+        }
     }
     /*
      // MARK: - Navigation

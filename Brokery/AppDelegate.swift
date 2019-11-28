@@ -8,12 +8,13 @@
 
 import UIKit
 import UICKeyChainStore
+import GoogleSignIn
 import Firebase
 
 //import "FBSDKCoreKit/FBSDKCoreKit.h"
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate , GIDSignInDelegate {
 
     var window: UIWindow?
 
@@ -23,51 +24,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
        let keychainStore = UICKeyChainStore.init()
         keychainStore.accessibility = .always
         FirebaseApp.configure()
+        
+        // Initialize sign-in
+        GIDSignIn.sharedInstance().clientID = "949854548604-5geood4nlc35m64fok5hr711k0plat7p.apps.googleusercontent.com"
+        GIDSignIn.sharedInstance().delegate = self
+        
         return true
     }
     
- 
-//    - (BOOL)application:(UIApplication *)application
-//    didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-//
-//    [[FBSDKApplicationDelegate sharedInstance] application:application
-//    didFinishLaunchingWithOptions:launchOptions];
-//    // Add any custom logic here.
-//    return YES;
-//    }
-//
-//    - (BOOL)application:(UIApplication *)application
-//    openURL:(NSURL *)url
-//    options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
-//
-//    BOOL handled = [[FBSDKApplicationDelegate sharedInstance] application:application
-//    openURL:url
-//    sourceApplication:options[UIApplicationOpenURLOptionsSourceApplicationKey]
-//    annotation:options[UIApplicationOpenURLOptionsAnnotationKey]
-//    ];
-//    // Add any custom logic here.
-//    return handled;
-//    }
-//
     
+    @available(iOS 9.0, *)
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any]) -> Bool {
+        return GIDSignIn.sharedInstance().handle(url)
+    }
     
+    func application(_ application: UIApplication,
+                     open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+        return GIDSignIn.sharedInstance().handle(url)
+    }
     
-//    - (BOOL)application:(UIApplication *)application
-//    openURL:(NSURL *)url
-//    sourceApplication:(NSString *)sourceApplication
-//    annotation:(id)annotation {
-//    
-//    BOOL handled = [[FBSDKApplicationDelegate sharedInstance] application:application
-//    openURL:url
-//    sourceApplication:sourceApplication
-//    annotation:annotation
-//    ];
-//    // Add any custom logic here.
-//    return handled;
-//    }
-//    
-
-
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
@@ -88,6 +63,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    }
+    
+    
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!,
+              withError error: Error!) {
+        if let error = error {
+            if (error as NSError).code == GIDSignInErrorCode.hasNoAuthInKeychain.rawValue {
+                print("The user has not signed in before or they have since signed out.")
+            } else {
+                print("\(error.localizedDescription)")
+            }
+            return
+        }
+        // Perform any operations on signed in user here.
+        let userId = user.userID                  // For client-side use only!
+        let idToken = user.authentication.idToken // Safe to send to the server
+        let fullName = user.profile.name
+        let givenName = user.profile.givenName
+        let familyName = user.profile.familyName
+        let email = user.profile.email
+    }
+    
+    func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!,
+              withError error: Error!) {
+        // Perform any operations when the user disconnects from app here.
+        // ...
     }
 
 
