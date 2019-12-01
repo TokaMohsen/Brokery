@@ -9,11 +9,42 @@
 import UIKit
 
 class HomeViewController: BaseViewController {
-
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    private lazy var homeService = HomeService()
+    
+    static let sharedWebClient = WebClient.init(baseUrl: BaseAPIURL)
+    
+    var getFollowedDevelopersAssetsTask: URLSessionDataTask!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.fetchData()
         // Do any additional setup after loading the view.
+    }
+    
+    private func fetchData()
+    {
+        getFollowedDevelopersAssetsTask?.cancel()
+        
+        activityIndicator.startAnimating()
+        
+        var userinfo = Resource<Object , CustomError>(jsonDecoder: JSONDecoder(), path: AuthentactionURL, method: .post)
+        userinfo.params = ["Page": "0",
+                           "PageSize": "10"]
+        
+        DispatchQueue.main.async {
+            self.activityIndicator.stopAnimating()
+            self.homeService.fetch(params: userinfo.params, method: .get, url: FollowedAssetsURL) { (response, error) in
+                if let mappedResponse = response?.title
+                {
+                   
+                    
+                } else if error != nil {
+                    //controller.handleError(error)
+                }
+            }
+            
+        }
+
     }
     
     private func showErrorAlert(with message: String) {

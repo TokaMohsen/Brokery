@@ -68,7 +68,7 @@ open class WebClient {
     }
     
     public func load<A, CustomError>(resource: Resource<A, CustomError>, urlMethod : RequestMethod , 
-                 completion: @escaping (ClientResult<A, CustomError>) ->()) -> URLSessionDataTask? {
+                                     completion: @escaping (ClientResult<A, CustomError>) ->()) -> URLSessionDataTask? {
         
         if !Reachability.isConnectedToNetwork() {
             completion(.failure(.noInternetConnection))
@@ -80,18 +80,19 @@ open class WebClient {
             return spec
         }
         
-        let request = URLRequest(baseUrl: baseUrl, resource: newResouce , method : urlMethod)
+        var request = URLRequest(baseUrl: baseUrl, resource: newResouce , method : urlMethod)
+        if let token = LocalStore.getUserToken(){
+        request.setValue("bearer \(token)", forHTTPHeaderField: "Authorization")
+        }
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             // Parsing incoming data
             guard let response = response as? HTTPURLResponse else {
                 completion(.failure(.other))
                 return
             }
-          
-
+            
+            
             if (200..<300) ~= response.statusCode {
-               
-              
                 completion(ClientResult(value: data.flatMap(resource.parse), or: .other))
             } else if response.statusCode == 401 {
                 completion(.failure(.unauthorized))

@@ -18,17 +18,17 @@ class LoginViewController: BaseViewController , GIDSignInDelegate {
     @IBOutlet var emailTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-
+    
     private lazy var getUserInfoByTokenService = GetUserInfoByTokenService.init()
     private lazy var userLoginInService = LoginService()
-
+    
     static let sharedWebClient = WebClient.init(baseUrl: BaseAPIURL)
     
     var postUserLoginInfoTask: URLSessionDataTask!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-   
+        
         GIDSignIn.sharedInstance()?.presentingViewController = self
         
         // Automatically sign in the user.
@@ -39,27 +39,27 @@ class LoginViewController: BaseViewController , GIDSignInDelegate {
     @IBAction func loginWithFacebookAction(_ sender: UIButton) {
     }
     
-    fileprivate func loginUser(email: String , password: String)
-    {
-        
-        if let accessToken = LocalStore.getUserToken(){
-            self.getUserInfoByTokenService.fetch(errordelegate: self) { (data, error) in
-                if (error != nil)
-                {
-                    self.handleError(error: error!)
-                }
-                else
-                {
-                    // print(data as Any)
-                    let infoStoryboard = UIStoryboard(name: "Assets", bundle: nil)
-                    if let HomeVC = infoStoryboard.instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController {
-                        self.navigationController?.pushViewController(HomeVC, animated: true)
-                    }
-                }
-            }
-        }
-    }
-
+    //    fileprivate func loginUser(email: String , password: String)
+    //    {
+    //
+    //        if let accessToken = LocalStore.getUserToken(){
+    //            self.getUserInfoByTokenService.fetch(errordelegate: self) { (data, error) in
+    //                if (error != nil)
+    //                {
+    //                    self.handleError(error: error!)
+    //                }
+    //                else
+    //                {
+    //                    // print(data as Any)
+    //                    let infoStoryboard = UIStoryboard(name: "Assets", bundle: nil)
+    //                    if let HomeVC = infoStoryboard.instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController {
+    //                        self.navigationController?.pushViewController(HomeVC, animated: true)
+    //                    }
+    //                }
+    //            }
+    //        }
+    //    }
+    
     
     @IBAction func loginBtnAction(_ sender: UIButton) {
         if let emailTxt = emailTextField.text , let passwordTxt = passwordTextField.text {
@@ -70,7 +70,7 @@ class LoginViewController: BaseViewController , GIDSignInDelegate {
             var userinfo = Resource<Object , CustomError>(jsonDecoder: JSONDecoder(), path: AuthentactionURL, method: .post)
             userinfo.params = ["email": emailTxt,
                                "password": passwordTxt]
-            
+ 
             DispatchQueue.main.async {
                 self.activityIndicator.stopAnimating()
                 self.userLoginInService.signIn(params: userinfo.params, method: .post, url: AuthentactionURL) { (response, error) in
@@ -78,7 +78,8 @@ class LoginViewController: BaseViewController , GIDSignInDelegate {
                     {
                         let homeStoryboard = UIStoryboard(name: "Assets", bundle: nil)
                         if let HomeVC = homeStoryboard.instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController {
-                            UIApplication.shared.keyWindow?.rootViewController = HomeVC
+                            self.navigationController?.pushViewController(HomeVC, animated: true)
+                           // UIApplication.shared.keyWindow?.rootViewController = HomeVC
                             self.dismiss(animated: true, completion: nil)
                         }
                         
@@ -116,11 +117,11 @@ class LoginViewController: BaseViewController , GIDSignInDelegate {
             
             guard let currentUser = Auth.auth().currentUser else {
                 print("Failed to get email")
-               return
+                return
             }
             
             let credential = FacebookAuthProvider.credential(withAccessToken: accessToken.tokenString)
-         
+            
             // Perform login by calling Firebase APIs
             Auth.auth().signIn(with: credential, completion: { (user, error) in
                 if let error = error {
@@ -162,14 +163,14 @@ class LoginViewController: BaseViewController , GIDSignInDelegate {
                         
                     }
                     //LocalStore.storeUserToken(token:accessToken.tokenString)
-
+                    
                 }
-//
-//                // Present the main view
-//                let homeStoryboard = UIStoryboard(name: "Assets", bundle: nil)
-//                if let HomeVC = homeStoryboard.instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController {
-//                    self.navigationController?.pushViewController(HomeVC, animated: true)
-//                }
+                //
+                //                // Present the main view
+                //                let homeStoryboard = UIStoryboard(name: "Assets", bundle: nil)
+                //                if let HomeVC = homeStoryboard.instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController {
+                //                    self.navigationController?.pushViewController(HomeVC, animated: true)
+                //                }
                 
             })
             
@@ -177,9 +178,9 @@ class LoginViewController: BaseViewController , GIDSignInDelegate {
     }
     @IBAction func loginWithGoogleBtnAction(_ sender: UIButton) {
         GIDSignIn.sharedInstance().delegate = self
-       // GIDSignIn.sharedInstance().uiDelegate = self
+        // GIDSignIn.sharedInstance().uiDelegate = self
         GIDSignIn.sharedInstance().signIn()
-     
+        
     }
     
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
@@ -190,44 +191,44 @@ class LoginViewController: BaseViewController , GIDSignInDelegate {
         if user != nil {
             if let token = user?.authentication.idToken
             {
-                    self.postUserLoginInfoTask?.cancel()
-                    
-                    self.activityIndicator.startAnimating()
-                    
-                    var userinfo = Resource<Object , CustomError>(jsonDecoder: JSONDecoder(), path: loginWithFacebookURL, method: .post)
+                self.postUserLoginInfoTask?.cancel()
+                
+                self.activityIndicator.startAnimating()
+                
+                var userinfo = Resource<Object , CustomError>(jsonDecoder: JSONDecoder(), path: loginWithFacebookURL, method: .post)
                 //TODO .. replace email with google email
-                    userinfo.params = ["email": user?.authentication.idToken ,
-                                       "password": googlePasswordConst,
-                                       "tokenSocialMedia": token
-                    ]
-                    
-                    DispatchQueue.main.async {
-                        self.activityIndicator.stopAnimating()
-                        self.userLoginInService.signIn(params: userinfo.params, method: .post, url: LoginWithGoogleURL) { (response, error) in
-                            if let mappedResponse = response?.data
-                            {
-                                let homeStoryboard = UIStoryboard(name: "Assets", bundle: nil)
-                                if let HomeVC = homeStoryboard.instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController {
-                                    UIApplication.shared.keyWindow?.rootViewController = HomeVC
-                                    self.dismiss(animated: true, completion: nil)
-                                }
-                                
-                            } else if error != nil {
-                                //controller.handleError(error)
+                userinfo.params = ["email": user?.authentication.idToken ,
+                                   "password": googlePasswordConst,
+                                   "tokenSocialMedia": token
+                ]
+                
+                DispatchQueue.main.async {
+                    self.activityIndicator.stopAnimating()
+                    self.userLoginInService.signIn(params: userinfo.params, method: .post, url: LoginWithGoogleURL) { (response, error) in
+                        if let mappedResponse = response?.data
+                        {
+                            let homeStoryboard = UIStoryboard(name: "Assets", bundle: nil)
+                            if let HomeVC = homeStoryboard.instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController {
+                                UIApplication.shared.keyWindow?.rootViewController = HomeVC
+                                self.dismiss(animated: true, completion: nil)
                             }
+                            
+                        } else if error != nil {
+                            //controller.handleError(error)
                         }
-                        
                     }
-               
-//                LocalStore.storeUserToken(token: token)
-//                let homeStoryboard = UIStoryboard(name: "Assets", bundle: nil)
-//                if let HomeVC = homeStoryboard.instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController {
-//                    self.navigationController?.pushViewController(HomeVC, animated: true)
-//                }
+                    
+                }
+                
+                //                LocalStore.storeUserToken(token: token)
+                //                let homeStoryboard = UIStoryboard(name: "Assets", bundle: nil)
+                //                if let HomeVC = homeStoryboard.instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController {
+                //                    self.navigationController?.pushViewController(HomeVC, animated: true)
+                //                }
             }
         }
     }
-  
+    
     /*
      // MARK: - Navigation
      
