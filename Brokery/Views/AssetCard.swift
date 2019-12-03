@@ -19,10 +19,25 @@ class AssetCard: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.layer.cornerRadius = 6
     }
     
     func setup(_ asset: AssetDto) {
+       // appartementImage.image = asset.profilePhoto
         appartementName.text = asset.title
         appartementDescription.text = asset.description
+        companyName.text = asset.owner?.name
+        //for example
+        if let tages = asset.tages{
+            hashtag.text = tages[0]
+        }
+    }
+    private func setupHashtag(tages : [String])
+    {
+        if tages.count > 2 {
+            hashtag.text = tages[0]
+                //var array = tages[0].componentsSeparatedByString("\r")
+
+        }
     }
 }

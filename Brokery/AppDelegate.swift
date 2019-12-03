@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  Brokery
 //
-//  Created by ToqaDev on 11/7/19.
+//  Created by ToqaMohsen on 11/7/19.
 //  Copyright © 2019 Toqa. All rights reserved.
 //
 
@@ -28,6 +28,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate , GIDSignInDelegate {
         // Initialize sign-in
         GIDSignIn.sharedInstance().clientID = "949854548604-5geood4nlc35m64fok5hr711k0plat7p.apps.googleusercontent.com"
         GIDSignIn.sharedInstance().delegate = self
+        
+        var initialViewController: UIViewController?
+        if let username = LocalStore.getUserToken() {
+            let mainStoryboard : UIStoryboard = UIStoryboard(name: "Assets", bundle: nil)
+            initialViewController = mainStoryboard.instantiateViewController(withIdentifier: "HomeViewController")
+        } else {
+            let mainStoryboard : UIStoryboard = UIStoryboard(name: "Login", bundle: nil)
+            initialViewController = mainStoryboard.instantiateViewController(withIdentifier: "LoginViewController")
+        }
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        self.window?.rootViewController = initialViewController
+        self.window?.makeKeyAndVisible()
+
         
         return true
     }

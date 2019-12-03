@@ -81,6 +81,7 @@
 		EF60C8F22374903E0051F57F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF60C8F02374903E0051F57F /* LaunchScreen.storyboard */; };
 		EF60C8FD2374903E0051F57F /* BrokeryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF60C8FC2374903E0051F57F /* BrokeryTests.swift */; };
 		EF60C9082374903E0051F57F /* BrokeryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF60C9072374903E0051F57F /* BrokeryUITests.swift */; };
+		EF80E8E62396C6CA003A66D3 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF80E8E52396C6CA003A66D3 /* UIViewExtension.swift */; };
 		EFACC9252382FB5300586134 /* ServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFACC9242382FB5300586134 /* ServiceError.swift */; };
 		EFB50BE9238414F600188EED /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB50BE8238414F600188EED /* StringExtension.swift */; };
 		EFD5796223894612004C6808 /* LocalStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD5796123894612004C6808 /* LocalStore.swift */; };
@@ -191,6 +192,7 @@
 		EF60C9032374903E0051F57F /* BrokeryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BrokeryUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF60C9072374903E0051F57F /* BrokeryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrokeryUITests.swift; sourceTree = "<group>"; };
 		EF60C9092374903E0051F57F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EF80E8E52396C6CA003A66D3 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		EFACC9242382FB5300586134 /* ServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceError.swift; sourceTree = "<group>"; };
 		EFB50BE8238414F600188EED /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		EFD5796123894612004C6808 /* LocalStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStore.swift; sourceTree = "<group>"; };
@@ -439,6 +441,7 @@
 			isa = PBXGroup;
 			children = (
 				EFB50BE8238414F600188EED /* StringExtension.swift */,
+				EF80E8E52396C6CA003A66D3 /* UIViewExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -750,6 +753,7 @@
 				EF0C853F238AC033008A0C32 /* MessageDto.swift in Sources */,
 				EF0C852E238AC033008A0C32 /* UserGroupPrivilegeDto.swift in Sources */,
 				EF0C852C238AC033008A0C32 /* UserDto.swift in Sources */,
+				EF80E8E62396C6CA003A66D3 /* UIViewExtension.swift in Sources */,
 				EF46195D238E7E03008F453D /* CachedWebClient.swift in Sources */,
 				EF0C8524238AC033008A0C32 /* UserLogin.swift in Sources */,
 				EFD5796223894612004C6808 /* LocalStore.swift in Sources */,

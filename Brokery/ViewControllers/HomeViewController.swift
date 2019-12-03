@@ -10,6 +10,9 @@ import UIKit
 
 class HomeViewController: BaseViewController {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+
+    @IBOutlet var assetTableCustomView: AssetTable!
+    
     private lazy var homeService = HomeService()
     
     static let sharedWebClient = WebClient.init(baseUrl: BaseAPIURL)
@@ -27,19 +30,21 @@ class HomeViewController: BaseViewController {
         
         activityIndicator.startAnimating()
         
-        var userinfo = Resource<Object , CustomError>(jsonDecoder: JSONDecoder(), path: AuthentactionURL, method: .post)
+        var userinfo = Resource<AssetObject , CustomError>(jsonDecoder: JSONDecoder(), path: AuthentactionURL, method: .post)
         userinfo.params = ["Page": "0",
                            "PageSize": "10"]
         
         DispatchQueue.main.async {
-            self.activityIndicator.stopAnimating()
             self.homeService.fetch(params: userinfo.params, method: .get, url: FollowedAssetsURL) { (response, error) in
-                if let mappedResponse = response?.title
+                if let mappedResponse = response?.data
                 {
-                   
+                    self.activityIndicator.stopAnimating()
+                    
+                    self.assetTableCustomView.setupTableView(assets: mappedResponse)
                     
                 } else if error != nil {
                     //controller.handleError(error)
+                    self.showErrorAlert(with: "error")
                 }
             }
             
@@ -70,7 +75,8 @@ class HomeViewController: BaseViewController {
     private func moveToLogin() {
         
     }
-
+    
+ 
     /*
     // MARK: - Navigation
 

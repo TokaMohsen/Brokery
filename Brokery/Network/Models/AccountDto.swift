@@ -11,7 +11,7 @@ import Foundation
 public class AccountDto: Decodable {
 
 
-    public var _id: String
+    public var id: String
 
     public var name: String?
 
@@ -21,7 +21,7 @@ public class AccountDto: Decodable {
 
     public var address: String?
 
-    public var _description: String?
+    public var description: String?
 
     public var isActive: Bool?
 

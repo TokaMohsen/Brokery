@@ -71,11 +71,12 @@ class LoginViewController: BaseViewController , GIDSignInDelegate {
             userinfo.params = ["email": emailTxt,
                                "password": passwordTxt]
  
-            DispatchQueue.main.async {
-                self.activityIndicator.stopAnimating()
+         DispatchQueue.main.async {
                 self.userLoginInService.signIn(params: userinfo.params, method: .post, url: AuthentactionURL) { (response, error) in
                     if let mappedResponse = response?.data
                     {
+                        self.activityIndicator.stopAnimating()
+
                         let homeStoryboard = UIStoryboard(name: "Assets", bundle: nil)
                         if let HomeVC = homeStoryboard.instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController {
                             self.navigationController?.pushViewController(HomeVC, animated: true)
