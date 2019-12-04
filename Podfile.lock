@@ -1,19 +1,5 @@
 PODS:
-  - AFNetworking (3.2.1):
-    - AFNetworking/NSURLSession (= 3.2.1)
-    - AFNetworking/Reachability (= 3.2.1)
-    - AFNetworking/Security (= 3.2.1)
-    - AFNetworking/Serialization (= 3.2.1)
-    - AFNetworking/UIKit (= 3.2.1)
-  - AFNetworking/NSURLSession (3.2.1):
-    - AFNetworking/Reachability
-    - AFNetworking/Security
-    - AFNetworking/Serialization
-  - AFNetworking/Reachability (3.2.1)
-  - AFNetworking/Security (3.2.1)
-  - AFNetworking/Serialization (3.2.1)
-  - AFNetworking/UIKit (3.2.1):
-    - AFNetworking/NSURLSession
+  - Alamofire (4.2.0)
   - AppAuth (1.2.0):
     - AppAuth/Core (= 1.2.0)
     - AppAuth/ExternalUserAgent (= 1.2.0)
@@ -130,7 +116,7 @@ PODS:
   - UICKeyChainStore (2.1.2)
 
 DEPENDENCIES:
-  - AFNetworking (~> 3.0)
+  - Alamofire (~> 4.2.0-rc.3)
   - Bolts
   - FBSDKCoreKit
   - FBSDKLoginKit
@@ -144,7 +130,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
-    - AFNetworking
+    - Alamofire
     - AppAuth
     - Bolts
     - FBSDKCoreKit
@@ -171,7 +157,7 @@ SPEC REPOS:
     - UICKeyChainStore
 
 SPEC CHECKSUMS:
-  AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
+  Alamofire: aa2e09d871c9160ac53c90e83c68064a94e3dfbe
   AppAuth: bce82c76043657c99d91e7882e8a9e1a93650cd4
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
   FBSDKCoreKit: e7dcac0aabcfb09d0166998edd95fe3b05a0ce5d
@@ -197,6 +183,6 @@ SPEC CHECKSUMS:
   SDWebImage: c10d14a8883ebd89664f02a422006f66a85c0c5d
   UICKeyChainStore: 85db518bb1d294366d15ec9b92a416c4e670518f
 
-PODFILE CHECKSUM: 5732ca559342b5d5ddffac8aac02fbd17a972530
+PODFILE CHECKSUM: 19380211c5c188d34d2d966aaf4c411d3445f3f9
 
 COCOAPODS: 1.5.3

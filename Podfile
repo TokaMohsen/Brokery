@@ -8,7 +8,8 @@ target 'Brokery' do
   # Pods for Brokery
 
    pod 'SDWebImage', '~> 4.0'
-    pod 'AFNetworking', '~> 3.0'
+    #pod 'AFNetworking', '~> 3.0'
+    pod 'Alamofire', '~> 4.2.0-rc.3'
     pod 'JSONModel' ,'~> 1.3.0'
     pod 'Reachability'
    #pod 'SwiftKeychainWrapper' ,'~> 3.2'
