@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9BE4C269B62A47AA14EE12C17215963B"
-               BlueprintName = "UICKeyChainStore"
+               BlueprintIdentifier = "1A0C74E4A9521420C609B3853291D065"
+               BlueprintName = "FSPagerView"
                ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "UICKeyChainStore.framework">
+               BuildableName = "FSPagerView.framework">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

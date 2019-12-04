@@ -18,6 +18,10 @@ target 'Brokery' do
    pod 'Firebase/Auth'
    pod 'GoogleSignIn'
 
+#pods for UI
+   pod 'FSPagerView'
+   pod 'iOSDropDown'
+
 # Pods for Facebook
   pod 'Bolts'
   pod 'FBSDKCoreKit'
