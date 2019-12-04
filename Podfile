@@ -19,7 +19,6 @@ target 'Brokery' do
    pod 'GoogleSignIn'
 
 #pods for UI
-   pod 'FSPagerView'
    pod 'iOSDropDown'
 
 # Pods for Facebook
