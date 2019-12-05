@@ -27,52 +27,52 @@ public class AssetDto: Decodable {
 
     public var assetTypeId: Int?
 
-//    public var latitude: Double?
-//
-//    public var longitude: Double?
+    public var latitude: Double?
+
+    public var longitude: Double?
 
     public var address: String?
 
     public var description: String?
 
-//    public var status: Int?
-//
+    public var status: Int?
+
     public var photo: String?
-//
-   //public var profilePhoto: String?
-//
-//    public var createdBy: String?
-//
-//    public var createdAt: String?
-//
-//    public var updatedBy: String?
-//
-//    public var updatedAt: String?
-//
+
+   public var profilePhoto: String?
+
+    public var createdBy: String?
+
+    public var createdAt: String?
+
+    public var updatedBy: String?
+
+    public var updatedAt: String?
+
     public var tages: [String]?
-//
-//    public var account: AccountDto?
-//
-//    public var assetType: AssetTypeDto?
-//
-//    public var createdByNavigation: UserDto?
-//
+
+    public var account: AccountDto?
+
+    public var assetType: AssetTypeDto?
+
+    public var createdByNavigation: UserDto?
+
     public var owner: UserDto?
-//
-//    weak var parentAsset: AssetDto?
-//
-//    public var updatedByNavigation: UserDto?
-//
-//    public var appointment: [AppointmentDto]?
-//
-//    public var assetGallery: [AssetGalleryDto]?
-//
-//    public var assetHashTag: [AssetHashTagDto]?
-//
-//    public var inverseParentAsset: [AssetHashTagDto]?
-//
-//    public var notification: [NotificationDto]?
-//
-//    public var favoriteAsset: [FavoriteAssetDto]?
+
+    weak var parentAsset: AssetDto?
+
+    public var updatedByNavigation: UserDto?
+
+    public var appointment: [AppointmentDto]?
+
+    public var assetGallery: [AssetGalleryDto]?
+
+    public var assetHashTag: [AssetHashTagDto]?
+
+    public var inverseParentAsset: [AssetHashTagDto]?
+
+    public var notification: [NotificationDto]?
+
+    public var favoriteAsset: [FavoriteAssetDto]?
    
 }

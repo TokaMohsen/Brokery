@@ -27,7 +27,7 @@ public struct AssetGalleryDto: Decodable {
 
     public var createdBy: String?
 
-    public var createdAt: Date?
+    public var createdAt: String?
 
     public var updatedBy: String?
 

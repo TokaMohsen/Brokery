@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import iOSDropDown
 
 class AddAssetViewController: BaseViewController {
 
@@ -17,17 +18,14 @@ class AddAssetViewController: BaseViewController {
     @IBOutlet var assetTypeDropdownTextField: DropDown!
     override func viewDidLoad() {
         super.viewDidLoad()
-//        //// The list of array to display. Can be changed dynamically
-//        dropDown.optionArray = ["Option 1", "Option 2", "Option 3"]
+//        //// The list of array to display. Can be changed dynamically , testing
 //        //Its Id Values and its optional
 //        dropDown.optionIds = [1,23,54,22]
 //
 //        // Image Array its optional
 //        dropDown.ImageArray = [👩🏻‍🦳,🙊,🥞]
-//        // The the Closure returns Selected Index and String
-//        dropDown.didSelect{(selectedText , index ,id) in
-//            self.valueLabel.text = "Selected String: \(selectedText) \n index: \(index)"
-//        }
+//
+//
         // Do any additional setup after loading the view.
     }
     
@@ -44,6 +42,19 @@ class AddAssetViewController: BaseViewController {
     @IBAction func saveBtnAction(_ sender: UIButton) {
     }
     
+    private func setupAssetTypeMenu( assetTypes : [String])
+    {
+        //        //// The list of array to display. Can be changed dynamically , testing
+        //        //Its Id Values and its optional
+        //        dropDown.optionIds = [1,23,54,22]
+        
+        assetTypeDropdownTextField.optionArray = ["Option 1", "Option 2", "Option 3"]
+        
+           // The the Closure returns Selected Index and String
+//        dropDown.didSelect{(selectedText , index ,id) in
+//            //            self.valueLabel.text = "Selected String: \(selectedText) \n index: \(index)"
+//            //        }
+    }
     /*
     // MARK: - Navigation
 

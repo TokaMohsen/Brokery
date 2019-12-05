@@ -38,14 +38,14 @@ class HomeViewController: BaseViewController {
             self.homeService.fetch(params: userinfo.params, method: .get, url: FollowedAssetsURL) { (response, error) in
                 if let mappedResponse = response?.data
                 {
-                    self.activityIndicator.stopAnimating()
-                    
                     self.assetTableCustomView.setupTableView(assets: mappedResponse)
                     
                 } else if error != nil {
                     //controller.handleError(error)
                     self.showErrorAlert(with: "error")
                 }
+                self.activityIndicator.stopAnimating()
+
             }
             
         }
