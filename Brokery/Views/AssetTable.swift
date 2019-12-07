@@ -26,7 +26,6 @@ class AssetTable: UIView {
         DispatchQueue.main.async {
             self.assetTableView.reloadData()
         }
-        //assetTableView.reloadData()
     }
     
     func registerNibView() {

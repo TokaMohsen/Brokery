@@ -73,6 +73,13 @@ PODS:
   - GoogleDataTransportCCTSupport (1.2.1):
     - GoogleDataTransport (~> 3.0)
     - nanopb (~> 0.3.901)
+  - GoogleMaps (3.6.0):
+    - GoogleMaps/Maps (= 3.6.0)
+  - GoogleMaps/Base (3.6.0)
+  - GoogleMaps/Maps (3.6.0):
+    - GoogleMaps/Base
+  - GooglePlaces (3.6.0):
+    - GoogleMaps/Base (= 3.6.0)
   - GoogleSignIn (5.0.1):
     - AppAuth (~> 1.2)
     - GTMAppAuth (~> 1.0)
@@ -111,6 +118,7 @@ PODS:
   - nanopb/decode (0.3.9011)
   - nanopb/encode (0.3.9011)
   - Reachability (3.2)
+  - ReadMoreTextView (3.0.1)
   - SDWebImage (4.4.7):
     - SDWebImage/Core (= 4.4.7)
   - SDWebImage/Core (4.4.7)
@@ -123,10 +131,13 @@ DEPENDENCIES:
   - FBSDKLoginKit
   - Firebase/Analytics
   - Firebase/Auth
+  - GoogleMaps
+  - GooglePlaces
   - GoogleSignIn
   - iOSDropDown
   - JSONModel (~> 1.3.0)
   - Reachability
+  - ReadMoreTextView
   - SDWebImage (~> 4.0)
   - UICKeyChainStore
 
@@ -148,6 +159,8 @@ SPEC REPOS:
     - GoogleAppMeasurement
     - GoogleDataTransport
     - GoogleDataTransportCCTSupport
+    - GoogleMaps
+    - GooglePlaces
     - GoogleSignIn
     - GoogleUtilities
     - GTMAppAuth
@@ -156,6 +169,7 @@ SPEC REPOS:
     - JSONModel
     - nanopb
     - Reachability
+    - ReadMoreTextView
     - SDWebImage
     - UICKeyChainStore
 
@@ -176,6 +190,8 @@ SPEC CHECKSUMS:
   GoogleAppMeasurement: 037f46d1d8ae8b312720f1042585ab961a1289e3
   GoogleDataTransport: 166f9b9f82cbf60a204e8fe2daa9db3e3ec1fb15
   GoogleDataTransportCCTSupport: f6ab1962e9dc05ab1fb938b795e5b310209edeec
+  GoogleMaps: 82f8fe307193bb4de6ef6bf9e88f1d624b718f9d
+  GooglePlaces: 1b9d29cf3e164903d873600f511f42acdfe85294
   GoogleSignIn: 3a51b9bb8e48b635fd7f4272cee06ca260345b86
   GoogleUtilities: f895fde57977df4e0233edda0dbeac490e3703b6
   GTMAppAuth: 4deac854479704f348309e7b66189e604cf5e01e
@@ -184,9 +200,10 @@ SPEC CHECKSUMS:
   JSONModel: 81c06ecf99190a25fa6aafceea5faffa7880868a
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
+  ReadMoreTextView: 19147adf93abce6d7271e14031a00303fe28720d
   SDWebImage: c10d14a8883ebd89664f02a422006f66a85c0c5d
   UICKeyChainStore: 85db518bb1d294366d15ec9b92a416c4e670518f
 
-PODFILE CHECKSUM: 75374a423e1032e29946f0a57fdb9b7800484b91
+PODFILE CHECKSUM: 2ac21dc47dcf2a99bf184f8b6d96c2014c085604
 
 COCOAPODS: 1.5.3

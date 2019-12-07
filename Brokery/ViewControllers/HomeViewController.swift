@@ -44,9 +44,9 @@ class HomeViewController: BaseViewController {
                     //controller.handleError(error)
                     self.showErrorAlert(with: "error")
                 }
-                self.activityIndicator.stopAnimating()
-
             }
+            self.activityIndicator.stopAnimating()
+
             
         }
 

@@ -74,6 +74,7 @@
 		EF47156D237D8D380036DC1E /* MarketPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF47156C237D8D380036DC1E /* MarketPlaceViewController.swift */; };
 		EF471571237DD6EC0036DC1E /* RegisterAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF471570237DD6EC0036DC1E /* RegisterAccount.swift */; };
 		EF471573237DDB130036DC1E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF471572237DDB130036DC1E /* Constants.swift */; };
+		EF542683239B038500E5F124 /* AssetDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF542682239B038500E5F124 /* AssetDetailsViewController.swift */; };
 		EF60C8E82374903D0051F57F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF60C8E72374903D0051F57F /* AppDelegate.swift */; };
 		EF60C8EA2374903D0051F57F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF60C8E92374903D0051F57F /* ViewController.swift */; };
 		EF60C8ED2374903D0051F57F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF60C8EB2374903D0051F57F /* Main.storyboard */; };
@@ -179,6 +180,7 @@
 		EF47156C237D8D380036DC1E /* MarketPlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketPlaceViewController.swift; sourceTree = "<group>"; };
 		EF471570237DD6EC0036DC1E /* RegisterAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterAccount.swift; sourceTree = "<group>"; };
 		EF471572237DDB130036DC1E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		EF542682239B038500E5F124 /* AssetDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetDetailsViewController.swift; sourceTree = "<group>"; };
 		EF60C8E42374903D0051F57F /* Brokery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Brokery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF60C8E72374903D0051F57F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EF60C8E92374903D0051F57F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -281,6 +283,7 @@
 				EF47156A237D7B900036DC1E /* HomeViewController.swift */,
 				EF47156C237D8D380036DC1E /* MarketPlaceViewController.swift */,
 				A2390C34238321EC001B0475 /* BaseViewController.swift */,
+				EF542682239B038500E5F124 /* AssetDetailsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -619,12 +622,16 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Brokery/Pods-Brokery-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
 				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlaces.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -695,6 +702,7 @@
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/JSONModel/JSONModel.framework",
 				"${BUILT_PRODUCTS_DIR}/Reachability/Reachability.framework",
+				"${BUILT_PRODUCTS_DIR}/ReadMoreTextView/ReadMoreTextView.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/UICKeyChainStore/UICKeyChainStore.framework",
 				"${BUILT_PRODUCTS_DIR}/iOSDropDown/iOSDropDown.framework",
@@ -714,6 +722,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSONModel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReadMoreTextView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UICKeyChainStore.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/iOSDropDown.framework",
@@ -732,6 +741,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF0C8539238AC033008A0C32 /* AssetDto.swift in Sources */,
+				EF542683239B038500E5F124 /* AssetDetailsViewController.swift in Sources */,
 				EF461967238E7E1E008F453D /* ClientResult.swift in Sources */,
 				EF0C8534238AC033008A0C32 /* Success.swift in Sources */,
 				EF11D1C72375E550005C8F0C /* LoginViewController.swift in Sources */,

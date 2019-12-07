@@ -10,6 +10,7 @@ import UIKit
 import UICKeyChainStore
 import GoogleSignIn
 import Firebase
+import GoogleMaps
 
 //import "FBSDKCoreKit/FBSDKCoreKit.h"
 
@@ -28,6 +29,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate , GIDSignInDelegate {
         // Initialize sign-in
         GIDSignIn.sharedInstance().clientID = "949854548604-5geood4nlc35m64fok5hr711k0plat7p.apps.googleusercontent.com"
         GIDSignIn.sharedInstance().delegate = self
+        
+        
+        //google maps
+        GMSServices.provideAPIKey("AIzaSyBnu-04cuIIjfeU6r1kyKpCqyMsAEnhgBQ")
+        GMSPlacesClient.provideAPIKey("AIzaSyBnu-04cuIIjfeU6r1kyKpCqyMsAEnhgBQ")
         
         var initialViewController: UIViewController?
         //just for testing
