@@ -34,7 +34,6 @@ class AssetTable: UIView {
         let views = nib.instantiate(withOwner: self, options: nil)
         if let view = views[0] as? UIView {
             view.frame = self.bounds
-            view.layer.cornerRadius = 6
             self.addSubview(view)
             self.translatesAutoresizingMaskIntoConstraints = false
         }
