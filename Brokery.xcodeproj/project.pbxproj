@@ -16,6 +16,10 @@
 		A29E579323894B8B000B7F09 /* AssetTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29E579223894B8B000B7F09 /* AssetTable.swift */; };
 		A29E579523894E84000B7F09 /* AssetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29E579423894E84000B7F09 /* AssetModel.swift */; };
 		C63E01E9B3E1ABA03CE72119 /* Pods_BrokeryUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEED9E3D84053DC03673B09B /* Pods_BrokeryUITests.framework */; };
+		EF0B0ABA239EC27C0050BD4C /* AssetImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0B0AB8239EC27C0050BD4C /* AssetImageCollectionViewCell.swift */; };
+		EF0B0ABB239EC27C0050BD4C /* AssetImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF0B0AB9239EC27C0050BD4C /* AssetImageCollectionViewCell.xib */; };
+		EF0B0ABE239EC29A0050BD4C /* AssetHashtagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0B0ABC239EC29A0050BD4C /* AssetHashtagCollectionViewCell.swift */; };
+		EF0B0ABF239EC29A0050BD4C /* AssetHashtagCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF0B0ABD239EC29A0050BD4C /* AssetHashtagCollectionViewCell.xib */; };
 		EF0C8524238AC033008A0C32 /* UserLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0C8502238AC030008A0C32 /* UserLogin.swift */; };
 		EF0C8525238AC033008A0C32 /* UserProfileDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0C8503238AC030008A0C32 /* UserProfileDto.swift */; };
 		EF0C8526238AC033008A0C32 /* HashTagStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0C8504238AC030008A0C32 /* HashTagStatus.swift */; };
@@ -121,6 +125,10 @@
 		BA3C6B1FC8324C4F9D554AD6 /* Pods-BrokeryUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BrokeryUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BrokeryUITests/Pods-BrokeryUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		CA5A8FA673DCE72FC9A3D73B /* Pods_Brokery.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Brokery.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED92DD0390071BE92B1EE8D8 /* Pods-BrokeryUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BrokeryUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BrokeryUITests/Pods-BrokeryUITests.release.xcconfig"; sourceTree = "<group>"; };
+		EF0B0AB8239EC27C0050BD4C /* AssetImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		EF0B0AB9239EC27C0050BD4C /* AssetImageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AssetImageCollectionViewCell.xib; sourceTree = "<group>"; };
+		EF0B0ABC239EC29A0050BD4C /* AssetHashtagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetHashtagCollectionViewCell.swift; sourceTree = "<group>"; };
+		EF0B0ABD239EC29A0050BD4C /* AssetHashtagCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AssetHashtagCollectionViewCell.xib; sourceTree = "<group>"; };
 		EF0C8501238AAEA7008A0C32 /* Brokery.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Brokery.entitlements; sourceTree = "<group>"; };
 		EF0C8502238AC030008A0C32 /* UserLogin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserLogin.swift; sourceTree = "<group>"; };
 		EF0C8503238AC030008A0C32 /* UserProfileDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileDto.swift; sourceTree = "<group>"; };
@@ -260,6 +268,10 @@
 				A29E578D23893AF1000B7F09 /* AssetCard.swift */,
 				A29E579023894B6D000B7F09 /* AssetTable.xib */,
 				A29E579223894B8B000B7F09 /* AssetTable.swift */,
+				EF0B0AB8239EC27C0050BD4C /* AssetImageCollectionViewCell.swift */,
+				EF0B0AB9239EC27C0050BD4C /* AssetImageCollectionViewCell.xib */,
+				EF0B0ABC239EC29A0050BD4C /* AssetHashtagCollectionViewCell.swift */,
+				EF0B0ABD239EC29A0050BD4C /* AssetHashtagCollectionViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -566,8 +578,10 @@
 				EF11D1C12375E2E7005C8F0C /* Login.storyboard in Resources */,
 				EF1AC521238D2EE8004FB127 /* GoogleService-Info.plist in Resources */,
 				EF60C8F22374903E0051F57F /* LaunchScreen.storyboard in Resources */,
+				EF0B0ABB239EC27C0050BD4C /* AssetImageCollectionViewCell.xib in Resources */,
 				A29E578C23893AE2000B7F09 /* AssetCard.xib in Resources */,
 				EF471567237D7AE90036DC1E /* Assets.storyboard in Resources */,
+				EF0B0ABF239EC29A0050BD4C /* AssetHashtagCollectionViewCell.xib in Resources */,
 				EF60C8EF2374903E0051F57F /* Assets.xcassets in Resources */,
 				EF60C8ED2374903D0051F57F /* Main.storyboard in Resources */,
 				A29E579123894B6D000B7F09 /* AssetTable.xib in Resources */,
@@ -795,6 +809,7 @@
 				EF60C8E82374903D0051F57F /* AppDelegate.swift in Sources */,
 				EF0C8525238AC033008A0C32 /* UserProfileDto.swift in Sources */,
 				EF0C8538238AC033008A0C32 /* AssetGalleryDto.swift in Sources */,
+				EF0B0ABA239EC27C0050BD4C /* AssetImageCollectionViewCell.swift in Sources */,
 				EF0C8537238AC033008A0C32 /* ContactDto.swift in Sources */,
 				EF0C8526238AC033008A0C32 /* HashTagStatus.swift in Sources */,
 				EFB50BE9238414F600188EED /* StringExtension.swift in Sources */,
@@ -803,6 +818,7 @@
 				EF0C8527238AC033008A0C32 /* AssetTypeStatus.swift in Sources */,
 				EF46196E238E7E41008F453D /* WebError.swift in Sources */,
 				EF47156B237D7B900036DC1E /* HomeViewController.swift in Sources */,
+				EF0B0ABE239EC29A0050BD4C /* AssetHashtagCollectionViewCell.swift in Sources */,
 				EF471569237D7B7C0036DC1E /* AddAssetViewController.swift in Sources */,
 				EF0C852D238AC033008A0C32 /* UserGroupDto.swift in Sources */,
 				EF0C853E238AC033008A0C32 /* UserPassword.swift in Sources */,

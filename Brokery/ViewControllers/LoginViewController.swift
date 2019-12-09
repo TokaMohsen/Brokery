@@ -75,7 +75,6 @@ class LoginViewController: BaseViewController , GIDSignInDelegate {
                 self.userLoginInService.signIn(params: userinfo.params, method: .post, url: AuthentactionURL) { (response, error) in
                     if let mappedResponse = response?.data
                     {
-                        self.activityIndicator.stopAnimating()
 
                         let homeStoryboard = UIStoryboard(name: "Assets", bundle: nil)
                         if let HomeVC = homeStoryboard.instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController {
@@ -88,7 +87,9 @@ class LoginViewController: BaseViewController , GIDSignInDelegate {
                         //controller.handleError(error)
                     }
                 }
-                
+            
+                self.activityIndicator.stopAnimating()
+
             }
             
         }
