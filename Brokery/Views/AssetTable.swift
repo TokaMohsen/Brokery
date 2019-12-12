@@ -12,7 +12,8 @@ import SDWebImage
 class AssetTable: UIView {
     @IBOutlet weak var assetTableView: UITableView!
     var assets = [AssetDto]()
-    
+    var assetDelegate : AssetDelegateProtocol?
+
     override func awakeFromNib() {
         super.awakeFromNib()
         registerNibView()
@@ -70,7 +71,9 @@ extension AssetTable: UITableViewDataSource {
 }
 
 extension AssetTable: UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        assetDelegate?.showDetailsOf(asset: self.assets[indexPath.row])
+
     }
 }

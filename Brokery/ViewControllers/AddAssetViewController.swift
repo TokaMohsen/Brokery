@@ -18,9 +18,14 @@ class AddAssetViewController: BaseViewController, UIPickerViewDelegate ,UINaviga
     @IBOutlet var hashtagTextField: UITextField!
     @IBOutlet var assetTypeDropdownTextField: DropDown!
     
-    var imageController : UIImagePickerController?
-    var tempPickedImg : UIImage
+    @IBOutlet var hashtagUIView: UIView!
+    @IBOutlet var hashtagCollectionView: UICollectionView!
     
+    var imageController : UIImagePickerController?
+    var tempPickedImg : UIImage?
+    
+    static let sharedWebClient = WebClient.init(baseUrl: BaseAPIURL)
+
     override func viewDidLoad() {
         super.viewDidLoad()
         imageController = UIImagePickerController()
@@ -100,7 +105,7 @@ class AddAssetViewController: BaseViewController, UIPickerViewDelegate ,UINaviga
             // imageViewPic.contentMode = .scaleToFill
     
             //imageViewPic.image = pickedImage
-        tempPickedImg = pickedImage
+        tempPickedImg = selectedImage
     
         picker.dismiss(animated: true, completion: nil)
     }

@@ -30,9 +30,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate , GIDSignInDelegate {
         GIDSignIn.sharedInstance().delegate = self
         
         
-        //google maps
-        GMSServices.provideAPIKey("AIzaSyBnu-04cuIIjfeU6r1kyKpCqyMsAEnhgBQ")
-        GMSPlacesClient.provideAPIKey("AIzaSyBnu-04cuIIjfeU6r1kyKpCqyMsAEnhgBQ")
+        //google maps AIzaSyB4ZQQHSyPdVdY3q4rK5SZ1zlXdeAT9S1w
+        GMSServices.provideAPIKey("AIzaSyB4ZQQHSyPdVdY3q4rK5SZ1zlXdeAT9S1w")
+        GMSPlacesClient.provideAPIKey("AIzaSyB4ZQQHSyPdVdY3q4rK5SZ1zlXdeAT9S1w")
         
         var initialViewController: UIViewController?
 //        //just for testing
@@ -40,7 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate , GIDSignInDelegate {
         
         if let username = LocalStore.getUserToken() {
             let mainStoryboard : UIStoryboard = UIStoryboard(name: "Assets", bundle: nil)
-            initialViewController = mainStoryboard.instantiateViewController(withIdentifier: "HomeViewController")
+            initialViewController = mainStoryboard.instantiateViewController(withIdentifier: "AssetMapViewController")
         } else {
             let mainStoryboard : UIStoryboard = UIStoryboard(name: "Login", bundle: nil)
             initialViewController = mainStoryboard.instantiateViewController(withIdentifier: "LoginViewController")
