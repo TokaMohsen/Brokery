@@ -111,7 +111,7 @@
         <!--Login View Controller-->
         <scene sceneID="xK6-F1-tZF">
             <objects>
-                <viewController id="kM9-L6-ls0" customClass="LoginViewController" customModule="Brokery" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="kM9-L6-ls0" customClass="LoginViewController" customModule="Brokery" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wiB-hq-hjb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

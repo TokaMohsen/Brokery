@@ -8,18 +8,21 @@ target 'Brokery' do
   # Pods for Brokery
 
    pod 'SDWebImage', '~> 4.0'
-    #pod 'AFNetworking', '~> 3.0'
-    pod 'Alamofire', '~> 4.2.0-rc.3'
-    pod 'JSONModel' ,'~> 1.3.0'
-    pod 'Reachability'
-   #pod 'SwiftKeychainWrapper' ,'~> 3.2'
-    pod 'UICKeyChainStore'
+   pod 'Alamofire', '~> 4.2.0-rc.3'
+   pod 'JSONModel' ,'~> 1.3.0'
+   pod 'Reachability'
+   pod 'UICKeyChainStore'
    pod 'Firebase/Analytics'
    pod 'Firebase/Auth'
    pod 'GoogleSignIn'
 
 #pods for UI
    pod 'iOSDropDown'
+   pod 'ReadMoreTextView'
+
+#pods for google maps
+  pod 'GoogleMaps'
+  pod 'GooglePlaces'
 
 # Pods for Facebook
   pod 'Bolts'

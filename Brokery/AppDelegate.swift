@@ -10,8 +10,8 @@ import UIKit
 import UICKeyChainStore
 import GoogleSignIn
 import Firebase
-
-//import "FBSDKCoreKit/FBSDKCoreKit.h"
+import GoogleMaps
+import GooglePlaces
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate , GIDSignInDelegate {
@@ -29,13 +29,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate , GIDSignInDelegate {
         GIDSignIn.sharedInstance().clientID = "949854548604-5geood4nlc35m64fok5hr711k0plat7p.apps.googleusercontent.com"
         GIDSignIn.sharedInstance().delegate = self
         
+        
+        //google maps AIzaSyB4ZQQHSyPdVdY3q4rK5SZ1zlXdeAT9S1w
+        GMSServices.provideAPIKey("AIzaSyB4ZQQHSyPdVdY3q4rK5SZ1zlXdeAT9S1w")
+        GMSPlacesClient.provideAPIKey("AIzaSyB4ZQQHSyPdVdY3q4rK5SZ1zlXdeAT9S1w")
+        
         var initialViewController: UIViewController?
-        //just for testing
-        LocalStore.storeUserToken(token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjBhZjMxOTM3LTQ2MTItNDE0NC05NjgwLTRjOWYyNmY4ODJmZCIsIm5hbWVpZCI6IjBhZjMxOTM3LTQ2MTItNDE0NC05NjgwLTRjOWYyNmY4ODJmZCIsIklzU3VwZXJBZG1pbiI6IlRydWUiLCJuYmYiOjE1NzU3MTQwOTksImV4cCI6MTU3NjMxODg5OSwiaWF0IjoxNTc1NzE0MDk5fQ.q5WR4AhEn9bT3nLdFMaKtbDY7Zn3AFbelJvJxxlP0RA")
+//        //just for testing
+//        LocalStore.storeUserToken(token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjBhZjMxOTM3LTQ2MTItNDE0NC05NjgwLTRjOWYyNmY4ODJmZCIsIm5hbWVpZCI6IjBhZjMxOTM3LTQ2MTItNDE0NC05NjgwLTRjOWYyNmY4ODJmZCIsIklzU3VwZXJBZG1pbiI6IlRydWUiLCJuYmYiOjE1NzU3MTQwOTksImV4cCI6MTU3NjMxODg5OSwiaWF0IjoxNTc1NzE0MDk5fQ.q5WR4AhEn9bT3nLdFMaKtbDY7Zn3AFbelJvJxxlP0RA")
         
         if let username = LocalStore.getUserToken() {
             let mainStoryboard : UIStoryboard = UIStoryboard(name: "Assets", bundle: nil)
-            initialViewController = mainStoryboard.instantiateViewController(withIdentifier: "HomeViewController")
+            initialViewController = mainStoryboard.instantiateViewController(withIdentifier: "AssetMapViewController")
         } else {
             let mainStoryboard : UIStoryboard = UIStoryboard(name: "Login", bundle: nil)
             initialViewController = mainStoryboard.instantiateViewController(withIdentifier: "LoginViewController")

@@ -11,6 +11,8 @@ import UIKit
 class MarketPlaceViewController: BaseViewController {
 
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet var assetTableCustomView: AssetTable!
+
     private lazy var marketPlaceService = MarketPlaceService()
     
     static let sharedWebClient = WebClient.init(baseUrl: BaseAPIURL)
@@ -35,10 +37,10 @@ class MarketPlaceViewController: BaseViewController {
         DispatchQueue.main.async {
             self.activityIndicator.stopAnimating()
             self.marketPlaceService.fetch(params: userinfo.params, method: .get, url: AllAssestsURL) { (response, error) in
-                if let mappedResponse = response?.title
+                if let mappedResponse = response?.data
                 {
-                    
-                    
+                    self.assetTableCustomView.setupTableView(assets: mappedResponse)
+
                 } else if error != nil {
                     //controller.handleError(error)
                 }
