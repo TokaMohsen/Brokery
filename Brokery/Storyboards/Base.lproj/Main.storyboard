@@ -25,10 +25,10 @@
                                     <constraint firstAttribute="height" constant="49" id="4jr-cH-hKE"/>
                                 </constraints>
                                 <items>
-                                    <tabBarItem title="MarketPlace" image="marketPlace" selectedImage="marketPlace" id="idi-XI-txu"/>
-                                    <tabBarItem title="Home" image="home" id="Daw-pt-opK"/>
-                                    <tabBarItem title="Add" image="add" id="5Ie-PQ-T0W"/>
-                                    <tabBarItem systemItem="more" id="leB-vM-Zqy"/>
+                                    <tabBarItem title="Home" image="home" selectedImage="marketPlace" id="idi-XI-txu"/>
+                                    <tabBarItem title="Market Place" image="marketPlace" id="Daw-pt-opK"/>
+                                    <tabBarItem title="Massenger" image="chat" id="5Ie-PQ-T0W"/>
+                                    <tabBarItem title="Notifications" image="notifications" id="leB-vM-Zqy"/>
                                 </items>
                             </tabBar>
                         </subviews>
@@ -46,8 +46,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="add" width="48" height="48"/>
-        <image name="home" width="48" height="48"/>
-        <image name="marketPlace" width="48" height="48"/>
+        <image name="chat" width="434" height="409"/>
+        <image name="home" width="392" height="434"/>
+        <image name="marketPlace" width="434" height="346"/>
+        <image name="notifications" width="397" height="434"/>
     </resources>
 </document>
