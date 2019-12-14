@@ -17,7 +17,7 @@ class HomeViewController: BaseViewController {
     private var assetModel: AssetDto?
     
     static let sharedWebClient = WebClient.init(baseUrl: BaseAPIURL)
-    
+
     var getFollowedDevelopersAssetsTask: URLSessionDataTask!
     
     override func viewDidLoad() {
@@ -42,6 +42,7 @@ class HomeViewController: BaseViewController {
                 if let mappedResponse = response?.data
                 {
                     self.assetTableCustomView.setupTableView(assets: mappedResponse)
+                    self.assetTableCustomView.assetDelegate = self 
                     
                 } else if error != nil {
                     //controller.handleError(error)

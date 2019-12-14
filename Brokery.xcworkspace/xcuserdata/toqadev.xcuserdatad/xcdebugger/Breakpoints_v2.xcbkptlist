@@ -74,7 +74,7 @@
                   moduleName = "Brokery"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/toqadev/Desktop/playgrounds/Brokery/Brokery/Brokery/ViewControllers/RegisterationViewController.swift"
-                  timestampString = "597753065.7608221"
+                  timestampString = "598011638.9245369"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "68"
@@ -89,7 +89,7 @@
                   moduleName = "Brokery"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/toqadev/Desktop/playgrounds/Brokery/Brokery/Brokery/ViewControllers/RegisterationViewController.swift"
-                  timestampString = "597753065.7630939"
+                  timestampString = "598011638.926162"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "68"
@@ -244,12 +244,76 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Brokery/ViewControllers/HomeViewController.swift"
-            timestampString = "597409443.307793"
+            timestampString = "598011638.716043"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39"
-            landmarkName = "fetchData()"
+            startingLineNumber = "106"
+            endingLineNumber = "106"
+            landmarkName = "showDetailsOf(asset:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Brokery/ViewControllers/AssetDetailsViewController.swift"
+            timestampString = "598011638.716133"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
+            landmarkName = "setupAssetView(asset:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Brokery/ViewControllers/AssetDetailsViewController.swift"
+            timestampString = "598011638.7165149"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
+            landmarkName = "setupAssetView(asset:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Brokery/ViewControllers/HomeViewController.swift"
+            timestampString = "598011638.716776"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "108"
+            endingLineNumber = "108"
+            landmarkName = "showDetailsOf(asset:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Brokery/ViewControllers/AssetDetailsViewController.swift"
+            timestampString = "598011638.7168241"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
+            landmarkName = "setupAssetView(asset:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
