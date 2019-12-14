@@ -19,7 +19,7 @@ class AssetCard: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.layer.cornerRadius = 6
+        appartementDescription.sizeToFit()
     }
     
     func setup(_ asset: AssetDto) {
