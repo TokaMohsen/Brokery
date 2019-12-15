@@ -105,7 +105,7 @@ extension HomeViewController : AssetDelegateProtocol {
     func showDetailsOf(asset: AssetDto) {
         let storyboard = UIStoryboard(name: "Assets", bundle: nil)
         if let viewController = storyboard.instantiateViewController(withIdentifier: "AssetDetailsViewController") as? AssetDetailsViewController {
-            viewController.setupAssetView(asset: asset)
+            viewController.getAssetModel(asset: asset)
             
             navigationController?.pushViewController(viewController, animated: true)
         }

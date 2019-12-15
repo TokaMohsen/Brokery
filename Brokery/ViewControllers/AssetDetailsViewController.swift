@@ -35,11 +35,18 @@ class AssetDetailsViewController: UIViewController , MapDelegateProtocol {
  
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        hashtagCollectionView.register(UINib(nibName: "AssetHashtagCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: hashtagCollectionViewIdentifier)
+        hashtagCollectionView.register(UINib(nibName: "AssetImageCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: assetImagesCollectionViewIdentifier)
         hashtagCollectionView.delegate = self
         assetImagesCollectionView.delegate = self
         
         hashtagCollectionView.dataSource = self
         assetImagesCollectionView.dataSource = self
+        if let asset = self.assetModel
+        {
+            setupAssetView(asset: asset )
+        }
     }
     
     func updateAssetDetailsLocation(assetLocation: CLLocationCoordinate2D) {
@@ -65,26 +72,31 @@ class AssetDetailsViewController: UIViewController , MapDelegateProtocol {
         marker.isDraggable = true
     }
     
+    func getAssetModel(asset : AssetDto)
+    {
+        self.assetModel = asset
+    }
+    
     func setupAssetView(asset : AssetDto)
     {
-       if let title = asset.title {
-            assetNameLabel.text = title
-        }
-            self.assetDescriptionLabel.text = asset.description
-            if let lat = asset.latitude , let long = asset.longitude
+        if let asset =  self.assetModel
+        {
+            assetNameLabel.text =  asset.title
+            self.assetDescriptionLabel.text =  asset.description
+            if let lat =  asset.latitude , let long =  asset.longitude
             {
                 self.setupMapView(lang: lat, lat: long)
             }
-            if let tages = asset.tages
+            if let tages =  asset.tages
             {
                 self.assetTages = tages
             }
-            if let imageGallery = assetModel?.assetGallery
+            if let imageGallery =  asset.assetGallery
             {
                 let Paths = imageGallery.compactMap({return $0.path})
                 self.assetGallery = Paths.map({return BaseAPIURL + $0 })
             }
-        //}
+        }
     }
 
     
