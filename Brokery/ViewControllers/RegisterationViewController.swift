@@ -74,6 +74,9 @@ class RegisterationViewController: BaseViewController {
                         if let token = mappedResponse.token{
                             LocalStore.storeUserToken(token:token)
                         }
+                        if let userId = mappedResponse.id {
+                            LocalStore.storeUserID(id: userId)
+                        }
                     } else if let error = response.error {
                         controller.handleError(error: error)
                     }

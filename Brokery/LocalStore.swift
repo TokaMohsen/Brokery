@@ -12,7 +12,7 @@ import UICKeyChainStore
 class LocalStore {
     static func storeUserToken (token : String){
         let defaults = UserDefaults.standard
-        defaults.set(token, forKey: "movie")
+        defaults.set(token, forKey: "application_token")
         defaults.synchronize()
         
        // UICKeyChainStore.setString(token, forKey: "application_token")
@@ -25,13 +25,41 @@ class LocalStore {
 //       return nil
         
         let defaults = UserDefaults.standard
-        if let token = defaults.string(forKey: "movie")
+        if let token = defaults.string(forKey: "application_token")
         {
             return token
         }
         return nil 
     }
+    
     static func deleteUserToken (token : String){
         UserDefaults.standard.removeObject(forKey: "application_token")
+    }
+    
+    static func storeUserID (id : String){
+        let defaults = UserDefaults.standard
+        defaults.set(token, forKey: "application_id")
+        defaults.synchronize()
+        
+        // UICKeyChainStore.setString(token, forKey: "application_token")
+    }
+    
+    static func getUserId()-> String? {
+        //        if let token =  UICKeyChainStore.string(forKey: "application_token") {
+        //            return token
+        //        }
+        //
+        //       return nil
+        
+        let defaults = UserDefaults.standard
+        if let token = defaults.string(forKey: "application_id")
+        {
+            return token
+        }
+        return nil
+    }
+    
+    static func deleteUserId (id : String){
+        UserDefaults.standard.removeObject(forKey: "application_id")
     }
 }

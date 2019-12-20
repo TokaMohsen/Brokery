@@ -7,6 +7,13 @@
 
 import Foundation
 
+public struct UserObject: Decodable {
+    var success: Bool
+    var data: [UserDto]?
+    var count: Int?
+    var code: String?
+    
+}
 
 public class UserDto: Decodable {
 
