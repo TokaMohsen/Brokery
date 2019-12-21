@@ -17,7 +17,7 @@ class HomeViewController: BaseViewController {
     private var assetModel: AssetDto?
     
     static let sharedWebClient = WebClient.init(baseUrl: BaseAPIURL)
-    
+
     var getFollowedDevelopersAssetsTask: URLSessionDataTask!
     
     override func viewDidLoad() {
@@ -42,6 +42,7 @@ class HomeViewController: BaseViewController {
                 if let mappedResponse = response?.data
                 {
                     self.assetTableCustomView.setupTableView(assets: mappedResponse)
+                    self.assetTableCustomView.assetDelegate = self 
                     
                 } else if error != nil {
                     //controller.handleError(error)
@@ -104,7 +105,7 @@ extension HomeViewController : AssetDelegateProtocol {
     func showDetailsOf(asset: AssetDto) {
         let storyboard = UIStoryboard(name: "Assets", bundle: nil)
         if let viewController = storyboard.instantiateViewController(withIdentifier: "AssetDetailsViewController") as? AssetDetailsViewController {
-            viewController.setupAssetView(asset: asset)
+            viewController.getAssetModel(asset: asset)
             
             navigationController?.pushViewController(viewController, animated: true)
         }

@@ -524,10 +524,10 @@
             </objects>
             <point key="canvasLocation" x="1767" y="133"/>
         </scene>
-        <!--Asset Details View Controller-->
+        <!--Asset Details-->
         <scene sceneID="OTx-Fo-0RB">
             <objects>
-                <viewController storyboardIdentifier="AssetDetailsViewController" id="Qbg-u4-hla" customClass="AssetDetailsViewController" customModule="Brokery" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="AssetDetailsViewController" storyboardIdentifier="AssetDetailsViewController" title="Asset Details" id="Qbg-u4-hla" customClass="AssetDetailsViewController" customModule="Brokery" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yJJ-Jo-JYW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -630,10 +630,10 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gXX-WF-MCM" userLabel="ImgaesPagerView">
                                         <rect key="frame" x="0.0" y="205.33333333333331" width="314" height="205.33333333333331"/>
                                         <subviews>
-                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="zLT-da-u0e" userLabel="imagesCollection View">
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="zLT-da-u0e" userLabel="imagesCollection View">
                                                 <rect key="frame" x="0.0" y="0.0" width="314" height="205.33333333333334"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="U55-5i-7vK">
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="U55-5i-7vK">
                                                     <size key="itemSize" width="50" height="50"/>
                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -659,9 +659,9 @@
                                             <constraint firstAttribute="bottom" secondItem="zLT-da-u0e" secondAttribute="bottom" id="HKR-Fu-rxa"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jfh-nz-Bia" userLabel="MapView" customClass="GMSMapView">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d8Z-6u-hTO" userLabel="mapView" customClass="GMSMapView">
                                         <rect key="frame" x="0.0" y="410.66666666666669" width="314" height="205.33333333333331"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                 </subviews>
                             </stackView>
@@ -680,10 +680,7 @@
                         <outlet property="assetImagesCollectionView" destination="zLT-da-u0e" id="l9q-L0-Pb1"/>
                         <outlet property="assetNameLabel" destination="Kzd-Ta-ypY" id="vrY-9y-pdI"/>
                         <outlet property="hashtagCollectionView" destination="bsK-ZB-UXM" id="u2j-C4-9TC"/>
-                        <outlet property="mapView" destination="jfh-nz-Bia" id="MBu-nw-3Ue"/>
-                        <outlet property="uiMapView" destination="jfh-nz-Bia" id="Uxu-lD-ZsG"/>
-                        <segue destination="8Sa-A0-mhO" kind="showDetail" identifier="showDetails" id="hMG-Zs-E0k"/>
-                        <segue destination="u3V-PT-mU6" kind="showDetail" identifier="showDetails" id="pjz-Qh-D5x"/>
+                        <outlet property="mapView" destination="d8Z-6u-hTO" id="Icy-ce-dad"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9br-IR-knV" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -68,6 +68,11 @@
 		EF30556C23A0120A0053FCBC /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF30556A23A0120A0053FCBC /* MapViewController.swift */; };
 		EF30556D23A0120A0053FCBC /* PlacesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF30556B23A0120A0053FCBC /* PlacesViewController.swift */; };
 		EF30556F23A014920053FCBC /* AssetMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF30556E23A014920053FCBC /* AssetMapViewController.swift */; };
+		EF330EB023A826FC00361086 /* Appointments.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF330EAF23A826FC00361086 /* Appointments.storyboard */; };
+		EF330EB223A8273100361086 /* AddAppointmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF330EB123A8273100361086 /* AddAppointmentViewController.swift */; };
+		EF330EB423A8274600361086 /* AppointmentsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF330EB323A8274600361086 /* AppointmentsListViewController.swift */; };
+		EF330EB623A82A2E00361086 /* GetUserAssetsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF330EB523A82A2E00361086 /* GetUserAssetsService.swift */; };
+		EF330EB823A82CF700361086 /* GetUsersListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF330EB723A82CF700361086 /* GetUsersListService.swift */; };
 		EF46195B238E7E03008F453D /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF461957238E7E03008F453D /* Cache.swift */; };
 		EF46195C238E7E03008F453D /* CacheItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF461958238E7E03008F453D /* CacheItem.swift */; };
 		EF46195D238E7E03008F453D /* CachedWebClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF461959238E7E03008F453D /* CachedWebClient.swift */; };
@@ -185,6 +190,11 @@
 		EF30556A23A0120A0053FCBC /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		EF30556B23A0120A0053FCBC /* PlacesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlacesViewController.swift; sourceTree = "<group>"; };
 		EF30556E23A014920053FCBC /* AssetMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetMapViewController.swift; sourceTree = "<group>"; };
+		EF330EAF23A826FC00361086 /* Appointments.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Appointments.storyboard; sourceTree = "<group>"; };
+		EF330EB123A8273100361086 /* AddAppointmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAppointmentViewController.swift; sourceTree = "<group>"; };
+		EF330EB323A8274600361086 /* AppointmentsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentsListViewController.swift; sourceTree = "<group>"; };
+		EF330EB523A82A2E00361086 /* GetUserAssetsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserAssetsService.swift; sourceTree = "<group>"; };
+		EF330EB723A82CF700361086 /* GetUsersListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUsersListService.swift; sourceTree = "<group>"; };
 		EF461957238E7E03008F453D /* Cache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
 		EF461958238E7E03008F453D /* CacheItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CacheItem.swift; sourceTree = "<group>"; };
 		EF461959238E7E03008F453D /* CachedWebClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CachedWebClient.swift; sourceTree = "<group>"; };
@@ -305,6 +315,7 @@
 				EF60C8EB2374903D0051F57F /* Main.storyboard */,
 				EF11D1C02375E2E7005C8F0C /* Login.storyboard */,
 				EF471566237D7AE90036DC1E /* Assets.storyboard */,
+				EF330EAF23A826FC00361086 /* Appointments.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -322,6 +333,8 @@
 				A2390C34238321EC001B0475 /* BaseViewController.swift */,
 				EF542682239B038500E5F124 /* AssetDetailsViewController.swift */,
 				EF30556E23A014920053FCBC /* AssetMapViewController.swift */,
+				EF330EB123A8273100361086 /* AddAppointmentViewController.swift */,
+				EF330EB323A8274600361086 /* AppointmentsListViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -353,6 +366,8 @@
 				EF186B5423941EA80053A706 /* MarketPlaceService.swift */,
 				EF186B56239422930053A706 /* HomeService.swift */,
 				EF0B1C1123A1657100A644ED /* AssetTypesListGetService.swift */,
+				EF330EB523A82A2E00361086 /* GetUserAssetsService.swift */,
+				EF330EB723A82CF700361086 /* GetUsersListService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -607,6 +622,7 @@
 				EF11D1C12375E2E7005C8F0C /* Login.storyboard in Resources */,
 				EF1AC521238D2EE8004FB127 /* GoogleService-Info.plist in Resources */,
 				EF60C8F22374903E0051F57F /* LaunchScreen.storyboard in Resources */,
+				EF330EB023A826FC00361086 /* Appointments.storyboard in Resources */,
 				EF0B0ABB239EC27C0050BD4C /* AssetImageCollectionViewCell.xib in Resources */,
 				A29E578C23893AE2000B7F09 /* AssetCard.xib in Resources */,
 				EF471567237D7AE90036DC1E /* Assets.storyboard in Resources */,
@@ -803,9 +819,12 @@
 				EFD5796423894DB0004C6808 /* GetUserInfoByToken.swift in Sources */,
 				EF0C8530238AC033008A0C32 /* ContactHashTagDto.swift in Sources */,
 				EF0C8541238AC033008A0C32 /* GalleryItemTypeDto.swift in Sources */,
+				EF330EB223A8273100361086 /* AddAppointmentViewController.swift in Sources */,
 				A2390C35238321EC001B0475 /* BaseViewController.swift in Sources */,
 				EF0C8532238AC033008A0C32 /* AccountDto.swift in Sources */,
 				EF461961238E7E10008F453D /* Reachability.swift in Sources */,
+				EF330EB623A82A2E00361086 /* GetUserAssetsService.swift in Sources */,
+				EF330EB823A82CF700361086 /* GetUsersListService.swift in Sources */,
 				EF0C853F238AC033008A0C32 /* MessageDto.swift in Sources */,
 				EF0C852E238AC033008A0C32 /* UserGroupPrivilegeDto.swift in Sources */,
 				EF0C852C238AC033008A0C32 /* UserDto.swift in Sources */,
@@ -814,6 +833,7 @@
 				EF0C8524238AC033008A0C32 /* UserLogin.swift in Sources */,
 				A2C0F4CE23A2FB3D00A52889 /* NavigationManager.swift in Sources */,
 				EFD5796223894612004C6808 /* LocalStore.swift in Sources */,
+				EF330EB423A8274600361086 /* AppointmentsListViewController.swift in Sources */,
 				EF0C8543238AC033008A0C32 /* NotificationDto.swift in Sources */,
 				A29E579523894E84000B7F09 /* AssetModel.swift in Sources */,
 				EF0C8544238AC033008A0C32 /* UserStatus.swift in Sources */,

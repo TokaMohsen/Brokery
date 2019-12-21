@@ -49,6 +49,17 @@ class MarketPlaceViewController: BaseViewController {
         }
         
     }
+}
+    extension MarketPlaceViewController : AssetDelegateProtocol {
+        func showDetailsOf(asset: AssetDto) {
+            let storyboard = UIStoryboard(name: "Assets", bundle: nil)
+            if let viewController = storyboard.instantiateViewController(withIdentifier: "AssetDetailsViewController") as? AssetDetailsViewController {
+                viewController.getAssetModel(asset: asset)
+                
+                navigationController?.pushViewController(viewController, animated: true)
+            }
+        }
+    }
 
     /*
     // MARK: - Navigation
@@ -60,4 +71,3 @@ class MarketPlaceViewController: BaseViewController {
     }
     */
 
-}
