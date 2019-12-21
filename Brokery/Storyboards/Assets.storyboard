@@ -699,7 +699,7 @@
                                 <rect key="frame" x="10" y="30" width="394" height="696"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Yir-hW-mpP">
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Yir-hW-mpP">
                                 <rect key="frame" x="188.66666666666666" y="359.66666666666669" width="37" height="37"/>
                                 <color key="color" red="0.98498968909999995" green="0.74370113879999999" blue="0.1241826833" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>
@@ -727,7 +727,7 @@
         <!--Market Place View Controller-->
         <scene sceneID="SF0-TC-sL1">
             <objects>
-                <viewController id="u3V-PT-mU6" customClass="MarketPlaceViewController" customModule="Brokery" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MarketPlaceViewController" id="u3V-PT-mU6" customClass="MarketPlaceViewController" customModule="Brokery" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kVs-Aj-2bw">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -736,7 +736,7 @@
                                 <rect key="frame" x="10" y="30" width="394" height="696"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="cAQ-xT-cBh">
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="cAQ-xT-cBh">
                                 <rect key="frame" x="188.66666666666666" y="359.66666666666669" width="37" height="37"/>
                                 <color key="color" red="0.98498968909999995" green="0.74370113879999999" blue="0.1241826833" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>
@@ -753,6 +753,7 @@
                         <viewLayoutGuide key="safeArea" id="YwN-gK-jLG"/>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="cAQ-xT-cBh" id="cCM-1h-u02"/>
                         <outlet property="assetTableCustomView" destination="Lor-Ct-IA9" id="TSP-Zg-l6i"/>
                     </connections>
                 </viewController>

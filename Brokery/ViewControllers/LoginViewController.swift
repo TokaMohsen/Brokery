@@ -70,28 +70,25 @@ class LoginViewController: BaseViewController , GIDSignInDelegate {
             var userinfo = Resource<Object , CustomError>(jsonDecoder: JSONDecoder(), path: AuthentactionURL, method: .post)
             userinfo.params = ["email": emailTxt,
                                "password": passwordTxt]
- 
-         DispatchQueue.main.async {
-                self.userLoginInService.signIn(params: userinfo.params, method: .post, url: AuthentactionURL) { (response, error) in
-                    if let mappedResponse = response?.data
-                    {
-
-                        let homeStoryboard = UIStoryboard(name: "Assets", bundle: nil)
-                        if let HomeVC = homeStoryboard.instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController {
-                            self.navigationController?.pushViewController(HomeVC, animated: true)
-                           // UIApplication.shared.keyWindow?.rootViewController = HomeVC
-                            self.dismiss(animated: true, completion: nil)
-                        }
-                        
-                    } else if error != nil {
-                        //controller.handleError(error)
-                    }
-                }
             
-                self.activityIndicator.stopAnimating()
-
+            
+            self.userLoginInService.signIn(params: userinfo.params, method: .post, url: AuthentactionURL) { (response, error) in
+                if let mappedResponse = response?.data
+                {
+                    
+                    DispatchQueue.main.async {
+                        self.dismiss(animated: true, completion: nil)
+                        let appDelegate = UIApplication.shared.delegate! as! AppDelegate
+                        appDelegate.window?.rootViewController = NavigationManager.setupTabBar()
+                        appDelegate.window?.makeKeyAndVisible()
+                    }
+                    
+                } else if error != nil {
+                    //controller.handleError(error)
+                }
             }
             
+            self.activityIndicator.stopAnimating()
         }
     }
     

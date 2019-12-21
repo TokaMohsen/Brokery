@@ -38,9 +38,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate , GIDSignInDelegate {
 //        //just for testing
 //        LocalStore.storeUserToken(token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjBhZjMxOTM3LTQ2MTItNDE0NC05NjgwLTRjOWYyNmY4ODJmZCIsIm5hbWVpZCI6IjBhZjMxOTM3LTQ2MTItNDE0NC05NjgwLTRjOWYyNmY4ODJmZCIsIklzU3VwZXJBZG1pbiI6IlRydWUiLCJuYmYiOjE1NzU3MTQwOTksImV4cCI6MTU3NjMxODg5OSwiaWF0IjoxNTc1NzE0MDk5fQ.q5WR4AhEn9bT3nLdFMaKtbDY7Zn3AFbelJvJxxlP0RA")
         
-        if let username = LocalStore.getUserToken() {
-            let mainStoryboard : UIStoryboard = UIStoryboard(name: "Assets", bundle: nil)
-            initialViewController = mainStoryboard.instantiateViewController(withIdentifier: "HomeViewController")
+        if LocalStore.getUserToken() != nil {
+//            let mainStoryboard : UIStoryboard = UIStoryboard(name: "Assets", bundle: nil)
+//            initialViewController = mainStoryboard.instantiateViewController(withIdentifier: "HomeViewController")
+            initialViewController = NavigationManager.setupTabBar()
         } else {
             let mainStoryboard : UIStoryboard = UIStoryboard(name: "Login", bundle: nil)
             initialViewController = mainStoryboard.instantiateViewController(withIdentifier: "LoginViewController")

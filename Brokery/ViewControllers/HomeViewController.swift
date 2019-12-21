@@ -22,9 +22,11 @@ class HomeViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         self.fetchData()
-        
-        // Do any additional setup after loading the view.
     }
     
     private func fetchData()
@@ -37,23 +39,22 @@ class HomeViewController: BaseViewController {
         userinfo.params = ["Page": "0",
                            "PageSize": "10"]
         
-        DispatchQueue.main.async {
-            self.homeService.fetch(params: userinfo.params, method: .get, url: FollowedAssetsURL) { (response, error) in
-                if let mappedResponse = response?.data
-                {
-                    self.assetTableCustomView.setupTableView(assets: mappedResponse)
-                    self.assetTableCustomView.assetDelegate = self 
-                    
-                } else if error != nil {
-                    //controller.handleError(error)
-                    self.showErrorAlert(with: "error")
-                }
+        self.homeService.fetch(params: userinfo.params, method: .get, url: FollowedAssetsURL) { (response, error) in
+            DispatchQueue.main.async {
+                //            self.activityIndicator.hidesWhenStopped = true
+                self.activityIndicator.stopAnimating()
             }
-            self.activityIndicator.stopAnimating()
             
-            
+            if let mappedResponse = response?.data
+            {
+                self.assetTableCustomView.setupTableView(assets: mappedResponse)
+                self.assetTableCustomView.assetDelegate = self
+                
+            } else if error != nil {
+                //controller.handleError(error)
+                self.showErrorAlert(with: "error")
+            }
         }
-        
     }
     
     private func showErrorAlert(with message: String) {

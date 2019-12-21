@@ -73,6 +73,5 @@ extension AssetTable: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         assetDelegate?.showDetailsOf(asset: self.assets[indexPath.row])
-
     }
 }

@@ -9,19 +9,24 @@
 import UIKit
 
 class MarketPlaceViewController: BaseViewController {
-
+    
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet var assetTableCustomView: AssetTable!
-
+    
     private lazy var marketPlaceService = MarketPlaceService()
     
     static let sharedWebClient = WebClient.init(baseUrl: BaseAPIURL)
     
     var getAllAssetsTask: URLSessionDataTask!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.fetchData()
     }
     
     private func fetchData()
@@ -34,32 +39,35 @@ class MarketPlaceViewController: BaseViewController {
         userinfo.params = ["Page": "0",
                            "PageSize": "10"]
         
-        DispatchQueue.main.async {
-            self.activityIndicator.stopAnimating()
-            self.marketPlaceService.fetch(params: userinfo.params, method: .get, url: AllAssestsURL) { (response, error) in
-                if let mappedResponse = response?.data
-                {
-                    self.assetTableCustomView.setupTableView(assets: mappedResponse)
-
-                } else if error != nil {
-                    //controller.handleError(error)
-                }
+        self.marketPlaceService.fetch(params: userinfo.params, method: .get, url: AllAssestsURL) { (response, error) in
+            DispatchQueue.main.async {
+                //            self.activityIndicator.hidesWhenStopped = true
+                self.activityIndicator.stopAnimating()
             }
-            
+
+            if let mappedResponse = response?.data
+            {
+                self.assetTableCustomView.setupTableView(assets: mappedResponse)
+                
+            } else if error != nil {
+                //controller.handleError(error)
+            }
         }
+        
         
     }
 }
-    extension MarketPlaceViewController : AssetDelegateProtocol {
-        func showDetailsOf(asset: AssetDto) {
-            let storyboard = UIStoryboard(name: "Assets", bundle: nil)
-            if let viewController = storyboard.instantiateViewController(withIdentifier: "AssetDetailsViewController") as? AssetDetailsViewController {
-                viewController.getAssetModel(asset: asset)
-                
-                navigationController?.pushViewController(viewController, animated: true)
-            }
+
+extension MarketPlaceViewController : AssetDelegateProtocol {
+    func showDetailsOf(asset: AssetDto) {
+        let storyboard = UIStoryboard(name: "Assets", bundle: nil)
+        if let viewController = storyboard.instantiateViewController(withIdentifier: "AssetDetailsViewController") as? AssetDetailsViewController {
+            viewController.getAssetModel(asset: asset)
+            
+            navigationController?.pushViewController(viewController, animated: true)
         }
     }
+}
 
     /*
     // MARK: - Navigation
