@@ -40,7 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate , GIDSignInDelegate {
         
         if let username = LocalStore.getUserToken() {
             let mainStoryboard : UIStoryboard = UIStoryboard(name: "Assets", bundle: nil)
-            initialViewController = mainStoryboard.instantiateViewController(withIdentifier: "AssetMapViewController")
+            initialViewController = mainStoryboard.instantiateViewController(withIdentifier: "HomeViewController")
         } else {
             let mainStoryboard : UIStoryboard = UIStoryboard(name: "Login", bundle: nil)
             initialViewController = mainStoryboard.instantiateViewController(withIdentifier: "LoginViewController")
