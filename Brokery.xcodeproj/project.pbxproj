@@ -58,6 +58,8 @@
 		EF0C8544238AC033008A0C32 /* UserStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0C8522238AC032008A0C32 /* UserStatus.swift */; };
 		EF0C8545238AC033008A0C32 /* FollowerDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0C8523238AC033008A0C32 /* FollowerDto.swift */; };
 		EF0ED3E92380546800F7A7D6 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0ED3E82380546800F7A7D6 /* BaseModel.swift */; };
+		EF0EE96523B02C8C0073B42C /* SimpleAssetBasedCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0EE96423B02C8C0073B42C /* SimpleAssetBasedCard.swift */; };
+		EF0EE96723B02CB20073B42C /* SimpleAssetBasedCard.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF0EE96623B02CB20073B42C /* SimpleAssetBasedCard.xib */; };
 		EF11D1C12375E2E7005C8F0C /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF11D1C02375E2E7005C8F0C /* Login.storyboard */; };
 		EF11D1C52375E538005C8F0C /* RegisterationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF11D1C42375E538005C8F0C /* RegisterationViewController.swift */; };
 		EF11D1C72375E550005C8F0C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF11D1C62375E550005C8F0C /* LoginViewController.swift */; };
@@ -180,6 +182,8 @@
 		EF0C8522238AC032008A0C32 /* UserStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserStatus.swift; sourceTree = "<group>"; };
 		EF0C8523238AC033008A0C32 /* FollowerDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowerDto.swift; sourceTree = "<group>"; };
 		EF0ED3E82380546800F7A7D6 /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
+		EF0EE96423B02C8C0073B42C /* SimpleAssetBasedCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleAssetBasedCard.swift; sourceTree = "<group>"; };
+		EF0EE96623B02CB20073B42C /* SimpleAssetBasedCard.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SimpleAssetBasedCard.xib; sourceTree = "<group>"; };
 		EF11D1C02375E2E7005C8F0C /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		EF11D1C42375E538005C8F0C /* RegisterationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterationViewController.swift; sourceTree = "<group>"; };
 		EF11D1C62375E550005C8F0C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -296,6 +300,8 @@
 				EF0B0AB9239EC27C0050BD4C /* AssetImageCollectionViewCell.xib */,
 				EF0B0ABC239EC29A0050BD4C /* AssetHashtagCollectionViewCell.swift */,
 				EF0B0ABD239EC29A0050BD4C /* AssetHashtagCollectionViewCell.xib */,
+				EF0EE96423B02C8C0073B42C /* SimpleAssetBasedCard.swift */,
+				EF0EE96623B02CB20073B42C /* SimpleAssetBasedCard.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -627,6 +633,7 @@
 				A29E578C23893AE2000B7F09 /* AssetCard.xib in Resources */,
 				EF471567237D7AE90036DC1E /* Assets.storyboard in Resources */,
 				EF0B0ABF239EC29A0050BD4C /* AssetHashtagCollectionViewCell.xib in Resources */,
+				EF0EE96723B02CB20073B42C /* SimpleAssetBasedCard.xib in Resources */,
 				EF60C8EF2374903E0051F57F /* Assets.xcassets in Resources */,
 				EF60C8ED2374903D0051F57F /* Main.storyboard in Resources */,
 				A29E579123894B6D000B7F09 /* AssetTable.xib in Resources */,
@@ -817,6 +824,7 @@
 				EF186B5523941EA80053A706 /* MarketPlaceService.swift in Sources */,
 				EF15DF4F239039F5006BF447 /* LoginService.swift in Sources */,
 				EFD5796423894DB0004C6808 /* GetUserInfoByToken.swift in Sources */,
+				EF0EE96523B02C8C0073B42C /* SimpleAssetBasedCard.swift in Sources */,
 				EF0C8530238AC033008A0C32 /* ContactHashTagDto.swift in Sources */,
 				EF0C8541238AC033008A0C32 /* GalleryItemTypeDto.swift in Sources */,
 				EF330EB223A8273100361086 /* AddAppointmentViewController.swift in Sources */,

@@ -35,7 +35,7 @@ class LocalStore {
     static func deleteUserToken (token : String){
         UserDefaults.standard.removeObject(forKey: "application_token")
     }
-    
+     
     static func storeUserID (id : String){
         let defaults = UserDefaults.standard
         defaults.set(id, forKey: "application_id")

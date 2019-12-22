@@ -11,7 +11,7 @@ import iOSDropDown
 import Alamofire
 
 class AddAssetViewController: BaseViewController, UIPickerViewDelegate ,UINavigationControllerDelegate {
-
+    
     @IBOutlet var assetAddressTextField: UITextField!
     @IBOutlet var assetNameTextField: UITextField!
     @IBOutlet var assetDescriptionTextField: UITextField!
@@ -25,20 +25,20 @@ class AddAssetViewController: BaseViewController, UIPickerViewDelegate ,UINaviga
     var tempPickedImg : UIImage?
     
     static let sharedWebClient = WebClient.init(baseUrl: BaseAPIURL)
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         imageController = UIImagePickerController()
         imageController?.delegate = self as! UIImagePickerControllerDelegate & UINavigationControllerDelegate;
         
-//        //// The list of array to display. Can be changed dynamically , testing
-//        //Its Id Values and its optional
-//        dropDown.optionIds = [1,23,54,22]
-//
-//        // Image Array its optional
-//        dropDown.ImageArray = [👩🏻‍🦳,🙊,🥞]
-//
-//
+        //        //// The list of array to display. Can be changed dynamically , testing
+        //        //Its Id Values and its optional
+        //        dropDown.optionIds = [1,23,54,22]
+        //
+        //        // Image Array its optional
+        //        dropDown.ImageArray = [👩🏻‍🦳,🙊,🥞]
+        //
+        //
         // Do any additional setup after loading the view.
     }
     
@@ -58,18 +58,18 @@ class AddAssetViewController: BaseViewController, UIPickerViewDelegate ,UINaviga
                 self.present(imagePicker, animated: true, completion: nil)
             }
         }
- 
+        
         
         let Phototake = UIAlertAction(title: "Take your photo", style: .default) { (action) in
-
+            
             if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.camera) {
-          
-            let imagePicker = UIImagePickerController()
+                
+                let imagePicker = UIImagePickerController()
                 imagePicker.delegate = self as! UIImagePickerControllerDelegate & UINavigationControllerDelegate
-            imagePicker.sourceType = UIImagePickerController.SourceType.camera
-            imagePicker.allowsEditing = false
-            self.present(imagePicker, animated: true, completion: nil)
-        }
+                imagePicker.sourceType = UIImagePickerController.SourceType.camera
+                imagePicker.allowsEditing = false
+                self.present(imagePicker, animated: true, completion: nil)
+            }
         }
     }
     
@@ -90,23 +90,23 @@ class AddAssetViewController: BaseViewController, UIPickerViewDelegate ,UINaviga
         
         assetTypeDropdownTextField.optionArray = ["Option 1", "Option 2", "Option 3"]
         
-           // The the Closure returns Selected Index and String
-//        dropDown.didSelect{(selectedText , index ,id) in
-//            //            self.valueLabel.text = "Selected String: \(selectedText) \n index: \(index)"
-//            //        }
+        // The the Closure returns Selected Index and String
+        //        dropDown.didSelect{(selectedText , index ,id) in
+        //            //            self.valueLabel.text = "Selected String: \(selectedText) \n index: \(index)"
+        //            //        }
     }
     
     func imagePickerController(_ picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]){
-    
+        
         guard let selectedImage = info[.originalImage] as? UIImage else {
             fatalError("Expected a dictionary containing an image, but was provided the following: \(info)")
         }
-            // imageViewPic.contentMode = .scaleToFill
-    
-            //imageViewPic.image = pickedImage
+        // imageViewPic.contentMode = .scaleToFill
+        
+        //imageViewPic.image = pickedImage
         tempPickedImg = selectedImage
-    
+        
         picker.dismiss(animated: true, completion: nil)
     }
     
@@ -115,13 +115,13 @@ class AddAssetViewController: BaseViewController, UIPickerViewDelegate ,UINaviga
         
     }
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

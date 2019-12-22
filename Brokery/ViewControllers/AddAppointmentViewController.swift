@@ -7,8 +7,12 @@
 //
 
 import UIKit
+import iOSDropDown
 
 class AddAppointmentViewController: UIViewController {
+    
+    @IBOutlet var usersDropdownTextField: DropDown!
+    @IBOutlet var assetsDropdownTextField: DropDown!
 
     private lazy var usersListService = GetUsersListService()
     private lazy var userAssetsService = GetUserAssetsService()
@@ -37,6 +41,9 @@ class AddAppointmentViewController: UIViewController {
                 if let mappedResponse = response?.data
                 {
                    //getUserAssetsURL
+                    let usersNames = mappedResponse.compactMap({$0.name})
+                    self.usersDropdownTextField.optionArray = usersNames
+//fetch what user chose and pass it to fetch assets
                     
                 } else if error != nil {
                     //controller.handleError(error)
@@ -48,6 +55,29 @@ class AddAppointmentViewController: UIViewController {
             
         }
         
+    }
+    
+    private func fetchUserAssets(user_name : String)
+    {
+        var userinfo = Resource<AssetObject , CustomError>(jsonDecoder: JSONDecoder(), path: FollowedAssetsURL, method: .get)
+        //get user id from local store
+        if let userId = LocalStore.getUserId() {
+            userinfo.params = ["UserID": userId]
+        }
+        DispatchQueue.main.async {
+            self.userAssetsService.fetch(params: userinfo.params, method: .get, url: FollowedAssetsURL) { (response, error) in
+                if let mappedResponse = response
+                {
+                    self.assetsDropdownTextField.optionArray = mappedResponse
+                    
+                } else if error != nil {
+                    self.showErrorAlert(with: "error")
+                }
+            }
+            // self.activityIndicator.stopAnimating()
+            
+            
+        }
     }
     
     private func showErrorAlert(with message: String) {

@@ -34,6 +34,9 @@ let GetAssetTypeListURL = "/api/AssetType/GetAssetTypeList"
 //appointment 
 let getUserAssetsURL = "/api/Asset/GetUserAssets"
 let getUsersListURL = "/api/User/GetUsersList"
+let createAppointmentURL = "/api/Appointment/Create"
+let getAllAppointmentsURL = "/api/Appointment/GetAll"
+let getListOfContactsURL = "/api/Contact/GetContactList"
 //Regex
 let MobilePhoneNumberRegex = "^[0-9]{10,18}$";
 let EmailAddressRegex = "^^([A-Za-z0-9]){1}[A-Z0-9a-z._%+-]+@([A-Za-z0-9]){1}[a-zA-Z_0-9-]+?([A-Za-z0-9]){1}(\\.[a-zA-Z]{2,})+$";

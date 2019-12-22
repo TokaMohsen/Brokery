@@ -74,7 +74,7 @@
                   moduleName = "Brokery"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/toqadev/Desktop/playgrounds/Brokery/Brokery/Brokery/ViewControllers/RegisterationViewController.swift"
-                  timestampString = "598087237.69215"
+                  timestampString = "598656417.795997"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "68"
@@ -89,7 +89,7 @@
                   moduleName = "Brokery"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/toqadev/Desktop/playgrounds/Brokery/Brokery/Brokery/ViewControllers/RegisterationViewController.swift"
-                  timestampString = "598087237.6937259"
+                  timestampString = "598656417.797506"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "68"
@@ -233,8 +233,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "106"
             endingLineNumber = "106"
-            landmarkName = "showDetailsOf(asset:)"
-            landmarkType = "7">
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -281,8 +281,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "108"
             endingLineNumber = "108"
-            landmarkName = "showDetailsOf(asset:)"
-            landmarkType = "7">
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
