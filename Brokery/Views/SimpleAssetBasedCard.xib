@@ -8,7 +8,15 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SimpleAssetBasedCard" customModule="Brokery" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SimpleAssetBasedCard" customModule="Brokery" customModuleProvider="target">
+            <connections>
+                <outlet property="appartementDescription" destination="kFf-pI-ydb" id="nz0-lB-qUg"/>
+                <outlet property="appartementName" destination="t4V-Ux-l8a" id="yfv-1z-CXP"/>
+                <outlet property="avatarImage" destination="6id-sF-zfP" id="t33-Xo-mnN"/>
+                <outlet property="companyName" destination="2HR-iP-28X" id="3Zu-sx-eM1"/>
+                <outlet property="jobTitle" destination="NpC-0Q-QZr" id="ajU-VX-lJR"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="SimpleAssetBasedCard" customModule="Brokery" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="420" height="233"/>

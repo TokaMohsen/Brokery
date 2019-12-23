@@ -17,5 +17,16 @@ class SimpleAssetBasedCard: UIView {
         // Drawing code
     }
     */
+    @IBOutlet weak var appartementName: UILabel!
+       @IBOutlet weak var avatarImage: UIImageView!
+       @IBOutlet weak var companyName: UILabel!
+       @IBOutlet weak var jobTitle: UILabel!
+       @IBOutlet weak var appartementDescription: UILabel!
+       
+       override func awakeFromNib() {
+           super.awakeFromNib()
+           appartementDescription.sizeToFit()
+       }
+       
 
 }

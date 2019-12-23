@@ -60,6 +60,7 @@
 		EF0ED3E92380546800F7A7D6 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0ED3E82380546800F7A7D6 /* BaseModel.swift */; };
 		EF0EE96523B02C8C0073B42C /* SimpleAssetBasedCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0EE96423B02C8C0073B42C /* SimpleAssetBasedCard.swift */; };
 		EF0EE96723B02CB20073B42C /* SimpleAssetBasedCard.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF0EE96623B02CB20073B42C /* SimpleAssetBasedCard.xib */; };
+		EF118C7423B0A19A00632490 /* DropDownListsSelectionCustomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF118C7323B0A19A00632490 /* DropDownListsSelectionCustomView.xib */; };
 		EF11D1C12375E2E7005C8F0C /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF11D1C02375E2E7005C8F0C /* Login.storyboard */; };
 		EF11D1C52375E538005C8F0C /* RegisterationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF11D1C42375E538005C8F0C /* RegisterationViewController.swift */; };
 		EF11D1C72375E550005C8F0C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF11D1C62375E550005C8F0C /* LoginViewController.swift */; };
@@ -184,6 +185,7 @@
 		EF0ED3E82380546800F7A7D6 /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
 		EF0EE96423B02C8C0073B42C /* SimpleAssetBasedCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleAssetBasedCard.swift; sourceTree = "<group>"; };
 		EF0EE96623B02CB20073B42C /* SimpleAssetBasedCard.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SimpleAssetBasedCard.xib; sourceTree = "<group>"; };
+		EF118C7323B0A19A00632490 /* DropDownListsSelectionCustomView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DropDownListsSelectionCustomView.xib; sourceTree = "<group>"; };
 		EF11D1C02375E2E7005C8F0C /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		EF11D1C42375E538005C8F0C /* RegisterationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterationViewController.swift; sourceTree = "<group>"; };
 		EF11D1C62375E550005C8F0C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -302,6 +304,7 @@
 				EF0B0ABD239EC29A0050BD4C /* AssetHashtagCollectionViewCell.xib */,
 				EF0EE96423B02C8C0073B42C /* SimpleAssetBasedCard.swift */,
 				EF0EE96623B02CB20073B42C /* SimpleAssetBasedCard.xib */,
+				EF118C7323B0A19A00632490 /* DropDownListsSelectionCustomView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -632,6 +635,7 @@
 				EF0B0ABB239EC27C0050BD4C /* AssetImageCollectionViewCell.xib in Resources */,
 				A29E578C23893AE2000B7F09 /* AssetCard.xib in Resources */,
 				EF471567237D7AE90036DC1E /* Assets.storyboard in Resources */,
+				EF118C7423B0A19A00632490 /* DropDownListsSelectionCustomView.xib in Resources */,
 				EF0B0ABF239EC29A0050BD4C /* AssetHashtagCollectionViewCell.xib in Resources */,
 				EF0EE96723B02CB20073B42C /* SimpleAssetBasedCard.xib in Resources */,
 				EF60C8EF2374903E0051F57F /* Assets.xcassets in Resources */,
