@@ -7,6 +7,13 @@
 
 import Foundation
 
+public struct ContactList: Decodable {
+    var success: Bool
+    var data: [ContactDto]?
+    var count: Int?
+    var code: String?
+    
+}
 
 public struct ContactDto: Decodable {
 

@@ -7,6 +7,13 @@
 
 import Foundation
 
+public struct AppointmentObject: Decodable {
+    var success: Bool
+    var data: AppointmentDto?
+    var count: Int?
+    var code: String?
+    
+}
 
 public struct AppointmentDto: Decodable {
 

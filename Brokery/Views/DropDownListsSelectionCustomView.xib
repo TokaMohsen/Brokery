@@ -2,46 +2,116 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DropDownListsSelectionCustomView" customModule="Brokery" customModuleProvider="target">
+            <connections>
+                <outlet property="chooseAssetMenu" destination="Yni-PV-91R" id="oUo-e5-TIN"/>
+                <outlet property="chooseDeveloperMenu" destination="MP9-CV-2od" id="NmL-l5-4RB"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="482" height="375"/>
+            <rect key="frame" x="0.0" y="0.0" width="500" height="160"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nmw-8d-50d" userLabel="firstDropDownView">
-                    <rect key="frame" x="0.0" y="44" width="482" height="200"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="200" id="ryP-Tg-dth"/>
-                    </constraints>
-                </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GJr-xc-PdA" userLabel="secondDropDownView">
-                    <rect key="frame" x="0.0" y="259" width="482" height="82"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                </view>
+                <stackView opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="qpt-73-k87">
+                    <rect key="frame" x="0.0" y="0.0" width="500" height="160"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nmw-8d-50d" userLabel="firstDropDownView">
+                            <rect key="frame" x="0.0" y="0.0" width="500" height="80"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Developer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1D4-UA-w18">
+                                    <rect key="frame" x="5" y="0.0" width="495" height="20"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Choose developer" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MP9-CV-2od" customClass="DropDown" customModule="iOSDropDown">
+                                    <rect key="frame" x="15" y="30" width="485" height="40"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="40" id="Jju-qH-Wc6"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="15"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="listHeight">
+                                            <integer key="value" value="100"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="rowHeight">
+                                            <real key="value" value="10"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </textField>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="1D4-UA-w18" firstAttribute="top" secondItem="Nmw-8d-50d" secondAttribute="top" id="1dJ-nd-Hw6"/>
+                                <constraint firstItem="MP9-CV-2od" firstAttribute="top" secondItem="1D4-UA-w18" secondAttribute="bottom" constant="10" id="7SM-1Q-yMP"/>
+                                <constraint firstAttribute="trailing" secondItem="MP9-CV-2od" secondAttribute="trailing" id="FZK-x1-qTb"/>
+                                <constraint firstItem="1D4-UA-w18" firstAttribute="leading" secondItem="Nmw-8d-50d" secondAttribute="leading" constant="5" id="IAb-a9-qNX"/>
+                                <constraint firstItem="MP9-CV-2od" firstAttribute="leading" secondItem="Nmw-8d-50d" secondAttribute="leading" constant="15" id="nsv-4m-ILt"/>
+                                <constraint firstAttribute="bottom" secondItem="MP9-CV-2od" secondAttribute="bottom" constant="10" id="qEh-O1-OEd"/>
+                                <constraint firstAttribute="trailing" secondItem="1D4-UA-w18" secondAttribute="trailing" id="wyB-ok-eNj"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GJr-xc-PdA" userLabel="secondDropDownView">
+                            <rect key="frame" x="0.0" y="80" width="500" height="80"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Asset" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g2W-Ot-j3B">
+                                    <rect key="frame" x="5" y="0.0" width="495" height="20"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Choose asset" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yni-PV-91R" customClass="DropDown" customModule="iOSDropDown">
+                                    <rect key="frame" x="15" y="30" width="485" height="40"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="40" id="wSq-zJ-6J5"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="15"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="listHeight">
+                                            <integer key="value" value="100"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </textField>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="g2W-Ot-j3B" firstAttribute="top" secondItem="GJr-xc-PdA" secondAttribute="top" id="H6r-le-uLu"/>
+                                <constraint firstItem="Yni-PV-91R" firstAttribute="top" secondItem="g2W-Ot-j3B" secondAttribute="bottom" constant="10" id="IXU-sp-aBZ"/>
+                                <constraint firstItem="g2W-Ot-j3B" firstAttribute="leading" secondItem="GJr-xc-PdA" secondAttribute="leading" constant="5" id="PWY-yl-EJu"/>
+                                <constraint firstAttribute="trailing" secondItem="Yni-PV-91R" secondAttribute="trailing" id="Pm9-5j-j1Q"/>
+                                <constraint firstAttribute="trailing" secondItem="g2W-Ot-j3B" secondAttribute="trailing" id="hdZ-cm-fZY"/>
+                                <constraint firstItem="Yni-PV-91R" firstAttribute="leading" secondItem="GJr-xc-PdA" secondAttribute="leading" constant="15" id="nc8-ES-NPT"/>
+                                <constraint firstAttribute="bottom" secondItem="Yni-PV-91R" secondAttribute="bottom" constant="10" id="p79-B5-Qgd"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                </stackView>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Nmw-8d-50d" secondAttribute="trailing" id="01S-vA-8dL"/>
-                <constraint firstItem="GJr-xc-PdA" firstAttribute="height" secondItem="Nmw-8d-50d" secondAttribute="height" multiplier="0.41" id="9Gx-nb-aoA"/>
-                <constraint firstItem="GJr-xc-PdA" firstAttribute="top" secondItem="Nmw-8d-50d" secondAttribute="bottom" constant="15" id="9h1-B6-GUP"/>
-                <constraint firstItem="Nmw-8d-50d" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="2:1" id="EY9-Gs-u1x"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="GJr-xc-PdA" secondAttribute="trailing" id="HPh-qj-xmo"/>
-                <constraint firstItem="Nmw-8d-50d" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="PhN-YW-wpD"/>
-                <constraint firstItem="Nmw-8d-50d" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="QLK-7o-vho"/>
-                <constraint firstItem="GJr-xc-PdA" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="ZLZ-Ip-CPc"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="GJr-xc-PdA" secondAttribute="bottom" id="aBq-ud-H58"/>
-                <constraint firstItem="GJr-xc-PdA" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="2:1" id="nVW-Gv-NE9"/>
+                <constraint firstItem="qpt-73-k87" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailing" id="0f3-xs-1vq"/>
+                <constraint firstItem="qpt-73-k87" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottom" id="Snf-jA-G2r"/>
+                <constraint firstItem="qpt-73-k87" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="oER-p2-2lX"/>
+                <constraint firstItem="qpt-73-k87" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="zJc-nK-ec9"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <point key="canvasLocation" x="186.95652173913044" y="350.55803571428572"/>
+            <point key="canvasLocation" x="199" y="296"/>
         </view>
     </objects>
 </document>

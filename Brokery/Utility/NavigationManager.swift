@@ -25,11 +25,20 @@ class NavigationManager {
         let marketPlaceVC = storyboard.instantiateViewController(withIdentifier: "MarketPlaceViewController")
         marketPlaceVC.tabBarItem = marketItem
         
-        let chatItem = UITabBarItem()
-        chatItem.title = "Messanger"
-        chatItem.image = UIImage(named: "home_icon")
-        let chatVC = UIViewController()
-        chatVC.tabBarItem = chatItem
+        
+        let appontmentItem = UITabBarItem()
+           let appointStoryboard = UIStoryboard(name: "Appointments", bundle: nil)
+
+              appontmentItem.title = "Appointment"
+              appontmentItem.image = UIImage(named: "home_icon")
+              let appointmentVC = appointStoryboard.instantiateViewController(withIdentifier: "AddAppointmentViewController")
+              appointmentVC.tabBarItem = appontmentItem
+        
+//        let chatItem = UITabBarItem()
+//        chatItem.title = "Messanger"
+//        chatItem.image = UIImage(named: "home_icon")
+//        let chatVC = UIViewController()
+//        chatVC.tabBarItem = chatItem
         
         let notificationItem = UITabBarItem()
         notificationItem.title = "Notifications"
@@ -44,7 +53,7 @@ class NavigationManager {
         moreVC.tabBarItem = moreItem
         
         let tabBarVC = UITabBarController()
-        tabBarVC.viewControllers = [homeVC, marketPlaceVC, chatVC, notificationVC, moreVC]
+        tabBarVC.viewControllers = [homeVC, marketPlaceVC, appointmentVC, notificationVC, moreVC]
         
         return tabBarVC
     }

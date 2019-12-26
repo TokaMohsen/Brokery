@@ -68,6 +68,8 @@
 		EF186B5523941EA80053A706 /* MarketPlaceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF186B5423941EA80053A706 /* MarketPlaceService.swift */; };
 		EF186B57239422930053A706 /* HomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF186B56239422930053A706 /* HomeService.swift */; };
 		EF1AC521238D2EE8004FB127 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EF1AC520238D2EE8004FB127 /* GoogleService-Info.plist */; };
+		EF1BC2A723B2309B008E9D24 /* DropDownListsSelectionCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1BC2A623B2309B008E9D24 /* DropDownListsSelectionCustomView.swift */; };
+		EF1BC2A923B28741008E9D24 /* AppointmentProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1BC2A823B28741008E9D24 /* AppointmentProtocol.swift */; };
 		EF30556C23A0120A0053FCBC /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF30556A23A0120A0053FCBC /* MapViewController.swift */; };
 		EF30556D23A0120A0053FCBC /* PlacesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF30556B23A0120A0053FCBC /* PlacesViewController.swift */; };
 		EF30556F23A014920053FCBC /* AssetMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF30556E23A014920053FCBC /* AssetMapViewController.swift */; };
@@ -76,6 +78,8 @@
 		EF330EB423A8274600361086 /* AppointmentsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF330EB323A8274600361086 /* AppointmentsListViewController.swift */; };
 		EF330EB623A82A2E00361086 /* GetUserAssetsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF330EB523A82A2E00361086 /* GetUserAssetsService.swift */; };
 		EF330EB823A82CF700361086 /* GetUsersListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF330EB723A82CF700361086 /* GetUsersListService.swift */; };
+		EF35E47323B4BBDB00837871 /* CreateAppointmentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF35E47223B4BBDB00837871 /* CreateAppointmentService.swift */; };
+		EF35E47523B4C14F00837871 /* GetListOfUserContactsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF35E47423B4C14F00837871 /* GetListOfUserContactsService.swift */; };
 		EF46195B238E7E03008F453D /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF461957238E7E03008F453D /* Cache.swift */; };
 		EF46195C238E7E03008F453D /* CacheItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF461958238E7E03008F453D /* CacheItem.swift */; };
 		EF46195D238E7E03008F453D /* CachedWebClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF461959238E7E03008F453D /* CachedWebClient.swift */; };
@@ -193,6 +197,8 @@
 		EF186B5423941EA80053A706 /* MarketPlaceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketPlaceService.swift; sourceTree = "<group>"; };
 		EF186B56239422930053A706 /* HomeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeService.swift; sourceTree = "<group>"; };
 		EF1AC520238D2EE8004FB127 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		EF1BC2A623B2309B008E9D24 /* DropDownListsSelectionCustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownListsSelectionCustomView.swift; sourceTree = "<group>"; };
+		EF1BC2A823B28741008E9D24 /* AppointmentProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentProtocol.swift; sourceTree = "<group>"; };
 		EF30556A23A0120A0053FCBC /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		EF30556B23A0120A0053FCBC /* PlacesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlacesViewController.swift; sourceTree = "<group>"; };
 		EF30556E23A014920053FCBC /* AssetMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetMapViewController.swift; sourceTree = "<group>"; };
@@ -201,6 +207,8 @@
 		EF330EB323A8274600361086 /* AppointmentsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentsListViewController.swift; sourceTree = "<group>"; };
 		EF330EB523A82A2E00361086 /* GetUserAssetsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserAssetsService.swift; sourceTree = "<group>"; };
 		EF330EB723A82CF700361086 /* GetUsersListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUsersListService.swift; sourceTree = "<group>"; };
+		EF35E47223B4BBDB00837871 /* CreateAppointmentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAppointmentService.swift; sourceTree = "<group>"; };
+		EF35E47423B4C14F00837871 /* GetListOfUserContactsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetListOfUserContactsService.swift; sourceTree = "<group>"; };
 		EF461957238E7E03008F453D /* Cache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
 		EF461958238E7E03008F453D /* CacheItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CacheItem.swift; sourceTree = "<group>"; };
 		EF461959238E7E03008F453D /* CachedWebClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CachedWebClient.swift; sourceTree = "<group>"; };
@@ -305,6 +313,7 @@
 				EF0EE96423B02C8C0073B42C /* SimpleAssetBasedCard.swift */,
 				EF0EE96623B02CB20073B42C /* SimpleAssetBasedCard.xib */,
 				EF118C7323B0A19A00632490 /* DropDownListsSelectionCustomView.xib */,
+				EF1BC2A623B2309B008E9D24 /* DropDownListsSelectionCustomView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -314,6 +323,7 @@
 			children = (
 				EF0B1C0F23A10FED00A644ED /* MapProtocol.swift */,
 				EFDAA2D623A2B792007D9FD8 /* AssetProtocol.swift */,
+				EF1BC2A823B28741008E9D24 /* AppointmentProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -377,6 +387,8 @@
 				EF0B1C1123A1657100A644ED /* AssetTypesListGetService.swift */,
 				EF330EB523A82A2E00361086 /* GetUserAssetsService.swift */,
 				EF330EB723A82CF700361086 /* GetUsersListService.swift */,
+				EF35E47223B4BBDB00837871 /* CreateAppointmentService.swift */,
+				EF35E47423B4C14F00837871 /* GetListOfUserContactsService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -811,6 +823,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF0C8539238AC033008A0C32 /* AssetDto.swift in Sources */,
+				EF1BC2A723B2309B008E9D24 /* DropDownListsSelectionCustomView.swift in Sources */,
 				EF542683239B038500E5F124 /* AssetDetailsViewController.swift in Sources */,
 				EF461967238E7E1E008F453D /* ClientResult.swift in Sources */,
 				EF0C8534238AC033008A0C32 /* Success.swift in Sources */,
@@ -822,6 +835,7 @@
 				EF60C8EA2374903D0051F57F /* ViewController.swift in Sources */,
 				A29E578E23893AF1000B7F09 /* AssetCard.swift in Sources */,
 				EF47156D237D8D380036DC1E /* MarketPlaceViewController.swift in Sources */,
+				EF35E47323B4BBDB00837871 /* CreateAppointmentService.swift in Sources */,
 				EF461962238E7E10008F453D /* WebClient.swift in Sources */,
 				EF30556C23A0120A0053FCBC /* MapViewController.swift in Sources */,
 				A29E579323894B8B000B7F09 /* AssetTable.swift in Sources */,
@@ -845,6 +859,7 @@
 				EF0C8524238AC033008A0C32 /* UserLogin.swift in Sources */,
 				A2C0F4CE23A2FB3D00A52889 /* NavigationManager.swift in Sources */,
 				EFD5796223894612004C6808 /* LocalStore.swift in Sources */,
+				EF1BC2A923B28741008E9D24 /* AppointmentProtocol.swift in Sources */,
 				EF330EB423A8274600361086 /* AppointmentsListViewController.swift in Sources */,
 				EF0C8543238AC033008A0C32 /* NotificationDto.swift in Sources */,
 				A29E579523894E84000B7F09 /* AssetModel.swift in Sources */,
@@ -867,6 +882,7 @@
 				EFDAA2D723A2B792007D9FD8 /* AssetProtocol.swift in Sources */,
 				EFACC9252382FB5300586134 /* ServiceError.swift in Sources */,
 				EF471573237DDB130036DC1E /* Constants.swift in Sources */,
+				EF35E47523B4C14F00837871 /* GetListOfUserContactsService.swift in Sources */,
 				EF0C8529238AC033008A0C32 /* AppointmentDto.swift in Sources */,
 				EF0C8531238AC033008A0C32 /* FavoriteAssetDto.swift in Sources */,
 				EF0ED3E92380546800F7A7D6 /* BaseModel.swift in Sources */,
@@ -1070,6 +1086,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2P83H5J4TL;
 				INFOPLIST_FILE = Brokery/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1091,6 +1108,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2P83H5J4TL;
 				INFOPLIST_FILE = Brokery/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
