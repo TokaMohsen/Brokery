@@ -45,7 +45,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate , GIDSignInDelegate {
             initialViewController = mainStoryboard.instantiateViewController(withIdentifier: "LoginViewController")
         }
         self.window = UIWindow(frame: UIScreen.main.bounds)
-        self.window?.rootViewController = initialViewController
+        self.window?.rootViewController = UINavigationController(rootViewController: initialViewController ?? UIViewController())
         self.window?.makeKeyAndVisible()
 
         

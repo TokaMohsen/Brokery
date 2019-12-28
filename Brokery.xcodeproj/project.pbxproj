@@ -10,6 +10,7 @@
 		1562E3360F5558E7945DA249 /* Pods_Brokery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA5A8FA673DCE72FC9A3D73B /* Pods_Brokery.framework */; };
 		9C2D79ABBDEDD40B64EDFAC0 /* Pods_BrokeryTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B2D43084C45313A239AFD37 /* Pods_BrokeryTests.framework */; };
 		A2390C35238321EC001B0475 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2390C34238321EC001B0475 /* BaseViewController.swift */; };
+		A23F7DD423B7AA68008F4B3A /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23F7DD323B7AA68008F4B3A /* MoreViewController.swift */; };
 		A29E578C23893AE2000B7F09 /* AssetCard.xib in Resources */ = {isa = PBXBuildFile; fileRef = A29E578B23893AE2000B7F09 /* AssetCard.xib */; };
 		A29E578E23893AF1000B7F09 /* AssetCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29E578D23893AF1000B7F09 /* AssetCard.swift */; };
 		A29E579123894B6D000B7F09 /* AssetTable.xib in Resources */ = {isa = PBXBuildFile; fileRef = A29E579023894B6D000B7F09 /* AssetTable.xib */; };
@@ -136,6 +137,7 @@
 		3C25408F282BDE5719E6A6B2 /* Pods-Brokery.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Brokery.release.xcconfig"; path = "Pods/Target Support Files/Pods-Brokery/Pods-Brokery.release.xcconfig"; sourceTree = "<group>"; };
 		8E25E3B97BDEAD9DE35EF725 /* Pods-Brokery.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Brokery.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Brokery/Pods-Brokery.debug.xcconfig"; sourceTree = "<group>"; };
 		A2390C34238321EC001B0475 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		A23F7DD323B7AA68008F4B3A /* MoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
 		A29E578B23893AE2000B7F09 /* AssetCard.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AssetCard.xib; sourceTree = "<group>"; };
 		A29E578D23893AF1000B7F09 /* AssetCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetCard.swift; sourceTree = "<group>"; };
 		A29E579023894B6D000B7F09 /* AssetTable.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AssetTable.xib; sourceTree = "<group>"; };
@@ -354,6 +356,7 @@
 				EF30556E23A014920053FCBC /* AssetMapViewController.swift */,
 				EF330EB123A8273100361086 /* AddAppointmentViewController.swift */,
 				EF330EB323A8274600361086 /* AppointmentsListViewController.swift */,
+				A23F7DD323B7AA68008F4B3A /* MoreViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -853,6 +856,7 @@
 				EF330EB823A82CF700361086 /* GetUsersListService.swift in Sources */,
 				EF0C853F238AC033008A0C32 /* MessageDto.swift in Sources */,
 				EF0C852E238AC033008A0C32 /* UserGroupPrivilegeDto.swift in Sources */,
+				A23F7DD423B7AA68008F4B3A /* MoreViewController.swift in Sources */,
 				EF0C852C238AC033008A0C32 /* UserDto.swift in Sources */,
 				EF80E8E62396C6CA003A66D3 /* UIViewExtension.swift in Sources */,
 				EF46195D238E7E03008F453D /* CachedWebClient.swift in Sources */,
@@ -1086,7 +1090,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2P83H5J4TL;
 				INFOPLIST_FILE = Brokery/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1108,7 +1112,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2P83H5J4TL;
 				INFOPLIST_FILE = Brokery/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

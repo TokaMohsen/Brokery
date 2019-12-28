@@ -10,52 +10,34 @@ import Foundation
 import UIKit
 class NavigationManager {
     
+    static let assetStoryboard = UIStoryboard(name: "Assets", bundle: nil)
+    
     static func setupTabBar() -> UITabBarController {
-        let storyboard = UIStoryboard(name: "Assets", bundle: nil)
-        
-        let homeItem = UITabBarItem()
-        homeItem.title = "Home"
-        homeItem.image = UIImage(named: "home_icon")
-        let homeVC = storyboard.instantiateViewController(withIdentifier: "HomeViewController")
+        let homeItem = UITabBarItem(title: "Home", image: UIImage(named: "home"), selectedImage: UIImage(named: "home"))
+        let homeVC = assetStoryboard.instantiateViewController(withIdentifier: "HomeViewController")
         homeVC.tabBarItem = homeItem
         
-        let marketItem = UITabBarItem()
-        marketItem.title = "Market Place"
-        marketItem.image = UIImage(named: "home_icon")
-        let marketPlaceVC = storyboard.instantiateViewController(withIdentifier: "MarketPlaceViewController")
+        let marketItem = UITabBarItem(title: "Market Place", image: UIImage(named: "marketPlace"), selectedImage: UIImage(named: "marketPlace"))
+        let marketPlaceVC = assetStoryboard.instantiateViewController(withIdentifier: "MarketPlaceViewController")
         marketPlaceVC.tabBarItem = marketItem
         
+        let chatItem = UITabBarItem(title: "Messanger", image: UIImage(named: "chat"), selectedImage: UIImage(named: "home"))
+        let chatVC = UIViewController()
+        chatVC.tabBarItem = chatItem
         
-        let appontmentItem = UITabBarItem()
-           let appointStoryboard = UIStoryboard(name: "Appointments", bundle: nil)
-
-              appontmentItem.title = "Appointment"
-              appontmentItem.image = UIImage(named: "home_icon")
-              let appointmentVC = appointStoryboard.instantiateViewController(withIdentifier: "AddAppointmentViewController")
-              appointmentVC.tabBarItem = appontmentItem
-        
-//        let chatItem = UITabBarItem()
-//        chatItem.title = "Messanger"
-//        chatItem.image = UIImage(named: "home_icon")
-//        let chatVC = UIViewController()
-//        chatVC.tabBarItem = chatItem
-        
-        let notificationItem = UITabBarItem()
-        notificationItem.title = "Notifications"
-        notificationItem.image = UIImage(named: "home_icon")
+        let notificationItem = UITabBarItem(title: "Notifications", image: UIImage(named: "notifications"), selectedImage: UIImage(named: "notifications"))
         let notificationVC = UIViewController()
         notificationVC.tabBarItem = notificationItem
         
-        let moreItem = UITabBarItem()
-        moreItem.title = "More"
-        moreItem.image = UIImage(named: "home_icon")
-        let moreVC = UIViewController()
+        let moreItem = UITabBarItem(title: "More", image: UIImage(named: "menu"), selectedImage: UIImage(named: "menu"))
+        let moreVC = assetStoryboard.instantiateViewController(withIdentifier: "MoreViewController")
         moreVC.tabBarItem = moreItem
         
         let tabBarVC = UITabBarController()
-        tabBarVC.viewControllers = [homeVC, marketPlaceVC, appointmentVC, notificationVC, moreVC]
+        tabBarVC.tabBar.barTintColor = UIColor(red: 30/255, green: 30/255, blue: 30/255, alpha: 1)
+        tabBarVC.tabBar.tintColor = .white
+        tabBarVC.viewControllers = [homeVC, marketPlaceVC, chatVC, notificationVC, moreVC]
         
         return tabBarVC
     }
-    
 }

@@ -32,7 +32,7 @@ class LocalStore {
         return nil 
     }
     
-    static func deleteUserToken (token : String){
+    static func deleteUserToken(){
         UserDefaults.standard.removeObject(forKey: "application_token")
     }
      

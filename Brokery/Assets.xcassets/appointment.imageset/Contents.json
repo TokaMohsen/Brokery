@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "appointment.png",
+      "filename" : "appointment.jpg",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "appointment@2x.png",
+      "filename" : "appointment@2x.jpg",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "appointment@3x.png",
+      "filename" : "appointment@3x.jpg",
       "scale" : "3x"
     }
   ],
