@@ -71,6 +71,9 @@
                                                                         <integer key="value" value="15"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="chooseContactBtnAction:" destination="ImK-EM-MhZ" eventType="touchUpInside" id="TL1-X3-Bir"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -141,6 +144,9 @@
                                                                 <integer key="value" value="15"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="saveBtnAction:" destination="ImK-EM-MhZ" eventType="touchUpInside" id="84t-Ii-498"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OXf-RL-Qfb" userLabel="cancleBtn">
                                                         <rect key="frame" x="159" y="15" width="121" height="35"/>
@@ -156,6 +162,9 @@
                                                                 <integer key="value" value="15"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="cancelBtnAction:" destination="ImK-EM-MhZ" eventType="touchUpInside" id="Lp6-9t-CqF"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -201,7 +210,9 @@
                         <viewLayoutGuide key="safeArea" id="HnV-u1-6Dc"/>
                     </view>
                     <connections>
+                        <outlet property="appointmentDescriptionText" destination="nfm-Au-Psm" id="sMT-1h-4gi"/>
                         <outlet property="appointmentSourceUIView" destination="1PM-U6-ZPw" id="Aa0-xg-gEM"/>
+                        <outlet property="datePicker" destination="tfD-Ww-Qby" id="VWa-Y6-44T"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Axq-Rv-1Uf" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -260,7 +271,21 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="j8h-8f-K9m">
                                 <rect key="frame" x="30" y="211" width="315" height="451"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="bhR-QS-oRC" customClass="AppointmentCard" customModule="Brokery" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="315" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bhR-QS-oRC" id="Dqh-Pc-8ka">
+                                            <rect key="frame" x="0.0" y="0.0" width="315" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="YGi-ym-01Q">
+                                <rect key="frame" x="169" y="315" width="37" height="37"/>
+                                <color key="color" red="0.87589043379999998" green="0.65894764660000005" blue="0.1049104407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -269,14 +294,24 @@
                             <constraint firstItem="oKg-mp-97Y" firstAttribute="bottom" secondItem="j8h-8f-K9m" secondAttribute="bottom" constant="5" id="FLJ-ok-wwm"/>
                             <constraint firstItem="j8h-8f-K9m" firstAttribute="leading" secondItem="oKg-mp-97Y" secondAttribute="leading" constant="30" id="KOn-wy-Vae"/>
                             <constraint firstItem="MOx-nr-WXR" firstAttribute="top" secondItem="Lte-LM-ZXe" secondAttribute="bottom" constant="30" id="PkI-qg-fvj"/>
+                            <constraint firstItem="YGi-ym-01Q" firstAttribute="centerX" secondItem="oKg-mp-97Y" secondAttribute="centerX" id="QNh-VL-ody"/>
                             <constraint firstItem="oKg-mp-97Y" firstAttribute="trailing" secondItem="j8h-8f-K9m" secondAttribute="trailing" constant="30" id="YNI-2V-OZc"/>
                             <constraint firstItem="j8h-8f-K9m" firstAttribute="top" secondItem="MOx-nr-WXR" secondAttribute="bottom" constant="13" id="cJj-mh-QiM"/>
+                            <constraint firstItem="YGi-ym-01Q" firstAttribute="centerY" secondItem="oKg-mp-97Y" secondAttribute="centerY" id="kDf-Ag-jnU"/>
                             <constraint firstItem="oKg-mp-97Y" firstAttribute="trailing" secondItem="Lte-LM-ZXe" secondAttribute="trailing" id="lYy-3I-6QQ"/>
                             <constraint firstItem="oKg-mp-97Y" firstAttribute="trailing" secondItem="MOx-nr-WXR" secondAttribute="trailing" constant="30" id="r74-2Q-38v"/>
                             <constraint firstItem="Lte-LM-ZXe" firstAttribute="top" secondItem="oKg-mp-97Y" secondAttribute="top" constant="40" id="tZi-t1-i7r"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="oKg-mp-97Y"/>
                     </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="YGi-ym-01Q" id="rkc-aK-z9A"/>
+                        <outlet property="appointmentDateLbl" destination="u1B-1p-mu0" id="lj1-lR-zFq"/>
+                        <outlet property="appointmentDayLbl" destination="5pb-vd-bCU" id="tAx-zg-GKg"/>
+                        <outlet property="appointmentsTableView" destination="j8h-8f-K9m" id="fcD-U0-iru"/>
+                        <outlet property="datePicker" destination="Lte-LM-ZXe" id="ZgN-SS-bui"/>
+                        <outlet property="numberOfAppointmentsLbl" destination="V8r-XW-gkm" id="p2Y-vZ-6PM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4nD-xJ-3eg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

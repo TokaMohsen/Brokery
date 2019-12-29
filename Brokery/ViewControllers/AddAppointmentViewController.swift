@@ -11,6 +11,10 @@ import iOSDropDown
 
 class AddAppointmentViewController: UIViewController , AppointmentDelegateProtocol {
     
+    
+    @IBOutlet var appointmentDescriptionText: UITextField!
+
+    @IBOutlet var datePicker: UIDatePicker!
     @IBOutlet var appointmentSourceUIView: UIView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
@@ -21,12 +25,18 @@ class AddAppointmentViewController: UIViewController , AppointmentDelegateProtoc
 
     let assetCard = SimpleAssetBasedCard()
     let dropLists = DropDownListsSelectionCustomView()
-    
+    var appointment = AppointmentDto()
     static let sharedWebClient = WebClient.init(baseUrl: BaseAPIURL)
     let customView = DropDownListsSelectionCustomView()
     var appointmentTask : URLSessionDataTask!
     
+    @IBAction func chooseContactBtnAction(_ sender: UIButton) {
+    }
+    @IBAction func saveBtnAction(_ sender: UIButton) {
+    }
     
+    @IBAction func cancelBtnAction(_ sender: UIButton) {
+    }
     override func viewWillAppear(_ animated: Bool) {
       //  appointmentSourceUIView = appointmentSourceUIView as? DropDownListsSelectionCustomView
         
@@ -43,12 +53,25 @@ class AddAppointmentViewController: UIViewController , AppointmentDelegateProtoc
         appointmentSourceUIView.addSubview(customView)
         appointmentSourceUIView.translatesAutoresizingMaskIntoConstraints = false
 
+        datePicker.addTarget(self, action: Selector("handlePicker:"), for: UIControl.Event.valueChanged)
 
        // let cellNib = UINib(nibName: "DropDownListsSelectionCustomView", bundle: nil)
 
         // Do any additional setup after loading the view.
     }
     
+    func getAppointmentModel(appointment : AppointmentDto)
+    {
+        self.appointment = appointment
+    }
+    
+    func handlePicker(sender: UIDatePicker) {
+        var timeFormatter = DateFormatter()
+        timeFormatter.timeStyle = DateFormatter.Style.short
+
+        var strDate = timeFormatter.string(from: datePicker.date)
+        // do what you want to do with the string.
+    }
     
     func fetchUserListData() -> [String]?
     {
@@ -80,9 +103,7 @@ class AddAppointmentViewController: UIViewController , AppointmentDelegateProtoc
         var assetNames = [String]()
         
         var userinfo = Resource<AssetObject , CustomError>(jsonDecoder: JSONDecoder(), path: FollowedAssetsURL, method: .get)
-        if let userId = LocalStore.getUserId() {
-            userinfo.params = ["UserID": userId]
-        }
+   
         // DispatchQueue.main.async {
         self.userAssetsService.fetch(params: userinfo.params, method: .get, url: FollowedAssetsURL) { (response, error) in
             if let mappedResponse = response

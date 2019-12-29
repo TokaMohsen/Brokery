@@ -71,6 +71,7 @@
 		EF1A0ED623B91AAE00DC3976 /* AppointmentCard.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF1A0ED523B91AAE00DC3976 /* AppointmentCard.xib */; };
 		EF1A0ED823B924A300DC3976 /* AppointmentCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1A0ED723B924A300DC3976 /* AppointmentCard.swift */; };
 		EF1A0EDA23B94CDC00DC3976 /* AppointmentListProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1A0ED923B94CDC00DC3976 /* AppointmentListProtocol.swift */; };
+		EF1A0EDC23B965F100DC3976 /* GetAppointmentsListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1A0EDB23B965F100DC3976 /* GetAppointmentsListService.swift */; };
 		EF1AC521238D2EE8004FB127 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EF1AC520238D2EE8004FB127 /* GoogleService-Info.plist */; };
 		EF1BC2A723B2309B008E9D24 /* DropDownListsSelectionCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1BC2A623B2309B008E9D24 /* DropDownListsSelectionCustomView.swift */; };
 		EF1BC2A923B28741008E9D24 /* AppointmentProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1BC2A823B28741008E9D24 /* AppointmentProtocol.swift */; };
@@ -204,6 +205,7 @@
 		EF1A0ED523B91AAE00DC3976 /* AppointmentCard.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppointmentCard.xib; sourceTree = "<group>"; };
 		EF1A0ED723B924A300DC3976 /* AppointmentCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentCard.swift; sourceTree = "<group>"; };
 		EF1A0ED923B94CDC00DC3976 /* AppointmentListProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentListProtocol.swift; sourceTree = "<group>"; };
+		EF1A0EDB23B965F100DC3976 /* GetAppointmentsListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAppointmentsListService.swift; sourceTree = "<group>"; };
 		EF1AC520238D2EE8004FB127 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EF1BC2A623B2309B008E9D24 /* DropDownListsSelectionCustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownListsSelectionCustomView.swift; sourceTree = "<group>"; };
 		EF1BC2A823B28741008E9D24 /* AppointmentProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentProtocol.swift; sourceTree = "<group>"; };
@@ -401,6 +403,7 @@
 				EF330EB723A82CF700361086 /* GetUsersListService.swift */,
 				EF35E47223B4BBDB00837871 /* CreateAppointmentService.swift */,
 				EF35E47423B4C14F00837871 /* GetListOfUserContactsService.swift */,
+				EF1A0EDB23B965F100DC3976 /* GetAppointmentsListService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -844,6 +847,7 @@
 				EF0C8545238AC033008A0C32 /* FollowerDto.swift in Sources */,
 				EF0C8535238AC033008A0C32 /* AssetHashTagDto.swift in Sources */,
 				EF0C853C238AC033008A0C32 /* UserHashTagDto.swift in Sources */,
+				EF1A0EDC23B965F100DC3976 /* GetAppointmentsListService.swift in Sources */,
 				EF0C8542238AC033008A0C32 /* Result.swift in Sources */,
 				EF60C8EA2374903D0051F57F /* ViewController.swift in Sources */,
 				A29E578E23893AF1000B7F09 /* AssetCard.swift in Sources */,
