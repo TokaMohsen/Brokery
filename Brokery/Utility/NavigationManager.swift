@@ -14,14 +14,15 @@ class NavigationManager {
     
     static func setupTabBar() -> UITabBarController {
         let homeItem = UITabBarItem(title: "Home", image: UIImage(named: "home"), selectedImage: UIImage(named: "home"))
+
         let homeVC = assetStoryboard.instantiateViewController(withIdentifier: "HomeViewController")
         homeVC.tabBarItem = homeItem
-        
+
         let marketItem = UITabBarItem(title: "Market Place", image: UIImage(named: "marketPlace"), selectedImage: UIImage(named: "marketPlace"))
         let marketPlaceVC = assetStoryboard.instantiateViewController(withIdentifier: "MarketPlaceViewController")
         marketPlaceVC.tabBarItem = marketItem
         
-        let chatItem = UITabBarItem(title: "Messanger", image: UIImage(named: "chat"), selectedImage: UIImage(named: "home"))
+        let chatItem = UITabBarItem(title: "Messanger", image: UIImage(named: "messanger"), selectedImage: UIImage(named: "messanger"))
         let chatVC = UIViewController()
         chatVC.tabBarItem = chatItem
         
@@ -35,7 +36,8 @@ class NavigationManager {
         
         let tabBarVC = UITabBarController()
         tabBarVC.tabBar.barTintColor = UIColor(red: 30/255, green: 30/255, blue: 30/255, alpha: 1)
-        tabBarVC.tabBar.tintColor = .white
+        let tabBarTintcolor = UIColor(red: 239/255, green: 180/255, blue: 28/255, alpha: 1)
+        tabBarVC.tabBar.tintColor = tabBarTintcolor
         tabBarVC.viewControllers = [homeVC, marketPlaceVC, chatVC, notificationVC, moreVC]
         
         return tabBarVC
