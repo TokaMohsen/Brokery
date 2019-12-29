@@ -73,6 +73,10 @@ class AppointmentsListViewController: UIViewController {
 }
 
 extension AppointmentsListViewController : AppointmentListDelegateProtocol{
+    func getDevProfile(developer: UserDto) {
+        
+    }
+    
     func EditAppointment(appointment: AppointmentDto) {
         
     }

@@ -25,10 +25,10 @@ class AppointmentCard: UITableViewCell {
     
     @IBAction func moreBtnAction(_ sender: UIButton) {
         let options = ["Edit" , "Cancle" , "Dev Profile"]
-        chooseDeveloperDropDown.optionArray = options
-               chooseDeveloperDropDown.didSelect { (selectedItem, index, id) in
-                //AppointmentListDelegate?.cancelAppointment(appointment: <#T##AppointmentDto#>)
-               }
+//        chooseDeveloperDropDown.optionArray = options
+//               chooseDeveloperDropDown.didSelect { (selectedItem, index, id) in
+//                //AppointmentListDelegate?.cancelAppointment(appointment: <#T##AppointmentDto#>)
+//               }
     }
     
     override func awakeFromNib() {
