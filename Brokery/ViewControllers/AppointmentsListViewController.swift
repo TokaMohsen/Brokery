@@ -71,3 +71,14 @@ class AppointmentsListViewController: UIViewController {
     */
 
 }
+
+extension AppointmentsListViewController : AppointmentListDelegateProtocol{
+    func EditAppointment(appointment: AppointmentDto) {
+        
+    }
+    func cancelAppointment(appointment: AppointmentDto) {
+        
+    }
+    
+}
+

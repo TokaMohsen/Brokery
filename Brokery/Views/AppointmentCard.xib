@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AppointmentCard" customModule="Brokery" customModuleProvider="target">
+            <connections>
+                <outlet property="appointmentTimeLabelText" destination="Sqg-XE-T1a" id="GyH-u9-HeE"/>
+                <outlet property="colorMarkView" destination="h3Y-fh-kha" id="uPh-ew-kdC"/>
+                <outlet property="descriptionLabelText" destination="ABC-ml-hpQ" id="ymC-vB-vca"/>
+                <outlet property="titleLabelText" destination="EKA-RQ-mo3" id="aGf-LW-I1k"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="475" height="100"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lZa-hV-UBS" userLabel="HeaderView">
+                    <rect key="frame" x="20" y="0.0" width="425" height="25"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11.00 Am- 01.00 Pm" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sqg-XE-T1a" userLabel="appointmentTime">
+                            <rect key="frame" x="0.0" y="10" width="96" height="15"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dYM-4O-buV" userLabel="morebtn">
+                            <rect key="frame" x="400" y="0.0" width="25" height="25"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="25" id="kca-tO-QMm"/>
+                                <constraint firstAttribute="width" constant="25" id="zKp-D2-fFv"/>
+                            </constraints>
+                            <color key="tintColor" red="0.20389500260000001" green="0.20393687490000001" blue="0.20389232039999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <state key="normal" title="Button" image="ellipsis" catalog="system"/>
+                            <connections>
+                                <action selector="moreBtnAction:" destination="-1" eventType="touchUpInside" id="vzX-bw-xlj"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="dYM-4O-buV" firstAttribute="top" secondItem="lZa-hV-UBS" secondAttribute="top" id="EOK-9T-9bP"/>
+                        <constraint firstItem="Sqg-XE-T1a" firstAttribute="leading" secondItem="lZa-hV-UBS" secondAttribute="leading" id="I81-XC-5Gq"/>
+                        <constraint firstItem="Sqg-XE-T1a" firstAttribute="top" secondItem="lZa-hV-UBS" secondAttribute="top" constant="10" id="Sgz-65-59Z"/>
+                        <constraint firstAttribute="trailing" secondItem="dYM-4O-buV" secondAttribute="trailing" id="W8Y-tH-7Tr"/>
+                        <constraint firstAttribute="bottom" secondItem="dYM-4O-buV" secondAttribute="bottom" id="YXc-Zv-L1T"/>
+                        <constraint firstAttribute="bottom" secondItem="Sqg-XE-T1a" secondAttribute="bottom" id="aKP-AW-WAi"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EKA-RQ-mo3" userLabel="titleLabel">
+                    <rect key="frame" x="20" y="30" width="425" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ABC-ml-hpQ" userLabel="descriptionLabel">
+                    <rect key="frame" x="20" y="53" width="425" height="32"/>
+                    <string key="text">Some Data About the Appiontmentwhich could be two line of words</string>
+                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h3Y-fh-kha" userLabel="colorMarkView">
+                    <rect key="frame" x="460" y="0.0" width="15" height="100"/>
+                    <color key="backgroundColor" red="0.87589043379999998" green="0.65894764660000005" blue="0.1049104407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="15" id="6k2-az-OXl"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="h3Y-fh-kha" secondAttribute="trailing" id="17J-iN-nKI"/>
+                <constraint firstAttribute="top" secondItem="h3Y-fh-kha" secondAttribute="top" id="DfP-3W-igh"/>
+                <constraint firstItem="h3Y-fh-kha" firstAttribute="leading" secondItem="ABC-ml-hpQ" secondAttribute="trailing" constant="15" id="JjM-Eq-ZeU"/>
+                <constraint firstItem="h3Y-fh-kha" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottom" id="KZm-Cy-2pO"/>
+                <constraint firstItem="EKA-RQ-mo3" firstAttribute="top" secondItem="lZa-hV-UBS" secondAttribute="bottom" constant="5" id="TEq-j2-5qv"/>
+                <constraint firstItem="ABC-ml-hpQ" firstAttribute="top" secondItem="EKA-RQ-mo3" secondAttribute="bottom" constant="5" id="VdD-Q9-Uuo"/>
+                <constraint firstItem="h3Y-fh-kha" firstAttribute="leading" secondItem="lZa-hV-UBS" secondAttribute="trailing" constant="15" id="WKP-9y-0QY"/>
+                <constraint firstItem="h3Y-fh-kha" firstAttribute="leading" secondItem="EKA-RQ-mo3" secondAttribute="trailing" constant="15" id="axV-Zf-MqT"/>
+                <constraint firstAttribute="top" secondItem="lZa-hV-UBS" secondAttribute="top" id="fqf-2W-sxT"/>
+                <constraint firstItem="EKA-RQ-mo3" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="ftY-8U-sPK"/>
+                <constraint firstItem="lZa-hV-UBS" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="gQu-v4-juz"/>
+                <constraint firstItem="ABC-ml-hpQ" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="kHi-E8-fXZ"/>
+                <constraint firstAttribute="bottom" secondItem="ABC-ml-hpQ" secondAttribute="bottom" constant="15" id="u4l-n0-ax7"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="181.8840579710145" y="310.71428571428572"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="ellipsis" catalog="system" width="64" height="18"/>
+    </resources>
+</document>
