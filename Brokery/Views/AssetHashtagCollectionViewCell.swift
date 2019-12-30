@@ -11,11 +11,14 @@ import UIKit
 class AssetHashtagCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet var hashtagLabelText: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         self.layer.cornerRadius = 6
-        registerNibView()
+        //registerNibView()
         // Initialization code
+        hashtagLabelText.sizeToFit()
+
     }
     
     func registerNibView() {

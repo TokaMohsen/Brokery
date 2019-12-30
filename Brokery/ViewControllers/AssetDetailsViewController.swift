@@ -32,7 +32,7 @@ class AssetDetailsViewController: UIViewController , MapDelegateProtocol {
     let assetImagesCollectionViewIdentifier = "imageCell"
     var marker = GMSMarker()
     
- 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -91,6 +91,9 @@ class AssetDetailsViewController: UIViewController , MapDelegateProtocol {
             {
                 self.assetTages = tages
             }
+            //for testing
+           // self.assetTages = ["Rebs" , "Rebs" , "Rebs"]
+            
             if let imageGallery =  asset.assetGallery
             {
                 let Paths = imageGallery.compactMap({return $0.path})
@@ -98,7 +101,7 @@ class AssetDetailsViewController: UIViewController , MapDelegateProtocol {
             }
         }
     }
-
+    
     
     /*
      // MARK: - Navigation
@@ -114,8 +117,16 @@ class AssetDetailsViewController: UIViewController , MapDelegateProtocol {
 extension AssetDetailsViewController : UICollectionViewDelegate , UICollectionViewDataSource
 {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+       
         if collectionView == self.hashtagCollectionView {
-                return self.assetTages.count
+            if  self.assetTages.count == 0  {
+                return 1
+            }
+            else
+            {
+                self.assetTages.count
+            }
+           // return self.assetTages.count == 0 ? 1 : self.assetTages.count
         }
         return self.assetGallery.count == 0 ? 1 : self.assetGallery.count
     }
@@ -124,23 +135,34 @@ extension AssetDetailsViewController : UICollectionViewDelegate , UICollectionVi
         return 1
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionView.frame.width , height:  collectionView.frame.height)
+    }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == self.hashtagCollectionView {
             guard let cellHashtag = collectionView.dequeueReusableCell(withReuseIdentifier: hashtagCollectionViewIdentifier, for: indexPath) as? AssetHashtagCollectionViewCell
                 else {
                     return UICollectionViewCell()}
-                // Set up cell
-            cellHashtag.setup(hashtag: assetTages[indexPath.row])
-                return cellHashtag
-        } else {
-            guard let cellAssetImage = collectionView.dequeueReusableCell(withReuseIdentifier: assetImagesCollectionViewIdentifier, for: indexPath) as? AssetImageCollectionViewCell else {
-                    return UICollectionViewCell()
+            // Set up cell
+            if self.assetTages.count > 0 {
+                cellHashtag.setup(hashtag: assetTages[indexPath.row])
             }
-                // ...Set up cell
+            else
+            {
+                cellHashtag.setup(hashtag: "REBS")
+            }
+            return cellHashtag
+        }
+        else {
+            guard let cellAssetImage = collectionView.dequeueReusableCell(withReuseIdentifier: assetImagesCollectionViewIdentifier, for: indexPath) as? AssetImageCollectionViewCell else {
+                return UICollectionViewCell()
+            }
+            // ...Set up cell
             if self.assetGallery.count > 0 {
                 cellAssetImage.setup(assetImagePath: self.assetGallery[indexPath.row])
-            } else {
+            }
+            else {
                 if let image = UIImage(named: "testImage") {
                     cellAssetImage.setup(image: image)
                 }

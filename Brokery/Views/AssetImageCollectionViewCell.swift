@@ -16,7 +16,7 @@ class AssetImageCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         self.layer.cornerRadius = 6
-        registerNibView()
+        //registerNibView()
 
         // Initialization code
     }
