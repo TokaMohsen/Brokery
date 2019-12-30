@@ -11,7 +11,8 @@ import SDWebImage
 
 class AssetImageCollectionViewCell: UICollectionViewCell {
 
-    @IBOutlet var assetImageView: UIImageView!
+    @IBOutlet weak var assetImage: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         self.layer.cornerRadius = 6
@@ -35,10 +36,13 @@ class AssetImageCollectionViewCell: UICollectionViewCell {
         let url = URL(string: BaseAPIURL + assetImagePath)
         SDWebImageManager.shared().imageDownloader?.downloadImage(with:url , options: .continueInBackground, progress: nil, completed: {(image:UIImage?, data:Data?, error:Error?, finished:Bool) in
             if image != nil {
-                self.assetImageView.image = image
+                self.assetImage.image = image
             }
         })
-
+    }
+    
+    func setup(image: UIImage) {
+        self.assetImage.image = image
     }
 
 }

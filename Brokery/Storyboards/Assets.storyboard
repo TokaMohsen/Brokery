@@ -211,16 +211,7 @@
                                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                         </collectionViewFlowLayout>
-                                                        <cells>
-                                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ImageCell" id="mkM-NM-0Zg" customClass="AssetImageCollectionViewCell" customModule="Brokery" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="15" width="50" height="50"/>
-                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                                                    <autoresizingMask key="autoresizingMask"/>
-                                                                </view>
-                                                            </collectionViewCell>
-                                                        </cells>
+                                                        <cells/>
                                                     </collectionView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="npY-Fg-R8N">
                                                         <rect key="frame" x="294" y="10.000000000000057" width="60" height="60"/>
@@ -639,16 +630,7 @@
                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 </collectionViewFlowLayout>
-                                                <cells>
-                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="imageCell" id="a5Z-08-3b7">
-                                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                                            <autoresizingMask key="autoresizingMask"/>
-                                                        </view>
-                                                    </collectionViewCell>
-                                                </cells>
+                                                <cells/>
                                             </collectionView>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1055,17 +1037,17 @@
         </scene>
     </scenes>
     <resources>
-        <image name="appointment" width="30" height="30"/>
-        <image name="assets" width="31" height="31"/>
+        <image name="appointment" width="105" height="105"/>
+        <image name="assets" width="105" height="105"/>
         <image name="cameraIcon" width="105" height="91"/>
         <image name="hash-512" width="512" height="512"/>
-        <image name="help" width="31" height="31"/>
+        <image name="help" width="105" height="105"/>
         <image name="innerMenuIcon" width="434" height="111"/>
         <image name="location" width="293" height="434"/>
-        <image name="logout" width="31" height="31"/>
-        <image name="profile" width="27" height="31"/>
-        <image name="rebsList" width="26" height="31"/>
-        <image name="settings" width="31" height="31"/>
+        <image name="logout" width="106" height="105"/>
+        <image name="profile" width="93" height="105"/>
+        <image name="rebsList" width="91" height="105"/>
+        <image name="settings" width="105" height="105"/>
         <image name="testAvatar" width="51" height="51"/>
     </resources>
 </document>

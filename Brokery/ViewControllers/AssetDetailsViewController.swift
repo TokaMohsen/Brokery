@@ -37,7 +37,7 @@ class AssetDetailsViewController: UIViewController , MapDelegateProtocol {
         super.viewDidLoad()
         
         hashtagCollectionView.register(UINib(nibName: "AssetHashtagCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: hashtagCollectionViewIdentifier)
-        hashtagCollectionView.register(UINib(nibName: "AssetImageCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: assetImagesCollectionViewIdentifier)
+        assetImagesCollectionView.register(UINib(nibName: "AssetImageCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: assetImagesCollectionViewIdentifier)
         hashtagCollectionView.delegate = self
         assetImagesCollectionView.delegate = self
         
@@ -117,7 +117,7 @@ extension AssetDetailsViewController : UICollectionViewDelegate , UICollectionVi
         if collectionView == self.hashtagCollectionView {
                 return self.assetTages.count
         }
-        return self.assetGallery.count
+        return self.assetGallery.count == 0 ? 1 : self.assetGallery.count
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -133,20 +133,21 @@ extension AssetDetailsViewController : UICollectionViewDelegate , UICollectionVi
                 // Set up cell
             cellHashtag.setup(hashtag: assetTages[indexPath.row])
                 return cellHashtag
-        }
-            
-        else {
-            guard let cellAssetImage = collectionView.dequeueReusableCell(withReuseIdentifier: assetImagesCollectionViewIdentifier, for: indexPath) as? AssetImageCollectionViewCell
-                else {
-                    return UICollectionViewCell()}
+        } else {
+            guard let cellAssetImage = collectionView.dequeueReusableCell(withReuseIdentifier: assetImagesCollectionViewIdentifier, for: indexPath) as? AssetImageCollectionViewCell else {
+                    return UICollectionViewCell()
+            }
                 // ...Set up cell
-            cellAssetImage.setup(assetImagePath: self.assetGallery[indexPath.row])
-                return cellAssetImage
+            if self.assetGallery.count > 0 {
+                cellAssetImage.setup(assetImagePath: self.assetGallery[indexPath.row])
+            } else {
+                if let image = UIImage(named: "testImage") {
+                    cellAssetImage.setup(image: image)
+                }
+            }
             
-            
+            return cellAssetImage
         }
-        
     }
-    
     
 }
