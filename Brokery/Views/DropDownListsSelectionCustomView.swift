@@ -32,8 +32,9 @@ class DropDownListsSelectionCustomView: UIView , UITextFieldDelegate {
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         chooseDeveloperDropDown.showList()
+       
     }
-    
+
     func fetchDevelopers()
     {
         if let userList = appointmentDelegate?.fetchUserListData()

@@ -9,9 +9,11 @@
 import UIKit
 import GoogleMaps
 import GooglePlaces
+import iOSDropDown
 
 class AssetDetailsViewController: UIViewController , MapDelegateProtocol {
     
+    @IBOutlet var dropDownList: DropDown!
     @IBOutlet var assetNameLabel: UILabel!
     
     @IBOutlet var assetDescriptionLabel: UILabel!
@@ -32,6 +34,16 @@ class AssetDetailsViewController: UIViewController , MapDelegateProtocol {
     let assetImagesCollectionViewIdentifier = "imageCell"
     var marker = GMSMarker()
     
+    @IBAction func menuBtnAction(_ sender: UIButton) {
+          let options = ["Add Appointment" , "Share Asset" , "Edit Asset" , "Favorite Asset"]
+         dropDownList.showList()
+        dropDownList.selectedRowColor = .lightGray
+                dropDownList.optionArray = options
+                       dropDownList.didSelect { (selectedItem, index, id) in
+                        self.handleDropDownMenuSectionsNavigation(index: index)
+                       }
+        dropDownList.showList()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -91,9 +103,7 @@ class AssetDetailsViewController: UIViewController , MapDelegateProtocol {
             {
                 self.assetTages = tages
             }
-            //for testing
-           // self.assetTages = ["Rebs" , "Rebs" , "Rebs"]
-            
+         
             if let imageGallery =  asset.assetGallery
             {
                 let Paths = imageGallery.compactMap({return $0.path})
@@ -102,6 +112,54 @@ class AssetDetailsViewController: UIViewController , MapDelegateProtocol {
         }
     }
     
+    func handleDropDownMenuSectionsNavigation(index : Int)
+    {
+        var vcIdentifier : String?
+        
+        switch index {
+        case 0:
+            if let asset =  self.assetModel
+            {
+                let storyboard = UIStoryboard(name: "Appointments", bundle: nil)
+                if let viewController = storyboard.instantiateViewController(withIdentifier: "AddAppointmentViewController" ) as? AddAppointmentViewController {
+                    viewController.getAssetModel(asset: asset)
+                    
+                    navigationController?.pushViewController(viewController, animated: true)
+                }
+            }
+        case 1:
+            if let asset =  self.assetModel
+            {
+                let storyboard = UIStoryboard(name: "Assets", bundle: nil)
+                if let viewController = storyboard.instantiateViewController(withIdentifier: "AddAppointmentViewController" ) as? AssetDetailsViewController {
+                    viewController.getAssetModel(asset: asset)
+                    
+                    navigationController?.pushViewController(viewController, animated: true)
+                }
+            }
+        case 2:
+            if let asset =  self.assetModel
+            {
+                let storyboard = UIStoryboard(name: "Assets", bundle: nil)
+                if let viewController = storyboard.instantiateViewController(withIdentifier: "AddAssetViewController" ) as? AssetDetailsViewController {
+                    viewController.getAssetModel(asset: asset)
+                    
+                    navigationController?.pushViewController(viewController, animated: true)
+                }
+            }
+        case 3:
+            showConfirmationAlert(with: "Asset has been added to favorite list successfully")
+            
+        default:
+            showConfirmationAlert(with: "Asset has been added to favorite list successfully")
+        }
+    }
+     func showConfirmationAlert(with message: String) {
+        let alert = UIAlertController(title: "Confirmation", message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alert.addAction(okAction)
+        present(alert, animated: true, completion: nil)
+    }
     
     /*
      // MARK: - Navigation

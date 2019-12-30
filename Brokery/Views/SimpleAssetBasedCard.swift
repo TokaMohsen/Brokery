@@ -40,4 +40,13 @@ class SimpleAssetBasedCard: UIView {
         
     }
     
+    func setup(_ asset: AssetDto) {
+       // appartementImage.image = asset.profilePhoto
+        appartementName.text = asset.title
+        appartementDescription.text = asset.description
+        companyName.text = asset.owner?.name
+        jobTitle.text = asset.owner?.userProfile?.description
+     
+    }
+    
 }

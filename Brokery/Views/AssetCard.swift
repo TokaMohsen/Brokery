@@ -27,6 +27,7 @@ class AssetCard: UITableViewCell {
         appartementName.text = asset.title
         appartementDescription.text = asset.description
         companyName.text = asset.owner?.name
+        jobTitle.text =  asset.owner?.userProfile?.description
         //for example
         if let tages = asset.tages{
             hashtag.text = tages[0]

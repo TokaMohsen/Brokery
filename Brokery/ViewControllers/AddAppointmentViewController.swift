@@ -25,9 +25,13 @@ class AddAppointmentViewController: UIViewController , AppointmentDelegateProtoc
 
     let assetCard = SimpleAssetBasedCard()
     let dropLists = DropDownListsSelectionCustomView()
+    
     var appointment = AppointmentDto()
+    var asset : AssetDto?
+    
     static let sharedWebClient = WebClient.init(baseUrl: BaseAPIURL)
     let customView = DropDownListsSelectionCustomView()
+
     var appointmentTask : URLSessionDataTask!
     
     @IBAction func chooseContactBtnAction(_ sender: UIButton) {
@@ -37,6 +41,8 @@ class AddAppointmentViewController: UIViewController , AppointmentDelegateProtoc
     
     @IBAction func cancelBtnAction(_ sender: UIButton) {
     }
+    
+    
     override func viewWillAppear(_ animated: Bool) {
       //  appointmentSourceUIView = appointmentSourceUIView as? DropDownListsSelectionCustomView
         
@@ -44,15 +50,20 @@ class AddAppointmentViewController: UIViewController , AppointmentDelegateProtoc
     override func viewDidLoad() {
         super.viewDidLoad()
         dropLists.appointmentDelegate = self
-        customView.fetchDevelopers()
-        customView.registerNibView()
-        customView.frame = appointmentSourceUIView.bounds
-        customView.bounds.size = appointmentSourceUIView.bounds.size
-
-        customView.center = appointmentSourceUIView.center
-        appointmentSourceUIView.addSubview(customView)
-        appointmentSourceUIView.translatesAutoresizingMaskIntoConstraints = false
-
+        if let assetModel = self.asset
+        {
+            assetCard.setup(assetModel)
+        }
+        else{
+            customView.fetchDevelopers()
+            customView.registerNibView()
+            customView.frame = appointmentSourceUIView.bounds
+            customView.bounds.size = appointmentSourceUIView.bounds.size
+            
+            customView.center = appointmentSourceUIView.center
+            appointmentSourceUIView.addSubview(customView)
+            appointmentSourceUIView.translatesAutoresizingMaskIntoConstraints = false
+        }
         datePicker.addTarget(self, action: Selector("handlePicker:"), for: UIControl.Event.valueChanged)
 
        // let cellNib = UINib(nibName: "DropDownListsSelectionCustomView", bundle: nil)
@@ -64,6 +75,12 @@ class AddAppointmentViewController: UIViewController , AppointmentDelegateProtoc
     {
         self.appointment = appointment
     }
+    
+    func getAssetModel(asset : AssetDto)
+    {
+        self.asset = asset
+    }
+    
     
     func handlePicker(sender: UIDatePicker) {
         var timeFormatter = DateFormatter()
