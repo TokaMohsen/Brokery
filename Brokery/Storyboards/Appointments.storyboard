@@ -20,10 +20,10 @@
                                 <rect key="frame" x="35" y="20" width="305" height="647"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="80N-ZM-d0v">
-                                        <rect key="frame" x="0.0" y="0.0" width="305" height="612"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="305" height="642"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="vuI-5j-02Z">
-                                                <rect key="frame" x="0.0" y="0.0" width="305" height="547"/>
+                                                <rect key="frame" x="0.0" y="30" width="305" height="547"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1PM-U6-ZPw" userLabel="appointmentSourceView">
                                                         <rect key="frame" x="0.0" y="0.0" width="305" height="160"/>
@@ -121,13 +121,14 @@
                                                     </view>
                                                 </subviews>
                                                 <constraints>
+                                                    <constraint firstItem="1PM-U6-ZPw" firstAttribute="top" secondItem="vuI-5j-02Z" secondAttribute="top" id="6bT-6p-gs9"/>
                                                     <constraint firstItem="y8P-uy-KJh" firstAttribute="top" secondItem="1PM-U6-ZPw" secondAttribute="bottom" constant="10" id="8Nt-Dt-Ydh"/>
                                                     <constraint firstAttribute="trailing" secondItem="1PM-U6-ZPw" secondAttribute="trailing" id="bF8-cY-emT"/>
                                                     <constraint firstItem="1PM-U6-ZPw" firstAttribute="leading" secondItem="vuI-5j-02Z" secondAttribute="leading" id="f1U-Z9-y1g"/>
                                                 </constraints>
                                             </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fst-Hf-c1H" userLabel="buttonsView">
-                                                <rect key="frame" x="0.0" y="547" width="305" height="65"/>
+                                                <rect key="frame" x="0.0" y="577" width="305" height="65"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Scl-0m-jIb" userLabel="saveBtn">
                                                         <rect key="frame" x="25" y="15" width="121" height="35"/>
@@ -181,7 +182,7 @@
                                         </subviews>
                                         <color key="backgroundColor" red="0.87821859120000001" green="0.8823509812" blue="0.88637506960000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstItem="vuI-5j-02Z" firstAttribute="top" secondItem="80N-ZM-d0v" secondAttribute="top" id="G1j-sn-dPo"/>
+                                            <constraint firstItem="vuI-5j-02Z" firstAttribute="top" secondItem="80N-ZM-d0v" secondAttribute="top" constant="30" id="G1j-sn-dPo"/>
                                             <constraint firstItem="vuI-5j-02Z" firstAttribute="leading" secondItem="80N-ZM-d0v" secondAttribute="leading" id="HE3-8I-m48"/>
                                             <constraint firstItem="fst-Hf-c1H" firstAttribute="leading" secondItem="80N-ZM-d0v" secondAttribute="leading" id="ZYj-cz-snv"/>
                                             <constraint firstAttribute="bottom" secondItem="fst-Hf-c1H" secondAttribute="bottom" id="d0K-JM-9FL"/>

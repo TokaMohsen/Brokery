@@ -52,7 +52,14 @@ class AddAppointmentViewController: UIViewController , AppointmentDelegateProtoc
         dropLists.appointmentDelegate = self
         if let assetModel = self.asset
         {
+            assetCard.registerNibView()
             assetCard.setup(assetModel)
+            assetCard.frame = appointmentSourceUIView.bounds
+            assetCard.bounds.size = appointmentSourceUIView.bounds.size
+            
+            assetCard.center = appointmentSourceUIView.center
+            appointmentSourceUIView.addSubview(assetCard)
+            appointmentSourceUIView.translatesAutoresizingMaskIntoConstraints = false
         }
         else{
             customView.fetchDevelopers()

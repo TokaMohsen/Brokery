@@ -10,15 +10,15 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SimpleAssetBasedCard" customModule="Brokery" customModuleProvider="target">
             <connections>
-                <outlet property="appartementDescription" destination="kFf-pI-ydb" id="nz0-lB-qUg"/>
-                <outlet property="appartementName" destination="t4V-Ux-l8a" id="yfv-1z-CXP"/>
-                <outlet property="avatarImage" destination="6id-sF-zfP" id="t33-Xo-mnN"/>
-                <outlet property="companyName" destination="2HR-iP-28X" id="3Zu-sx-eM1"/>
-                <outlet property="jobTitle" destination="NpC-0Q-QZr" id="ajU-VX-lJR"/>
+                <outlet property="appartementDescription" destination="kFf-pI-ydb" id="NNq-1m-wlI"/>
+                <outlet property="appartementName" destination="t4V-Ux-l8a" id="ECk-wL-rPr"/>
+                <outlet property="avatarImage" destination="6id-sF-zfP" id="9zQ-li-iJI"/>
+                <outlet property="companyName" destination="2HR-iP-28X" id="e1F-wu-Ady"/>
+                <outlet property="jobTitle" destination="NpC-0Q-QZr" id="jNn-mK-Miz"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="SimpleAssetBasedCard" customModule="Brokery" customModuleProvider="target">
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="285" height="160"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
@@ -86,8 +86,8 @@
                                 <constraint firstItem="t8i-wE-8tH" firstAttribute="centerY" secondItem="6id-sF-zfP" secondAttribute="centerY" id="yG5-6f-A2q"/>
                             </constraints>
                         </view>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kFf-pI-ydb">
-                            <rect key="frame" x="5" y="113" width="275" height="29"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kFf-pI-ydb">
+                            <rect key="frame" x="5" y="113" width="275" height="63"/>
                             <string key="text">SPANTECH storage units are easy and fast to build and offer an exceptionnal eave height and span capabilities that even traditional construction cannot offer.</string>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                             <nil key="textColor"/>
@@ -97,15 +97,21 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="kFf-pI-ydb" firstAttribute="top" secondItem="t4V-Ux-l8a" secondAttribute="bottom" constant="10" id="Dry-5O-5c2"/>
+                        <constraint firstAttribute="bottom" secondItem="kFf-pI-ydb" secondAttribute="bottom" constant="20" id="UGr-7M-bvJ"/>
                         <constraint firstItem="U6M-BE-BnH" firstAttribute="top" secondItem="NME-kg-b2y" secondAttribute="top" constant="5" id="W3J-qf-M5f"/>
                         <constraint firstAttribute="trailing" secondItem="kFf-pI-ydb" secondAttribute="trailing" id="dFl-1D-z3S"/>
                         <constraint firstItem="kFf-pI-ydb" firstAttribute="leading" secondItem="NME-kg-b2y" secondAttribute="leading" constant="5" id="uUi-N8-C4O"/>
                         <constraint firstAttribute="trailing" secondItem="U6M-BE-BnH" secondAttribute="trailing" id="vca-Iz-N3C"/>
                         <constraint firstItem="U6M-BE-BnH" firstAttribute="leading" secondItem="NME-kg-b2y" secondAttribute="leading" id="wUU-nN-uYs"/>
                     </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="CornerRadius">
+                            <integer key="value" value="15"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                 </view>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="top" secondItem="NME-kg-b2y" secondAttribute="top" constant="45" id="RRc-PO-Qyn"/>
                 <constraint firstItem="NME-kg-b2y" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" constant="35" id="T3q-NQ-dEL"/>
