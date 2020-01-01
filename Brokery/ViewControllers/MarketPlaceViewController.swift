@@ -19,6 +19,8 @@ class MarketPlaceViewController: BaseViewController {
     
     var getAllAssetsTask: URLSessionDataTask!
     
+    @IBAction func addAssetBtnAction(_ sender: UIButton) {
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
     }

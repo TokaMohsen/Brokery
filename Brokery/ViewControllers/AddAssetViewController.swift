@@ -10,7 +10,8 @@ import UIKit
 import iOSDropDown
 import Alamofire
 
-class AddAssetViewController: BaseViewController, UIPickerViewDelegate ,UINavigationControllerDelegate {
+class AddAssetViewController: BaseViewController, UIPickerViewDelegate ,UINavigationControllerDelegate , UICollectionViewDelegate , UICollectionViewDataSource {
+
     
     @IBOutlet var assetAddressTextField: UITextField!
     @IBOutlet var assetNameTextField: UITextField!
@@ -23,26 +24,33 @@ class AddAssetViewController: BaseViewController, UIPickerViewDelegate ,UINaviga
     
     var imageController : UIImagePickerController?
     var tempPickedImg : UIImage?
-    
+    var assetTypesList = [String]()
+    var hashtags = [String]()
+    var assetModel : AssetModel?
     static let sharedWebClient = WebClient.init(baseUrl: BaseAPIURL)
-    
+    private lazy var assetTypesListService = AssetTypesListGetService()
+    var getAssetTypesListTask: URLSessionDataTask!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         imageController = UIImagePickerController()
-        imageController?.delegate = self as! UIImagePickerControllerDelegate & UINavigationControllerDelegate;
+        imageController?.delegate = self as? UIImagePickerControllerDelegate & UINavigationControllerDelegate;
         
-        //        //// The list of array to display. Can be changed dynamically , testing
-        //        //Its Id Values and its optional
-        //        dropDown.optionIds = [1,23,54,22]
-        //
-        //        // Image Array its optional
-        //        dropDown.ImageArray = [👩🏻‍🦳,🙊,🥞]
-        //
-        //
-        // Do any additional setup after loading the view.
+        fetchAssetTpesList()
+        hashtagCollectionView.register(UINib(nibName: "AssetHashtagCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "hashtagCell")
+        hashtagCollectionView.dataSource = self
+        hashtagCollectionView.delegate = self
+        
+
     }
     
     @IBAction func hashtagBtnAction(_ sender: UIButton) {
+        if let hashtag = hashtagTextField.text
+        {
+            hashtags.append(hashtag)
+            hashtagTextField.text = ""
+        }
+        hashtagCollectionView.reloadData()
     }
     @IBAction func setLocationBtnAction(_ sender: UIButton) {
     }
@@ -73,7 +81,29 @@ class AddAssetViewController: BaseViewController, UIPickerViewDelegate ,UINaviga
         }
     }
     
-    @IBAction func statusSegmantedControlAction(_ sender: UISegmentedControl) {
+    func fetchAssetTpesList()
+    {
+        getAssetTypesListTask?.cancel()
+        
+       // activityIndicator.startAnimating()
+        
+        let userinfo = Resource<AssetObject , CustomError>(jsonDecoder: JSONDecoder(), path: GetAssetTypeListURL, method: .get)
+        
+        
+        self.assetTypesListService.fetch(params: userinfo.params, method: .get, url: GetAssetTypeListURL) { (response, error) in
+            if let mappedResponse = response
+            {
+                self.assetTypesList = mappedResponse
+
+                self.assetTypeDropdownTextField.optionArray = self.assetTypesList
+                self.assetTypeDropdownTextField.selectedRowColor = .lightGray
+                self.assetTypeDropdownTextField.didSelect { (selectedItem, index, id) in
+                    self.assetTypeDropdownTextField.text = selectedItem
+                       }
+            } else if error != nil {
+                self.showAlert(with: "error" , title: "server error")
+            }
+        }
     }
     
     @IBAction func saveBtnAction(_ sender: UIButton) {
@@ -81,6 +111,8 @@ class AddAssetViewController: BaseViewController, UIPickerViewDelegate ,UINaviga
     }
     
     @IBAction func cancelBtnAction(_ sender: UIButton) {
+        showAlert(with: "Are you sure u want to discard changes? ", title: "Alert")
+    
     }
     private func setupAssetTypeMenu( assetTypes : [String])
     {
@@ -114,6 +146,33 @@ class AddAssetViewController: BaseViewController, UIPickerViewDelegate ,UINaviga
     {
         
     }
+    
+    private func showAlert(with message: String , title : String) {
+        let alert = UIAlertController(title: title , message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alert.addAction(okAction)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return hashtags.count == 0 ? 1 : hashtags.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cellHashtag = collectionView.dequeueReusableCell(withReuseIdentifier: "hashtagCell", for: indexPath) as? AssetHashtagCollectionViewCell
+            else {
+                return UICollectionViewCell()}
+        // Set up cell
+        if self.hashtags.count > 0 {
+            cellHashtag.setup(hashtag: hashtags[indexPath.row])
+        }
+        else
+        {
+             cellHashtag.setup(hashtag: "REBS")
+        }
+        return cellHashtag
+    }
+    
     /*
      // MARK: - Navigation
      

@@ -42,7 +42,7 @@ class AssetDetailsViewController: UIViewController , MapDelegateProtocol {
                        dropDownList.didSelect { (selectedItem, index, id) in
                         self.handleDropDownMenuSectionsNavigation(index: index)
                        }
-        dropDownList.showList()
+       
     }
     
     override func viewDidLoad() {

@@ -20,6 +20,14 @@ class HomeViewController: BaseViewController {
 
     var getFollowedDevelopersAssetsTask: URLSessionDataTask!
     
+    @IBAction func addAssetBtnAction(_ sender: UIButton) {
+        let storyboard = UIStoryboard(name: "Assets", bundle: nil)
+                      if let viewController = storyboard.instantiateViewController(withIdentifier: "AddAssetViewController" ) as? AddAssetViewController {
+                         // viewController
+                          
+                          navigationController?.pushViewController(viewController, animated: true)
+                      }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
     }

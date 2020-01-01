@@ -8,11 +8,11 @@
 
 import Foundation
 class AssetTypesListGetService {
-    func fetch(params : JSON , method : RequestMethod , url : String , completion: @escaping (AssetObject?, WebError<CustomError>?) -> ())
+    func fetch(params : JSON , method : RequestMethod , url : String , completion: @escaping ([String]?, WebError<CustomError>?) -> ())
     {
         let postUserLoginInfoTask: URLSessionDataTask!
         
-        var userinfo = Resource<AssetObject , CustomError>(jsonDecoder: JSONDecoder(), path: url, method: .get)
+        var userinfo = Resource<[String] , CustomError>(jsonDecoder: JSONDecoder(), path: url, method: .get)
         userinfo.params = params
         AddAssetViewController.sharedWebClient.load(resource: userinfo, urlMethod: method) {[weak self] response in
             if let mappedResponse = response.value
