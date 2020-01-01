@@ -17,7 +17,7 @@ struct MyPlace {
     var long: Double
 }
 
-class AssetMapViewController: UIViewController {
+class AssetMapViewController: UIViewController{
 
     @IBOutlet var googleMapView: GMSMapView!
     
@@ -29,7 +29,8 @@ class AssetMapViewController: UIViewController {
     var chosenPlace: MyPlace?
     var marker = GMSMarker()
     var mapDelegate : MapDelegateProtocol?
-    
+    var addressString : String?
+
     
     // An array to hold the list of likely places.
     var likelyPlaces: [GMSPlace] = []
@@ -57,6 +58,7 @@ class AssetMapViewController: UIViewController {
         
         googleMapView.camera = camera
         self.showMarker(position: googleMapView.camera.target)
+        
         googleMapView.delegate = self
 //        mapView = GMSMapView.map(withFrame: view.bounds, camera: camera)
 //        mapView.settings.myLocationButton = true
@@ -74,6 +76,7 @@ class AssetMapViewController: UIViewController {
     
     private func showMarker(position : CLLocationCoordinate2D)
     {
+        
         marker.position = position
         marker.title = "your location here"
         marker.snippet = "address"
@@ -83,47 +86,24 @@ class AssetMapViewController: UIViewController {
         chosenPlace?.lat = position.latitude
         chosenPlace?.long = position.longitude
         if let title =  marker.title {
-            chosenPlace?.name = title }
-    }
-    @IBAction func saveBtnAction(_ sender: UIBarButtonItem) {
-        if let placePos = chosenPlace
-        {
-            let pos = CLLocationCoordinate2D(latitude: placePos.lat, longitude: placePos.long)
-            mapDelegate?.updateAssetDetailsLocation(assetLocation: pos)
+            chosenPlace?.name = title
+            if let snippet = marker.snippet{
+                addressString = title + snippet
+                
+            }
         }
+    }
+    
+    @IBAction func saveBtnAction(_ sender: UIBarButtonItem) {
+//        if let placePos = chosenPlace
+//        {
+            //let pos = CLLocationCoordinate2D(latitude: placePos.lat, longitude: placePos.long)
+        if let address = marker.title , let snippet = marker.snippet {
+                mapDelegate?.updateAddAssetLocation(assetLocation: address + snippet)
+            }
+        //}
 
     }
-    
-//private func takeSnapshot() {
-//    UIGraphicsBeginImageContextWithOptions(googleMapView.bounds.size , true , 0)
-//    googleMapView.drawHierarchy(in: googleMapView.bounds, afterScreenUpdates: true)
-//    let screenShot = UIGraphicsGetImageFromCurrentImageContext() ?? UIImage(named: "defaultAsset")!
-//    UIGraphicsEndImageContext()
-//   
-////    // Take a snapshot of the map.
-////    UIGraphicsBeginImageContextWithOptions(_mapView.bounds.size, YES, 0);
-////    [_mapView drawViewHierarchyInRect:_mapView.bounds afterScreenUpdates:YES];
-////    UIImage *mapSnapShot = UIGraphicsGetImageFromCurrentImageContext();
-////    UIGraphicsEndImageContext();
-////
-////    // Put snapshot image into an UIImageView and overlay on top of map.
-////    UIImageView *imageView = [[UIImageView alloc] initWithImage:mapSnapShot];
-////    imageView.layer.borderColor = [UIColor redColor].CGColor;
-////    imageView.layer.borderWidth = 10.0f;
-////    [_mapView addSubview:imageView];
-////
-////    // Remove imageView after 1 second.
-////    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-////    [UIView animateWithDuration:1
-////    animations:^{
-////    imageView.alpha = 0.0f;
-////    }
-////    completion:^(BOOL finished) {
-////    [imageView removeFromSuperview];
-////    }];
-////    });
-//    }
-    
     
 }
 extension AssetMapViewController : GMSMapViewDelegate , CLLocationManagerDelegate

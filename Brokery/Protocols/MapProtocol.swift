@@ -12,4 +12,14 @@ import GoogleMaps
 
 protocol MapDelegateProtocol {
     func updateAssetDetailsLocation(assetLocation : CLLocationCoordinate2D)
+    func updateAddAssetLocation(assetLocation : String)
+
+}
+extension MapDelegateProtocol {
+    func updateAddAssetLocation(assetLocation : String){
+        // leaving this empty
+    }
+    func updateAssetDetailsLocation(assetLocation : CLLocationCoordinate2D){
+        // leaving this empty
+    }
 }

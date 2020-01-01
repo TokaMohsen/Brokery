@@ -30,19 +30,20 @@ class HomeViewController: BaseViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.fetchData()
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.fetchData()
     }
     
     private func fetchData()
     {
         getFollowedDevelopersAssetsTask?.cancel()
-        
-        activityIndicator.startAnimating()
-        
+        DispatchQueue.main.async {
+            self.activityIndicator.startAnimating()
+        }
         var userinfo = Resource<AssetObject , CustomError>(jsonDecoder: JSONDecoder(), path: AuthentactionURL, method: .post)
         userinfo.params = ["Page": "0",
                            "PageSize": "10"]
@@ -71,28 +72,7 @@ class HomeViewController: BaseViewController {
         alert.addAction(okAction)
         present(alert, animated: true, completion: nil)
     }
-    
-    //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    //        if let filteredMovieList = self.filteredMovieList
-    //        {
-    //            detailsVc.getFilteredData(movieList: filteredMovieList)
-    //        }
-    //    }
-    
-    //
-    //    override func handleError(_ error: WebError<CustomError>) {
-    //        switch error {
-    //        case .noInternetConnection:
-    //            showErrorAlert(with: "The internet connection is lost")
-    //        case .unauthorized:
-    //            moveToLogin()
-    //        case .other:
-    //            showErrorAlert(with: "Unfortunately something went wrong")
-    //        case .custom(let error):
-    //            showErrorAlert(with: error.message)
-    //        }
-    //    }
-    
+
     private func moveToLogin() {
         
     }

@@ -25,6 +25,7 @@ class MapViewController: UIViewController {
   var placesClient: GMSPlacesClient!
   var zoomLevel: Float = 15.0
 
+    var addressString : String?
   // An array to hold the list of likely places.
   var likelyPlaces: [GMSPlace] = []
 
@@ -44,6 +45,9 @@ class MapViewController: UIViewController {
       let marker = GMSMarker(position: (self.selectedPlace?.coordinate)!)
       marker.title = selectedPlace?.name
       marker.snippet = selectedPlace?.formattedAddress
+        if let name = selectedPlace?.name , let snippet = selectedPlace?.formattedAddress{
+            addressString = name + snippet
+        }
       marker.map = mapView
     }
 

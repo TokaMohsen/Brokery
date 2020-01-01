@@ -11,7 +11,7 @@ import GoogleMaps
 import GooglePlaces
 import iOSDropDown
 
-class AssetDetailsViewController: UIViewController , MapDelegateProtocol {
+class AssetDetailsViewController: UIViewController {
     
     @IBOutlet var dropDownList: DropDown!
     @IBOutlet var assetNameLabel: UILabel!
