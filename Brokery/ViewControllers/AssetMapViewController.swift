@@ -15,6 +15,7 @@ struct MyPlace {
     var name: String
     var lat: Double
     var long: Double
+    var title : String
 }
 
 class AssetMapViewController: UIViewController{
@@ -85,6 +86,7 @@ class AssetMapViewController: UIViewController{
         drawCircle()
         chosenPlace?.lat = position.latitude
         chosenPlace?.long = position.longitude
+        chosenPlace?.title = marker.title ?? ""
         if let title =  marker.title {
             chosenPlace?.name = title
             if let snippet = marker.snippet{
@@ -95,13 +97,14 @@ class AssetMapViewController: UIViewController{
     }
     
     @IBAction func saveBtnAction(_ sender: UIBarButtonItem) {
-//        if let placePos = chosenPlace
-//        {
-            //let pos = CLLocationCoordinate2D(latitude: placePos.lat, longitude: placePos.long)
-        if let address = marker.title , let snippet = marker.snippet {
-                mapDelegate?.updateAddAssetLocation(assetLocation: address + snippet)
-            }
-        //}
+        if let placePos = chosenPlace
+        {
+            let pos = CLLocationCoordinate2D(latitude: placePos.lat, longitude: placePos.long)
+            mapDelegate?.updateAssetDetailsLocation(assetLocation: pos)
+       // if let address = placePos.title  {
+                mapDelegate?.updateAddAssetLocation(assetLocation: placePos.title)
+         //   }
+        }
 
     }
     

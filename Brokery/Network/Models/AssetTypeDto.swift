@@ -7,11 +7,24 @@
 
 import Foundation
 
-
+public struct AssetTypeObject: Decodable {
+    var success: Bool
+    var data: [AssetType]?
+    var count: Int?
+    var code: String?
+    
+}
+public struct AssetType: Decodable {
+    var id: Int
+    var name: String?
+    var isActive: Bool?
+   
+    
+}
 public struct AssetTypeDto: Decodable {
 
 
-    public var _id: Int
+    public var id: Int
 
     public var code: String?
 
@@ -22,21 +35,5 @@ public struct AssetTypeDto: Decodable {
     public var isDeleted: Bool
 
     public var asset: [AssetDto]?
-    public init(_id: Int, code: String?, text: String?, isActive: Bool, isDeleted: Bool, asset: [AssetDto]?) { 
-        self._id = _id
-        self.code = code
-        self.text = text
-        self.isActive = isActive
-        self.isDeleted = isDeleted
-        self.asset = asset
-    }
-    public enum CodingKeys: String, CodingKey { 
-        case _id = "id"
-        case code
-        case text
-        case isActive
-        case isDeleted
-        case asset
-    }
 
 }

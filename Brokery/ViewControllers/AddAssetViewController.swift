@@ -9,6 +9,18 @@
 import UIKit
 import iOSDropDown
 import Alamofire
+import CoreLocation
+
+struct Asset {
+    var title : String
+    var description : String
+    var assetTypeId : String
+    var latitude : String
+    var longitude : String
+    var address : String
+    var tags : [String]
+    
+}
 
 class AddAssetViewController: BaseViewController, UIPickerViewDelegate ,UINavigationControllerDelegate , UICollectionViewDelegate , UICollectionViewDataSource , UIImagePickerControllerDelegate  {
     
@@ -26,7 +38,8 @@ class AddAssetViewController: BaseViewController, UIPickerViewDelegate ,UINaviga
     var imageController : UIImagePickerController?
     
     
-    var tempPickedImg : UIImage?
+    var assetlocationCoord : CLLocationCoordinate2D?
+    
     var assetTypesList = [String]()
     var hashtags = [String]()
     var assetImages = [UIImage]()
@@ -34,7 +47,9 @@ class AddAssetViewController: BaseViewController, UIPickerViewDelegate ,UINaviga
     let hashtagCollectionViewIdentifier = "hashtagCell"
     let assetImagesCollectionViewIdentifier = "imageCell"
     let assetMapVC = AssetMapViewController()
-
+    
+    var assetToBeAdded : Asset?
+    
     static let sharedWebClient = WebClient.init(baseUrl: BaseAPIURL)
     private lazy var assetTypesListService = AssetTypesListGetService()
     var getAssetTypesListTask: URLSessionDataTask!
@@ -49,9 +64,11 @@ class AddAssetViewController: BaseViewController, UIPickerViewDelegate ,UINaviga
         imageController?.mediaTypes = ["public.image", "public.movie"]
         
         //get data , collection views
-        fetchAssetTpesList()
+        fetchAssetTypesList()
         hashtagCollectionView.register(UINib(nibName: "AssetHashtagCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: hashtagCollectionViewIdentifier)
         imageCollectionView.register(UINib(nibName: "AssetImageCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: assetImagesCollectionViewIdentifier)
+        
+        //delegates
         hashtagCollectionView.dataSource = self
         hashtagCollectionView.delegate = self
         
@@ -108,7 +125,16 @@ class AddAssetViewController: BaseViewController, UIPickerViewDelegate ,UINaviga
         present(alert, animated: true, completion: nil)
     }
     
-    func fetchAssetTpesList()
+    @IBAction func saveBtnAction(_ sender: UIButton) {
+        
+    }
+    
+    @IBAction func cancelBtnAction(_ sender: UIButton) {
+        showAlert(with: "Are you sure u want to discard changes? ", title: "Alert")
+        
+    }
+    
+    func fetchAssetTypesList()
     {
         getAssetTypesListTask?.cancel()
         
@@ -120,12 +146,13 @@ class AddAssetViewController: BaseViewController, UIPickerViewDelegate ,UINaviga
         self.assetTypesListService.fetch(params: userinfo.params, method: .get, url: GetAssetTypeListURL) { (response, error) in
             if let mappedResponse = response
             {
-                self.assetTypesList = mappedResponse
-                
+                // self.assetTypesList = mappedResponse.compactMap({String($0)})
+                self.assetTypesList = mappedResponse.compactMap({$0.name})
                 self.assetTypeDropdownTextField.optionArray = self.assetTypesList
                 self.assetTypeDropdownTextField.selectedRowColor = .lightGray
                 self.assetTypeDropdownTextField.didSelect { (selectedItem, index, id) in
                     self.assetTypeDropdownTextField.text = selectedItem
+                    self.assetToBeAdded?.assetTypeId = String( mappedResponse[index].id )
                 }
             } else if error != nil {
                 self.assetTypeDropdownTextField.optionArray = [ "Types are unavailable"]
@@ -136,33 +163,30 @@ class AddAssetViewController: BaseViewController, UIPickerViewDelegate ,UINaviga
         }
     }
     
-    @IBAction func saveBtnAction(_ sender: UIButton) {
+    func createAsset(asset : Asset)
+    {
+        getAssetTypesListTask?.cancel()
         
+        // activityIndicator.startAnimating()
+        
+        let userinfo = Resource<AssetObject , CustomError>(jsonDecoder: JSONDecoder(), path: createAssetURL, method: .post)
+        
+        
+        self.CreateAssetPostService.fetch(params: userinfo.params, method: .post, url: createAssetURL) { (response, error) in
+            if let mappedResponse = response
+            {
+                // self.assetTypesList = mappedResponse.compactMap({String($0)})
+      
+            } else if error != nil {
+           
+                self.showErrorAlert(with: "server error while getting asset types" , title: "Error")
+            }
+        }
     }
     
-    @IBAction func cancelBtnAction(_ sender: UIButton) {
-        showAlert(with: "Are you sure u want to discard changes? ", title: "Alert")
-        
-    }
     private func setupAssetTypeMenu( assetTypes : [String])
     {
         assetTypeDropdownTextField.showList()
-    }
-    
-    func imagePickerController(_ picker: UIImagePickerController,
-                               didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]){
-        
-        guard let selectedImage = info[.originalImage] as? UIImage else {
-            fatalError("Expected a dictionary containing an image, but was provided the following: \(info)")
-        }
-        // imageViewPic.contentMode = .scaleToFill
-        
-        //imageViewPic.image = pickedImage
-        //tempPickedImg = selectedImage
-        
-        picker.dismiss(animated: true, completion: nil)
-        assetImages.append(selectedImage)
-        imageCollectionView.reloadData()
     }
     
     private func showAlert(with message: String , title : String) {
@@ -186,6 +210,24 @@ class AddAssetViewController: BaseViewController, UIPickerViewDelegate ,UINaviga
         present(alert, animated: true, completion: nil)
     }
     
+}
+
+extension AddAssetViewController : MapDelegateProtocol{
+    func imagePickerController(_ picker: UIImagePickerController,
+                               didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]){
+        
+        guard let selectedImage = info[.originalImage] as? UIImage else {
+            fatalError("Expected a dictionary containing an image, but was provided the following: \(info)")
+        }
+        // imageViewPic.contentMode = .scaleToFill
+        
+        //imageViewPic.image = pickedImage
+        //tempPickedImg = selectedImage
+        
+        picker.dismiss(animated: true, completion: nil)
+        assetImages.append(selectedImage)
+        imageCollectionView.reloadData()
+    }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == self.hashtagCollectionView {
             return hashtags.count == 0 ? 1 : hashtags.count
@@ -230,20 +272,13 @@ class AddAssetViewController: BaseViewController, UIPickerViewDelegate ,UINaviga
         }
     }
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
-}
-extension AddAssetViewController : MapDelegateProtocol{
     func updateAddAssetLocation(assetLocation: String) {
         assetAddressTextField.text = assetLocation
+    }
+    
+    func updateAssetDetailsLocation(assetLocation: CLLocationCoordinate2D) {
+        assetlocationCoord?.longitude = assetLocation.longitude
+        assetlocationCoord?.latitude = assetLocation.latitude
     }
     
 }

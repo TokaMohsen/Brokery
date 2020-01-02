@@ -61,6 +61,7 @@
 		EF0ED3E92380546800F7A7D6 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0ED3E82380546800F7A7D6 /* BaseModel.swift */; };
 		EF0EE96523B02C8C0073B42C /* SimpleAssetBasedCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0EE96423B02C8C0073B42C /* SimpleAssetBasedCard.swift */; };
 		EF0EE96723B02CB20073B42C /* SimpleAssetBasedCard.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF0EE96623B02CB20073B42C /* SimpleAssetBasedCard.xib */; };
+		EF105E0923BD625200AE8764 /* CreateAssetPostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF105E0823BD625200AE8764 /* CreateAssetPostService.swift */; };
 		EF118C7423B0A19A00632490 /* DropDownListsSelectionCustomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF118C7323B0A19A00632490 /* DropDownListsSelectionCustomView.xib */; };
 		EF11D1C12375E2E7005C8F0C /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF11D1C02375E2E7005C8F0C /* Login.storyboard */; };
 		EF11D1C52375E538005C8F0C /* RegisterationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF11D1C42375E538005C8F0C /* RegisterationViewController.swift */; };
@@ -196,6 +197,7 @@
 		EF0ED3E82380546800F7A7D6 /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
 		EF0EE96423B02C8C0073B42C /* SimpleAssetBasedCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleAssetBasedCard.swift; sourceTree = "<group>"; };
 		EF0EE96623B02CB20073B42C /* SimpleAssetBasedCard.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SimpleAssetBasedCard.xib; sourceTree = "<group>"; };
+		EF105E0823BD625200AE8764 /* CreateAssetPostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAssetPostService.swift; sourceTree = "<group>"; };
 		EF118C7323B0A19A00632490 /* DropDownListsSelectionCustomView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DropDownListsSelectionCustomView.xib; sourceTree = "<group>"; };
 		EF11D1C02375E2E7005C8F0C /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		EF11D1C42375E538005C8F0C /* RegisterationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterationViewController.swift; sourceTree = "<group>"; };
@@ -407,6 +409,7 @@
 				EF35E47423B4C14F00837871 /* GetListOfUserContactsService.swift */,
 				EF1A0EDB23B965F100DC3976 /* GetAppointmentsListService.swift */,
 				EF1A4F9023BBB4CF00F4C291 /* AddFavoriteAssetPostService.swift */,
+				EF105E0823BD625200AE8764 /* CreateAssetPostService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -916,6 +919,7 @@
 				EF0C8525238AC033008A0C32 /* UserProfileDto.swift in Sources */,
 				EF0C8538238AC033008A0C32 /* AssetGalleryDto.swift in Sources */,
 				EF0B0ABA239EC27C0050BD4C /* AssetImageCollectionViewCell.swift in Sources */,
+				EF105E0923BD625200AE8764 /* CreateAssetPostService.swift in Sources */,
 				EF0C8537238AC033008A0C32 /* ContactDto.swift in Sources */,
 				EF0C8526238AC033008A0C32 /* HashTagStatus.swift in Sources */,
 				EFB50BE9238414F600188EED /* StringExtension.swift in Sources */,

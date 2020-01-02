@@ -32,6 +32,7 @@ let AssetCreateURL = "/api/Asset/Create"
 let FollowedAssetsURL = "/api/Asset/GetFollowedDeveloperAssets"
 let HashtagGetURL = "/api/HashTag/Get"
 let GetAssetTypeListURL = "/api/AssetType/GetAssetTypeList"
+let createAssetURL = "/api/Asset/Create"
 //appointment 
 let getUserAssetsURL = "/api/Asset/GetUserAssets"
 let getUsersListURL = "/api/User/GetUsersList"
