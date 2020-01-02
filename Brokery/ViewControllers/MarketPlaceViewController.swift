@@ -35,15 +35,15 @@ class MarketPlaceViewController: BaseViewController, UISearchResultsUpdating {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupNavigationBar(title: "Market Place")
-        self.fetchData()
+        self.fetchData(withSearchText: nil)
     }
     
     func updateSearchResults(for searchController: UISearchController) {
-        guard let text = searchController.searchBar.text else { return }
-        print("Test \(text)")
+        guard let text = searchController.searchBar.text, text.count != 0 else { return }
+        self.fetchData(withSearchText: text)
     }
     
-    private func fetchData()
+    private func fetchData(withSearchText search: String?)
     {
         getAllAssetsTask?.cancel()
         
@@ -52,6 +52,11 @@ class MarketPlaceViewController: BaseViewController, UISearchResultsUpdating {
         var userinfo = Resource<Object , CustomError>(jsonDecoder: JSONDecoder(), path: AuthentactionURL, method: .post)
         userinfo.params = ["Page": "0",
                            "PageSize": "10"]
+        
+        if let search = search {
+            let filter = ["key": "Title", "value": search]
+            userinfo.params["Filter"] = filter
+        }
         
         self.marketPlaceService.fetch(params: userinfo.params, method: .get, url: AllAssestsURL) { (response, error) in
             DispatchQueue.main.async {
