@@ -18,7 +18,7 @@ struct MyPlace {
     var title : String
 }
 
-class AssetMapViewController: UIViewController{
+class AssetMapViewController: BaseViewController{
 
     @IBOutlet var googleMapView: GMSMapView!
     
@@ -66,6 +66,11 @@ class AssetMapViewController: UIViewController{
 //        mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         googleMapView.isMyLocationEnabled = true
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupNavigationBar(title: "Map")
     }
     
     @objc func action(sender: UIBarButtonItem) {

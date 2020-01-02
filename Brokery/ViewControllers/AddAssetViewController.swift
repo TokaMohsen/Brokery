@@ -80,6 +80,11 @@ class AddAssetViewController: BaseViewController, UIPickerViewDelegate ,UINaviga
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupNavigationBar(title: "Add Asset")
+    }
+    
     @IBAction func hashtagBtnAction(_ sender: UIButton) {
         if let hashtag = hashtagTextField.text
         {

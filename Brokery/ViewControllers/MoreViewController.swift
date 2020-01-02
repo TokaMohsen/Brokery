@@ -8,8 +8,12 @@
 
 import UIKit
 
-class MoreViewController: UIViewController {
+class MoreViewController: BaseViewController {
     
+    @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var name: UILabel!
+    @IBOutlet weak var email: UILabel!
+    @IBOutlet weak var jobTitle: UILabel!
     @IBOutlet weak var profileView: UIView!
     @IBOutlet weak var assetsView: UIView!
     @IBOutlet weak var rebsView: UIView!
@@ -20,10 +24,12 @@ class MoreViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setupView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        setupNavigationBar(title: "More")
         
         let profileTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(profileTapped(tapGestureRecognizer:)))
         profileView.addGestureRecognizer(profileTapGestureRecognizer)
@@ -45,6 +51,13 @@ class MoreViewController: UIViewController {
         
         let logoutTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(logoutTapped(tapGestureRecognizer:)))
         logoutView.addGestureRecognizer(logoutTapGestureRecognizer)
+    }
+    
+    func setupView() {
+        self.profileImage.image = UIImage(named: "testAvatar")
+        self.name.text = "Mohamed Hassan"
+        self.email.text = "E-mail Address"
+        self.jobTitle.text = "Job Title"
     }
     
     @objc func profileTapped(tapGestureRecognizer: UITargetedDragPreview) {

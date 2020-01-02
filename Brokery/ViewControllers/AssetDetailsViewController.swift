@@ -11,7 +11,7 @@ import GoogleMaps
 import GooglePlaces
 import iOSDropDown
 
-class AssetDetailsViewController: UIViewController {
+class AssetDetailsViewController: BaseViewController {
     
     @IBOutlet var dropDownList: DropDown!
     @IBOutlet var assetNameLabel: UILabel!
@@ -47,7 +47,6 @@ class AssetDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         hashtagCollectionView.register(UINib(nibName: "AssetHashtagCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: hashtagCollectionViewIdentifier)
         assetImagesCollectionView.register(UINib(nibName: "AssetImageCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: assetImagesCollectionViewIdentifier)
         hashtagCollectionView.delegate = self
@@ -59,6 +58,12 @@ class AssetDetailsViewController: UIViewController {
         {
             setupAssetView(asset: asset )
         }
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupNavigationBar(title: "Asset Details")
     }
     
     func updateAssetDetailsLocation(assetLocation: CLLocationCoordinate2D) {

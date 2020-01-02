@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AppointmentsListViewController: UIViewController , UITableViewDelegate , UITableViewDataSource{
+class AppointmentsListViewController: BaseViewController , UITableViewDelegate , UITableViewDataSource{
     
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
     @IBOutlet var datePicker: UIDatePicker!
@@ -26,9 +26,15 @@ class AppointmentsListViewController: UIViewController , UITableViewDelegate , U
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         datePicker.addTarget(self, action: Selector("handlePicker:"), for: UIControl.Event.valueChanged)
         
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupNavigationBar(title: "Appointments")
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

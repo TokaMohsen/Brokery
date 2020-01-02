@@ -27,7 +27,7 @@ class MarketPlaceViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        setupNavigationBar(title: "Market Place")
         self.fetchData()
     }
     

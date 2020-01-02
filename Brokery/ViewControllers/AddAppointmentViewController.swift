@@ -9,7 +9,7 @@
 import UIKit
 import iOSDropDown
 
-class AddAppointmentViewController: UIViewController , AppointmentDelegateProtocol {
+class AddAppointmentViewController: BaseViewController , AppointmentDelegateProtocol {
     
     
     @IBOutlet var appointmentDescriptionText: UITextField!
@@ -42,13 +42,9 @@ class AddAppointmentViewController: UIViewController , AppointmentDelegateProtoc
     @IBAction func cancelBtnAction(_ sender: UIButton) {
     }
     
-    
-    override func viewWillAppear(_ animated: Bool) {
-      //  appointmentSourceUIView = appointmentSourceUIView as? DropDownListsSelectionCustomView
-        
-    }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         dropLists.appointmentDelegate = self
         if let assetModel = self.asset
         {
@@ -76,6 +72,11 @@ class AddAppointmentViewController: UIViewController , AppointmentDelegateProtoc
        // let cellNib = UINib(nibName: "DropDownListsSelectionCustomView", bundle: nil)
 
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupNavigationBar(title: "Add Appointment")
     }
     
     func getAppointmentModel(appointment : AppointmentDto)

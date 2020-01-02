@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vVK-yY-Egu">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vVK-yY-Egu">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -972,8 +972,8 @@
                                                     <constraint firstAttribute="height" constant="30" id="Qqz-l9-vDs"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="APPOINTMENTS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7o0-cx-VVi">
-                                                <rect key="frame" x="64" y="13.333333333333316" width="136" height="21.666666666666671"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ADD APPOINTMENTS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7o0-cx-VVi">
+                                                <rect key="frame" x="63.999999999999986" y="13.333333333333316" width="177.66666666666663" height="21.666666666666671"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -1082,8 +1082,12 @@
                     <connections>
                         <outlet property="appointmentsView" destination="Ssd-5R-ocW" id="gBh-wh-Ie1"/>
                         <outlet property="assetsView" destination="Uye-mO-UkO" id="HoI-mh-52M"/>
+                        <outlet property="email" destination="Ds4-yJ-P2s" id="6Kh-Wr-kX0"/>
                         <outlet property="helpView" destination="y2C-Do-pOr" id="AAm-ez-0UU"/>
+                        <outlet property="jobTitle" destination="wXW-pO-Xi9" id="Glf-BZ-8ev"/>
                         <outlet property="logoutView" destination="oTj-Dc-Qoe" id="qdU-1F-yEE"/>
+                        <outlet property="name" destination="Fkr-5I-KT6" id="Jof-qO-1md"/>
+                        <outlet property="profileImage" destination="IG3-iq-JUg" id="4Wz-Cd-idK"/>
                         <outlet property="profileView" destination="wXE-lI-87S" id="Wnf-jd-jB4"/>
                         <outlet property="rebsView" destination="GJ3-Qm-Jee" id="1yw-xc-w6q"/>
                         <outlet property="settingsView" destination="IIx-Ed-qPv" id="wIy-Sf-yA2"/>
