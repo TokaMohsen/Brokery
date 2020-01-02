@@ -10,7 +10,7 @@ import Foundation
 
 
 class GetListOfUserContactsService {
-    func fetch(params : JSON , method : RequestMethod , url : String , completion: @escaping ([ContactDto]?, WebError<CustomError>?) -> ())
+    func fetch(params : JSON , method : RequestMethod , url : String , completion: @escaping ([Contact]?, WebError<CustomError>?) -> ())
     {
         let getListOfUserContactsTask: URLSessionDataTask!
         
@@ -20,8 +20,7 @@ class GetListOfUserContactsService {
         getListOfUserContactsTask = AddAppointmentViewController.sharedWebClient.load(resource: userContactList, urlMethod: method) {[weak self] response in
             if let mappedResponse = response.value?.data
             {
-                let result = mappedResponse
-                completion(result , nil)
+                completion(mappedResponse , nil)
             } else if let error = response.error {
                 //controller.handleError(error)
                 completion(nil , response.error)

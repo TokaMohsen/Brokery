@@ -43,3 +43,5 @@ let getListOfAppointmentsURL = "/api/Appointment/GetInterval"
 //Regex
 let MobilePhoneNumberRegex = "^[0-9]{10,18}$";
 let EmailAddressRegex = "^^([A-Za-z0-9]){1}[A-Z0-9a-z._%+-]+@([A-Za-z0-9]){1}[a-zA-Z_0-9-]+?([A-Za-z0-9]){1}(\\.[a-zA-Z]{2,})+$";
+//Format
+let dateTimeFormat = "yyyy-MM-dd'T'HH:mm:ssZ"

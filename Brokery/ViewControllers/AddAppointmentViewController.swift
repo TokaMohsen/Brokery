@@ -11,13 +11,14 @@ import iOSDropDown
 
 class AddAppointmentViewController: BaseViewController , AppointmentDelegateProtocol {
     
-    
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+
     @IBOutlet var appointmentDescriptionText: UITextField!
 
     @IBOutlet var datePicker: UIDatePicker!
     @IBOutlet var appointmentSourceUIView: UIView!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
+    @IBOutlet var chooseContactsDropList: DropDown!
     private lazy var usersListService = GetUsersListService()
     private lazy var userAssetsService = GetUserAssetsService()
     private lazy var createAppointmentService = CreateAppointmentService()
@@ -28,6 +29,7 @@ class AddAppointmentViewController: BaseViewController , AppointmentDelegateProt
     
     var appointment = AppointmentDto()
     var asset : AssetDto?
+    var contacts : [String]?
     
     static let sharedWebClient = WebClient.init(baseUrl: BaseAPIURL)
     let customView = DropDownListsSelectionCustomView()
@@ -35,6 +37,8 @@ class AddAppointmentViewController: BaseViewController , AppointmentDelegateProt
     var appointmentTask : URLSessionDataTask!
     
     @IBAction func chooseContactBtnAction(_ sender: UIButton) {
+        setupChooseContactList(contacts: self.contacts)
+        chooseContactsDropList.showList()
     }
     @IBAction func saveBtnAction(_ sender: UIButton) {
     }
@@ -67,10 +71,9 @@ class AddAppointmentViewController: BaseViewController , AppointmentDelegateProt
             appointmentSourceUIView.addSubview(customView)
             appointmentSourceUIView.translatesAutoresizingMaskIntoConstraints = false
         }
-        datePicker.addTarget(self, action: Selector("handlePicker:"), for: UIControl.Event.valueChanged)
+        datePicker.addTarget(self, action: #selector(handlePicker(sender:)), for: UIControl.Event.valueChanged)
 
-       // let cellNib = UINib(nibName: "DropDownListsSelectionCustomView", bundle: nil)
-
+        fetchUserContacts()
         // Do any additional setup after loading the view.
     }
     
@@ -90,9 +93,9 @@ class AddAppointmentViewController: BaseViewController , AppointmentDelegateProt
     }
     
     
-    func handlePicker(sender: UIDatePicker) {
+   @objc func handlePicker(sender: UIDatePicker) {
         var timeFormatter = DateFormatter()
-        timeFormatter.timeStyle = DateFormatter.Style.short
+        timeFormatter.dateFormat = dateTimeFormat
 
         var strDate = timeFormatter.string(from: datePicker.date)
         // do what you want to do with the string.
@@ -103,14 +106,14 @@ class AddAppointmentViewController: BaseViewController , AppointmentDelegateProt
         var userNames = [String]()
         appointmentTask?.cancel()
         
-         activityIndicator.startAnimating()
+        // activityIndicator.startAnimating()
         
         let userinfo = Resource<AssetObject , CustomError>(jsonDecoder: JSONDecoder(), path: getUsersListURL, method: .post)
         
         self.usersListService.fetch(params: userinfo.params, method: .get, url: getUsersListURL) { (response, error) in
             if let mappedResponse = response?.data
             {
-                self.activityIndicator.stopAnimating()
+               // self.activityIndicator.stopAnimating()
                 userNames = mappedResponse.compactMap({$0.name})
                 // self.dropLists.fetchDevelopers(developerList: usersNames)
             } else if error != nil {
@@ -147,21 +150,17 @@ class AddAppointmentViewController: BaseViewController , AppointmentDelegateProt
         return assetNames
     }
     
-    func fetchUserContacts() -> [String]?
+    func fetchUserContacts()
     {
         var contactsNames = [String]()
         
         var userinfo = Resource< ContactList , CustomError>(jsonDecoder: JSONDecoder(), path: getListOfContactsURL, method: .get)
-        if let userId = LocalStore.getUserId() {
-            userinfo.params = ["UserID": userId]
-        }
-        // DispatchQueue.main.async {
+     
         self.listOfUserContactsService.fetch(params: userinfo.params, method: .get, url: getListOfContactsURL) { (response, error) in
             if let mappedResponse = response
             {
                //self.activityIndicator.stopAnimating()
-
-                contactsNames = mappedResponse.compactMap({$0.fullName})
+                self.contacts = mappedResponse.compactMap({$0.name})
             }
             else if error != nil {
                 self.showErrorAlert(with: "error")
@@ -170,7 +169,25 @@ class AddAppointmentViewController: BaseViewController , AppointmentDelegateProt
         
         
         // }
-        return contactsNames
+       
+    }
+    
+    func setupChooseContactList(contacts : [String]?) {
+        if let contacts = contacts
+        {
+            self.chooseContactsDropList.optionArray = contacts.count == 0 ? ["no data"] :  contacts
+        }
+        else
+        {
+            self.chooseContactsDropList.optionArray = ["no data"]
+        }
+        self.chooseContactsDropList.selectedRowColor = .lightGray
+        self.chooseContactsDropList.isSearchEnable = true
+        self.chooseContactsDropList.didSelect { (selectedItem, index, id) in
+            self.chooseContactsDropList.text = selectedItem
+        }
+        
+        
     }
     
     func createAppointment(developer : UserDto , asset : AssetDto , contact : ContactDto)
