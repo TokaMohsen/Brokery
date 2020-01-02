@@ -25,7 +25,7 @@ class HomeViewController: BaseViewController, UISearchResultsUpdating {
                       if let viewController = storyboard.instantiateViewController(withIdentifier: "AddAssetViewController" ) as? AddAssetViewController {
                          // viewController
                           
-                          navigationController?.pushViewController(viewController, animated: true)
+                        self.navigationController?.pushViewController(viewController, animated: true)
                       }
     }
     override func viewDidLoad() {
@@ -42,15 +42,15 @@ class HomeViewController: BaseViewController, UISearchResultsUpdating {
         super.viewWillAppear(animated)
         setupNavigationBar(title: "Home")
         
-        self.fetchData()
+        self.fetchData(withSearchText: nil)
     }
     
     func updateSearchResults(for searchController: UISearchController) {
-        guard let text = searchController.searchBar.text else { return }
-        print("Test \(text)")
+        guard let text = searchController.searchBar.text, text.count != 0 else { return }
+        self.fetchData(withSearchText: text)
     }
     
-    private func fetchData()
+    private func fetchData(withSearchText search: String?)
     {
         getFollowedDevelopersAssetsTask?.cancel()
         DispatchQueue.main.async {
@@ -59,6 +59,11 @@ class HomeViewController: BaseViewController, UISearchResultsUpdating {
         var userinfo = Resource<AssetObject , CustomError>(jsonDecoder: JSONDecoder(), path: AuthentactionURL, method: .post)
         userinfo.params = ["Page": "0",
                            "PageSize": "10"]
+        
+        if let search = search {
+            let filter = ["key": "Title", "value": search]
+            userinfo.params["Filter"] = filter
+        }
         
         self.homeService.fetch(params: userinfo.params, method: .get, url: FollowedAssetsURL) { (response, error) in
             DispatchQueue.main.async {
@@ -108,7 +113,7 @@ extension HomeViewController : AssetDelegateProtocol {
         if let viewController = storyboard.instantiateViewController(withIdentifier: "AssetDetailsViewController") as? AssetDetailsViewController {
             viewController.getAssetModel(asset: asset)
             
-            navigationController?.pushViewController(viewController, animated: true)
+            self.navigationController?.pushViewController(viewController, animated: true)
         }
     }
 }
