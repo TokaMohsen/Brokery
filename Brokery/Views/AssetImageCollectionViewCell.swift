@@ -41,8 +41,8 @@ class AssetImageCollectionViewCell: UICollectionViewCell {
         })
     }
     
-    func setup(image: UIImage) {
-        self.assetImage.image = image
+    func setup(image: String) {
+        self.assetImage.image = UIImage(named: image)
     }
 
 }
