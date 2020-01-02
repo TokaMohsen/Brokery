@@ -52,6 +52,8 @@ class AddAssetViewController: BaseViewController, UIPickerViewDelegate ,UINaviga
     
     static let sharedWebClient = WebClient.init(baseUrl: BaseAPIURL)
     private lazy var assetTypesListService = AssetTypesListGetService()
+    private lazy var createAssetPostService = CreateAssetPostService()
+
     var getAssetTypesListTask: URLSessionDataTask!
     
     override func viewDidLoad() {
@@ -172,7 +174,7 @@ class AddAssetViewController: BaseViewController, UIPickerViewDelegate ,UINaviga
         let userinfo = Resource<AssetObject , CustomError>(jsonDecoder: JSONDecoder(), path: createAssetURL, method: .post)
         
         
-        self.CreateAssetPostService.fetch(params: userinfo.params, method: .post, url: createAssetURL) { (response, error) in
+        self.createAssetPostService.post(params: userinfo.params, method: .post, url: createAssetURL) { (response, error) in
             if let mappedResponse = response
             {
                 // self.assetTypesList = mappedResponse.compactMap({String($0)})
