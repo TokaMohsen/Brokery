@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -87,7 +87,7 @@
                             </constraints>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kFf-pI-ydb">
-                            <rect key="frame" x="5" y="113" width="275" height="63"/>
+                            <rect key="frame" x="5" y="80" width="275" height="96"/>
                             <string key="text">SPANTECH storage units are easy and fast to build and offer an exceptionnal eave height and span capabilities that even traditional construction cannot offer.</string>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                             <nil key="textColor"/>
@@ -96,13 +96,13 @@
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstItem="kFf-pI-ydb" firstAttribute="top" secondItem="t4V-Ux-l8a" secondAttribute="bottom" constant="10" id="Dry-5O-5c2"/>
                         <constraint firstAttribute="bottom" secondItem="kFf-pI-ydb" secondAttribute="bottom" constant="20" id="UGr-7M-bvJ"/>
                         <constraint firstItem="U6M-BE-BnH" firstAttribute="top" secondItem="NME-kg-b2y" secondAttribute="top" constant="5" id="W3J-qf-M5f"/>
                         <constraint firstAttribute="trailing" secondItem="kFf-pI-ydb" secondAttribute="trailing" id="dFl-1D-z3S"/>
                         <constraint firstItem="kFf-pI-ydb" firstAttribute="leading" secondItem="NME-kg-b2y" secondAttribute="leading" constant="5" id="uUi-N8-C4O"/>
                         <constraint firstAttribute="trailing" secondItem="U6M-BE-BnH" secondAttribute="trailing" id="vca-Iz-N3C"/>
                         <constraint firstItem="U6M-BE-BnH" firstAttribute="leading" secondItem="NME-kg-b2y" secondAttribute="leading" id="wUU-nN-uYs"/>
+                        <constraint firstItem="kFf-pI-ydb" firstAttribute="top" secondItem="U6M-BE-BnH" secondAttribute="bottom" constant="10" id="zF6-SQ-KKA"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="CornerRadius">
