@@ -20,6 +20,10 @@ class MarketPlaceViewController: BaseViewController, UISearchResultsUpdating {
     var getAllAssetsTask: URLSessionDataTask!
     
     @IBAction func addAssetBtnAction(_ sender: UIButton) {
+        let storyboard = UIStoryboard(name: "Assets", bundle: nil)
+        if let viewController = storyboard.instantiateViewController(withIdentifier: "AddAssetViewController" ) as? AddAssetViewController {
+            self.navigationController?.pushViewController(viewController, animated: true)
+        }
     }
     
     override func viewDidLoad() {
@@ -67,6 +71,8 @@ class MarketPlaceViewController: BaseViewController, UISearchResultsUpdating {
             if let mappedResponse = response?.data
             {
                 self.assetTableCustomView.setupTableView(assets: mappedResponse)
+                self.assetTableCustomView.assetDelegate = self
+
                 
             } else if error != nil {
                 //controller.handleError(error)

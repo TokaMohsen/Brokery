@@ -22,11 +22,9 @@ class HomeViewController: BaseViewController, UISearchResultsUpdating {
     
     @IBAction func addAssetBtnAction(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "Assets", bundle: nil)
-                      if let viewController = storyboard.instantiateViewController(withIdentifier: "AddAssetViewController" ) as? AddAssetViewController {
-                         // viewController
-                          
-                        self.navigationController?.pushViewController(viewController, animated: true)
-                      }
+        if let viewController = storyboard.instantiateViewController(withIdentifier: "AddAssetViewController" ) as? AddAssetViewController {
+            self.navigationController?.pushViewController(viewController, animated: true)
+        }
     }
     override func viewDidLoad() {
         super.viewDidLoad()
