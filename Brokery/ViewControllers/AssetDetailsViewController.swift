@@ -207,6 +207,9 @@ extension AssetDetailsViewController : UICollectionViewDelegate , UICollectionVi
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
+        if collectionView == self.hashtagCollectionView {
+            return CGSize(width: 73 , height:  35)
+        }
         return collectionView.frame.size
     }
     
