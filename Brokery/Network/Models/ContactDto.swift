@@ -9,12 +9,16 @@ import Foundation
 
 public struct ContactList: Decodable {
     var success: Bool
-    var data: [ContactDto]?
+    var data: [Contact]?
     var count: Int?
     var code: String?
     
 }
-
+public struct Contact: Decodable {
+    var id: String?
+    var name: String?
+    
+}
 public struct ContactDto: Decodable {
 
 

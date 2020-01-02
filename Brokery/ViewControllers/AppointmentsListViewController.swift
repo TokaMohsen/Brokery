@@ -24,17 +24,26 @@ class AppointmentsListViewController: BaseViewController , UITableViewDelegate ,
     var getappointmentsListTask: URLSessionDataTask!
     var appointmentList = [AppointmentDto]()
     var appointmentCardColor = false
-    var appointmentDate = Date()
+    var appointmentDate = String()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         datePicker.addTarget(self, action: #selector(handlePicker(sender:)), for: UIControl.Event.valueChanged)
-        appointmentDate = datePicker.date
+        
+        var timeFormatter = DateFormatter()
+        timeFormatter.dateFormat = dateTimeFormat
+        let selectedDateTime = timeFormatter.string(from:  datePicker.date);
+
+        appointmentDate = selectedDateTime
+        
+        //appointmentDate = datePicker.date
         appointmentsTableView.dataSource = self
         appointmentsTableView.delegate = self
-       fetchData(dateTime: "2019-12-31T16:13:55.250Z")
-        // Do any additional setup after loading the view.
+        
+       
+        
+       fetchData(dateTime: appointmentDate)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -64,9 +73,8 @@ class AppointmentsListViewController: BaseViewController , UITableViewDelegate ,
         
         var userinfo = Resource<AssetObject , CustomError>(jsonDecoder: JSONDecoder(), path: getListOfAppointmentsURL, method: .get)
         
-        userinfo.params = ["dateTime": "2019-12-31T16:13:55.250Z"]
+        userinfo.params = ["dateTime": dateTime]
         
-        //"dateTime": "2019-12-31T16:13:55.250Z"
         self.appointmentsListService.fetch(params: userinfo.params, method: .get, url: getListOfAppointmentsURL) { (response, error) in
             if let mappedResponse = response
             {
@@ -95,16 +103,13 @@ class AppointmentsListViewController: BaseViewController , UITableViewDelegate ,
     }
    
     
-  @objc  func handlePicker(sender: UIDatePicker) {
+    @objc  func handlePicker(sender: UIDatePicker) {
         var timeFormatter = DateFormatter()
-    timeFormatter.dateFormat =  "MM/dd/yyyy h:mm a"
-    appointmentDate =  datePicker.date
-    let yourSelectedDateTime = timeFormatter.string(from: appointmentDate);
-
-        // timeFormatter.timeStyle = DateFormatter.Style.short
+        timeFormatter.dateFormat = dateTimeFormat
+        let selectedDateTime = timeFormatter.string(from:  datePicker.date);
         
-        //let strDate = timeFormatter.string(from: datePicker.date)
-        fetchData(dateTime: "2019-12-31T16:13:55.250Z")
+
+        fetchData(dateTime: selectedDateTime)
     }
     
     private func showErrorAlert(with message: String) {
