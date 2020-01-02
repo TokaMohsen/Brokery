@@ -21,6 +21,7 @@ class AssetDetailsViewController: BaseViewController {
     @IBOutlet var hashtagCollectionView: UICollectionView!
     
     @IBOutlet var assetImagesCollectionView: UICollectionView!
+    @IBOutlet weak var assetImagePage: UIPageControl!
     
     
     @IBOutlet var mapView: GMSMapView!
@@ -28,7 +29,11 @@ class AssetDetailsViewController: BaseViewController {
     
     var assetModel : AssetDto?
     var assetTages : [String] = []
-    var assetGallery : [String] = []
+    var assetGallery : [String] = [] {
+        didSet {
+            assetImagePage.numberOfPages = assetGallery.count
+        }
+    }
     
     let hashtagCollectionViewIdentifier = "hashtagCell"
     let assetImagesCollectionViewIdentifier = "imageCell"
@@ -58,6 +63,9 @@ class AssetDetailsViewController: BaseViewController {
         {
             setupAssetView(asset: asset )
         }
+        
+        #warning("Test Data")
+        assetGallery = ["testImage", "testAvatar", "testImage", "testAvatar"]
     }
     
     
@@ -177,17 +185,16 @@ class AssetDetailsViewController: BaseViewController {
      */
     
 }
-extension AssetDetailsViewController : UICollectionViewDelegate , UICollectionViewDataSource
+
+extension AssetDetailsViewController : UICollectionViewDelegate , UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
        
         if collectionView == self.hashtagCollectionView {
             if  self.assetTages.count == 0  {
                 return 1
-            }
-            else
-            {
-                self.assetTages.count
+            } else {
+                return self.assetTages.count
             }
            // return self.assetTages.count == 0 ? 1 : self.assetTages.count
         }
@@ -199,7 +206,8 @@ extension AssetDetailsViewController : UICollectionViewDelegate , UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.width , height:  collectionView.frame.height)
+        
+        return collectionView.frame.size
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -223,16 +231,37 @@ extension AssetDetailsViewController : UICollectionViewDelegate , UICollectionVi
             }
             // ...Set up cell
             if self.assetGallery.count > 0 {
-                cellAssetImage.setup(assetImagePath: self.assetGallery[indexPath.row])
+                cellAssetImage.setup(image: self.assetGallery[indexPath.row])
             }
             else {
-                if let image = UIImage(named: "testImage") {
-                    cellAssetImage.setup(image: image)
-                }
+                cellAssetImage.setup(image: "testImage")
             }
             
             return cellAssetImage
         }
     }
     
+}
+
+extension AssetDetailsViewController: UIScrollViewDelegate {
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        self.updateCurrentPageIndex()
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        self.updateCurrentPageIndex()
+    }
+    
+    private func updateCurrentPageIndex() {
+        self.assetImagePage.currentPage = getCurrentIndex()
+    }
+    
+    private func getCurrentIndex() -> Int {
+        guard let assetImagesCollectionView = self.assetImagesCollectionView else {
+            return 0
+        }
+        let index:Int = Int(assetImagesCollectionView.contentOffset.x / assetImagesCollectionView.frame.width)
+        return index
+    }
 }

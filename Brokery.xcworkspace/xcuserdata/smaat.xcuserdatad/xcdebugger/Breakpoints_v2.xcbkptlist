@@ -16,56 +16,40 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "77"
             endingLineNumber = "77"
-            landmarkName = "showDetailsOf(asset:)"
+            landmarkName = "fetchData(withSearchText:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "AB5BC3D3-3A87-46A7-85B2-B36D66DBC6D7"
-            shouldBeEnabled = "Yes"
+            uuid = "897CB37C-933E-4C76-884D-4BCCA48A61A7"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Brokery/ViewControllers/HomeViewController.swift"
+            filePath = "Brokery/ViewControllers/AssetDetailsViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
-            landmarkName = "fetchData(withSearchText:)"
+            startingLineNumber = "214"
+            endingLineNumber = "214"
+            landmarkName = "collectionView(_:cellForItemAt:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "AB5BC3D3-3A87-46A7-85B2-B36D66DBC6D7 - 838e7933efdb9bbb"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Brokery.HomeViewController.(fetchData in _D90FAEAD6D9B9DD0B3736B72F0E54268)(withSearchText: Swift.Optional&lt;Swift.String&gt;) -&gt; ()"
-                  moduleName = "Brokery"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/Storage/Abdo/Brokery/Brokery/ViewControllers/HomeViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "68"
-                  endingLineNumber = "68"
-                  offsetFromSymbolStart = "2108">
-               </Location>
-               <Location
-                  uuid = "AB5BC3D3-3A87-46A7-85B2-B36D66DBC6D7 - 215e5ba9f3fd3805"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #2 (Swift.Optional&lt;Brokery.AssetObject&gt;, Swift.Optional&lt;Brokery.WebError&lt;Brokery.CustomError&gt;&gt;) -&gt; () in Brokery.HomeViewController.(fetchData in _D90FAEAD6D9B9DD0B3736B72F0E54268)(withSearchText: Swift.Optional&lt;Swift.String&gt;) -&gt; ()"
-                  moduleName = "Brokery"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/Storage/Abdo/Brokery/Brokery/ViewControllers/HomeViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "69"
-                  endingLineNumber = "69"
-                  offsetFromSymbolStart = "270">
-               </Location>
-            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A601D482-E469-4C43-80F4-6F1743013510"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Brokery/ViewControllers/AssetDetailsViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "210"
+            endingLineNumber = "210"
+            landmarkName = "collectionView(_:layout:sizeForItemAt:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

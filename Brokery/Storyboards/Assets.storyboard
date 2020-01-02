@@ -516,11 +516,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="L2i-Xy-L2u">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="L2i-Xy-L2u">
                                 <rect key="frame" x="50" y="50" width="314" height="636"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jSk-Nh-h0w" userLabel="DescriptionView">
-                                        <rect key="frame" x="0.0" y="0.0" width="314" height="218"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="314" height="203"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CDj-Gn-o7c">
                                                 <rect key="frame" x="0.0" y="5" width="314" height="40"/>
@@ -576,14 +576,14 @@
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ANv-Te-WNt" userLabel="descriptionLabel">
-                                                <rect key="frame" x="0.0" y="45" width="314" height="143"/>
+                                                <rect key="frame" x="0.0" y="45" width="314" height="128"/>
                                                 <string key="text">SPANTECH storage units are easy and fast to build and offer an exceptionnal eave height and span capabilities that even traditional construction cannot offer. SPANTECH storage units are easy and fast to build and offer an exceptionnal eave height and span capabilities that even traditional construction cannot offer. </string>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Is2-qG-H4y" userLabel="HashtagView">
-                                                <rect key="frame" x="20" y="188" width="274" height="30"/>
+                                                <rect key="frame" x="20" y="173" width="274" height="30"/>
                                                 <subviews>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="bsK-ZB-UXM" userLabel="hashatgCollection View">
                                                         <rect key="frame" x="0.0" y="0.0" width="274" height="30"/>
@@ -634,7 +634,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gXX-WF-MCM" userLabel="ImgaesPagerView">
                                         <rect key="frame" x="0.0" y="218" width="314" height="200"/>
                                         <subviews>
-                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="zLT-da-u0e" userLabel="imagesCollection View">
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="zLT-da-u0e" userLabel="imagesCollection View">
                                                 <rect key="frame" x="0.0" y="0.0" width="314" height="200"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="U55-5i-7vK">
@@ -643,17 +643,16 @@
                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 </collectionViewFlowLayout>
-                                                <cells>
-                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" reuseIdentifier="imageCell" id="KKs-Cu-JBW" customClass="AssetImageCollectionViewCell" customModule="Brokery" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1JF-Pv-GvT">
-                                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                                            <autoresizingMask key="autoresizingMask"/>
-                                                        </collectionViewCellContentView>
-                                                    </collectionViewCell>
-                                                </cells>
+                                                <cells/>
                                             </collectionView>
+                                            <pageControl clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="100" currentPage="50" translatesAutoresizingMaskIntoConstraints="NO" id="Nbl-nT-URa">
+                                                <rect key="frame" x="15" y="158" width="284" height="37"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="37" id="wRC-LC-fIL"/>
+                                                </constraints>
+                                                <color key="pageIndicatorTintColor" red="0.79214805359999996" green="0.78823214770000005" blue="0.78822857140000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="currentPageIndicatorTintColor" red="0.90164178610000001" green="0.71643525360000004" blue="0.26648512479999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </pageControl>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -661,17 +660,20 @@
                                             <constraint firstAttribute="trailing" secondItem="zLT-da-u0e" secondAttribute="trailing" id="62A-U2-Tjg"/>
                                             <constraint firstItem="zLT-da-u0e" firstAttribute="top" secondItem="gXX-WF-MCM" secondAttribute="top" id="Fsw-IF-t1B"/>
                                             <constraint firstAttribute="bottom" secondItem="zLT-da-u0e" secondAttribute="bottom" id="HKR-Fu-rxa"/>
+                                            <constraint firstItem="Nbl-nT-URa" firstAttribute="leading" secondItem="gXX-WF-MCM" secondAttribute="leading" constant="15" id="l5Y-M8-BVG"/>
+                                            <constraint firstItem="Nbl-nT-URa" firstAttribute="centerX" secondItem="gXX-WF-MCM" secondAttribute="centerX" id="mwT-0W-NH6"/>
+                                            <constraint firstAttribute="trailing" secondItem="Nbl-nT-URa" secondAttribute="trailing" constant="15" id="nQz-Lb-sMt"/>
                                             <constraint firstAttribute="height" constant="200" id="rbE-PW-u42"/>
+                                            <constraint firstAttribute="bottom" secondItem="Nbl-nT-URa" secondAttribute="bottom" constant="5" id="sUr-gB-7gB"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d8Z-6u-hTO" userLabel="mapView" customClass="GMSMapView">
-                                        <rect key="frame" x="0.0" y="418" width="314" height="218"/>
+                                        <rect key="frame" x="0.0" y="433" width="314" height="203"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="NR1-Pz-cru" secondAttribute="trailing" id="0fs-bT-IlA"/>
-                                    <constraint firstItem="gXX-WF-MCM" firstAttribute="top" secondItem="jSk-Nh-h0w" secondAttribute="bottom" id="H5k-6A-9WI"/>
                                     <constraint firstItem="gXX-WF-MCM" firstAttribute="centerY" secondItem="L2i-Xy-L2u" secondAttribute="centerY" id="gUi-Pv-nYh"/>
                                 </constraints>
                             </stackView>
@@ -687,6 +689,7 @@
                     </view>
                     <connections>
                         <outlet property="assetDescriptionLabel" destination="ANv-Te-WNt" id="4Ek-vW-pjp"/>
+                        <outlet property="assetImagePage" destination="Nbl-nT-URa" id="532-8Z-e7e"/>
                         <outlet property="assetImagesCollectionView" destination="zLT-da-u0e" id="l9q-L0-Pb1"/>
                         <outlet property="assetNameLabel" destination="Kzd-Ta-ypY" id="vrY-9y-pdI"/>
                         <outlet property="dropDownList" destination="NR1-Pz-cru" id="A3A-lT-grR"/>
@@ -1113,7 +1116,7 @@
     </scenes>
     <resources>
         <image name="addAssetIcon" width="106" height="88"/>
-        <image name="appointment" width="105" height="105"/>
+        <image name="appointment" width="16.666666030883789" height="16.666666030883789"/>
         <image name="assets" width="105" height="105"/>
         <image name="camera" catalog="system" width="64" height="48"/>
         <image name="ellipsis" catalog="system" width="64" height="18"/>

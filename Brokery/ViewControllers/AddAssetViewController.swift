@@ -267,12 +267,10 @@ extension AddAssetViewController : MapDelegateProtocol{
             }
             // ...Set up cell
             if self.assetImages.count > 0 {
-                cellAssetImage.setup(image: self.assetImages[indexPath.row])
+//                cellAssetImage.setup(image: self.assetImages[indexPath.row])
             }
             else {
-                if let image = UIImage(named: "testImage") {
-                    cellAssetImage.setup(image: image)
-                }
+                cellAssetImage.setup(image: "testImage")
             }
             
             return cellAssetImage
