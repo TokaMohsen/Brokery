@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeViewController: BaseViewController {
+class HomeViewController: BaseViewController, UISearchResultsUpdating {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     @IBOutlet var assetTableCustomView: AssetTable!
@@ -30,12 +30,24 @@ class HomeViewController: BaseViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.fetchData()
+        
+        let search = UISearchController(searchResultsController: nil)
+        search.searchResultsUpdater = self
+        search.obscuresBackgroundDuringPresentation = false
+        search.searchBar.placeholder = "Type something here to search"
+        navigationItem.searchController = search
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupNavigationBar(title: "Home")
+        
+        self.fetchData()
+    }
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let text = searchController.searchBar.text else { return }
+        print("Test \(text)")
     }
     
     private func fetchData()

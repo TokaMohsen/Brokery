@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MarketPlaceViewController: BaseViewController {
+class MarketPlaceViewController: BaseViewController, UISearchResultsUpdating {
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet var assetTableCustomView: AssetTable!
@@ -21,14 +21,26 @@ class MarketPlaceViewController: BaseViewController {
     
     @IBAction func addAssetBtnAction(_ sender: UIButton) {
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let search = UISearchController(searchResultsController: nil)
+        search.searchResultsUpdater = self
+        search.obscuresBackgroundDuringPresentation = false
+        search.searchBar.placeholder = "Type something here to search"
+        navigationItem.searchController = search
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupNavigationBar(title: "Market Place")
         self.fetchData()
+    }
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let text = searchController.searchBar.text else { return }
+        print("Test \(text)")
     }
     
     private func fetchData()
