@@ -516,7 +516,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="L2i-Xy-L2u">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="L2i-Xy-L2u">
                                 <rect key="frame" x="50" y="50" width="314" height="636"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jSk-Nh-h0w" userLabel="DescriptionView">
@@ -565,6 +565,7 @@
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstItem="Kzd-Ta-ypY" firstAttribute="top" secondItem="CDj-Gn-o7c" secondAttribute="top" constant="5" id="3Os-J4-t5k"/>
+                                                    <constraint firstAttribute="trailing" secondItem="NR1-Pz-cru" secondAttribute="trailing" id="BW3-oS-gwK"/>
                                                     <constraint firstItem="NR1-Pz-cru" firstAttribute="centerY" secondItem="SBH-nB-80E" secondAttribute="centerY" id="DE3-Vz-W1A"/>
                                                     <constraint firstAttribute="bottom" secondItem="Kzd-Ta-ypY" secondAttribute="bottom" constant="5" id="EqZ-hn-zOZ"/>
                                                     <constraint firstItem="NR1-Pz-cru" firstAttribute="centerX" secondItem="SBH-nB-80E" secondAttribute="centerX" id="IZa-tr-pkt"/>
@@ -663,18 +664,20 @@
                                             <constraint firstItem="Nbl-nT-URa" firstAttribute="leading" secondItem="gXX-WF-MCM" secondAttribute="leading" constant="15" id="l5Y-M8-BVG"/>
                                             <constraint firstItem="Nbl-nT-URa" firstAttribute="centerX" secondItem="gXX-WF-MCM" secondAttribute="centerX" id="mwT-0W-NH6"/>
                                             <constraint firstAttribute="trailing" secondItem="Nbl-nT-URa" secondAttribute="trailing" constant="15" id="nQz-Lb-sMt"/>
-                                            <constraint firstAttribute="height" constant="200" id="rbE-PW-u42"/>
                                             <constraint firstAttribute="bottom" secondItem="Nbl-nT-URa" secondAttribute="bottom" constant="5" id="sUr-gB-7gB"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d8Z-6u-hTO" userLabel="mapView" customClass="GMSMapView">
                                         <rect key="frame" x="0.0" y="433" width="314" height="203"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="203" id="Blv-lg-ned"/>
+                                        </constraints>
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="NR1-Pz-cru" secondAttribute="trailing" id="0fs-bT-IlA"/>
-                                    <constraint firstItem="gXX-WF-MCM" firstAttribute="centerY" secondItem="L2i-Xy-L2u" secondAttribute="centerY" id="gUi-Pv-nYh"/>
+                                    <constraint firstItem="gXX-WF-MCM" firstAttribute="centerY" secondItem="L2i-Xy-L2u" secondAttribute="centerY" id="dNu-Q1-9Wz"/>
+                                    <constraint firstItem="gXX-WF-MCM" firstAttribute="top" secondItem="jSk-Nh-h0w" secondAttribute="bottom" constant="15" id="glb-3t-lih"/>
                                 </constraints>
                             </stackView>
                         </subviews>
