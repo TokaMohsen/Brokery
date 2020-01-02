@@ -7,16 +7,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "2C730117-0816-4C2F-8778-485F2810DDD7"
-            shouldBeEnabled = "No"
+            uuid = "E790C20E-AA3F-44F7-A3DC-B1F656B62AB0"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Brokery/ViewControllers/HomeViewController.swift"
+            filePath = "Brokery/ViewControllers/MarketPlaceViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
-            landmarkName = "updateSearchResults(for:)"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
+            landmarkName = "showDetailsOf(asset:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "61E26949-7BB3-4734-84DA-8EC569488A51"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Brokery/ViewControllers/BaseViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
+            landmarkName = "setupNavigationBar(title:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

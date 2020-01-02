@@ -25,7 +25,7 @@ class HomeViewController: BaseViewController, UISearchResultsUpdating {
                       if let viewController = storyboard.instantiateViewController(withIdentifier: "AddAssetViewController" ) as? AddAssetViewController {
                          // viewController
                           
-                          navigationController?.pushViewController(viewController, animated: true)
+                        self.navigationController?.pushViewController(viewController, animated: true)
                       }
     }
     override func viewDidLoad() {
@@ -108,7 +108,7 @@ extension HomeViewController : AssetDelegateProtocol {
         if let viewController = storyboard.instantiateViewController(withIdentifier: "AssetDetailsViewController") as? AssetDetailsViewController {
             viewController.getAssetModel(asset: asset)
             
-            navigationController?.pushViewController(viewController, animated: true)
+            self.navigationController?.pushViewController(viewController, animated: true)
         }
     }
 }
