@@ -49,7 +49,7 @@ class MarketPlaceViewController: BaseViewController, UISearchResultsUpdating {
         
         activityIndicator.startAnimating()
         
-        var userinfo = Resource<Object , CustomError>(jsonDecoder: JSONDecoder(), path: AuthentactionURL, method: .post)
+        var userinfo = Resource<Object , CustomError>(jsonDecoder: JSONDecoder(), path: AllAssestsURL, method: .post)
         userinfo.params = ["Page": "0",
                            "PageSize": "10"]
         

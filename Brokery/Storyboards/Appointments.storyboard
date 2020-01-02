@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -269,6 +269,12 @@
                                     <constraint firstItem="u1B-1p-mu0" firstAttribute="top" secondItem="MOx-nr-WXR" secondAttribute="top" constant="3" id="yB7-4w-odR"/>
                                 </constraints>
                             </view>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No available data" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="82L-e6-bB8">
+                                <rect key="frame" x="129" y="298" width="117.5" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="j8h-8f-K9m">
                                 <rect key="frame" x="30" y="211" width="315" height="451"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -294,10 +300,12 @@
                             <constraint firstItem="MOx-nr-WXR" firstAttribute="leading" secondItem="oKg-mp-97Y" secondAttribute="leading" constant="30" id="Dor-At-90x"/>
                             <constraint firstItem="oKg-mp-97Y" firstAttribute="bottom" secondItem="j8h-8f-K9m" secondAttribute="bottom" constant="5" id="FLJ-ok-wwm"/>
                             <constraint firstItem="j8h-8f-K9m" firstAttribute="leading" secondItem="oKg-mp-97Y" secondAttribute="leading" constant="30" id="KOn-wy-Vae"/>
+                            <constraint firstItem="82L-e6-bB8" firstAttribute="centerX" secondItem="oKg-mp-97Y" secondAttribute="centerX" id="Mwj-fJ-g7m"/>
                             <constraint firstItem="MOx-nr-WXR" firstAttribute="top" secondItem="Lte-LM-ZXe" secondAttribute="bottom" constant="30" id="PkI-qg-fvj"/>
                             <constraint firstItem="YGi-ym-01Q" firstAttribute="centerX" secondItem="oKg-mp-97Y" secondAttribute="centerX" id="QNh-VL-ody"/>
                             <constraint firstItem="oKg-mp-97Y" firstAttribute="trailing" secondItem="j8h-8f-K9m" secondAttribute="trailing" constant="30" id="YNI-2V-OZc"/>
                             <constraint firstItem="j8h-8f-K9m" firstAttribute="top" secondItem="MOx-nr-WXR" secondAttribute="bottom" constant="13" id="cJj-mh-QiM"/>
+                            <constraint firstItem="82L-e6-bB8" firstAttribute="top" secondItem="MOx-nr-WXR" secondAttribute="bottom" constant="100" id="etu-Je-OJR"/>
                             <constraint firstItem="YGi-ym-01Q" firstAttribute="centerY" secondItem="oKg-mp-97Y" secondAttribute="centerY" id="kDf-Ag-jnU"/>
                             <constraint firstItem="oKg-mp-97Y" firstAttribute="trailing" secondItem="Lte-LM-ZXe" secondAttribute="trailing" id="lYy-3I-6QQ"/>
                             <constraint firstItem="oKg-mp-97Y" firstAttribute="trailing" secondItem="MOx-nr-WXR" secondAttribute="trailing" constant="30" id="r74-2Q-38v"/>
@@ -311,6 +319,7 @@
                         <outlet property="appointmentDayLbl" destination="5pb-vd-bCU" id="tAx-zg-GKg"/>
                         <outlet property="appointmentsTableView" destination="j8h-8f-K9m" id="fcD-U0-iru"/>
                         <outlet property="datePicker" destination="Lte-LM-ZXe" id="ZgN-SS-bui"/>
+                        <outlet property="noDataLbl" destination="82L-e6-bB8" id="Lef-gf-Sgg"/>
                         <outlet property="numberOfAppointmentsLbl" destination="V8r-XW-gkm" id="p2Y-vZ-6PM"/>
                     </connections>
                 </viewController>

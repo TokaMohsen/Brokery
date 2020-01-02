@@ -14,6 +14,7 @@ class AppointmentsListViewController: BaseViewController , UITableViewDelegate ,
     @IBOutlet var datePicker: UIDatePicker!
     @IBOutlet var appointmentsTableView: UITableView!
     
+    @IBOutlet var noDataLbl: UILabel!
     @IBOutlet var numberOfAppointmentsLbl: UILabel!
     @IBOutlet var appointmentDateLbl: UILabel!
     @IBOutlet var appointmentDayLbl: UILabel!
@@ -23,12 +24,16 @@ class AppointmentsListViewController: BaseViewController , UITableViewDelegate ,
     var getappointmentsListTask: URLSessionDataTask!
     var appointmentList = [AppointmentDto]()
     var appointmentCardColor = false
+    var appointmentDate = Date()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        datePicker.addTarget(self, action: Selector("handlePicker:"), for: UIControl.Event.valueChanged)
-        
+        datePicker.addTarget(self, action: #selector(handlePicker(sender:)), for: UIControl.Event.valueChanged)
+        appointmentDate = datePicker.date
+        appointmentsTableView.dataSource = self
+        appointmentsTableView.delegate = self
+       fetchData(dateTime: "2019-12-31T16:13:55.250Z")
         // Do any additional setup after loading the view.
     }
     
@@ -57,16 +62,28 @@ class AppointmentsListViewController: BaseViewController , UITableViewDelegate ,
         
          activityIndicator.startAnimating()
         
-        let userinfo = Resource<AssetObject , CustomError>(jsonDecoder: JSONDecoder(), path: getListOfAppointmentsURL, method: .get)
+        var userinfo = Resource<AssetObject , CustomError>(jsonDecoder: JSONDecoder(), path: getListOfAppointmentsURL, method: .get)
         
+        userinfo.params = ["dateTime": "2019-12-31T16:13:55.250Z"]
         
+        //"dateTime": "2019-12-31T16:13:55.250Z"
         self.appointmentsListService.fetch(params: userinfo.params, method: .get, url: getListOfAppointmentsURL) { (response, error) in
             if let mappedResponse = response
             {
+                self.appointmentList = mappedResponse
+
                 DispatchQueue.main.async {
                     self.activityIndicator.stopAnimating()
-                }
-                self.appointmentList = mappedResponse
+                    if ( self.appointmentList.count > 0){
+                    self.appointmentsTableView.reloadData()
+                    }
+                    else{
+                        self.appointmentsTableView.isHidden = true
+                        self.noDataLbl.isHidden = false
+                    }
+                    }
+
+                //}
                  // cell.setup(appointmentList[indexPath.row])
                  //self.assetTableCustomView.assetDelegate = self
                 
@@ -75,15 +92,19 @@ class AppointmentsListViewController: BaseViewController , UITableViewDelegate ,
                 self.showErrorAlert(with: "error")
             }
         }
-        
     }
+   
     
-    func handlePicker(sender: UIDatePicker) {
+  @objc  func handlePicker(sender: UIDatePicker) {
         var timeFormatter = DateFormatter()
-        timeFormatter.timeStyle = DateFormatter.Style.short
+    timeFormatter.dateFormat =  "MM/dd/yyyy h:mm a"
+    appointmentDate =  datePicker.date
+    let yourSelectedDateTime = timeFormatter.string(from: appointmentDate);
+
+        // timeFormatter.timeStyle = DateFormatter.Style.short
         
-        let strDate = timeFormatter.string(from: datePicker.date)
-        fetchData(dateTime: strDate)
+        //let strDate = timeFormatter.string(from: datePicker.date)
+        fetchData(dateTime: "2019-12-31T16:13:55.250Z")
     }
     
     private func showErrorAlert(with message: String) {
