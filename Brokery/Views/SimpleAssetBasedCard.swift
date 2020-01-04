@@ -17,6 +17,7 @@ class SimpleAssetBasedCard: UIView {
      // Drawing code
      }
      */
+    @IBOutlet var contentView: UIView!
     @IBOutlet weak var appartementName: UILabel!
     @IBOutlet weak var avatarImage: UIImageView!
     @IBOutlet weak var companyName: UILabel!
@@ -26,30 +27,35 @@ class SimpleAssetBasedCard: UIView {
     override func awakeFromNib() {
         super.awakeFromNib()
         registerNibView()
-        appartementDescription.sizeToFit()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        registerNibView()
+    }
+
+    override public init(frame: CGRect) {
+        super.init(frame: frame)
+        registerNibView()
     }
     
     func registerNibView() {
-        let nib = UINib.init(nibName: String(describing: type(of: self)), bundle: nil)
-        let views = nib.instantiate(withOwner: self, options: nil)
-        if let view = views[0] as? UIView {
-            view.frame = self.bounds
-            self.addSubview(view)
-            self.translatesAutoresizingMaskIntoConstraints = false
-        }
-        
+        Bundle.main.loadNibNamed("SimpleAssetBasedCard", owner: self, options: nil)
+        contentView.fixInView(self)
     }
     
     func setup(_ asset: AssetDto) {
        // appartementImage.image = asset.profilePhoto
         appartementName.text = "Home Asset title"
             //asset.title
-        appartementDescription.text = "asset description of two line has been setted previously static"
+        appartementDescription.text = "asset description of two line has been setted previously static asset description of two line has been setted previously static asset description of two line has been setted previously static"
             //asset.description
         companyName.text = "toqa mohsen"
             //asset.owner?.name
         jobTitle.text = "developer"
             //asset.owner?.userProfile?.description
+        
+        appartementDescription.sizeToFit()
      
     }
     

@@ -4,35 +4,35 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SimpleAssetBasedCard" customModule="Brokery" customModuleProvider="target">
             <connections>
                 <outlet property="appartementDescription" destination="kFf-pI-ydb" id="NNq-1m-wlI"/>
-                <outlet property="appartementName" destination="t4V-Ux-l8a" id="ECk-wL-rPr"/>
+                <outlet property="appartementName" destination="QDQ-Ra-Dqz" id="i6N-qP-fy3"/>
                 <outlet property="avatarImage" destination="6id-sF-zfP" id="9zQ-li-iJI"/>
                 <outlet property="companyName" destination="2HR-iP-28X" id="e1F-wu-Ady"/>
+                <outlet property="contentView" destination="iN0-l3-epB" id="MMm-DE-YPH"/>
                 <outlet property="jobTitle" destination="NpC-0Q-QZr" id="jNn-mK-Miz"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="285" height="160"/>
+        <view clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" horizontalCompressionResistancePriority="753" translatesAutoresizingMaskIntoConstraints="NO" id="NME-kg-b2y">
-                    <rect key="frame" x="5" y="-1" width="280" height="196"/>
+                <view clipsSubviews="YES" contentMode="scaleToFill" horizontalCompressionResistancePriority="753" translatesAutoresizingMaskIntoConstraints="NO" id="NME-kg-b2y">
+                    <rect key="frame" x="5" y="0.0" width="414" height="160"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U6M-BE-BnH">
-                            <rect key="frame" x="0.0" y="5" width="280" height="65"/>
+                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U6M-BE-BnH">
+                            <rect key="frame" x="0.0" y="5" width="414" height="90"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="testAvatar" translatesAutoresizingMaskIntoConstraints="NO" id="6id-sF-zfP">
                                     <rect key="frame" x="0.0" y="15" width="50" height="50"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="50" id="Ciw-Xf-w5S"/>
-                                        <constraint firstAttribute="width" secondItem="6id-sF-zfP" secondAttribute="height" multiplier="1:1" id="mAN-Ay-yOw"/>
+                                        <constraint firstAttribute="width" secondItem="6id-sF-zfP" secondAttribute="height" multiplier="1:1" id="wMu-wD-Ocu"/>
                                     </constraints>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -40,17 +40,17 @@
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                 </imageView>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t8i-wE-8tH">
-                                    <rect key="frame" x="55" y="15" width="99" height="50"/>
+                                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t8i-wE-8tH">
+                                    <rect key="frame" x="55" y="15" width="354" height="44"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mohamed Hassan" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2HR-iP-28X">
-                                            <rect key="frame" x="0.0" y="10" width="99" height="13.5"/>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mohamed Hassan" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2HR-iP-28X">
+                                            <rect key="frame" x="0.0" y="10" width="354" height="13.5"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Developer" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NpC-0Q-QZr">
-                                            <rect key="frame" x="0.0" y="23.5" width="99" height="11"/>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Developer" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NpC-0Q-QZr">
+                                            <rect key="frame" x="0.0" y="23.5" width="354" height="11"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -66,29 +66,30 @@
                                         <constraint firstAttribute="trailing" secondItem="NpC-0Q-QZr" secondAttribute="trailing" id="zKQ-JH-ea4"/>
                                     </constraints>
                                 </view>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Asset Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t4V-Ux-l8a">
-                                    <rect key="frame" x="5" y="75" width="275" height="23"/>
-                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label gd" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QDQ-Ra-Dqz">
+                                    <rect key="frame" x="5" y="69" width="404" height="21"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstItem="t4V-Ux-l8a" firstAttribute="top" secondItem="t8i-wE-8tH" secondAttribute="bottom" constant="10" id="26K-C4-oZT"/>
+                                <constraint firstItem="QDQ-Ra-Dqz" firstAttribute="leading" secondItem="U6M-BE-BnH" secondAttribute="leading" constant="5" id="1kI-lD-Zz5"/>
+                                <constraint firstAttribute="bottom" secondItem="QDQ-Ra-Dqz" secondAttribute="bottom" id="3i1-b0-uMb"/>
+                                <constraint firstItem="QDQ-Ra-Dqz" firstAttribute="top" secondItem="t8i-wE-8tH" secondAttribute="bottom" constant="10" id="9HS-PO-pPL"/>
                                 <constraint firstItem="6id-sF-zfP" firstAttribute="top" secondItem="U6M-BE-BnH" secondAttribute="top" constant="15" id="FwU-yP-MRf"/>
-                                <constraint firstAttribute="bottom" secondItem="6id-sF-zfP" secondAttribute="bottom" id="GdF-b0-jGf"/>
+                                <constraint firstAttribute="height" constant="90" id="P0A-Mw-VEJ"/>
                                 <constraint firstItem="t8i-wE-8tH" firstAttribute="leading" secondItem="6id-sF-zfP" secondAttribute="trailing" constant="5" id="QbN-3S-rQs"/>
-                                <constraint firstAttribute="trailing" secondItem="t4V-Ux-l8a" secondAttribute="trailing" id="RuH-Fx-yd9"/>
+                                <constraint firstAttribute="trailing" secondItem="QDQ-Ra-Dqz" secondAttribute="trailing" constant="5" id="Vcd-gY-8DY"/>
                                 <constraint firstItem="6id-sF-zfP" firstAttribute="leading" secondItem="U6M-BE-BnH" secondAttribute="leading" id="iBl-bz-vBg"/>
-                                <constraint firstItem="t4V-Ux-l8a" firstAttribute="leading" secondItem="U6M-BE-BnH" secondAttribute="leading" constant="5" id="vvW-2J-t05"/>
+                                <constraint firstAttribute="trailing" secondItem="t8i-wE-8tH" secondAttribute="trailing" constant="5" id="l8w-0h-UsL"/>
                                 <constraint firstItem="t8i-wE-8tH" firstAttribute="top" secondItem="6id-sF-zfP" secondAttribute="top" id="xfb-qh-0rV"/>
-                                <constraint firstItem="t8i-wE-8tH" firstAttribute="centerY" secondItem="6id-sF-zfP" secondAttribute="centerY" id="yG5-6f-A2q"/>
                             </constraints>
                         </view>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kFf-pI-ydb">
-                            <rect key="frame" x="5" y="80" width="275" height="96"/>
-                            <string key="text">SPANTECH storage units are easy and fast to build and offer an exceptionnal eave height and span capabilities that even traditional construction cannot offer.</string>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kFf-pI-ydb">
+                            <rect key="frame" x="5" y="95" width="404" height="29"/>
+                            <string key="text">SPANTECH storage units are easy and fast toSPANTECH storage units are easy and fast toSPANTECH storage units are easy and fast toSPANTECH storage units are easy and fast toSPANTECH storage units are easy and fast toSPANTECH storage units are easy and fast to</string>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -96,13 +97,14 @@
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="bottom" secondItem="kFf-pI-ydb" secondAttribute="bottom" constant="20" id="UGr-7M-bvJ"/>
+                        <constraint firstItem="kFf-pI-ydb" firstAttribute="top" secondItem="U6M-BE-BnH" secondAttribute="bottom" id="EZl-4d-ZYk"/>
                         <constraint firstItem="U6M-BE-BnH" firstAttribute="top" secondItem="NME-kg-b2y" secondAttribute="top" constant="5" id="W3J-qf-M5f"/>
-                        <constraint firstAttribute="trailing" secondItem="kFf-pI-ydb" secondAttribute="trailing" id="dFl-1D-z3S"/>
+                        <constraint firstAttribute="height" constant="160" id="Wko-Y4-flJ"/>
+                        <constraint firstAttribute="trailing" secondItem="kFf-pI-ydb" secondAttribute="trailing" constant="5" id="dFl-1D-z3S"/>
+                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="kFf-pI-ydb" secondAttribute="bottom" constant="5" id="e1B-s3-VLe"/>
                         <constraint firstItem="kFf-pI-ydb" firstAttribute="leading" secondItem="NME-kg-b2y" secondAttribute="leading" constant="5" id="uUi-N8-C4O"/>
                         <constraint firstAttribute="trailing" secondItem="U6M-BE-BnH" secondAttribute="trailing" id="vca-Iz-N3C"/>
                         <constraint firstItem="U6M-BE-BnH" firstAttribute="leading" secondItem="NME-kg-b2y" secondAttribute="leading" id="wUU-nN-uYs"/>
-                        <constraint firstItem="kFf-pI-ydb" firstAttribute="top" secondItem="U6M-BE-BnH" secondAttribute="bottom" constant="10" id="zF6-SQ-KKA"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="CornerRadius">
@@ -113,14 +115,12 @@
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="top" secondItem="NME-kg-b2y" secondAttribute="top" constant="45" id="RRc-PO-Qyn"/>
-                <constraint firstItem="NME-kg-b2y" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" constant="35" id="T3q-NQ-dEL"/>
-                <constraint firstItem="NME-kg-b2y" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="VaJ-cY-443"/>
-                <constraint firstItem="NME-kg-b2y" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="5" id="oRq-0i-flH"/>
+                <constraint firstAttribute="top" secondItem="NME-kg-b2y" secondAttribute="top" id="RRc-PO-Qyn"/>
+                <constraint firstItem="NME-kg-b2y" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailing" constant="5" id="VaJ-cY-443"/>
+                <constraint firstItem="NME-kg-b2y" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="oRq-0i-flH"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <point key="canvasLocation" x="142.02898550724638" y="265.51339285714283"/>
+            <point key="canvasLocation" x="173.91304347826087" y="292.63392857142856"/>
         </view>
     </objects>
     <resources>

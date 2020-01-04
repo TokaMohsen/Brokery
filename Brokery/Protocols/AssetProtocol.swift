@@ -10,4 +10,5 @@ import Foundation
 
 protocol AssetDelegateProtocol {
     func showDetailsOf(asset : AssetDto)
+    func loadMore()
 }

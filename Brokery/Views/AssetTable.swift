@@ -23,7 +23,7 @@ class AssetTable: UIView {
     }
     
     func setupTableView(assets: [AssetDto]) {
-        self.assets = assets
+        self.assets.append(contentsOf: assets)
         DispatchQueue.main.async {
             self.assetTableView.reloadData()
         }
@@ -67,6 +67,16 @@ extension AssetTable: UITableViewDataSource {
         }
         return cell
     }
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        let currentOffset = scrollView.contentOffset.y
+        let maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height
+
+        if maximumOffset - currentOffset <= 40.0 {
+            assetDelegate?.loadMore()
+        }
+    }
+    
 }
 
 extension AssetTable: UITableViewDelegate {

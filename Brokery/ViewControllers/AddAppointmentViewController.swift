@@ -24,7 +24,6 @@ class AddAppointmentViewController: BaseViewController , AppointmentDelegateProt
     private lazy var createAppointmentService = CreateAppointmentService()
     private lazy var listOfUserContactsService = GetListOfUserContactsService()
 
-    let assetCard = SimpleAssetBasedCard()
     let dropLists = DropDownListsSelectionCustomView()
     
     var appointment = AppointmentDto()
@@ -52,16 +51,12 @@ class AddAppointmentViewController: BaseViewController , AppointmentDelegateProt
         dropLists.appointmentDelegate = self
         if let assetModel = self.asset
         {
-            assetCard.registerNibView()
+            let assetCard = SimpleAssetBasedCard(frame: appointmentSourceUIView.frame)
             assetCard.setup(assetModel)
-            assetCard.frame = appointmentSourceUIView.bounds
-            assetCard.bounds.size = appointmentSourceUIView.bounds.size
-            
-            assetCard.center = appointmentSourceUIView.center
             appointmentSourceUIView.addSubview(assetCard)
-            appointmentSourceUIView.translatesAutoresizingMaskIntoConstraints = false
-        }
-        else{
+//            appointmentSourceUIView.translatesAutoresizingMaskIntoConstraints = false
+            
+        } else{
             customView.fetchDevelopers()
             customView.registerNibView()
             customView.frame = appointmentSourceUIView.bounds
