@@ -15,11 +15,13 @@ class DropDownListsSelectionCustomView: UIView , UITextFieldDelegate {
     
     @IBOutlet var chooseAssetMenu: DropDown!
     
-    var assetsTitles = [String]()
-    var devolopers = [String]()
+    var assetsList = [AssetDto]()
+    var assetId : String?
+    var devoloperId : String?
+    var devolopers = [UserDto]()
     var appointmentDelegate : AppointmentDelegateProtocol?
     var customView = UIView()
-
+    var dropListProtocolDelegate : DropDownListsProtocol?
     var chooseDeveloperDropDown = DropDown()
 
 
@@ -48,9 +50,9 @@ class DropDownListsSelectionCustomView: UIView , UITextFieldDelegate {
     {
         if let selectedItem = chooseDeveloperDropDown.text
         {
-            if let assetsList = appointmentDelegate?.fetchUserAssets(user_name: selectedItem)
+            if let assetsList = appointmentDelegate?.fetchUserAssets(user_id: selectedItem)
             {
-                self.assetsTitles = assetsList
+                self.assetsList = assetsList
                 setupAssetMenu()
             }
         }
@@ -58,21 +60,24 @@ class DropDownListsSelectionCustomView: UIView , UITextFieldDelegate {
     
     func setupDevoloperMenu()
     {
-        chooseDeveloperDropDown.optionArray = self.devolopers
+        chooseDeveloperDropDown.optionArray = self.devolopers.compactMap({$0.name})
         chooseDeveloperDropDown.didSelect { (selectedItem, index, id) in
             self.chooseDeveloperDropDown.text = selectedItem
-            
+            self.devoloperId  = self.assetsList[index].id
+             self.dropListProtocolDelegate?.getDeveloperId(id: self.devoloperId ?? "")
             self.fetchAssets()
         }
     }
     
     func setupAssetMenu()
      {
-         chooseAssetMenu.optionArray = self.assetsTitles
+        chooseAssetMenu.optionArray = self.assetsList.compactMap({$0.title})
         // self.view.bringSubviewToFront(yourView)
 
          chooseAssetMenu.didSelect { (selectedItem, index, id) in
              self.chooseAssetMenu.text = selectedItem
+             self.assetId  = self.assetsList[index].id
+            self.dropListProtocolDelegate?.getAssetId(id: self.assetId ?? "")
          }
      }
     

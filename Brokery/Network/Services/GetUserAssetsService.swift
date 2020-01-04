@@ -10,7 +10,7 @@ import Foundation
 
 
 class GetUserAssetsService {
-    func fetch(params : JSON , method : RequestMethod , url : String , completion: @escaping ([String]?, WebError<CustomError>?) -> ())
+    func fetch(params : JSON , method : RequestMethod , url : String , completion: @escaping ([AssetDto]?, WebError<CustomError>?) -> ())
     {
         let getUserAssetsTask: URLSessionDataTask!
         
@@ -20,8 +20,7 @@ class GetUserAssetsService {
         getUserAssetsTask = AddAppointmentViewController.sharedWebClient.load(resource: userinfo, urlMethod: method) {[weak self] response in
             if let mappedResponse = response.value
             {
-                let result = mappedResponse.compactMap({$0.title})
-                completion(result , nil)
+                completion(mappedResponse , nil)
             } else if let error = response.error {
                 //controller.handleError(error)
                 completion(nil , response.error)
