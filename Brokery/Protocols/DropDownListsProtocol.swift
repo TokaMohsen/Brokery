@@ -10,4 +10,5 @@ import Foundation
 
 protocol DropDownListsProtocol {
     func getAssetId(id : String)
+    func getDeveloperId(id : String)
 }

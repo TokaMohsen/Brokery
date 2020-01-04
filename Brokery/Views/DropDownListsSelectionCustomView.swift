@@ -17,7 +17,8 @@ class DropDownListsSelectionCustomView: UIView , UITextFieldDelegate {
     
     var assetsList = [AssetDto]()
     var assetId : String?
-    var devolopers = [String]()
+    var devoloperId : String?
+    var devolopers = [UserDto]()
     var appointmentDelegate : AppointmentDelegateProtocol?
     var customView = UIView()
     var dropListProtocolDelegate : DropDownListsProtocol?
@@ -59,10 +60,11 @@ class DropDownListsSelectionCustomView: UIView , UITextFieldDelegate {
     
     func setupDevoloperMenu()
     {
-        chooseDeveloperDropDown.optionArray = self.devolopers
+        chooseDeveloperDropDown.optionArray = self.devolopers.compactMap({$0.name})
         chooseDeveloperDropDown.didSelect { (selectedItem, index, id) in
             self.chooseDeveloperDropDown.text = selectedItem
-            
+            self.devoloperId  = self.assetsList[index].id
+             self.dropListProtocolDelegate?.getDeveloperId(id: self.devoloperId ?? "")
             self.fetchAssets()
         }
     }
