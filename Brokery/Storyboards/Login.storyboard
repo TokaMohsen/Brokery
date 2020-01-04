@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homeIconLarge" translatesAutoresizingMaskIntoConstraints="NO" id="GMp-uc-Rf5">
-                                <rect key="frame" x="162.5" y="50" width="50.000000000000057" height="50"/>
+                                <rect key="frame" x="162.5" y="50" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="7bA-CW-zgM"/>
                                     <constraint firstAttribute="width" secondItem="GMp-uc-Rf5" secondAttribute="height" multiplier="1:1" id="nsD-lo-r6z"/>
@@ -110,7 +110,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homeIconLarge" translatesAutoresizingMaskIntoConstraints="NO" id="ags-Xv-oJu" userLabel="logoImageView">
-                                <rect key="frame" x="157.5" y="94" width="60.000000000000057" height="60"/>
+                                <rect key="frame" x="157.5" y="94" width="60" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="QXZ-1l-ArS"/>
                                     <constraint firstAttribute="width" constant="60" id="yDB-dD-uZx"/>

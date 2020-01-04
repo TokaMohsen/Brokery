@@ -11,17 +11,6 @@ import iOSDropDown
 import Alamofire
 import CoreLocation
 
-struct Asset {
-    var title : String
-    var description : String
-    var assetTypeId : String
-    var latitude : String
-    var longitude : String
-    var address : String
-    var tags : [String]
-    
-}
-
 class AddAssetViewController: BaseViewController, UIPickerViewDelegate ,UINavigationControllerDelegate , UICollectionViewDelegate , UICollectionViewDataSource , UIImagePickerControllerDelegate  {
     
     
@@ -46,10 +35,12 @@ class AddAssetViewController: BaseViewController, UIPickerViewDelegate ,UINaviga
     var assetModel : AssetModel?
     let hashtagCollectionViewIdentifier = "hashtagCell"
     let assetImagesCollectionViewIdentifier = "imageCell"
+    
+    var assetId : String?
+    var assetType : String?
+    
     let assetMapVC = AssetMapViewController()
-    
-    var assetToBeAdded : Asset?
-    
+        
     static let sharedWebClient = WebClient.init(baseUrl: BaseAPIURL)
     private lazy var assetTypesListService = AssetTypesListGetService()
     private lazy var createAssetPostService = CreateAssetPostService()
@@ -159,7 +150,7 @@ class AddAssetViewController: BaseViewController, UIPickerViewDelegate ,UINaviga
                 self.assetTypeDropdownTextField.selectedRowColor = .lightGray
                 self.assetTypeDropdownTextField.didSelect { (selectedItem, index, id) in
                     self.assetTypeDropdownTextField.text = selectedItem
-                    self.assetToBeAdded?.assetTypeId = String( mappedResponse[index].id )
+                    self.assetId = String( mappedResponse[index].id )
                 }
             } else if error != nil {
                 self.assetTypeDropdownTextField.optionArray = [ "Types are unavailable"]
@@ -170,7 +161,7 @@ class AddAssetViewController: BaseViewController, UIPickerViewDelegate ,UINaviga
         }
     }
     
-    func createAsset(asset : Asset)
+    func createAsset(params : Dictionary<String, Any>)
     {
         getAssetTypesListTask?.cancel()
         
@@ -208,6 +199,25 @@ class AddAssetViewController: BaseViewController, UIPickerViewDelegate ,UINaviga
         alert.addAction(okAction)
         alert.addAction(cancleAction)
         present(alert, animated: true, completion: nil)
+    }
+    
+    private func prepareAsset()
+    {
+        if let name = assetNameTextField.text
+        {
+            
+        }
+        if let description = assetDescriptionTextField.text
+        {
+            
+        }
+        
+        let tages = self.hashtags
+        
+        if let assetId = self.assetId {
+         let assetIdValue = assetId
+        }
+        
     }
     
     private func showErrorAlert(with message: String , title : String) {
