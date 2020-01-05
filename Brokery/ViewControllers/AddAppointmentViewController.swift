@@ -23,8 +23,7 @@ class AddAppointmentViewController: BaseViewController , AppointmentDelegateProt
     private lazy var userAssetsService = GetUserAssetsService()
     private lazy var createAppointmentService = CreateAppointmentService()
     private lazy var listOfUserContactsService = GetListOfUserContactsService()
-    
-    let assetCard = SimpleAssetBasedCard()
+
     let dropLists = DropDownListsSelectionCustomView()
     
     var appointment = AppointmentDto()
@@ -58,7 +57,7 @@ class AddAppointmentViewController: BaseViewController , AppointmentDelegateProt
         dropLists.dropListProtocolDelegate = self
         if let assetModel = self.asset
         {
-            assetCard.registerNibView()
+            let assetCard = SimpleAssetBasedCard(frame: appointmentSourceUIView.frame)
             assetCard.setup(assetModel)
             self.assetId = assetModel.id
             self.developerId = assetModel.ownerId

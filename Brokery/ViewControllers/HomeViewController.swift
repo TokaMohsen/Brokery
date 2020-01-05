@@ -19,6 +19,7 @@ class HomeViewController: BaseViewController, UISearchResultsUpdating {
     static let sharedWebClient = WebClient.init(baseUrl: BaseAPIURL)
 
     var getFollowedDevelopersAssetsTask: URLSessionDataTask!
+    var pageNunmber = 0
     
     @IBAction func addAssetBtnAction(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "Assets", bundle: nil)
@@ -34,12 +35,13 @@ class HomeViewController: BaseViewController, UISearchResultsUpdating {
         search.obscuresBackgroundDuringPresentation = false
         search.searchBar.placeholder = "Type something here to search"
         navigationItem.searchController = search
+        navigationItem.hidesSearchBarWhenScrolling = false
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupNavigationBar(title: "Home")
-        
+        pageNunmber = 0
         self.fetchData(withSearchText: nil)
     }
     
@@ -55,7 +57,7 @@ class HomeViewController: BaseViewController, UISearchResultsUpdating {
             self.activityIndicator.startAnimating()
         }
         var userinfo = Resource<AssetObject , CustomError>(jsonDecoder: JSONDecoder(), path: AuthentactionURL, method: .post)
-        userinfo.params = ["Page": "0",
+        userinfo.params = ["Page": pageNunmber,
                            "PageSize": "10"]
         
         if let search = search {
@@ -82,10 +84,12 @@ class HomeViewController: BaseViewController, UISearchResultsUpdating {
     }
     
     private func showErrorAlert(with message: String) {
-        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-        alert.addAction(okAction)
-        present(alert, animated: true, completion: nil)
+        DispatchQueue.main.async {
+            let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+            alert.addAction(okAction)
+            self.present(alert, animated: true, completion: nil)
+        }
     }
 
     private func moveToLogin() {
@@ -113,5 +117,10 @@ extension HomeViewController : AssetDelegateProtocol {
             
             self.navigationController?.pushViewController(viewController, animated: true)
         }
+    }
+    
+    func loadMore() {
+        pageNunmber += 1
+        self.fetchData(withSearchText: nil)
     }
 }

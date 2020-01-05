@@ -10,13 +10,14 @@ import UIKit
 import GoogleMaps
 import GooglePlaces
 import iOSDropDown
+import ReadMoreTextView
 
 class AssetDetailsViewController: BaseViewController {
     
     @IBOutlet var dropDownList: DropDown!
     @IBOutlet var assetNameLabel: UILabel!
     
-    @IBOutlet var assetDescriptionLabel: UILabel!
+    @IBOutlet weak var assetDescriptionText: ReadMoreTextView!
     
     @IBOutlet var hashtagCollectionView: UICollectionView!
     
@@ -107,7 +108,9 @@ class AssetDetailsViewController: BaseViewController {
         if let asset =  self.assetModel
         {
             assetNameLabel.text =  asset.title
-            self.assetDescriptionLabel.text =  asset.description
+            self.assetDescriptionText.text =  asset.description
+            self.assetDescriptionText.text = "SPANTECH storage units are easy and fast to build and offer an exceptionnal eave height and span capabilities that even traditional construction cannot offer. SPANTECH storage units are easy and fast to build and offer an exceptionnal eave height and span capabilities that even traditional construction cannot offer. SPANTECH storage units are easy and fast to build and offer an exceptionnal eave height and span capabilities that even traditional construction cannot offer. SPANTECH storage units are easy and fast to build and offer an exceptionnal eave height and span capabilities that even traditional construction cannot offer. SPANTECH storage units are easy and fast to build and offer an exceptionnal eave height and span capabilities that even traditional construction cannot offer. SPANTECH storage units are easy and fast to build and offer an exceptionnal eave height and span capabilities that even traditional construction cannot offer. "
+            
             if let lat =  asset.latitude , let long =  asset.longitude
             {
                 self.setupMapView(lang: lat, lat: long)

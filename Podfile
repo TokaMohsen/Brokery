@@ -15,6 +15,7 @@ target 'Brokery' do
    pod 'Firebase/Analytics'
    pod 'Firebase/Auth'
    pod 'GoogleSignIn'
+   pod 'ReadMoreTextView'
 
 #pods for UI
    pod 'iOSDropDown'

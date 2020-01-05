@@ -19,6 +19,8 @@ class MarketPlaceViewController: BaseViewController, UISearchResultsUpdating {
     
     var getAllAssetsTask: URLSessionDataTask!
     
+    var pageNunmber = 0
+    
     @IBAction func addAssetBtnAction(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "Assets", bundle: nil)
         if let viewController = storyboard.instantiateViewController(withIdentifier: "AddAssetViewController" ) as? AddAssetViewController {
@@ -34,11 +36,13 @@ class MarketPlaceViewController: BaseViewController, UISearchResultsUpdating {
         search.obscuresBackgroundDuringPresentation = false
         search.searchBar.placeholder = "Type something here to search"
         navigationItem.searchController = search
+        navigationItem.hidesSearchBarWhenScrolling = false
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupNavigationBar(title: "Market Place")
+        pageNunmber = 0
         self.fetchData(withSearchText: nil)
     }
     
@@ -54,7 +58,7 @@ class MarketPlaceViewController: BaseViewController, UISearchResultsUpdating {
         activityIndicator.startAnimating()
         
         var userinfo = Resource<Object , CustomError>(jsonDecoder: JSONDecoder(), path: AllAssestsURL, method: .post)
-        userinfo.params = ["Page": "0",
+        userinfo.params = ["Page": pageNunmber,
                            "PageSize": "10"]
         
         if let search = search {
@@ -84,6 +88,7 @@ class MarketPlaceViewController: BaseViewController, UISearchResultsUpdating {
 }
 
 extension MarketPlaceViewController : AssetDelegateProtocol {
+    
     func showDetailsOf(asset: AssetDto) {
         let storyboard = UIStoryboard(name: "Assets", bundle: nil)
         if let viewController = storyboard.instantiateViewController(withIdentifier: "AssetDetailsViewController") as? AssetDetailsViewController {
@@ -92,15 +97,9 @@ extension MarketPlaceViewController : AssetDelegateProtocol {
             navigationController?.pushViewController(viewController, animated: true)
         }
     }
-}
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    func loadMore() {
+        pageNunmber += 1
+        self.fetchData(withSearchText: nil)
     }
-    */
-
+}
