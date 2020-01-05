@@ -23,7 +23,7 @@ let AuthentactionURL = "/api/Account/Authenticate"
 let RegisterAccountURL = "/api/User/Register"
 let loginWithFacebookURL = "/api/Account/LoginByFaceBook"
 let LoginWithGoogleURL = "/api/Account/RegisterAccount"
-let getUserInfoByTokenURL = "/api/User/GetByToken"
+let getUserInfoByTokenURL = "/api/User/GetByToken" // for menu
 let AccountGetAllURL = "/api/Account/GetAll"
 let AccountsListURL = "/api/Account/GetAccountsList"
 //assets
@@ -33,6 +33,7 @@ let FollowedAssetsURL = "/api/Asset/GetFollowedDeveloperAssets"
 let HashtagGetURL = "/api/HashTag/Get"
 let GetAssetTypeListURL = "/api/AssetType/GetAssetTypeList"
 let createAssetURL = "/api/Asset/Create"
+let assetUploadFilesURL = "/api/Asset/UploadFiles"
 //appointment 
 let getUserAssetsURL = "/api/Asset/GetUserAssets"
 let getUsersListURL = "/api/User/GetUsersList"

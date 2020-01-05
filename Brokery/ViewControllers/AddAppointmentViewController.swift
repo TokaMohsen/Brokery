@@ -61,6 +61,7 @@ class AddAppointmentViewController: BaseViewController , AppointmentDelegateProt
             assetCard.registerNibView()
             assetCard.setup(assetModel)
             self.assetId = assetModel.id
+            self.developerId = assetModel.ownerId
             assetCard.frame = appointmentSourceUIView.bounds
             assetCard.bounds.size = appointmentSourceUIView.bounds.size
             
@@ -235,35 +236,28 @@ class AddAppointmentViewController: BaseViewController , AppointmentDelegateProt
         self.createAppointmentService.preformRequest(params: userinfo.params, method: .post, url: createAppointmentURL) { (response, error) in
             if let mappedResponse = response
             {
-                DispatchQueue.main.async {
-                    self.activityIndicator.stopAnimating()
-                }
-                let appointmentsStoryboard = UIStoryboard(name: "Appointments", bundle: nil)
-                if let appointmentVC = appointmentsStoryboard.instantiateViewController(withIdentifier: "AppointmentsListViewController") as? AppointmentsListViewController {
-                    UIApplication.shared.keyWindow?.rootViewController = appointmentVC
-                    self.dismiss(animated: true, completion: nil)
-                }
-                    
+                self.navigateToList()
+            }
+                
                 else if error != nil {
                     self.showErrorAlert(with: "Server error")
                     //controller.handleError(error)
                 }
-            }
-            
         }
+        
     }
     
-    //    func registerNibView() {
-    //        let nib = UINib.init(nibName: String(describing: type(of: self)), bundle: nil)
-    //        let views = nib.instantiate(withOwner: self, options: nil)
-    //        if let view = views[0] as? UIView {
-    //            view.frame = self.bounds
-    //            self.addSubview(view)
-    //            self.translatesAutoresizingMaskIntoConstraints = false
-    //        }
-    //
-    //    }
-    
+    private func navigateToList()
+    {
+        DispatchQueue.main.async {
+            
+            let appointmentsStoryboard = UIStoryboard(name: "Appointments", bundle: nil)
+         if let viewController = appointmentsStoryboard.instantiateViewController(withIdentifier: "AppointmentsListViewController") as? AssetDetailsViewController {
+                self.navigationController?.pushViewController(viewController, animated: true)
+            }
+        }
+    }
+        
     private func showErrorAlert(with message: String) {
         let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)

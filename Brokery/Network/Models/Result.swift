@@ -15,3 +15,12 @@ public struct Object: Decodable {
     var code: String?
 
 }
+
+
+public struct StatusObject: Decodable {
+    var success: Bool
+    var data: Bool?
+    var count: Int?
+    var code: String?
+
+}

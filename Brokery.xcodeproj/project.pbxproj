@@ -63,6 +63,7 @@
 		EF0EE96723B02CB20073B42C /* SimpleAssetBasedCard.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF0EE96623B02CB20073B42C /* SimpleAssetBasedCard.xib */; };
 		EF105E0923BD625200AE8764 /* CreateAssetPostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF105E0823BD625200AE8764 /* CreateAssetPostService.swift */; };
 		EF10A1F923C0C65400F580FB /* DropDownListsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF10A1F823C0C65400F580FB /* DropDownListsProtocol.swift */; };
+		EF10BCDD23C1FA5A00B08651 /* UploadAssetFilesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF10BCDC23C1FA5A00B08651 /* UploadAssetFilesService.swift */; };
 		EF118C7423B0A19A00632490 /* DropDownListsSelectionCustomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF118C7323B0A19A00632490 /* DropDownListsSelectionCustomView.xib */; };
 		EF11D1C12375E2E7005C8F0C /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF11D1C02375E2E7005C8F0C /* Login.storyboard */; };
 		EF11D1C52375E538005C8F0C /* RegisterationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF11D1C42375E538005C8F0C /* RegisterationViewController.swift */; };
@@ -200,6 +201,7 @@
 		EF0EE96623B02CB20073B42C /* SimpleAssetBasedCard.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SimpleAssetBasedCard.xib; sourceTree = "<group>"; };
 		EF105E0823BD625200AE8764 /* CreateAssetPostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAssetPostService.swift; sourceTree = "<group>"; };
 		EF10A1F823C0C65400F580FB /* DropDownListsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownListsProtocol.swift; sourceTree = "<group>"; };
+		EF10BCDC23C1FA5A00B08651 /* UploadAssetFilesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadAssetFilesService.swift; sourceTree = "<group>"; };
 		EF118C7323B0A19A00632490 /* DropDownListsSelectionCustomView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DropDownListsSelectionCustomView.xib; sourceTree = "<group>"; };
 		EF11D1C02375E2E7005C8F0C /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		EF11D1C42375E538005C8F0C /* RegisterationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterationViewController.swift; sourceTree = "<group>"; };
@@ -413,6 +415,7 @@
 				EF1A0EDB23B965F100DC3976 /* GetAppointmentsListService.swift */,
 				EF1A4F9023BBB4CF00F4C291 /* AddFavoriteAssetPostService.swift */,
 				EF105E0823BD625200AE8764 /* CreateAssetPostService.swift */,
+				EF10BCDC23C1FA5A00B08651 /* UploadAssetFilesService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -926,6 +929,7 @@
 				EF105E0923BD625200AE8764 /* CreateAssetPostService.swift in Sources */,
 				EF0C8537238AC033008A0C32 /* ContactDto.swift in Sources */,
 				EF0C8526238AC033008A0C32 /* HashTagStatus.swift in Sources */,
+				EF10BCDD23C1FA5A00B08651 /* UploadAssetFilesService.swift in Sources */,
 				EFB50BE9238414F600188EED /* StringExtension.swift in Sources */,
 				EF0C853B238AC033008A0C32 /* Filter.swift in Sources */,
 				EF0C852B238AC033008A0C32 /* AssetStatus.swift in Sources */,
