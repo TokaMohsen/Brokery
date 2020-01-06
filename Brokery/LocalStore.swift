@@ -45,12 +45,6 @@ class LocalStore {
     }
     
     static func getUserId()-> String? {
-        //        if let token =  UICKeyChainStore.string(forKey: "application_token") {
-        //            return token
-        //        }
-        //
-        //       return nil
-        
         let defaults = UserDefaults.standard
         if let token = defaults.string(forKey: "application_id")
         {
@@ -61,5 +55,21 @@ class LocalStore {
     
     static func deleteUserId (){
         UserDefaults.standard.removeObject(forKey: "application_id")
+    }
+    
+    
+    static func storeTermsConfirmation (confirm : Bool){
+        let defaults = UserDefaults.standard
+        defaults.set(confirm, forKey: "confirm_user")
+        defaults.synchronize()
+    }
+    
+    static func getTermsConfirmation()-> Bool? {
+        let defaults = UserDefaults.standard
+        return  defaults.bool(forKey: "confirm_user")
+    }
+    
+    static func deleteTermsConfirmation (){
+        UserDefaults.standard.removeObject(forKey: "confirm_user")
     }
 }

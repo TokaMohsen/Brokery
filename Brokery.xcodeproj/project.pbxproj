@@ -115,6 +115,7 @@
 		EF60C8FD2374903E0051F57F /* BrokeryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF60C8FC2374903E0051F57F /* BrokeryTests.swift */; };
 		EF60C9082374903E0051F57F /* BrokeryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF60C9072374903E0051F57F /* BrokeryUITests.swift */; };
 		EF80E8E62396C6CA003A66D3 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF80E8E52396C6CA003A66D3 /* UIViewExtension.swift */; };
+		EFABF4AE23C3A33B00DEC27C /* RegisterationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFABF4AD23C3A33B00DEC27C /* RegisterationService.swift */; };
 		EFACC9252382FB5300586134 /* ServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFACC9242382FB5300586134 /* ServiceError.swift */; };
 		EFB50BE9238414F600188EED /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB50BE8238414F600188EED /* StringExtension.swift */; };
 		EFD5796223894612004C6808 /* LocalStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD5796123894612004C6808 /* LocalStore.swift */; };
@@ -260,6 +261,7 @@
 		EF60C9072374903E0051F57F /* BrokeryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrokeryUITests.swift; sourceTree = "<group>"; };
 		EF60C9092374903E0051F57F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EF80E8E52396C6CA003A66D3 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		EFABF4AD23C3A33B00DEC27C /* RegisterationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterationService.swift; sourceTree = "<group>"; };
 		EFACC9242382FB5300586134 /* ServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceError.swift; sourceTree = "<group>"; };
 		EFB50BE8238414F600188EED /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		EFD5796123894612004C6808 /* LocalStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStore.swift; sourceTree = "<group>"; };
@@ -420,6 +422,7 @@
 				EF10BCDC23C1FA5A00B08651 /* UploadAssetFilesService.swift */,
 				EF29771723C29BF1003FDAE5 /* AddAssetAggregatedService.swift */,
 				EF0C98CC23C368BD00090F74 /* ForgotPasswordService.swift */,
+				EFABF4AD23C3A33B00DEC27C /* RegisterationService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -816,6 +819,7 @@
 				EF542683239B038500E5F124 /* AssetDetailsViewController.swift in Sources */,
 				EF461967238E7E1E008F453D /* ClientResult.swift in Sources */,
 				EF0C8534238AC033008A0C32 /* Success.swift in Sources */,
+				EFABF4AE23C3A33B00DEC27C /* RegisterationService.swift in Sources */,
 				EF11D1C72375E550005C8F0C /* LoginViewController.swift in Sources */,
 				EF0C8545238AC033008A0C32 /* FollowerDto.swift in Sources */,
 				EF0C8535238AC033008A0C32 /* AssetHashTagDto.swift in Sources */,

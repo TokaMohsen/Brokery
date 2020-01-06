@@ -17,14 +17,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homeIconLarge" translatesAutoresizingMaskIntoConstraints="NO" id="GMp-uc-Rf5">
-                                <rect key="frame" x="162.5" y="50" width="50" height="50"/>
+                                <rect key="frame" x="162.5" y="94" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="7bA-CW-zgM"/>
                                     <constraint firstAttribute="width" secondItem="GMp-uc-Rf5" secondAttribute="height" multiplier="1:1" id="nsD-lo-r6z"/>
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="F3M-o1-Mkf">
-                                <rect key="frame" x="50" y="150" width="275" height="375.5"/>
+                                <rect key="frame" x="50" y="194" width="275" height="375.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign Up" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ogc-GH-Wdj" userLabel="title">
                                         <rect key="frame" x="0.0" y="0.0" width="275" height="26.5"/>
@@ -78,19 +78,58 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="color" red="0.98498968909999995" green="0.74370113879999999" blue="0.1241826833" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pw4-sD-X6U">
+                                <rect key="frame" x="60" y="577" width="265" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ntd-nk-51R">
+                                        <rect key="frame" x="20" y="10" width="245" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <state key="normal" title="I accept terms and conditions">
+                                            <color key="titleColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="acceptTermsBtnAction:" destination="5y8-vs-p88" eventType="touchUpInside" id="4eh-UP-xsL"/>
+                                        </connections>
+                                    </button>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rectangle" catalog="system" highlightedImage="rectangle.fill" translatesAutoresizingMaskIntoConstraints="NO" id="ghE-24-cki">
+                                        <rect key="frame" x="12" y="16" width="20" height="17.5"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="20" id="Oeg-2Z-SQh"/>
+                                            <constraint firstAttribute="height" constant="20" id="u9d-Df-1A1"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="Ntd-nk-51R" firstAttribute="leading" secondItem="pw4-sD-X6U" secondAttribute="leading" constant="20" id="EvL-AB-I0J"/>
+                                    <constraint firstItem="ghE-24-cki" firstAttribute="leading" secondItem="pw4-sD-X6U" secondAttribute="leading" constant="12" id="RBn-VH-GNI"/>
+                                    <constraint firstItem="Ntd-nk-51R" firstAttribute="top" secondItem="pw4-sD-X6U" secondAttribute="top" constant="10" id="TZu-Yr-rOG"/>
+                                    <constraint firstAttribute="height" constant="50" id="cab-8R-j1C"/>
+                                    <constraint firstAttribute="trailing" secondItem="Ntd-nk-51R" secondAttribute="trailing" id="g2r-A9-zjd"/>
+                                    <constraint firstAttribute="bottom" secondItem="Ntd-nk-51R" secondAttribute="bottom" constant="10" id="mft-YV-0Ql"/>
+                                    <constraint firstItem="ghE-24-cki" firstAttribute="centerY" secondItem="pw4-sD-X6U" secondAttribute="centerY" id="tw6-iO-eDv"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.20389500260353088" green="0.2039368748664856" blue="0.20389232039451599" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="F3M-o1-Mkf" firstAttribute="top" secondItem="GMp-uc-Rf5" secondAttribute="bottom" constant="50" id="ANU-Y4-98q"/>
                             <constraint firstItem="31h-7A-Tq6" firstAttribute="trailing" secondItem="F3M-o1-Mkf" secondAttribute="trailing" constant="50" id="T5X-66-DMc"/>
                             <constraint firstItem="GMp-uc-Rf5" firstAttribute="centerX" secondItem="31h-7A-Tq6" secondAttribute="centerX" id="TcI-k4-TGk"/>
+                            <constraint firstItem="pw4-sD-X6U" firstAttribute="leading" secondItem="31h-7A-Tq6" secondAttribute="leading" constant="60" id="V6O-Ej-Y0j"/>
+                            <constraint firstItem="31h-7A-Tq6" firstAttribute="trailing" secondItem="pw4-sD-X6U" secondAttribute="trailing" constant="50" id="qxR-30-Tyd"/>
+                            <constraint firstItem="31h-7A-Tq6" firstAttribute="bottom" secondItem="pw4-sD-X6U" secondAttribute="bottom" constant="40" id="rO5-cL-UQb"/>
                             <constraint firstItem="GMp-uc-Rf5" firstAttribute="top" secondItem="31h-7A-Tq6" secondAttribute="top" constant="50" id="tEc-JE-RAo"/>
                             <constraint firstItem="F3M-o1-Mkf" firstAttribute="leading" secondItem="31h-7A-Tq6" secondAttribute="leading" constant="50" id="vs9-En-GAW"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="31h-7A-Tq6"/>
                     </view>
+                    <navigationItem key="navigationItem" id="ZEm-48-v8K"/>
                     <connections>
                         <outlet property="activityIndicator" destination="ThU-9S-5ii" id="5VW-mX-Fjz"/>
+                        <outlet property="checkImage" destination="ghE-24-cki" id="l7M-vK-QVb"/>
                         <outlet property="emailTextField" destination="tDN-2j-dGg" id="kBl-G0-7in"/>
                         <outlet property="fullNameTextField" destination="Xhl-46-aD1" id="fNX-Ag-01L"/>
                         <outlet property="mobileNumberTextField" destination="zYA-vs-sO2" id="nu6-JA-B1i"/>
@@ -231,6 +270,7 @@
                                 </state>
                                 <connections>
                                     <action selector="registerBtnAction:" destination="kM9-L6-ls0" eventType="touchUpInside" id="F8o-Ag-CtT"/>
+                                    <segue destination="5y8-vs-p88" kind="show" id="yMt-tK-0bL"/>
                                 </connections>
                             </button>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="vKf-ZR-cIr">
@@ -301,5 +341,7 @@
     </scenes>
     <resources>
         <image name="homeIconLarge" width="197" height="217"/>
+        <image name="rectangle" catalog="system" width="64" height="46"/>
+        <image name="rectangle.fill" catalog="system" width="64" height="46"/>
     </resources>
 </document>

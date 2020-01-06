@@ -38,29 +38,7 @@ class LoginViewController: BaseViewController , GIDSignInDelegate {
     
     @IBAction func loginWithFacebookAction(_ sender: UIButton) {
     }
-    
-    //    fileprivate func loginUser(email: String , password: String)
-    //    {
-    //
-    //        if let accessToken = LocalStore.getUserToken(){
-    //            self.getUserInfoByTokenService.fetch(errordelegate: self) { (data, error) in
-    //                if (error != nil)
-    //                {
-    //                    self.handleError(error: error!)
-    //                }
-    //                else
-    //                {
-    //                    // print(data as Any)
-    //                    let infoStoryboard = UIStoryboard(name: "Assets", bundle: nil)
-    //                    if let HomeVC = infoStoryboard.instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController {
-    //                        self.navigationController?.pushViewController(HomeVC, animated: true)
-    //                    }
-    //                }
-    //            }
-    //        }
-    //    }
-    
-    
+
     @IBAction func loginBtnAction(_ sender: UIButton) {
         if let emailTxt = emailTextField.text , let passwordTxt = passwordTextField.text {
             postUserLoginInfoTask?.cancel()
@@ -99,7 +77,7 @@ class LoginViewController: BaseViewController , GIDSignInDelegate {
         
         let infoStoryboard = UIStoryboard(name: "Login", bundle: nil)
         if let RegisterationVC = infoStoryboard.instantiateViewController(withIdentifier: "RegisterationViewController") as? RegisterationViewController {
-            navigationController?.pushViewController(RegisterationVC, animated: true)
+            self.navigationController?.pushViewController(RegisterationVC, animated: true)
         }
         
     }

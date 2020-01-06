@@ -68,12 +68,13 @@ class AppointmentsListViewController: BaseViewController , UITableViewDelegate ,
     private func fetchData(dateTime : String)
     {
         getappointmentsListTask?.cancel()
-        
-         activityIndicator.startAnimating()
-        
+         DispatchQueue.main.async {
+            self.activityIndicator.startAnimating()
+        }
         var userinfo = Resource<AssetObject , CustomError>(jsonDecoder: JSONDecoder(), path: getListOfAppointmentsURL, method: .get)
         
-        userinfo.params = ["dateTime": dateTime]
+        userinfo.params["start"] = dateTime
+         userinfo.params["end"] = dateTime
         
         self.appointmentsListService.fetch(params: userinfo.params, method: .get, url: getListOfAppointmentsURL) { (response, error) in
             if let mappedResponse = response
@@ -97,7 +98,10 @@ class AppointmentsListViewController: BaseViewController , UITableViewDelegate ,
                 
             } else if error != nil {
                 //controller.handleError(error)
+                 DispatchQueue.main.async {
+                self.activityIndicator.stopAnimating()
                 self.showErrorAlert(with: "error")
+                }
             }
         }
     }

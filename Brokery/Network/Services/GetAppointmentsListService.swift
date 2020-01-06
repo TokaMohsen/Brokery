@@ -16,7 +16,7 @@ class GetAppointmentsListService {
         var userinfo = Resource<AppointmentListObject , CustomError>(jsonDecoder: JSONDecoder(), path: url, method: .get)
         userinfo.params = params
         
-        getAppointmentListTask = AddAppointmentViewController.sharedWebClient.load(resource: userinfo, urlMethod: method) {[weak self] response in
+        getAppointmentListTask = AppointmentsListViewController.sharedWebClient.load(resource: userinfo, urlMethod: method) {[weak self] response in
             if let mappedResponse = response.value?.data
             {
                 completion(mappedResponse , nil)

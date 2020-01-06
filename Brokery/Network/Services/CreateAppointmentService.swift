@@ -12,11 +12,11 @@ class CreateAppointmentService {
     func preformRequest(params : JSON , method : RequestMethod , url : String , completion: @escaping (AppointmentDto?, WebError<CustomError>?) -> ())
     {
         let postAppointmentTask: URLSessionDataTask!
-        var appointmentInfo = Resource<AppointmentDto , CustomError>(jsonDecoder: JSONDecoder(), path: url, method: .post)
+        var appointmentInfo = Resource<AppointmentObject , CustomError>(jsonDecoder: JSONDecoder(), path: url, method: .post)
         appointmentInfo.params = params
         
         postAppointmentTask = AddAppointmentViewController.sharedWebClient.load(resource: appointmentInfo, urlMethod: method) {[weak self] response in
-            if let mappedResponse = response.value
+            if let mappedResponse = response.value?.data
             {
                 completion(mappedResponse , nil)
                

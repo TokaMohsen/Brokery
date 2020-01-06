@@ -253,7 +253,7 @@ class AddAppointmentViewController: BaseViewController , AppointmentDelegateProt
         DispatchQueue.main.async {
             
             let appointmentsStoryboard = UIStoryboard(name: "Appointments", bundle: nil)
-         if let viewController = appointmentsStoryboard.instantiateViewController(withIdentifier: "AppointmentsListViewController") as? AssetDetailsViewController {
+         if let viewController = appointmentsStoryboard.instantiateViewController(withIdentifier: "AppointmentsListViewController") as? AppointmentsListViewController {
                 self.navigationController?.pushViewController(viewController, animated: true)
             }
         }
