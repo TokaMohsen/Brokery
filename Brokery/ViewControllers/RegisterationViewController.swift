@@ -49,25 +49,25 @@ class RegisterationViewController: BaseViewController {
             userinfo.params = ["email": emailTxt,
                                "password": passwordTxt,
                                "mobile": mobileTxt,
-                               "name": emailTxt ,
-                               "userProfile" : user]
+                               "name": emailTxt]
             
             self.userRegisterationService.register(params: userinfo.params, method: .post, url: RegisterAccountURL) { (response, error) in
                 if let mappedResponse = response?.data
                 {
-                    DispatchQueue.main.async {
-                        self.activityIndicator.stopAnimating()
-                    }
                     if let token = mappedResponse.token{
                         LocalStore.storeUserToken(token:token)
                     }
                     if let userId = mappedResponse.id {
                         LocalStore.storeUserID(id: userId)
                     }
+                   
                 }
                 else if error != nil {
                     self.showErrorAlert(with: "server error ", title: "Error")
                 }
+                DispatchQueue.main.async {
+                                       self.activityIndicator.stopAnimating()
+                                   }
             }
         }
         
@@ -79,15 +79,15 @@ class RegisterationViewController: BaseViewController {
         alert.addAction(okAction)
         present(alert, animated: true, completion: nil)
     }
-
-/*
- // MARK: - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
- // Get the new view controller using segue.destination.
- // Pass the selected object to the new view controller.
- }
- */
-
+    
+    /*
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
