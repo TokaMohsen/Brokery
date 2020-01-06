@@ -59,7 +59,7 @@ class LocalStore {
         return nil
     }
     
-    static func deleteUserId (id : String){
+    static func deleteUserId (){
         UserDefaults.standard.removeObject(forKey: "application_id")
     }
 }

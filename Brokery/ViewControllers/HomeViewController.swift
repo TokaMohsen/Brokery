@@ -21,33 +21,29 @@ class HomeViewController: BaseViewController, UISearchResultsUpdating {
     var getFollowedDevelopersAssetsTask: URLSessionDataTask!
     var pageNunmber = 0
     
+    override func viewDidLoad() {
+          super.viewDidLoad()
+          
+          let search = UISearchController(searchResultsController: nil)
+          search.searchResultsUpdater = self
+          search.obscuresBackgroundDuringPresentation = false
+          search.searchBar.placeholder = "Type something here to search"
+          navigationItem.searchController = search
+          navigationItem.hidesSearchBarWhenScrolling = false
+      }
+      
+      override func viewWillAppear(_ animated: Bool) {
+          super.viewWillAppear(animated)
+          setupNavigationBar(title: "Home")
+          pageNunmber = 0
+          self.fetchData(withSearchText: nil)
+      }
+    
     @IBAction func addAssetBtnAction(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "Assets", bundle: nil)
         if let viewController = storyboard.instantiateViewController(withIdentifier: "AddAssetViewController" ) as? AddAssetViewController {
             self.navigationController?.pushViewController(viewController, animated: true)
         }
-    }
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        let search = UISearchController(searchResultsController: nil)
-        search.searchResultsUpdater = self
-        search.obscuresBackgroundDuringPresentation = false
-        search.searchBar.placeholder = "Type something here to search"
-        navigationItem.searchController = search
-        navigationItem.hidesSearchBarWhenScrolling = false
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        setupNavigationBar(title: "Home")
-        pageNunmber = 0
-        self.fetchData(withSearchText: nil)
-    }
-    
-    func updateSearchResults(for searchController: UISearchController) {
-        guard let text = searchController.searchBar.text, text.count != 0 else { return }
-        self.fetchData(withSearchText: text)
     }
     
     private func fetchData(withSearchText search: String?)
@@ -96,6 +92,10 @@ class HomeViewController: BaseViewController, UISearchResultsUpdating {
         
     }
     
+    func updateSearchResults(for searchController: UISearchController) {
+          guard let text = searchController.searchBar.text, text.count != 0 else { return }
+          self.fetchData(withSearchText: text)
+      }
     
     /*
      // MARK: - Navigation

@@ -9,17 +9,24 @@
 import Foundation
 
 final class GetUserInfoByTokenService {
-    private let client = WebClient(baseUrl: BaseAPIURL)
-    
-    @discardableResult
-    func fetch( errordelegate : HandleErrorDelegate ,completion: @escaping (UserDto?, ServiceError?) -> ()) -> URLSessionDataTask? {
-
-//        return client.load(path: getUserInfoByTokenURL, method: .get, params: [:]) { result, error in
-//            let dictionaries = result as? UserDto
-//                //[JSON]
-//            completion(dictionaries, error)
-//        }
-        return nil
+    func fetch(params : JSON , method : RequestMethod , url : String , completion: @escaping (UserProfileObject?, WebError<CustomError>?) -> ())
+    {
+        let postGetUsersListTask: URLSessionDataTask!
+        
+        var userinfo = Resource< UserProfileObject , CustomError>(jsonDecoder: JSONDecoder(), path: url, method: .get)
+        userinfo.params = params
+        
+        postGetUsersListTask = AddAppointmentViewController.sharedWebClient.load(resource: userinfo, urlMethod: method) {[weak self] response in
+            if let mappedResponse = response.value
+            {
+                completion(response.value , nil)
+            } else if let error = response.error {
+                //controller.handleError(error)
+                completion(nil , response.error)
+            }
+            
+        }
     }
+
 }
 

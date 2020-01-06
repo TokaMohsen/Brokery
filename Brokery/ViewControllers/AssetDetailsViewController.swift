@@ -63,6 +63,11 @@ class AssetDetailsViewController: BaseViewController {
         if let asset = self.assetModel
         {
             setupAssetView(asset: asset )
+            if let lat = asset.latitude , let long = asset.longitude
+            {
+                let assetLocation = CLLocationCoordinate2D(latitude: lat, longitude: long)
+                addAssetDetailsLocation(assetLocation:assetLocation )
+            }
         }
         
         #warning("Test Data")
@@ -75,7 +80,7 @@ class AssetDetailsViewController: BaseViewController {
         setupNavigationBar(title: "Asset Details")
     }
     
-    func updateAssetDetailsLocation(assetLocation: CLLocationCoordinate2D) {
+    func addAssetDetailsLocation(assetLocation: CLLocationCoordinate2D) {
         setupMapView(lang: assetLocation.longitude, lat: assetLocation.latitude)
     }
     

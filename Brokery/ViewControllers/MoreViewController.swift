@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class MoreViewController: BaseViewController {
     
@@ -22,9 +23,14 @@ class MoreViewController: BaseViewController {
     @IBOutlet weak var helpView: UIView!
     @IBOutlet weak var logoutView: UIView!
     
+    private lazy var getUserInfoByTokenService = GetUserInfoByTokenService()
+    static let sharedWebClient = WebClient.init(baseUrl: BaseAPIURL)
+    
+    var getUserInfoTask: URLSessionDataTask!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setupView()
+        fetchData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -53,11 +59,69 @@ class MoreViewController: BaseViewController {
         logoutView.addGestureRecognizer(logoutTapGestureRecognizer)
     }
     
-    func setupView() {
-        self.profileImage.image = UIImage(named: "testAvatar")
-        self.name.text = "Mohamed Hassan"
-        self.email.text = "E-mail Address"
-        self.jobTitle.text = "Job Title"
+    func setupView( name : String? , email : String? , jobTitle : String? , imagePath : String?) {
+        
+        if let name = name
+        {
+            self.name.text = name
+        }
+        else
+        {
+            self.name.text = "Default Name"
+        }
+        if let email = email
+        {
+            self.email.text = email
+        }
+        else
+        {
+            self.email.text = "Default Email"
+        }
+        if let jobTitle = jobTitle
+        {
+            self.jobTitle.text = jobTitle
+        }
+        else
+        {
+            self.jobTitle.text = "Default JobTitle"
+        }
+        
+        if let imagePath = imagePath
+        {
+            let url = URL(string: BaseAPIURL + imagePath)
+            SDWebImageManager.shared().imageDownloader?.downloadImage(with:url , options: .continueInBackground, progress: nil, completed: {(image:UIImage?, data:Data?, error:Error?, finished:Bool) in
+                if image != nil {
+                    self.profileImage.image = image
+                    
+                }
+            })
+        }
+        else
+        {
+            
+            self.profileImage.image = UIImage(named: "testAvatar")
+            
+        }
+    }
+    
+    private func fetchData()
+    {
+        getUserInfoTask?.cancel()
+        
+        var userinfo = Resource<UserProfileObject , CustomError>(jsonDecoder: JSONDecoder(), path: getUserInfoByTokenURL, method: .post)
+        
+        self.getUserInfoByTokenService.fetch(params: userinfo.params, method: .get, url: getUserInfoByTokenURL) { (response, error) in
+            
+            if let mappedResponse = response
+            {
+                let profile = mappedResponse.data?.userProfile
+                DispatchQueue.main.async {
+                    self.setupView(name: mappedResponse.data?.name, email: mappedResponse.data?.email, jobTitle: mappedResponse.data?.mobile, imagePath: profile?.photo)
+                }
+            } else if error != nil {
+                
+            }
+        }
     }
     
     @objc func profileTapped(tapGestureRecognizer: UITargetedDragPreview) {
@@ -83,6 +147,7 @@ class MoreViewController: BaseViewController {
     
     @objc func logoutTapped(tapGestureRecognizer: UITargetedDragPreview) {
         LocalStore.deleteUserToken()
+        LocalStore.deleteUserId()
         let mainStoryboard : UIStoryboard = UIStoryboard(name: "Login", bundle: nil)
         let loginViewController = mainStoryboard.instantiateViewController(withIdentifier: "LoginViewController")
         UIApplication.shared.keyWindow?.rootViewController = loginViewController

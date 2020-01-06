@@ -15,11 +15,4 @@ protocol MapDelegateProtocol {
     func updateAddAssetLocation(assetLocation : String)
 
 }
-extension MapDelegateProtocol {
-    func updateAddAssetLocation(assetLocation : String){
-        // leaving this empty
-    }
-    func updateAssetDetailsLocation(assetLocation : CLLocationCoordinate2D){
-        // leaving this empty
-    }
-}
+

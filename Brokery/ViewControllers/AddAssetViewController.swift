@@ -11,7 +11,7 @@ import iOSDropDown
 import Alamofire
 import CoreLocation
 
-class AddAssetViewController: BaseViewController, UIPickerViewDelegate ,UINavigationControllerDelegate , UICollectionViewDelegate , UICollectionViewDataSource , UIImagePickerControllerDelegate  {
+class AddAssetViewController: BaseViewController, UIPickerViewDelegate ,UINavigationControllerDelegate , UICollectionViewDelegate , UICollectionViewDataSource , UIImagePickerControllerDelegate  , MapDelegateProtocol {
     
     
     @IBOutlet var assetAddressTextField: UITextField!
@@ -28,7 +28,7 @@ class AddAssetViewController: BaseViewController, UIPickerViewDelegate ,UINaviga
     
     
     var assetlocationCoord : CLLocationCoordinate2D?
-    
+    var assetAddress : String?
     var assetTypesList = [String]()
     var hashtags = [String]()
     var assetImages = [UIImage]()
@@ -40,11 +40,12 @@ class AddAssetViewController: BaseViewController, UIPickerViewDelegate ,UINaviga
     var assetType : String?
     
     let assetMapVC = AssetMapViewController()
-        
+    
     static let sharedWebClient = WebClient.init(baseUrl: BaseAPIURL)
     private lazy var assetTypesListService = AssetTypesListGetService()
     private lazy var createAssetPostService = CreateAssetPostService()
-
+    private lazy var addAssetAggregatedService = AddAssetAggregatedService()
+    
     var getAssetTypesListTask: URLSessionDataTask!
     
     override func viewDidLoad() {
@@ -67,7 +68,6 @@ class AddAssetViewController: BaseViewController, UIPickerViewDelegate ,UINaviga
         
         imageCollectionView.delegate = self
         imageCollectionView.dataSource = self
-        assetMapVC.mapDelegate = self
         
     }
     
@@ -89,6 +89,7 @@ class AddAssetViewController: BaseViewController, UIPickerViewDelegate ,UINaviga
     @IBAction func setLocationBtnAction(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "Assets", bundle: nil)
         if let viewController = storyboard.instantiateViewController(withIdentifier: "AssetMapViewController") as? AssetMapViewController {
+            viewController.mapDelegate = self
             navigationController?.pushViewController(viewController, animated: true)
         }
     }
@@ -98,7 +99,7 @@ class AddAssetViewController: BaseViewController, UIPickerViewDelegate ,UINaviga
         let gallery = UIAlertAction(title: "Choose from gallery", style: .default) { (action) in
             if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.photoLibrary){
                 let imagePicker = UIImagePickerController()
-                imagePicker.delegate = self as? UIImagePickerControllerDelegate & UINavigationControllerDelegate
+                imagePicker.delegate = self
                 imagePicker.allowsEditing = true
                 imagePicker.sourceType = UIImagePickerController.SourceType.photoLibrary
                 self.present(imagePicker, animated: true, completion: nil)
@@ -124,7 +125,9 @@ class AddAssetViewController: BaseViewController, UIPickerViewDelegate ,UINaviga
     }
     
     @IBAction func saveBtnAction(_ sender: UIButton) {
-        
+        // activityIndicator.startAnimating()
+
+        createAsset()
     }
     
     @IBAction func cancelBtnAction(_ sender: UIButton) {
@@ -136,7 +139,6 @@ class AddAssetViewController: BaseViewController, UIPickerViewDelegate ,UINaviga
     {
         getAssetTypesListTask?.cancel()
         
-        // activityIndicator.startAnimating()
         
         let userinfo = Resource<AssetObject , CustomError>(jsonDecoder: JSONDecoder(), path: GetAssetTypeListURL, method: .get)
         
@@ -161,23 +163,53 @@ class AddAssetViewController: BaseViewController, UIPickerViewDelegate ,UINaviga
         }
     }
     
-    func createAsset(params : Dictionary<String, Any>)
+    func createAsset()
     {
         getAssetTypesListTask?.cancel()
         
         // activityIndicator.startAnimating()
         
-        let userinfo = Resource<AssetObject , CustomError>(jsonDecoder: JSONDecoder(), path: createAssetURL, method: .post)
+        var userinfo = Resource<AssetObject , CustomError>(jsonDecoder: JSONDecoder(), path: createAssetURL, method: .post)
         
+        if let assetId = self.assetId
+        {
+            userinfo.params["assetId"] = assetId
+        }
+        if let assetType = self.assetType
+        {
+            userinfo.params["AssetTypeId"] = assetType
+        }
+        if let name = assetNameTextField.text
+        {
+            userinfo.params["Title"] = name
+        }
+        if let description = assetDescriptionTextField.text
+        {
+            userinfo.params["Description"] = description
+        }
+        if let coordinates = self.assetlocationCoord
+        {
+            userinfo.params["Latitude"] = coordinates.latitude
+            userinfo.params["Longitude"] = coordinates.longitude
+        }
+        if let address = self.assetAddress
+        {
+            userinfo.params["Address"] = address
+        }
         
-        self.createAssetPostService.post(params: userinfo.params, method: .post, url: createAssetURL) { (response, error) in
-            if let mappedResponse = response
+        userinfo.params["Tages"] = self.hashtags
+        
+        self.addAssetAggregatedService.fetchRequest(assetImages: self.assetImages, assetId: self.assetId, createAssetParams: userinfo.params) { (statusResult, error) in
+            if statusResult?.data == true
             {
-                // self.assetTypesList = mappedResponse.compactMap({String($0)})
-      
-            } else if error != nil {
-           
-                self.showErrorAlert(with: "server error while getting asset types" , title: "Error")
+                let storyboard = UIStoryboard(name: "Assets", bundle: nil)
+                if let viewController = storyboard.instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController {
+                    self.navigationController?.pushViewController(viewController, animated: true)
+                }
+            }
+            else
+            {
+                self.showErrorAlert(with: "Server error, Please try again later" , title: "Error")
             }
         }
     }
@@ -201,24 +233,6 @@ class AddAssetViewController: BaseViewController, UIPickerViewDelegate ,UINaviga
         present(alert, animated: true, completion: nil)
     }
     
-    private func prepareAsset()
-    {
-        if let name = assetNameTextField.text
-        {
-            
-        }
-        if let description = assetDescriptionTextField.text
-        {
-            
-        }
-        
-        let tages = self.hashtags
-        
-        if let assetId = self.assetId {
-         let assetIdValue = assetId
-        }
-        
-    }
     
     private func showErrorAlert(with message: String , title : String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
@@ -229,7 +243,7 @@ class AddAssetViewController: BaseViewController, UIPickerViewDelegate ,UINaviga
     
 }
 
-extension AddAssetViewController : MapDelegateProtocol{
+extension AddAssetViewController {
     func imagePickerController(_ picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]){
         
@@ -245,6 +259,7 @@ extension AddAssetViewController : MapDelegateProtocol{
         assetImages.append(selectedImage)
         imageCollectionView.reloadData()
     }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == self.hashtagCollectionView {
             return hashtags.count == 0 ? 1 : hashtags.count
@@ -277,7 +292,7 @@ extension AddAssetViewController : MapDelegateProtocol{
             }
             // ...Set up cell
             if self.assetImages.count > 0 {
-//                cellAssetImage.setup(image: self.assetImages[indexPath.row])
+                cellAssetImage.setup(image: self.assetImages[indexPath.row])
             }
             else {
                 cellAssetImage.setup(image: "testImage")
@@ -287,13 +302,15 @@ extension AddAssetViewController : MapDelegateProtocol{
         }
     }
     
+    
     func updateAddAssetLocation(assetLocation: String) {
         assetAddressTextField.text = assetLocation
+        self.assetAddress = assetLocation
     }
     
     func updateAssetDetailsLocation(assetLocation: CLLocationCoordinate2D) {
-        assetlocationCoord?.longitude = assetLocation.longitude
-        assetlocationCoord?.latitude = assetLocation.latitude
+        assetlocationCoord = CLLocationCoordinate2D(latitude: assetLocation.latitude , longitude: assetLocation.longitude)
+       
     }
     
 }

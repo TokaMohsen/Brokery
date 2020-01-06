@@ -481,13 +481,23 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="692"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="XIu-VM-Cr0">
+                                <rect key="frame" x="0.0" y="54" width="414" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="xCI-4j-rRp"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="2pl-is-jiB" firstAttribute="trailing" secondItem="XIu-VM-Cr0" secondAttribute="trailing" id="Pe2-qY-ISh"/>
                             <constraint firstItem="2pl-is-jiB" firstAttribute="trailing" secondItem="MeI-D3-jdK" secondAttribute="trailing" id="Tdo-fd-Cui"/>
                             <constraint firstItem="MeI-D3-jdK" firstAttribute="top" secondItem="2pl-is-jiB" secondAttribute="top" id="Wjj-gU-haW"/>
+                            <constraint firstItem="XIu-VM-Cr0" firstAttribute="leading" secondItem="2pl-is-jiB" secondAttribute="leading" id="WnM-Qx-d8c"/>
                             <constraint firstItem="MeI-D3-jdK" firstAttribute="leading" secondItem="2pl-is-jiB" secondAttribute="leading" id="jrL-e9-Ag4"/>
                             <constraint firstItem="2pl-is-jiB" firstAttribute="bottom" secondItem="MeI-D3-jdK" secondAttribute="bottom" id="xB9-8x-1LJ"/>
+                            <constraint firstItem="XIu-VM-Cr0" firstAttribute="top" secondItem="2pl-is-jiB" secondAttribute="top" constant="10" id="xHX-u0-gJe"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2pl-is-jiB"/>
                     </view>
@@ -520,13 +530,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                 <subviews>
                                     <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="L2i-Xy-L2u">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="649"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="691"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pMO-WI-xeM">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="216"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="258"/>
                                                 <subviews>
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jSk-Nh-h0w" userLabel="DescriptionView">
-                                                        <rect key="frame" x="50" y="50" width="314" height="166"/>
+                                                        <rect key="frame" x="50" y="50" width="314" height="208"/>
                                                         <subviews>
                                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CDj-Gn-o7c">
                                                                 <rect key="frame" x="0.0" y="5" width="314" height="40"/>
@@ -583,7 +593,7 @@
                                                                 </constraints>
                                                             </view>
                                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fWn-oj-mgi" customClass="ReadMoreTextView" customModule="ReadMoreTextView">
-                                                                <rect key="frame" x="0.0" y="45" width="314" height="91"/>
+                                                                <rect key="frame" x="0.0" y="45" width="314" height="133"/>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                                 <string key="text">SPANTECH storage units are easy and fast to build and offer an exceptionnal eave height and span capabilities that even traditional construction cannot offer. SPANTECH storage units are easy and fast to build and offer an exceptionnal eave height and span capabilities that even traditional construction cannot offer. </string>
                                                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -599,7 +609,7 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </textView>
                                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Is2-qG-H4y" userLabel="HashtagView">
-                                                                <rect key="frame" x="20" y="136" width="274" height="30"/>
+                                                                <rect key="frame" x="20" y="178" width="274" height="30"/>
                                                                 <subviews>
                                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="bsK-ZB-UXM" userLabel="hashatgCollection View">
                                                                         <rect key="frame" x="0.0" y="0.0" width="274" height="30"/>
@@ -657,7 +667,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bPK-zA-NjD">
-                                                <rect key="frame" x="0.0" y="231" width="414" height="200"/>
+                                                <rect key="frame" x="0.0" y="273" width="414" height="200"/>
                                                 <subviews>
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gXX-WF-MCM" userLabel="ImgaesPagerView">
                                                         <rect key="frame" x="50" y="0.0" width="314" height="200"/>
@@ -706,7 +716,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2bG-Mb-uh8">
-                                                <rect key="frame" x="0.0" y="446" width="414" height="203"/>
+                                                <rect key="frame" x="0.0" y="488" width="414" height="203"/>
                                                 <subviews>
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d8Z-6u-hTO" userLabel="mapView" customClass="GMSMapView">
                                                         <rect key="frame" x="50" y="0.0" width="314" height="203"/>

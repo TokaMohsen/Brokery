@@ -75,6 +75,9 @@ class LoginViewController: BaseViewController , GIDSignInDelegate {
             self.userLoginInService.signIn(params: userinfo.params, method: .post, url: AuthentactionURL) { (response, error) in
                 if let mappedResponse = response?.data
                 {
+                    if let userId = mappedResponse.id {
+                        LocalStore.storeUserID(id: userId)
+                    }
                     
                     DispatchQueue.main.async {
                         self.dismiss(animated: true, completion: nil)

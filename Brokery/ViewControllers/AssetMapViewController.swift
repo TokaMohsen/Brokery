@@ -18,7 +18,7 @@ struct MyPlace {
     var title : String
 }
 
-class AssetMapViewController: BaseViewController{
+class AssetMapViewController: BaseViewController , UISearchBarDelegate{
 
     @IBOutlet var googleMapView: GMSMapView!
     
@@ -43,6 +43,15 @@ class AssetMapViewController: BaseViewController{
         super.viewDidLoad()
 //        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "some_text", style: .done, target: self, action: #selector(self.action(sender:)))
         // Initialize the location manager.
+        
+        //create a search bar with 0 width and 0 height
+//        let searchBar = UISearchBar.init(frame: CGRect.zero)
+//        searchBar.frame = CGRect(x: 5, y: 10, width: googleMapView.frame.size.width  , height: 50)
+//        searchBar.barStyle = .default
+//        searchBar.delegate = self
+//
+      //  googleMapView.addSubview(searchBar)
+
         locationManager = CLLocationManager()
 //        locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
@@ -89,14 +98,11 @@ class AssetMapViewController: BaseViewController{
         marker.map = googleMapView
         marker.isDraggable = true
         drawCircle()
-        chosenPlace?.lat = position.latitude
-        chosenPlace?.long = position.longitude
-        chosenPlace?.title = marker.title ?? ""
+   
         if let title =  marker.title {
-            chosenPlace?.name = title
+            chosenPlace = MyPlace(name: marker.snippet ?? title, lat: position.latitude, long: position.longitude, title: title)
             if let snippet = marker.snippet{
                 addressString = title + snippet
-                
             }
         }
     }
@@ -106,19 +112,17 @@ class AssetMapViewController: BaseViewController{
         {
             let pos = CLLocationCoordinate2D(latitude: placePos.lat, longitude: placePos.long)
             mapDelegate?.updateAssetDetailsLocation(assetLocation: pos)
-       // if let address = placePos.title  {
-                mapDelegate?.updateAddAssetLocation(assetLocation: placePos.title)
-         //   }
+            mapDelegate?.updateAddAssetLocation(assetLocation: placePos.title)
+            if let navController = self.navigationController {
+                navController.popViewController(animated: true)
+            }
         }
-
+        
     }
     
 }
 extension AssetMapViewController : GMSMapViewDelegate , CLLocationManagerDelegate
 {
-    func mapViewSnapshotReady(_ mapView: GMSMapView) {
-        print("took snapshot")
-    }
     func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
         print("clicked on marker")
     }

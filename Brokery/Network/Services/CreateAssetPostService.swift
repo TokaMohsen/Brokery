@@ -9,20 +9,17 @@
 import Foundation
 
 class CreateAssetPostService {
-    func post(params : JSON , method : RequestMethod , url : String , completion: @escaping (Object?, WebError<CustomError>?) -> ())
+    func post(params : JSON , method : RequestMethod , url : String , completion: @escaping (PostObject?, WebError<CustomError>?) -> ())
     {
         let postUserLoginInfoTask: URLSessionDataTask!
         
-        var userinfo = Resource<Object , CustomError>(jsonDecoder: JSONDecoder(), path: url, method: .post)
+        var userinfo = Resource<PostObject , CustomError>(jsonDecoder: JSONDecoder(), path: url, method: .post)
         userinfo.params = params
         
         postUserLoginInfoTask = LoginViewController.sharedWebClient.load(resource: userinfo, urlMethod: method) {[weak self] response in
-            if let mappedResponse = response.value?.data
+            if let mappedResponse = response.value
             {
-                if let token = mappedResponse.token{
-                    LocalStore.storeUserToken(token:token)
-                    completion(response.value , nil)
-                }
+                    completion(mappedResponse , nil)
                 
             } else if let error = response.error {
                 //controller.handleError(error)

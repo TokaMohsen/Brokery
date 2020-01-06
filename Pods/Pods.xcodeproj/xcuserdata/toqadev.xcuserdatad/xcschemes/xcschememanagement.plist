@@ -39,12 +39,27 @@
 			<key>orderHint</key>
 			<integer>4</integer>
 		</dict>
+		<key>Firebase.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>25</integer>
+		</dict>
+		<key>FirebaseAnalytics.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>26</integer>
+		</dict>
 		<key>FirebaseAuth.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>5</integer>
+		</dict>
+		<key>FirebaseAuthInterop.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>27</integer>
 		</dict>
 		<key>FirebaseCore.xcscheme</key>
 		<dict>
@@ -59,6 +74,11 @@
 			<false/>
 			<key>orderHint</key>
 			<integer>7</integer>
+		</dict>
+		<key>FirebaseCoreDiagnosticsInterop.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>28</integer>
 		</dict>
 		<key>FirebaseInstanceID.xcscheme</key>
 		<dict>
@@ -81,6 +101,11 @@
 			<key>orderHint</key>
 			<integer>13</integer>
 		</dict>
+		<key>GoogleAppMeasurement.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>29</integer>
+		</dict>
 		<key>GoogleDataTransport.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -94,6 +119,21 @@
 			<false/>
 			<key>orderHint</key>
 			<integer>10</integer>
+		</dict>
+		<key>GoogleMaps.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>30</integer>
+		</dict>
+		<key>GooglePlaces.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>31</integer>
+		</dict>
+		<key>GoogleSignIn.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>32</integer>
 		</dict>
 		<key>GoogleUtilities.xcscheme</key>
 		<dict>

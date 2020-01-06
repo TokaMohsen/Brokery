@@ -18,7 +18,6 @@ class RegisterationViewController: BaseViewController {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
    
-    private lazy var getUserInfoByTokenService = GetUserInfoByTokenService.init()
     static let sharedWebClient = WebClient.init(baseUrl: BaseAPIURL)
 
      var registerationTask: URLSessionDataTask!
@@ -26,29 +25,6 @@ class RegisterationViewController: BaseViewController {
         super.viewDidLoad()
        
     }
-    
-    //it should be move to home screen to get all user data
-    fileprivate func getUserData(token : String)
-    {
-        if let accessToken = LocalStore.getUserToken(){
-            self.getUserInfoByTokenService.fetch(errordelegate: self) { (data, error) in
-                if (error != nil)
-                {
-                    self.handleError(error: error!)
-                }
-                else
-                {
-                    print(data as Any)
-                    let infoStoryboard = UIStoryboard(name: "Assets", bundle: nil)
-                    if let HomeVC = infoStoryboard.instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController {
-                        self.navigationController?.pushViewController(HomeVC, animated: true)
-                    }
-                }
-            }
-            
-        }
-    }
- 
   
     @IBAction func registerBtnAction(_ sender: UIButton) {
         if let emailTxt = emailTextField.text , let passwordTxt = passwordTextField.text , let mobileTxt = mobileNumberTextField.text , let fullname = fullNameTextField.text {
@@ -58,7 +34,8 @@ class RegisterationViewController: BaseViewController {
             
             var userinfo = Resource<Object , CustomError>(jsonDecoder: JSONDecoder(), path: RegisterAccountURL, method: .post)
             
-             let user =  userProfile.init(FullName: fullname)
+             let user =  UserProfileDto(id: nil, fullName: fullname, gender: nil, address: nil, photo: "testImage", createdBy: nil, createdAt: nil, updatedBy: nil, updatedAt: nil)
+            
             userinfo.params = ["email": emailTxt,
                                "password": passwordTxt,
                                "mobile": mobileTxt,

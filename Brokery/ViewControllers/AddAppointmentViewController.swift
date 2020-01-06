@@ -48,6 +48,8 @@ class AddAppointmentViewController: BaseViewController , AppointmentDelegateProt
     }
     
     @IBAction func cancelBtnAction(_ sender: UIButton) {
+        showAlert(with: "Are you sure u want to discard changes? ", title: "Alert")
+
     }
     
     override func viewDidLoad() {
@@ -264,6 +266,19 @@ class AddAppointmentViewController: BaseViewController , AppointmentDelegateProt
         present(alert, animated: true, completion: nil)
     }
     
+    private func showAlert(with message: String , title : String) {
+        let alert = UIAlertController(title: title , message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default,  handler: { (action) in
+            if let navController = self.navigationController {
+                navController.popViewController(animated: true)
+            }
+        })
+        let cancleAction = UIAlertAction(title: "Cancle", style: .cancel, handler: nil)
+        
+        alert.addAction(okAction)
+        alert.addAction(cancleAction)
+        present(alert, animated: true, completion: nil)
+    }
     
     /*
      // MARK: - Navigation

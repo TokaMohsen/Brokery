@@ -35,7 +35,7 @@ class UploadAssetFilesService
             }
             //Optional for extra parameters
         },
-                         to:assetUploadFilesURL)
+                         to:BaseAPIURL + assetUploadFilesURL)
         { (result) in
             switch result {
             case .success(let upload, _, _):

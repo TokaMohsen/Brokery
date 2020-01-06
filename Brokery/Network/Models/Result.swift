@@ -24,3 +24,23 @@ public struct StatusObject: Decodable {
     var code: String?
 
 }
+
+public struct PostObject: Decodable {
+    var success: Bool
+    var data: AssetPostObject?
+    var count: Int?
+    var code: String?
+
+}
+
+public struct AssetPostObject: Decodable {
+    var Id: String?
+    var Title: Int?
+    var Description: String?
+    var AssetTypeId: Int?
+    var Latitude: String?
+    var Longitude: String?
+    var Address: String?
+    var Tages : [String]?
+
+}

@@ -11,7 +11,7 @@ import Foundation
 public struct UserProfileDto: Codable {
 
 
-    public var id: String
+    public var id: String?
 
     public var fullName: String?
 

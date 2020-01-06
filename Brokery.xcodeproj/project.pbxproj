@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -58,6 +58,7 @@
 		EF0C8543238AC033008A0C32 /* NotificationDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0C8521238AC032008A0C32 /* NotificationDto.swift */; };
 		EF0C8544238AC033008A0C32 /* UserStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0C8522238AC032008A0C32 /* UserStatus.swift */; };
 		EF0C8545238AC033008A0C32 /* FollowerDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0C8523238AC033008A0C32 /* FollowerDto.swift */; };
+		EF0C98CD23C368BD00090F74 /* ForgotPasswordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0C98CC23C368BD00090F74 /* ForgotPasswordService.swift */; };
 		EF0ED3E92380546800F7A7D6 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0ED3E82380546800F7A7D6 /* BaseModel.swift */; };
 		EF0EE96523B02C8C0073B42C /* SimpleAssetBasedCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0EE96423B02C8C0073B42C /* SimpleAssetBasedCard.swift */; };
 		EF0EE96723B02CB20073B42C /* SimpleAssetBasedCard.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF0EE96623B02CB20073B42C /* SimpleAssetBasedCard.xib */; };
@@ -79,6 +80,7 @@
 		EF1AC521238D2EE8004FB127 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EF1AC520238D2EE8004FB127 /* GoogleService-Info.plist */; };
 		EF1BC2A723B2309B008E9D24 /* DropDownListsSelectionCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1BC2A623B2309B008E9D24 /* DropDownListsSelectionCustomView.swift */; };
 		EF1BC2A923B28741008E9D24 /* AppointmentProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1BC2A823B28741008E9D24 /* AppointmentProtocol.swift */; };
+		EF29771823C29BF1003FDAE5 /* AddAssetAggregatedService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF29771723C29BF1003FDAE5 /* AddAssetAggregatedService.swift */; };
 		EF30556C23A0120A0053FCBC /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF30556A23A0120A0053FCBC /* MapViewController.swift */; };
 		EF30556D23A0120A0053FCBC /* PlacesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF30556B23A0120A0053FCBC /* PlacesViewController.swift */; };
 		EF30556F23A014920053FCBC /* AssetMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF30556E23A014920053FCBC /* AssetMapViewController.swift */; };
@@ -103,7 +105,6 @@
 		EF471569237D7B7C0036DC1E /* AddAssetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF471568237D7B7C0036DC1E /* AddAssetViewController.swift */; };
 		EF47156B237D7B900036DC1E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF47156A237D7B900036DC1E /* HomeViewController.swift */; };
 		EF47156D237D8D380036DC1E /* MarketPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF47156C237D8D380036DC1E /* MarketPlaceViewController.swift */; };
-		EF471571237DD6EC0036DC1E /* RegisterAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF471570237DD6EC0036DC1E /* RegisterAccount.swift */; };
 		EF471573237DDB130036DC1E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF471572237DDB130036DC1E /* Constants.swift */; };
 		EF542683239B038500E5F124 /* AssetDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF542682239B038500E5F124 /* AssetDetailsViewController.swift */; };
 		EF60C8E82374903D0051F57F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF60C8E72374903D0051F57F /* AppDelegate.swift */; };
@@ -196,6 +197,7 @@
 		EF0C8521238AC032008A0C32 /* NotificationDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationDto.swift; sourceTree = "<group>"; };
 		EF0C8522238AC032008A0C32 /* UserStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserStatus.swift; sourceTree = "<group>"; };
 		EF0C8523238AC033008A0C32 /* FollowerDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowerDto.swift; sourceTree = "<group>"; };
+		EF0C98CC23C368BD00090F74 /* ForgotPasswordService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordService.swift; sourceTree = "<group>"; };
 		EF0ED3E82380546800F7A7D6 /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
 		EF0EE96423B02C8C0073B42C /* SimpleAssetBasedCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleAssetBasedCard.swift; sourceTree = "<group>"; };
 		EF0EE96623B02CB20073B42C /* SimpleAssetBasedCard.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SimpleAssetBasedCard.xib; sourceTree = "<group>"; };
@@ -217,6 +219,7 @@
 		EF1AC520238D2EE8004FB127 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EF1BC2A623B2309B008E9D24 /* DropDownListsSelectionCustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownListsSelectionCustomView.swift; sourceTree = "<group>"; };
 		EF1BC2A823B28741008E9D24 /* AppointmentProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentProtocol.swift; sourceTree = "<group>"; };
+		EF29771723C29BF1003FDAE5 /* AddAssetAggregatedService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAssetAggregatedService.swift; sourceTree = "<group>"; };
 		EF30556A23A0120A0053FCBC /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		EF30556B23A0120A0053FCBC /* PlacesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlacesViewController.swift; sourceTree = "<group>"; };
 		EF30556E23A014920053FCBC /* AssetMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetMapViewController.swift; sourceTree = "<group>"; };
@@ -241,7 +244,6 @@
 		EF471568237D7B7C0036DC1E /* AddAssetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAssetViewController.swift; sourceTree = "<group>"; };
 		EF47156A237D7B900036DC1E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		EF47156C237D8D380036DC1E /* MarketPlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketPlaceViewController.swift; sourceTree = "<group>"; };
-		EF471570237DD6EC0036DC1E /* RegisterAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterAccount.swift; sourceTree = "<group>"; };
 		EF471572237DDB130036DC1E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		EF542682239B038500E5F124 /* AssetDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetDetailsViewController.swift; sourceTree = "<group>"; };
 		EF60C8E42374903D0051F57F /* Brokery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Brokery.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -416,6 +418,8 @@
 				EF1A4F9023BBB4CF00F4C291 /* AddFavoriteAssetPostService.swift */,
 				EF105E0823BD625200AE8764 /* CreateAssetPostService.swift */,
 				EF10BCDC23C1FA5A00B08651 /* UploadAssetFilesService.swift */,
+				EF29771723C29BF1003FDAE5 /* AddAssetAggregatedService.swift */,
+				EF0C98CC23C368BD00090F74 /* ForgotPasswordService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -524,7 +528,6 @@
 				EF0C8503238AC030008A0C32 /* UserProfileDto.swift */,
 				EF0C8522238AC032008A0C32 /* UserStatus.swift */,
 				EF0C850D238AC031008A0C32 /* UserTypeDto.swift */,
-				EF471570237DD6EC0036DC1E /* RegisterAccount.swift */,
 				EF0ED3E82380546800F7A7D6 /* BaseModel.swift */,
 				A29E579423894E84000B7F09 /* AssetModel.swift */,
 			);
@@ -858,6 +861,7 @@
 				EF1A0EDA23B94CDC00DC3976 /* AppointmentListProtocol.swift in Sources */,
 				EF11D1C52375E538005C8F0C /* RegisterationViewController.swift in Sources */,
 				EF461968238E7E1E008F453D /* Path.swift in Sources */,
+				EF0C98CD23C368BD00090F74 /* ForgotPasswordService.swift in Sources */,
 				EF46195E238E7E03008F453D /* CustomError.swift in Sources */,
 				EF186B57239422930053A706 /* HomeService.swift in Sources */,
 				EF0C8536238AC033008A0C32 /* AccountStatus.swift in Sources */,
@@ -866,7 +870,6 @@
 				EF0C8540238AC033008A0C32 /* AssetTypeDto.swift in Sources */,
 				EF10A1F923C0C65400F580FB /* DropDownListsProtocol.swift in Sources */,
 				EF0C853A238AC033008A0C32 /* HashTagDto.swift in Sources */,
-				EF471571237DD6EC0036DC1E /* RegisterAccount.swift in Sources */,
 				EF0C852A238AC033008A0C32 /* Fail.swift in Sources */,
 				EF30556F23A014920053FCBC /* AssetMapViewController.swift in Sources */,
 				EF0C852F238AC033008A0C32 /* UserTypeDto.swift in Sources */,
@@ -875,6 +878,7 @@
 				EFACC9252382FB5300586134 /* ServiceError.swift in Sources */,
 				EF471573237DDB130036DC1E /* Constants.swift in Sources */,
 				EF35E47523B4C14F00837871 /* GetListOfUserContactsService.swift in Sources */,
+				EF29771823C29BF1003FDAE5 /* AddAssetAggregatedService.swift in Sources */,
 				EF0C8529238AC033008A0C32 /* AppointmentDto.swift in Sources */,
 				EF0C8531238AC033008A0C32 /* FavoriteAssetDto.swift in Sources */,
 				EF0ED3E92380546800F7A7D6 /* BaseModel.swift in Sources */,
