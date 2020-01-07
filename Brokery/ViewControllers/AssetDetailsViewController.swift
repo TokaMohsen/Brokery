@@ -152,7 +152,8 @@ class AssetDetailsViewController: BaseViewController {
             if let asset =  self.assetModel
             {
                 let storyboard = UIStoryboard(name: "Assets", bundle: nil)
-                if let viewController = storyboard.instantiateViewController(withIdentifier: "AddAppointmentViewController" ) as? AssetDetailsViewController {
+                if let viewController = storyboard.instantiateViewController(withIdentifier: "AddAppointmentViewController" ) as? AddAppointmentViewController {
+                    
                     viewController.getAssetModel(asset: asset)
                     
                     navigationController?.pushViewController(viewController, animated: true)
@@ -162,8 +163,9 @@ class AssetDetailsViewController: BaseViewController {
             if let asset =  self.assetModel
             {
                 let storyboard = UIStoryboard(name: "Assets", bundle: nil)
-                if let viewController = storyboard.instantiateViewController(withIdentifier: "AddAssetViewController" ) as? AssetDetailsViewController {
-                    viewController.getAssetModel(asset: asset)
+                if let viewController = storyboard.instantiateViewController(withIdentifier: "AddAssetViewController" ) as? AddAssetViewController {
+                    viewController.assetModel = asset
+                    //viewController.editAssetModel(asset: asset)
                     
                     navigationController?.pushViewController(viewController, animated: true)
                 }

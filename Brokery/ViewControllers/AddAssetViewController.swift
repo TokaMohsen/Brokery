@@ -10,6 +10,7 @@ import UIKit
 import iOSDropDown
 import Alamofire
 import CoreLocation
+import SDWebImage
 
 class AddAssetViewController: BaseViewController, UIPickerViewDelegate ,UINavigationControllerDelegate , UICollectionViewDelegate , UICollectionViewDataSource , UIImagePickerControllerDelegate  , MapDelegateProtocol {
     
@@ -32,7 +33,9 @@ class AddAssetViewController: BaseViewController, UIPickerViewDelegate ,UINaviga
     var assetTypesList = [String]()
     var hashtags = [String]()
     var assetImages = [UIImage]()
-    var assetModel : AssetModel?
+    var assetModel : AssetDto?
+    var assetTypeList : [AssetType]?
+
     let hashtagCollectionViewIdentifier = "hashtagCell"
     let assetImagesCollectionViewIdentifier = "imageCell"
     
@@ -69,6 +72,9 @@ class AddAssetViewController: BaseViewController, UIPickerViewDelegate ,UINaviga
         imageCollectionView.delegate = self
         imageCollectionView.dataSource = self
         
+        if let assetModel = self.assetModel{
+            editAssetModel(asset: assetModel)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -86,6 +92,7 @@ class AddAssetViewController: BaseViewController, UIPickerViewDelegate ,UINaviga
         }
         hashtagCollectionView.reloadData()
     }
+    
     @IBAction func setLocationBtnAction(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "Assets", bundle: nil)
         if let viewController = storyboard.instantiateViewController(withIdentifier: "AssetMapViewController") as? AssetMapViewController {
@@ -135,6 +142,42 @@ class AddAssetViewController: BaseViewController, UIPickerViewDelegate ,UINaviga
         
     }
     
+    func editAssetModel(asset : AssetDto)
+    {
+        if let title = asset.title{
+        assetNameTextField.text = title
+        }
+        if let address = asset.address {
+        assetAddressTextField.text = address
+        }
+        if let description = asset.description
+        {
+            assetDescriptionTextField.text = description
+        }
+        if let assetTypeId = asset.assetTypeId , let type = self.assetTypeList
+        {
+            let option =  type.first(where: {$0.id == assetTypeId})
+            self.assetTypeDropdownTextField.text = option?.name
+        }
+        if let tages = asset.tages
+        {
+            self.hashtags = tages
+            hashtagCollectionView.reloadData()
+        }
+        if let image = asset.photo
+        {
+            let url = URL(string: BaseAPIURL + image)
+                    SDWebImageManager.shared().imageDownloader?.downloadImage(with:url , options: .continueInBackground, progress: nil, completed: {(image:UIImage?, data:Data?, error:Error?, finished:Bool) in
+                        if let image = image {
+                            self.assetImages.append(image)
+                            self.imageCollectionView.reloadData()
+                        }
+                    })
+            
+        }
+    }
+    
+    
     func fetchAssetTypesList()
     {
         getAssetTypesListTask?.cancel()
@@ -146,7 +189,7 @@ class AddAssetViewController: BaseViewController, UIPickerViewDelegate ,UINaviga
         self.assetTypesListService.fetch(params: userinfo.params, method: .get, url: GetAssetTypeListURL) { (response, error) in
             if let mappedResponse = response
             {
-                // self.assetTypesList = mappedResponse.compactMap({String($0)})
+                self.assetTypeList = mappedResponse
                 self.assetTypesList = mappedResponse.compactMap({$0.name})
                 self.assetTypeDropdownTextField.optionArray = self.assetTypesList
                 self.assetTypeDropdownTextField.selectedRowColor = .lightGray

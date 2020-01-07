@@ -27,17 +27,16 @@ class AssetCard: UITableViewCell {
         appartementName.text = asset.title
         appartementDescription.text = asset.description
         companyName.text = asset.owner?.name
-        jobTitle.text =  asset.owner?.userProfile?.description
-        //for example
+        jobTitle.text =  asset.owner?.mobile
         if let tages = asset.tages{
-            hashtag.text = tages[0]
+           setupHashtag(tages: tages)
         }
     }
     private func setupHashtag(tages : [String])
     {
         if tages.count > 2 {
-            hashtag.text = tages[0]
-                //var array = tages[0].componentsSeparatedByString("\r")
+            let hashtagStr = tages[0] + "/n" + tages[0] + "/n" + "+" + String ((tages.count - 2)) + "tages"
+            hashtag.text = hashtagStr
 
         }
     }
