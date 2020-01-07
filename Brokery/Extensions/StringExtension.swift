@@ -13,8 +13,13 @@ extension String {
         let emailTest = NSPredicate(format:"SELF MATCHES %@", EmailAddressRegex)
         return emailTest.evaluate(with: self)
     }
+    
     func isValidMobileNumber() -> Bool {
         let mobileTest = NSPredicate(format:"SELF MATCHES %@", MobilePhoneNumberRegex)
         return mobileTest.evaluate(with: self)
+    }
+    
+    func isValidString() -> Bool {
+        return self.trimmingCharacters(in: .whitespacesAndNewlines).count > 0
     }
 }

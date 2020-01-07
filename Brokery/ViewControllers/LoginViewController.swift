@@ -17,6 +17,8 @@ class LoginViewController: BaseViewController , GIDSignInDelegate {
     
     @IBOutlet var emailTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
+    @IBOutlet weak var emailErrorLabel: UILabel!
+    @IBOutlet weak var passwordErrorLabel: UILabel!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     private lazy var getUserInfoByTokenService = GetUserInfoByTokenService.init()
@@ -29,18 +31,31 @@ class LoginViewController: BaseViewController , GIDSignInDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        hideErrorLabels()
+        emailTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
+        passwordTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
+        
         GIDSignIn.sharedInstance()?.presentingViewController = self
         
         // Automatically sign in the user.
         GIDSignIn.sharedInstance()?.restorePreviousSignIn()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupNavigationBar(title: "Login")
+    }
+    
+    @objc func textFieldDidChange(_ textField: UITextField) {
+        hideErrorLabels()
+    }
     
     @IBAction func loginWithFacebookAction(_ sender: UIButton) {
     }
 
     @IBAction func loginBtnAction(_ sender: UIButton) {
-        if let emailTxt = emailTextField.text , let passwordTxt = passwordTextField.text {
+        if let emailTxt = emailTextField.text, emailTxt.isValidEmail(),
+            let passwordTxt = passwordTextField.text, passwordTxt.isValidString() {
             postUserLoginInfoTask?.cancel()
             
             activityIndicator.startAnimating()
@@ -50,26 +65,35 @@ class LoginViewController: BaseViewController , GIDSignInDelegate {
                                "password": passwordTxt]
             
             
-            self.userLoginInService.signIn(params: userinfo.params, method: .post, url: AuthentactionURL) { (response, error) in
-                if let mappedResponse = response?.data
-                {
+            self.userLoginInService.signIn(params: userinfo.params, method: .post, url: AuthentactionURL) {[weak self] (response, error) in
+                DispatchQueue.main.async {
+                self?.activityIndicator.stopAnimating()
+                }
+                
+                if let mappedResponse = response?.data {
                     if let userId = mappedResponse.id {
                         LocalStore.storeUserID(id: userId)
                     }
-                    
                     DispatchQueue.main.async {
-                        self.dismiss(animated: true, completion: nil)
+                        self?.dismiss(animated: true, completion: nil)
                         let appDelegate = UIApplication.shared.delegate! as! AppDelegate
                         appDelegate.window?.rootViewController = NavigationManager.setupTabBar()
                         appDelegate.window?.makeKeyAndVisible()
                     }
                     
-                } else if error != nil {
-                    //controller.handleError(error)
+                } else {
+                    self?.showErrorLabels()
                 }
             }
+        } else {
+            if let emailTxt = emailTextField.text, !emailTxt.isValidEmail() {
+                emailErrorLabel.text = "Enter a valid Email"
+            }
             
-            self.activityIndicator.stopAnimating()
+            if let passwordTxt = passwordTextField.text, !passwordTxt.isValidString() {
+                passwordErrorLabel.text = "Enter your password"
+            }
+            showErrorLabels()
         }
     }
     
@@ -79,7 +103,6 @@ class LoginViewController: BaseViewController , GIDSignInDelegate {
         if let RegisterationVC = infoStoryboard.instantiateViewController(withIdentifier: "RegisterationViewController") as? RegisterationViewController {
             self.navigationController?.pushViewController(RegisterationVC, animated: true)
         }
-        
     }
     
     @IBAction func loginWithFacebookBtnAction(_ sender: UIButton) {
@@ -161,6 +184,16 @@ class LoginViewController: BaseViewController , GIDSignInDelegate {
         // GIDSignIn.sharedInstance().uiDelegate = self
         GIDSignIn.sharedInstance().signIn()
         
+    }
+    
+    private func hideErrorLabels() {
+        emailErrorLabel.isHidden = true
+        passwordErrorLabel.isHidden = true
+    }
+    
+    private func showErrorLabels() {
+        emailErrorLabel.isHidden = false
+        passwordErrorLabel.isHidden = false
     }
     
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
