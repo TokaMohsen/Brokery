@@ -42,7 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate , GIDSignInDelegate {
             initialViewController = NavigationManager.setupTabBar()
         } else {
             let mainStoryboard : UIStoryboard = UIStoryboard(name: "Login", bundle: nil)
-            initialViewController = mainStoryboard.instantiateViewController(withIdentifier: "LoginViewController")
+            initialViewController = UINavigationController(rootViewController: mainStoryboard.instantiateViewController(withIdentifier: "LoginViewController"))
         }
         self.window = UIWindow(frame: UIScreen.main.bounds)
 //        UINavigationController(rootViewController: initialViewController ?? UIViewController())

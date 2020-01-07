@@ -7,36 +7,79 @@
 //
 
 import UIKit
+import SafariServices
 
 class RegisterationViewController: BaseViewController {
     
-    @IBOutlet var checkImage: UIImageView!
     @IBOutlet var fullNameTextField: UITextField!
     @IBOutlet var emailTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
+    @IBOutlet weak var confirmPasswordTextField: UITextField!
     @IBOutlet var mobileNumberTextField: UITextField!
     
+    @IBOutlet weak var fullNameErrorlabel: UILabel!
+    @IBOutlet weak var emailErrorLabel: UILabel!
+    @IBOutlet weak var passwordErrorLabel: UILabel!
+    @IBOutlet weak var confirmPasswordErrorLabel: UILabel!
+    @IBOutlet weak var mobileErrorLabel: UILabel!
+    
+    @IBOutlet weak var acceptTermsButton: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    var accept = true
+    
+    var isTermsAccepted = false
     private lazy var userRegisterationService = RegisterationService()
     
-    @IBAction func acceptTermsBtnAction(_ sender: UIButton) {
-        
-        checkImage.isHighlighted = accept
-        LocalStore.storeTermsConfirmation(confirm: accept)
-        accept = !accept
-    }
-    
     static let sharedWebClient = WebClient.init(baseUrl: BaseAPIURL)
-    
+    let termsURL = "https://www.google.com"
     var registerationTask: URLSessionDataTask!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        setAcceptButtonImage()
+        hideErrorsLabel()
         
+        fullNameTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
+        emailTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
+        passwordTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
+        confirmPasswordTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
+        mobileNumberTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupNavigationBar(title: "Registeration")
+    }
+    
+    @objc func textFieldDidChange(_ textField: UITextField) {
+        hideErrorsLabel()
+    }
+    
+    @IBAction func acceptTermsBtnAction(_ sender: UIButton) {
+        LocalStore.storeTermsConfirmation(confirm: isTermsAccepted)
+        isTermsAccepted = !isTermsAccepted
+        setAcceptButtonImage()
+    }
+    
+    @IBAction func showTermsWebView(_ sender: UIButton) {
+        if let url = URL(string: termsURL) {
+            let safariVC = SFSafariViewController(url: url)
+            self.present(safariVC, animated: true, completion: nil)
+        }
+    }
+    
+    private func setAcceptButtonImage() {
+        let imageString = isTermsAccepted ? "filledCheckBox" : "emptyCheckBox"
+        acceptTermsButton.setImage(UIImage(named: imageString), for: .normal)
     }
     
     @IBAction func registerBtnAction(_ sender: UIButton) {
-        if let emailTxt = emailTextField.text , let passwordTxt = passwordTextField.text , let mobileTxt = mobileNumberTextField.text , let fullname = fullNameTextField.text {
+        
+        if !isValidInput() {
+            return
+        }
+        
+        if let fullName = fullNameTextField.text, let email = emailTextField.text, let password = passwordTextField.text,
+            let mobile = mobileNumberTextField.text {
             
             registerationTask?.cancel()
             DispatchQueue.main.async {
@@ -44,12 +87,12 @@ class RegisterationViewController: BaseViewController {
             }
             var userinfo = Resource<Object , CustomError>(jsonDecoder: JSONDecoder(), path: RegisterAccountURL, method: .post)
             
-            let user =  UserProfileDto(id: nil, fullName: fullname, gender: nil, address: nil, photo: "testImage", createdBy: nil, createdAt: nil, updatedBy: nil, updatedAt: nil)
+            let user =  UserProfileDto(id: nil, fullName: fullName, gender: nil, address: nil, photo: "testImage", createdBy: nil, createdAt: nil, updatedBy: nil, updatedAt: nil)
             
-            userinfo.params = ["email": emailTxt,
-                               "password": passwordTxt,
-                               "mobile": mobileTxt,
-                               "name": emailTxt]
+            userinfo.params = ["email": email,
+                               "password": password,
+                               "mobile": mobile,
+                               "name": fullName]
             
             self.userRegisterationService.register(params: userinfo.params, method: .post, url: RegisterAccountURL) { (response, error) in
                 if let mappedResponse = response?.data
@@ -63,7 +106,7 @@ class RegisterationViewController: BaseViewController {
                    
                 }
                 else if error != nil {
-                    self.showErrorAlert(with: "server error ", title: "Error")
+                    self.showErrorAlert(with: "server error", title: "Error")
                 }
                 DispatchQueue.main.async {
                                        self.activityIndicator.stopAnimating()
@@ -72,22 +115,48 @@ class RegisterationViewController: BaseViewController {
         }
         
     }
-    
-    private func showErrorAlert(with message: String , title : String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-        alert.addAction(okAction)
-        present(alert, animated: true, completion: nil)
+
+    private func hideErrorsLabel() {
+        fullNameErrorlabel.isHidden = true
+        emailErrorLabel.isHidden = true
+        passwordErrorLabel.isHidden = true
+        confirmPasswordErrorLabel.isHidden = true
+        mobileErrorLabel.isHidden = true
     }
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
+    private func isValidInput() -> Bool{
+        
+        var isValid = true
+        if let fullName = fullNameTextField.text, !fullName.isValidString() {
+            fullNameErrorlabel.isHidden = false
+            isValid = false
+        }
+        
+        if let email = emailTextField.text, !email.isValidEmail() {
+            emailErrorLabel.isHidden = false
+            isValid = false
+        }
+        
+        if let password = passwordTextField.text, !password.isValidString() {
+            passwordErrorLabel.isHidden = false
+            isValid = false
+        }
+        
+        if let confirmPassword = confirmPasswordTextField.text, (!confirmPassword.isValidString() || passwordTextField.text != confirmPassword) {
+            confirmPasswordErrorLabel.isHidden = false
+            isValid = false
+        }
+        
+        if let mobile = mobileNumberTextField.text, !mobile.isValidMobileNumber() {
+            mobileErrorLabel.isHidden = false
+            isValid = false
+        }
+        
+        if !isTermsAccepted && isValid {
+            showErrorAlert(with: "Please accept terms and condition", title: "")
+            isValid = false
+        }
+        
+        return isValid
+    }
 }
