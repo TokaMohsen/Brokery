@@ -43,7 +43,7 @@ class LoginViewController: BaseViewController , GIDSignInDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        setupNavigationBar(title: "Login")
+        setupNavigationBar(title: "")
     }
     
     @objc func textFieldDidChange(_ textField: UITextField) {

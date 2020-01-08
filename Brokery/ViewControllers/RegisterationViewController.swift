@@ -47,7 +47,7 @@ class RegisterationViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        setupNavigationBar(title: "Registeration")
+        setupNavigationBar(title: "")
     }
     
     @objc func textFieldDidChange(_ textField: UITextField) {
