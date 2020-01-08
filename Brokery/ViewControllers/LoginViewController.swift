@@ -82,6 +82,8 @@ class LoginViewController: BaseViewController , GIDSignInDelegate {
                     }
                     
                 } else {
+                    self?.emailErrorLabel.text = "The email or Password you entered is incorrect"
+                    self?.passwordErrorLabel.text = "The email or Password you entered is incorrect"
                     self?.showErrorLabels()
                 }
             }
