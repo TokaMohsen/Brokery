@@ -27,6 +27,10 @@ class AssetDetailsViewController: BaseViewController {
     
     @IBOutlet var mapView: GMSMapView!
     
+    static let sharedWebClient = WebClient.init(baseUrl: BaseAPIURL)
+    private lazy var favouriteAssetService = AddFavoriteAssetPostService()
+
+    var postFavouriteAssetTask: URLSessionDataTask!
     
     var assetModel : AssetDto?
     var assetTages : [String] = []
@@ -171,12 +175,42 @@ class AssetDetailsViewController: BaseViewController {
                 }
             }
         case 3:
-            showConfirmationAlert(with: "Asset has been added to favorite list successfully")
-            
+            self.addFavouriteAsset()
         default:
             showConfirmationAlert(with: "Asset has been added to favorite list successfully")
         }
     }
+    
+    private func addFavouriteAsset()
+    {
+        postFavouriteAssetTask?.cancel()
+//        DispatchQueue.main.async {
+//            self.activityIndicator.startAnimating()
+//        }
+        var userinfo = Resource<FavoriteAssetObject , CustomError>(jsonDecoder: JSONDecoder(), path: favouriteAssetURL, method: .post)
+        
+        userinfo.params = ["AssetID": self.assetModel?.id]
+    
+        
+        self.favouriteAssetService.fetch(params: userinfo.params, method: .post, url: favouriteAssetURL) { (response, error) in
+//            DispatchQueue.main.async {
+//                //            self.activityIndicator.hidesWhenStopped = true
+//                self.activityIndicator.stopAnimating()
+//            }
+            
+            if let mappedResponse = response
+            {
+                self.showConfirmationAlert(with: "Asset has been added to favorite list successfully")
+
+            } else if error != nil {
+                //controller.handleError(error)
+                self.showErrorAlert(with: "error", title: "server error")
+            }
+        }
+    }
+    
+    
+    
      func showConfirmationAlert(with message: String) {
         let alert = UIAlertController(title: "Confirmation", message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)

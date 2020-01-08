@@ -7,32 +7,25 @@
 
 import Foundation
 
+public struct FavoriteAssetObject: Decodable {
+    var success: Bool
+    var data: FavoriteAssetDto?
+    var count: Int?
+    var code: String?
+    
+}
 
 public struct FavoriteAssetDto: Decodable {
 
 
-    public var _id: String
+    public var id: String?
 
-    public var assetId: String
+    public var assetId: String?
 
-    public var userId: String
+    public var userId: String?
 
     public var asset: AssetDto?
 
     public var user: UserDto?
-    public init(_id: String, assetId: String, userId: String, asset: AssetDto?, user: UserDto?) { 
-        self._id = _id
-        self.assetId = assetId
-        self.userId = userId
-        self.asset = asset
-        self.user = user
-    }
-    public enum CodingKeys: String, CodingKey { 
-        case _id = "id"
-        case assetId
-        case userId
-        case asset
-        case user
-    }
 
 }

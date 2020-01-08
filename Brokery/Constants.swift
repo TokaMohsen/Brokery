@@ -34,6 +34,7 @@ let HashtagGetURL = "/api/HashTag/Get"
 let GetAssetTypeListURL = "/api/AssetType/GetAssetTypeList"
 let createAssetURL = "/api/Asset/Create"
 let assetUploadFilesURL = "/api/Asset/UploadFiles"
+let favouriteAssetURL = "/api/Asset/AddFavoriteAsset"
 //appointment 
 let getUserAssetsURL = "/api/Asset/GetUserAssets"
 let getUsersListURL = "/api/User/GetUsersList"

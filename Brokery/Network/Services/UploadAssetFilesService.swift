@@ -19,7 +19,7 @@ class UploadAssetFilesService
             let imgData = image.jpegData(compressionQuality: 0.2)!
             imgsData.append(imgData)
         }
-        let parameters = ["isBackgroundPhoto": false,
+        let parameters = ["isBackgroundPhoto": "false",
                           "ID" : assetId
                          ]
         //Optional for extra parameter
