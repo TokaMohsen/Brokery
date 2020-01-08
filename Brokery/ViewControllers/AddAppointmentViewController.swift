@@ -11,6 +11,7 @@ import iOSDropDown
 
 class AddAppointmentViewController: BaseViewController , AppointmentDelegateProtocol {
     
+    
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     @IBOutlet var appointmentDescriptionText: UITextField!
@@ -23,10 +24,11 @@ class AddAppointmentViewController: BaseViewController , AppointmentDelegateProt
     private lazy var userAssetsService = GetUserAssetsService()
     private lazy var createAppointmentService = CreateAppointmentService()
     private lazy var listOfUserContactsService = GetListOfUserContactsService()
-
-    let dropLists = DropDownListsSelectionCustomView()
+    
     
     var appointment = AppointmentDto()
+    var dropListProtocolDelegate : DropDownListsProtocol?
+    
     var asset : AssetDto?
     var assetId : String?
     var developerId : String?
@@ -35,7 +37,7 @@ class AddAppointmentViewController: BaseViewController , AppointmentDelegateProt
     var AppointmentStatus : Int = 0
     var dateTime : String?
     static let sharedWebClient = WebClient.init(baseUrl: BaseAPIURL)
-    let customView = DropDownListsSelectionCustomView()
+    var customView : DropDownListsSelectionCustomView? = UIView() as? DropDownListsSelectionCustomView
     
     var appointmentTask : URLSessionDataTask!
     
@@ -49,14 +51,15 @@ class AddAppointmentViewController: BaseViewController , AppointmentDelegateProt
     
     @IBAction func cancelBtnAction(_ sender: UIButton) {
         showAlert(with: "Are you sure u want to discard changes? ", title: "Alert")
-
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        dropLists.appointmentDelegate = self
-        dropLists.dropListProtocolDelegate = self
+        
+        //customView.dropListProtocolDelegate = self
+        
         if let assetModel = self.asset
         {
             let assetCard = SimpleAssetBasedCard(frame: appointmentSourceUIView.frame)
@@ -71,13 +74,26 @@ class AddAppointmentViewController: BaseViewController , AppointmentDelegateProt
             appointmentSourceUIView.translatesAutoresizingMaskIntoConstraints = false
         }
         else{
-            customView.fetchDevelopers()
-            customView.registerNibView()
-            customView.frame = appointmentSourceUIView.bounds
-            customView.bounds.size = appointmentSourceUIView.bounds.size
+            customView = DropDownListsSelectionCustomView(frame: appointmentSourceUIView.frame)
+            fetchUserListData { (data, error) in
+                if let data = data {
+                    self.customView?.devolopers = data
+                    DispatchQueue.main.async {
+                        self.customView?.registerNibView()
+                    }
+                    
+                }
+            }
             
-            customView.center = appointmentSourceUIView.center
-            appointmentSourceUIView.addSubview(customView)
+            // customView?.fetchDevelopers()
+            customView?.frame = appointmentSourceUIView.bounds
+            customView?.bounds.size = appointmentSourceUIView.bounds.size
+            
+            customView?.appointmentDelegate = self
+            customView?.dropDownListsSetupDelegate = self
+            
+            customView?.center = appointmentSourceUIView.center
+            appointmentSourceUIView.addSubview(customView ?? UIView())
             appointmentSourceUIView.translatesAutoresizingMaskIntoConstraints = false
         }
         
@@ -89,7 +105,6 @@ class AddAppointmentViewController: BaseViewController , AppointmentDelegateProt
         datePicker.addTarget(self, action: #selector(handlePicker(sender:)), for: UIControl.Event.valueChanged)
         
         fetchUserContacts()
-        
         // Do any additional setup after loading the view.
     }
     
@@ -116,7 +131,7 @@ class AddAppointmentViewController: BaseViewController , AppointmentDelegateProt
         self.dateTime = timeFormatter.string(from: datePicker.date)
     }
     
-    func fetchUserListData() -> [UserDto]?
+    func fetchUserListData(completion : @escaping ([UserDto]?, WebError<CustomError>?) -> ())
     {
         var userNames = [UserDto]()
         appointmentTask?.cancel()
@@ -129,17 +144,24 @@ class AddAppointmentViewController: BaseViewController , AppointmentDelegateProt
             if let mappedResponse = response?.data
             {
                 userNames = mappedResponse
+                self.customView?.devolopers = userNames
+                self.dropListProtocolDelegate?.getUserListData(userList: userNames)
+                completion(userNames , nil)
+                
             } else if error != nil {
                 //controller.handleError(error)
-                self.showErrorAlert(with: "error")
+                completion(nil , error)
+                DispatchQueue.main.async {
+                    self.showErrorAlert(with: "error")
+                }
             }
         }
         //  self.activityIndicator.stopAnimating()
         // }
-        return userNames
+        //return userNames
     }
     
-    func fetchUserAssets(user_id : String) -> [AssetDto]?
+    func fetchUserAssets(user_id : String , completion : @escaping ([AssetDto]?, WebError<CustomError>?) -> ())
     {
         var asset = [AssetDto]()
         
@@ -152,13 +174,18 @@ class AddAppointmentViewController: BaseViewController , AppointmentDelegateProt
             {
                 // self.activityIndicator.stopAnimating()
                 asset = mappedResponse
+                completion(asset , nil)
             }
             else if error != nil {
-                self.showErrorAlert(with: "error")
+                self.dropListProtocolDelegate?.getUserAssetsData(assets: asset)
+                DispatchQueue.main.async {
+                    self.showErrorAlert(with: "error")
+                }
+                completion(nil , error)
             }
         }
-        return asset
-  
+        
+        
         // }
     }
     
@@ -173,7 +200,10 @@ class AddAppointmentViewController: BaseViewController , AppointmentDelegateProt
                 self.contacts = mappedResponse
             }
             else if error != nil {
+                DispatchQueue.main.async {
+
                 self.showErrorAlert(with: "error")
+                }
             }
         }
         
@@ -203,11 +233,11 @@ class AddAppointmentViewController: BaseViewController , AppointmentDelegateProt
     func createAppointment()
     {
         self.appointmentTask?.cancel()
-//        DispatchQueue.main.async {
-//            self.activityIndicator.startAnimating()
-//        }
+        //        DispatchQueue.main.async {
+        //            self.activityIndicator.startAnimating()
+        //        }
         var userinfo = Resource<Object , CustomError>(jsonDecoder: JSONDecoder(), path: createAppointmentURL, method: .post)
-  
+        
         if let contactId = self.contactId
         {
             userinfo.params["contactId"] = contactId
@@ -226,7 +256,7 @@ class AddAppointmentViewController: BaseViewController , AppointmentDelegateProt
         }
         if let dateTime = self.dateTime
         {
-             userinfo.params["dateTime"] = dateTime
+            userinfo.params["dateTime"] = dateTime
         }
         userinfo.params["status"] = self.AppointmentStatus
         if let brokerId = LocalStore.getUserId()
@@ -240,10 +270,13 @@ class AddAppointmentViewController: BaseViewController , AppointmentDelegateProt
                 self.navigateToList()
             }
                 
-                else if error != nil {
-                    self.showErrorAlert(with: "Server error")
-                    //controller.handleError(error)
+            else if error != nil {
+                DispatchQueue.main.async {
+
+                self.showErrorAlert(with: "Server error")
                 }
+                //controller.handleError(error)
+            }
         }
         
     }
@@ -253,12 +286,12 @@ class AddAppointmentViewController: BaseViewController , AppointmentDelegateProt
         DispatchQueue.main.async {
             
             let appointmentsStoryboard = UIStoryboard(name: "Appointments", bundle: nil)
-         if let viewController = appointmentsStoryboard.instantiateViewController(withIdentifier: "AppointmentsListViewController") as? AppointmentsListViewController {
+            if let viewController = appointmentsStoryboard.instantiateViewController(withIdentifier: "AppointmentsListViewController") as? AppointmentsListViewController {
                 self.navigationController?.pushViewController(viewController, animated: true)
             }
         }
     }
-        
+    
     private func showErrorAlert(with message: String) {
         let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
@@ -292,10 +325,20 @@ class AddAppointmentViewController: BaseViewController , AppointmentDelegateProt
     
 }
 
-extension AddAppointmentViewController : DropDownListsProtocol
+extension AddAppointmentViewController : DropDownListsSetupProtocol
 {
     func getDeveloperId(id: String) {
         self.developerId = id
+        fetchUserAssets(user_id: id, completion: { (assetsList, error) in
+            if let assetsList = assetsList{
+                self.dropListProtocolDelegate?.getUserAssetsData(assets: assetsList)
+            }
+            else{
+                self.dropListProtocolDelegate?.getUserAssetsData(assets: nil)
+
+            }
+        })
+        
     }
     
     func getAssetId(id: String) {

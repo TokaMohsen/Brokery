@@ -18,6 +18,7 @@ class AppointmentsListViewController: BaseViewController , UITableViewDelegate ,
     @IBOutlet var numberOfAppointmentsLbl: UILabel!
     @IBOutlet var appointmentDateLbl: UILabel!
     @IBOutlet var appointmentDayLbl: UILabel!
+    
     private lazy var appointmentsListService = GetAppointmentsListService()
     static let sharedWebClient = WebClient.init(baseUrl: BaseAPIURL)
     
@@ -41,7 +42,7 @@ class AppointmentsListViewController: BaseViewController , UITableViewDelegate ,
         appointmentsTableView.dataSource = self
         appointmentsTableView.delegate = self
         
-       
+        
         
        fetchData(dateTime: appointmentDate)
     }

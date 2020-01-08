@@ -9,6 +9,7 @@
 import Foundation
 
 protocol AppointmentDelegateProtocol {
-    func fetchUserListData() -> [UserDto]?
-    func fetchUserAssets(user_id : String) -> [AssetDto]?
+    func fetchUserListData(completion : @escaping ([UserDto]?, WebError<CustomError>?) -> ())
+    func fetchUserAssets(user_id : String , completion : @escaping ([AssetDto]?, WebError<CustomError>?) -> ())
+
 }

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -117,10 +117,10 @@
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nfm-Au-Psm">
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="description" borderStyle="roundedRect" placeholder="Appointment Description" textAlignment="natural" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="nfm-Au-Psm">
                                                                 <rect key="frame" x="0.0" y="31" width="305" height="70"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="70" id="naL-0O-gPP"/>
+                                                                    <constraint firstAttribute="height" constant="70" id="naL-0O-gPP"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
@@ -229,7 +229,7 @@
                         <viewLayoutGuide key="safeArea" id="HnV-u1-6Dc"/>
                     </view>
                     <connections>
-                        <outlet property="appointmentDescriptionText" destination="nfm-Au-Psm" id="sMT-1h-4gi"/>
+                        <outlet property="appointmentDescriptionText" destination="nfm-Au-Psm" id="xp6-oq-pZu"/>
                         <outlet property="appointmentSourceUIView" destination="1PM-U6-ZPw" id="Aa0-xg-gEM"/>
                         <outlet property="chooseContactsDropList" destination="HT4-Rw-ham" id="RFq-W6-F0R"/>
                         <outlet property="datePicker" destination="tfD-Ww-Qby" id="VWa-Y6-44T"/>

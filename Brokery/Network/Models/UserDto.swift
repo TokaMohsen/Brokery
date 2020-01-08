@@ -79,7 +79,7 @@ public class UserDto: Decodable {
 
     public var userHashTag: [UserHashTagDto]?
     public var token: String?
-    public var tokenSocialMedia : String?
+    //public var tokenSocialMedia : String?
 
    
 }

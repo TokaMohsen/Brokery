@@ -24,6 +24,7 @@
 		EF0B0ABF239EC29A0050BD4C /* AssetHashtagCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF0B0ABD239EC29A0050BD4C /* AssetHashtagCollectionViewCell.xib */; };
 		EF0B1C1023A10FED00A644ED /* MapProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0B1C0F23A10FED00A644ED /* MapProtocol.swift */; };
 		EF0B1C1223A1657100A644ED /* AssetTypesListGetService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0B1C1123A1657100A644ED /* AssetTypesListGetService.swift */; };
+		EF0B1D4C23C6006900FD3C34 /* DropDownListsSetupProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0B1D4B23C6006900FD3C34 /* DropDownListsSetupProtocol.swift */; };
 		EF0C8524238AC033008A0C32 /* UserLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0C8502238AC030008A0C32 /* UserLogin.swift */; };
 		EF0C8525238AC033008A0C32 /* UserProfileDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0C8503238AC030008A0C32 /* UserProfileDto.swift */; };
 		EF0C8526238AC033008A0C32 /* HashTagStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0C8504238AC030008A0C32 /* HashTagStatus.swift */; };
@@ -163,6 +164,7 @@
 		EF0B0ABD239EC29A0050BD4C /* AssetHashtagCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AssetHashtagCollectionViewCell.xib; sourceTree = "<group>"; };
 		EF0B1C0F23A10FED00A644ED /* MapProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapProtocol.swift; sourceTree = "<group>"; };
 		EF0B1C1123A1657100A644ED /* AssetTypesListGetService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetTypesListGetService.swift; sourceTree = "<group>"; };
+		EF0B1D4B23C6006900FD3C34 /* DropDownListsSetupProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownListsSetupProtocol.swift; sourceTree = "<group>"; };
 		EF0C8501238AAEA7008A0C32 /* Brokery.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Brokery.entitlements; sourceTree = "<group>"; };
 		EF0C8502238AC030008A0C32 /* UserLogin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserLogin.swift; sourceTree = "<group>"; };
 		EF0C8503238AC030008A0C32 /* UserProfileDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileDto.swift; sourceTree = "<group>"; };
@@ -350,6 +352,7 @@
 				EF1BC2A823B28741008E9D24 /* AppointmentProtocol.swift */,
 				EF1A0ED923B94CDC00DC3976 /* AppointmentListProtocol.swift */,
 				EF10A1F823C0C65400F580FB /* DropDownListsProtocol.swift */,
+				EF0B1D4B23C6006900FD3C34 /* DropDownListsSetupProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -898,6 +901,7 @@
 				EF10BCDD23C1FA5A00B08651 /* UploadAssetFilesService.swift in Sources */,
 				EFB50BE9238414F600188EED /* StringExtension.swift in Sources */,
 				EF0C853B238AC033008A0C32 /* Filter.swift in Sources */,
+				EF0B1D4C23C6006900FD3C34 /* DropDownListsSetupProtocol.swift in Sources */,
 				EF0C852B238AC033008A0C32 /* AssetStatus.swift in Sources */,
 				EF0B1C1023A10FED00A644ED /* MapProtocol.swift in Sources */,
 				EF30556D23A0120A0053FCBC /* PlacesViewController.swift in Sources */,

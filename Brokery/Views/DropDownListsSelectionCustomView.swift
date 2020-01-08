@@ -9,7 +9,8 @@
 import Foundation
 import iOSDropDown
 
-class DropDownListsSelectionCustomView: UIView , UITextFieldDelegate {
+class DropDownListsSelectionCustomView: UIView , UITextFieldDelegate , DropDownListsProtocol {
+    
     
     @IBOutlet var chooseDeveloperMenu: DropDown!
     
@@ -20,66 +21,99 @@ class DropDownListsSelectionCustomView: UIView , UITextFieldDelegate {
     var devoloperId : String?
     var devolopers = [UserDto]()
     var appointmentDelegate : AppointmentDelegateProtocol?
+    var dropDownListsSetupDelegate : DropDownListsSetupProtocol?
+    
     var customView = UIView()
-    var dropListProtocolDelegate : DropDownListsProtocol?
-    var chooseDeveloperDropDown = DropDown()
-
-
+    // var chooseDeveloperDropDown = DropDown()
+    var addAppointmetVC : AddAppointmentViewController?
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         registerNibView()
-        fetchDevelopers()
+        addAppointmetVC?.dropListProtocolDelegate = self
+        
+        setupDevoloperMenu()
+        fetchAssets()
+        setupAssetMenu()
         
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        chooseDeveloperDropDown.showList()
-       
+        chooseDeveloperMenu.showList()
+        
     }
-
+    
+    
     func fetchDevelopers()
     {
-        if let userList = appointmentDelegate?.fetchUserListData()
-        {
-            self.devolopers = userList
-            setupDevoloperMenu()
-        }
+        appointmentDelegate?.fetchUserListData(completion: { (data, error) in
+            if let data = data
+            {
+                self.devolopers = data
+                self.setupDevoloperMenu()
+            }
+        })
     }
     
     func fetchAssets()
     {
-        if let selectedItem = chooseDeveloperDropDown.text
+        if let selectedItem = chooseDeveloperMenu.text
         {
-            if let assetsList = appointmentDelegate?.fetchUserAssets(user_id: selectedItem)
-            {
-                self.assetsList = assetsList
-                setupAssetMenu()
-            }
+            appointmentDelegate?.fetchUserAssets(user_id: selectedItem, completion: { (assetsList, error) in
+                if let assetsList = assetsList{
+                    self.assetsList = assetsList
+                    self.setupAssetMenu()
+                }
+            })
+            
         }
     }
     
     func setupDevoloperMenu()
     {
-        chooseDeveloperDropDown.optionArray = self.devolopers.compactMap({$0.name})
-        chooseDeveloperDropDown.didSelect { (selectedItem, index, id) in
-            self.chooseDeveloperDropDown.text = selectedItem
-            self.devoloperId  = self.assetsList[index].id
-             self.dropListProtocolDelegate?.getDeveloperId(id: self.devoloperId ?? "")
-            self.fetchAssets()
+        if self.devolopers.count > 0 {
+            chooseDeveloperMenu.optionArray = self.devolopers.compactMap({$0.name})
+            chooseDeveloperMenu.selectedRowColor = .lightGray
+            chooseDeveloperMenu.didSelect { (selectedItem, index, id) in
+                self.chooseDeveloperMenu.text = selectedItem
+                self.devoloperId  = self.devolopers[index].id
+                self.dropDownListsSetupDelegate?.getDeveloperId(id: self.devoloperId ?? "")
+//                self.fetchAssets()
+            }
         }
+        else
+        {
+            chooseDeveloperMenu.optionArray = ["no data"]
+            chooseDeveloperMenu.didSelect { (selectedItem, index, id) in
+                self.chooseDeveloperMenu.text = selectedItem
+            }
+        }
+        
     }
     
     func setupAssetMenu()
-     {
-        chooseAssetMenu.optionArray = self.assetsList.compactMap({$0.title})
-        // self.view.bringSubviewToFront(yourView)
+    {
+        if self.assetsList.count > 0 {
+            chooseAssetMenu.optionArray = self.assetsList.compactMap({$0.title})
+            // self.view.bringSubviewToFront(yourView)
+            chooseDeveloperMenu.selectedRowColor = .lightGray
 
-         chooseAssetMenu.didSelect { (selectedItem, index, id) in
-             self.chooseAssetMenu.text = selectedItem
-             self.assetId  = self.assetsList[index].id
-            self.dropListProtocolDelegate?.getAssetId(id: self.assetId ?? "")
-         }
-     }
+            chooseAssetMenu.didSelect { (selectedItem, index, id) in
+                self.chooseAssetMenu.text = selectedItem
+                self.assetId  = self.assetsList[index].id
+                self.dropDownListsSetupDelegate?.getAssetId(id: self.assetId ?? "")
+            }
+        }
+        else
+        {
+            chooseAssetMenu.optionArray = ["no data"]
+            chooseAssetMenu.didSelect { (selectedItem, index, id) in
+                self.chooseAssetMenu.text = selectedItem
+            }
+            
+        }
+    }
     
     func registerNibView() {
         let nib = UINib.init(nibName: String(describing: type(of: self)), bundle: nil)
@@ -90,5 +124,25 @@ class DropDownListsSelectionCustomView: UIView , UITextFieldDelegate {
             self.translatesAutoresizingMaskIntoConstraints = false
         }
         
+        addAppointmetVC?.dropListProtocolDelegate = self
+        
+        setupDevoloperMenu()
     }
+    
+    
+    func getUserListData(userList: [UserDto]?) {
+        if let users = userList {
+            self.devolopers = users
+            setupDevoloperMenu()
+        }
+        
+    }
+    
+    func getUserAssetsData(assets: [AssetDto]?) {
+        if let assets = assets {
+            self.assetsList = assets
+            setupAssetMenu()
+        }
+    }
+    
 }
