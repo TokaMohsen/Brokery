@@ -150,6 +150,6 @@ class MoreViewController: BaseViewController {
         LocalStore.deleteUserId()
         let mainStoryboard : UIStoryboard = UIStoryboard(name: "Login", bundle: nil)
         let loginViewController = mainStoryboard.instantiateViewController(withIdentifier: "LoginViewController")
-        UIApplication.shared.keyWindow?.rootViewController = loginViewController
+        UIApplication.shared.keyWindow?.rootViewController = UINavigationController(rootViewController: loginViewController)
     }
 }
