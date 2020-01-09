@@ -23,6 +23,7 @@ let AuthentactionURL = "/api/Account/Authenticate"
 let RegisterAccountURL = "/api/User/Register"
 let loginWithFacebookURL = "/api/Account/LoginByFaceBook"
 let LoginWithGoogleURL = "/api/Account/RegisterAccount"
+let forgotPasswordURL = "/api/Account/ForgotPassword"
 let getUserInfoByTokenURL = "/api/User/GetByToken" // for menu
 let AccountGetAllURL = "/api/Account/GetAll"
 let AccountsListURL = "/api/Account/GetAccountsList"

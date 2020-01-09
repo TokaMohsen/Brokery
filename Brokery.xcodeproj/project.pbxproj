@@ -116,6 +116,7 @@
 		EF60C8FD2374903E0051F57F /* BrokeryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF60C8FC2374903E0051F57F /* BrokeryTests.swift */; };
 		EF60C9082374903E0051F57F /* BrokeryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF60C9072374903E0051F57F /* BrokeryUITests.swift */; };
 		EF80E8E62396C6CA003A66D3 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF80E8E52396C6CA003A66D3 /* UIViewExtension.swift */; };
+		EF973A5723C77A0F00096972 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF973A5623C77A0F00096972 /* DateExtension.swift */; };
 		EFABF4AE23C3A33B00DEC27C /* RegisterationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFABF4AD23C3A33B00DEC27C /* RegisterationService.swift */; };
 		EFACC9252382FB5300586134 /* ServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFACC9242382FB5300586134 /* ServiceError.swift */; };
 		EFB50BE9238414F600188EED /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB50BE8238414F600188EED /* StringExtension.swift */; };
@@ -263,6 +264,7 @@
 		EF60C9072374903E0051F57F /* BrokeryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrokeryUITests.swift; sourceTree = "<group>"; };
 		EF60C9092374903E0051F57F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EF80E8E52396C6CA003A66D3 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		EF973A5623C77A0F00096972 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		EFABF4AD23C3A33B00DEC27C /* RegisterationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterationService.swift; sourceTree = "<group>"; };
 		EFACC9242382FB5300586134 /* ServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceError.swift; sourceTree = "<group>"; };
 		EFB50BE8238414F600188EED /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
@@ -558,6 +560,7 @@
 			children = (
 				EFB50BE8238414F600188EED /* StringExtension.swift */,
 				EF80E8E52396C6CA003A66D3 /* UIViewExtension.swift */,
+				EF973A5623C77A0F00096972 /* DateExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -877,6 +880,7 @@
 				EF0C8540238AC033008A0C32 /* AssetTypeDto.swift in Sources */,
 				EF10A1F923C0C65400F580FB /* DropDownListsProtocol.swift in Sources */,
 				EF0C853A238AC033008A0C32 /* HashTagDto.swift in Sources */,
+				EF973A5723C77A0F00096972 /* DateExtension.swift in Sources */,
 				EF0C852A238AC033008A0C32 /* Fail.swift in Sources */,
 				EF30556F23A014920053FCBC /* AssetMapViewController.swift in Sources */,
 				EF0C852F238AC033008A0C32 /* UserTypeDto.swift in Sources */,

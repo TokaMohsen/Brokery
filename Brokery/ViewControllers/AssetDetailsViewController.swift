@@ -204,7 +204,9 @@ class AssetDetailsViewController: BaseViewController {
 
             } else if error != nil {
                 //controller.handleError(error)
+                DispatchQueue.main.async {
                 self.showErrorAlert(with: "error", title: "server error")
+                }
             }
         }
     }

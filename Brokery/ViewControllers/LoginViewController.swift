@@ -23,7 +23,7 @@ class LoginViewController: BaseViewController , GIDSignInDelegate {
     
     private lazy var getUserInfoByTokenService = GetUserInfoByTokenService.init()
     private lazy var userLoginInService = LoginService()
-    
+    private lazy var forgotPasswordService = ForgotPasswordService()
     static let sharedWebClient = WebClient.init(baseUrl: BaseAPIURL)
     
     var postUserLoginInfoTask: URLSessionDataTask!
@@ -52,7 +52,10 @@ class LoginViewController: BaseViewController , GIDSignInDelegate {
     
     @IBAction func loginWithFacebookAction(_ sender: UIButton) {
     }
-
+    @IBAction func forgotPassword(_ sender: UIButton) {
+        forgotPassword()
+    }
+    
     @IBAction func loginBtnAction(_ sender: UIButton) {
         if let emailTxt = emailTextField.text, emailTxt.isValidEmail(),
             let passwordTxt = passwordTextField.text, passwordTxt.isValidString() {
@@ -67,7 +70,7 @@ class LoginViewController: BaseViewController , GIDSignInDelegate {
             
             self.userLoginInService.signIn(params: userinfo.params, method: .post, url: AuthentactionURL) {[weak self] (response, error) in
                 DispatchQueue.main.async {
-                self?.activityIndicator.stopAnimating()
+                    self?.activityIndicator.stopAnimating()
                 }
                 
                 if let mappedResponse = response?.data {
@@ -96,6 +99,39 @@ class LoginViewController: BaseViewController , GIDSignInDelegate {
                 passwordErrorLabel.text = "Enter your password"
             }
             showErrorLabels()
+        }
+    }
+    
+    
+    private func forgotPassword()
+    {
+        postUserLoginInfoTask?.cancel()
+        DispatchQueue.main.async {
+            self.activityIndicator.startAnimating()
+        }
+        var userinfo = Resource<StatusObject , CustomError>(jsonDecoder: JSONDecoder(), path: forgotPasswordURL, method: .post)
+        if let emailTxt = emailTextField.text, emailTxt.isValidEmail()
+        {
+            userinfo.params = ["Email": emailTxt]
+            self.forgotPasswordService.fetch(params: userinfo.params, method: .get, url: forgotPasswordURL) { (response, error) in
+                            DispatchQueue.main.async {
+                                //            self.activityIndicator.hidesWhenStopped = true
+                                self.activityIndicator.stopAnimating()
+                            }
+                
+                if let mappedResponse = response
+                {
+                    DispatchQueue.main.async {
+                    self.showErrorAlert(with: "Email has been sent to you successfully", title: "Confirmation")
+                    }
+                    
+                } else if error != nil {
+                    //controller.handleError(error)
+                    DispatchQueue.main.async {
+                    self.showErrorAlert(with: "Server error", title: "Error")
+                    }
+                }
+            }
         }
     }
     
@@ -162,6 +198,9 @@ class LoginViewController: BaseViewController , GIDSignInDelegate {
                                 }
                                 
                             } else if error != nil {
+                                 DispatchQueue.main.async {
+                                    self.showErrorAlert(with: "Error", title: "Server Error")
+                                }
                                 //controller.handleError(error)
                             }
                         }
@@ -229,6 +268,9 @@ class LoginViewController: BaseViewController , GIDSignInDelegate {
                             }
                             
                         } else if error != nil {
+                            DispatchQueue.main.async {
+                                self.showErrorAlert(with: "Error", title: "Server Error")
+                            }
                             //controller.handleError(error)
                         }
                     }

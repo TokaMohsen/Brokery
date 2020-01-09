@@ -53,6 +53,7 @@ class AppointmentsListViewController: BaseViewController , UITableViewDelegate ,
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        numberOfAppointmentsLbl.text = String(appointmentList.count ) + "Appointments"
         return appointmentList.count
     }
     
@@ -113,10 +114,20 @@ class AppointmentsListViewController: BaseViewController , UITableViewDelegate ,
         timeFormatter.dateFormat = dateTimeFormat
         let selectedDateTime = timeFormatter.string(from:  datePicker.date);
         
+        fetchData (dateTime: selectedDateTime)
+        let dateComponents = NSCalendar.current.dateComponents([.year, .month, .day], from: self.datePicker.date)
+     
+        if let day = dateComponents.day , let month = dateComponents.month , let year = dateComponents.year{
+            
+            appointmentDayLbl.text = datePicker.date.dayOfWeek()
+            appointmentDateLbl.text = String(day) + " " + String( DateFormatter().monthSymbols[month - 1]) + " " +  String (year)
 
-        fetchData(dateTime: selectedDateTime)
+       
+        }
+        
+        
     }
-    
+
     private func showErrorAlert(with message: String) {
         let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
