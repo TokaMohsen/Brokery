@@ -10,6 +10,9 @@
 import UIKit
 import GoogleMaps
 import GooglePlaces
+import CoreLocation
+
+let kGOOGLE_API_KEY = "AIzaSyB4ZQQHSyPdVdY3q4rK5SZ1zlXdeAT9S1w"
 
 struct MyPlace {
     var name: String
@@ -19,19 +22,19 @@ struct MyPlace {
 }
 
 class AssetMapViewController: BaseViewController , UISearchBarDelegate{
-
+    
     @IBOutlet var googleMapView: GMSMapView!
     
     @IBOutlet var saveBtnAction: UIBarButtonItem!
     
     // A default location to use when location permission is not granted.
-    let defaultLocation = CLLocation(latitude: -33.869405, longitude: 151.199)
+    let defaultLocation = CLLocation(latitude: 30.033333, longitude: 31.233334)
     var locationManager = CLLocationManager()
     var chosenPlace: MyPlace?
     var marker = GMSMarker()
     var mapDelegate : MapDelegateProtocol?
     var addressString : String?
-
+    
     
     // An array to hold the list of likely places.
     var likelyPlaces: [GMSPlace] = []
@@ -39,29 +42,17 @@ class AssetMapViewController: BaseViewController , UISearchBarDelegate{
     // The currently selected place.
     var selectedPlace: GMSPlace?
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-//        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "some_text", style: .done, target: self, action: #selector(self.action(sender:)))
-        // Initialize the location manager.
-        
-        //create a search bar with 0 width and 0 height
-//        let searchBar = UISearchBar.init(frame: CGRect.zero)
-//        searchBar.frame = CGRect(x: 5, y: 10, width: googleMapView.frame.size.width  , height: 50)
-//        searchBar.barStyle = .default
-//        searchBar.delegate = self
-//
-      //  googleMapView.addSubview(searchBar)
-
         locationManager = CLLocationManager()
-//        locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
         locationManager.distanceFilter = 50
         locationManager.startUpdatingLocation()
         locationManager.delegate = self
-//
-//        placesClient = GMSPlacesClient.shared()
         
-        // Create a map.
+        //        // Create a map.
         let camera = GMSCameraPosition.camera(withLatitude: defaultLocation.coordinate.latitude,
                                               longitude: defaultLocation.coordinate.longitude,
                                               zoom: 10.0)
@@ -70,9 +61,6 @@ class AssetMapViewController: BaseViewController , UISearchBarDelegate{
         self.showMarker(position: googleMapView.camera.target)
         
         googleMapView.delegate = self
-//        mapView = GMSMapView.map(withFrame: view.bounds, camera: camera)
-//        mapView.settings.myLocationButton = true
-//        mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         googleMapView.isMyLocationEnabled = true
         
     }
@@ -86,19 +74,38 @@ class AssetMapViewController: BaseViewController , UISearchBarDelegate{
         // Function body goes here
         print("save")
     }
-  
-    
     
     private func showMarker(position : CLLocationCoordinate2D)
     {
+        let geocoder = CLGeocoder()
+        let currentLocation = CLLocation(latitude: position.latitude, longitude: position.longitude)
+        geocoder.reverseGeocodeLocation(currentLocation, completionHandler: {
+            placemarks, error in
+            if let  placemarks = placemarks {
+                
+                if error == nil && placemarks.count > 0 {
+                    let street = placemarks[0].thoroughfare
+                    let city = placemarks[0].subAdministrativeArea
+                    let state = placemarks[0].administrativeArea
+                    let country = placemarks[0].country
+                    DispatchQueue.main.async {
+                        self.marker.title = street
+                        
+                        if let street = street , let city = city , let state = state , let country = country {
+                            self.marker.snippet = street + "," + city + "," + state + "," + country
+                        }
+                    }
+                }
+            }
+        })
         
-        marker.position = position
-        marker.title = "your location here"
-        marker.snippet = "address"
-        marker.map = googleMapView
+        DispatchQueue.main.async {
+            self.marker.map = self.googleMapView
+            self.marker.position = position
+        }
         marker.isDraggable = true
         drawCircle()
-   
+        
         if let title =  marker.title {
             chosenPlace = MyPlace(name: marker.snippet ?? title, lat: position.latitude, long: position.longitude, title: title)
             if let snippet = marker.snippet{
@@ -112,7 +119,7 @@ class AssetMapViewController: BaseViewController , UISearchBarDelegate{
         {
             let pos = CLLocationCoordinate2D(latitude: placePos.lat, longitude: placePos.long)
             mapDelegate?.updateAssetDetailsLocation(assetLocation: pos)
-            mapDelegate?.updateAddAssetLocation(assetLocation: placePos.title)
+            mapDelegate?.updateAddAssetLocation(assetLocation: marker.snippet ?? "")
             if let navController = self.navigationController {
                 navController.popViewController(animated: true)
             }
@@ -129,35 +136,41 @@ extension AssetMapViewController : GMSMapViewDelegate , CLLocationManagerDelegat
     func mapView(_ mapView: GMSMapView, didEndDragging marker: GMSMarker) {
         print("end dragging")
         drawCircle()
-
     }
+    
+    
     func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
         marker.position = coordinate
+        self.showMarker(position: marker.position)
     }
+    
     func drawCircle()
     {
-        let circlePos = marker.position
-        let circle = GMSCircle(position: circlePos, radius: 1)
-        circle.map = googleMapView
+        DispatchQueue.main.async {
+            let circlePos = self.marker.position
+            let circle = GMSCircle(position: circlePos, radius: 10)
+            
+            circle.map = self.googleMapView
+        }
     }
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-
+        
         guard status == .authorizedWhenInUse else {
             return
         }
         locationManager.startUpdatingLocation()
-    
+        
         googleMapView.isMyLocationEnabled = true
         googleMapView.settings.myLocationButton = true
     }
-
+    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.first else {
             return
         }
-    
+        
         googleMapView.camera = GMSCameraPosition(target: location.coordinate, zoom: 15, bearing: 0, viewingAngle: 0)
-
+        
         locationManager.stopUpdatingLocation()
     }
 }

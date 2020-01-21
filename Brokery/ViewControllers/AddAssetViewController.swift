@@ -200,8 +200,9 @@ class AddAssetViewController: BaseViewController, UIPickerViewDelegate ,UINaviga
             } else if error != nil {
                 self.assetTypeDropdownTextField.optionArray = [ "Types are unavailable"]
                 self.assetTypeDropdownTextField.selectedRowColor = .lightGray
-                
+                DispatchQueue.main.async {
                 self.showErrorAlert(with: "server error while getting asset types" , title: "Error")
+                }
             }
         }
     }
@@ -252,7 +253,9 @@ class AddAssetViewController: BaseViewController, UIPickerViewDelegate ,UINaviga
             }
             else
             {
+                DispatchQueue.main.async {
                 self.showErrorAlert(with: "Server error, Please try again later" , title: "Error")
+                }
             }
         }
     }
