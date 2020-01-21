@@ -84,27 +84,20 @@ class AssetMapViewController: BaseViewController , UISearchBarDelegate{
             if let  placemarks = placemarks {
                 
                 if error == nil && placemarks.count > 0 {
-                    let street = placemarks[0].thoroughfare
-                    let city = placemarks[0].subAdministrativeArea
-                    let state = placemarks[0].administrativeArea
-                    let country = placemarks[0].country
+                    let name = placemarks[0].name
                     DispatchQueue.main.async {
-                        self.marker.title = street
+                        self.marker.title = name
                         
-                        if let street = street , let city = city , let state = state , let country = country {
-                            self.marker.snippet = street + "," + city + "," + state + "," + country
-                        }
+                        let array = placemarks[0].addressDictionary?["FormattedAddressLines"] as! [String]
+                        self.marker.snippet  = array.joined(separator:",")
+                        self.marker.map = self.googleMapView
+                        self.marker.position = position
                     }
                 }
             }
         })
         
-        DispatchQueue.main.async {
-            self.marker.map = self.googleMapView
-            self.marker.position = position
-        }
         marker.isDraggable = true
-        drawCircle()
         
         if let title =  marker.title {
             chosenPlace = MyPlace(name: marker.snippet ?? title, lat: position.latitude, long: position.longitude, title: title)
@@ -135,7 +128,6 @@ extension AssetMapViewController : GMSMapViewDelegate , CLLocationManagerDelegat
     }
     func mapView(_ mapView: GMSMapView, didEndDragging marker: GMSMarker) {
         print("end dragging")
-        drawCircle()
     }
     
     
