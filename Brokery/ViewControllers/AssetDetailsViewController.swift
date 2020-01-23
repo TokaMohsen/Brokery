@@ -100,10 +100,25 @@ class AssetDetailsViewController: BaseViewController {
     
     private func showMarker(position : CLLocationCoordinate2D)
     {
+        let geocoder = CLGeocoder()
+        let currentLocation = CLLocation(latitude: position.latitude, longitude: position.longitude)
+        geocoder.reverseGeocodeLocation(currentLocation, completionHandler: {
+            placemarks, error in
+            if let  placemarks = placemarks {
+                
+                if error == nil && placemarks.count > 0 {
+                    let name = placemarks[0].name
+                    DispatchQueue.main.async {
+                        self.marker.title = name
+                        let array = placemarks[0].addressDictionary?["FormattedAddressLines"] as! [String]
+                        self.marker.snippet  = array.joined(separator:",")
+                        self.marker.map = self.mapView
+                        self.marker.position = position
+                    }
+                }
+            }
+        })
         marker.position = position
-        marker.title = "your location here"
-        marker.snippet = "address"
-        marker.map = mapView
         marker.isDraggable = true
     }
     
@@ -118,8 +133,7 @@ class AssetDetailsViewController: BaseViewController {
         {
             assetNameLabel.text =  asset.title
             self.assetDescriptionText.text =  asset.description
-            self.assetDescriptionText.text = "SPANTECH storage units are easy and fast to build and offer an exceptionnal eave height and span capabilities that even traditional construction cannot offer. SPANTECH storage units are easy and fast to build and offer an exceptionnal eave height and span capabilities that even traditional construction cannot offer. SPANTECH storage units are easy and fast to build and offer an exceptionnal eave height and span capabilities that even traditional construction cannot offer. SPANTECH storage units are easy and fast to build and offer an exceptionnal eave height and span capabilities that even traditional construction cannot offer. SPANTECH storage units are easy and fast to build and offer an exceptionnal eave height and span capabilities that even traditional construction cannot offer. SPANTECH storage units are easy and fast to build and offer an exceptionnal eave height and span capabilities that even traditional construction cannot offer. "
-            
+        
             if let lat =  asset.latitude , let long =  asset.longitude
             {
                 self.setupMapView(lang: lat, lat: long)
