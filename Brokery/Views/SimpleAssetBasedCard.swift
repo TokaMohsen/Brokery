@@ -46,14 +46,10 @@ class SimpleAssetBasedCard: UIView {
     
     func setup(_ asset: AssetDto) {
        // appartementImage.image = asset.profilePhoto
-        appartementName.text = "Home Asset title"
-            //asset.title
-        appartementDescription.text = "asset description of two line has been setted previously static asset description of two line has been setted previously static asset description of two line has been setted previously static"
-            //asset.description
-        companyName.text = "toqa mohsen"
-            //asset.owner?.name
-        jobTitle.text = "developer"
-            //asset.owner?.userProfile?.description
+        appartementName.text = asset.title
+        appartementDescription.text = asset.description
+        companyName.text = asset.owner?.name
+        jobTitle.text = asset.owner?.userProfile?.description
         
         appartementDescription.sizeToFit()
      

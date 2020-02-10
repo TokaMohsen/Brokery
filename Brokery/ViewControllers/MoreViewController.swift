@@ -131,6 +131,9 @@ class MoreViewController: BaseViewController {
     }
     
     @objc func rebsTapped(tapGestureRecognizer: UITargetedDragPreview) {
+        let RebsListStoryboard = UIStoryboard(name: "Chat", bundle: nil)
+        let RebsListVC = RebsListStoryboard.instantiateViewController(withIdentifier: "RebsListViewController") as! RebsListViewController
+        self.navigationController?.pushViewController(RebsListVC, animated: true)
     }
     
     @objc func appointmentsTapped(tapGestureRecognizer: UITargetedDragPreview) {

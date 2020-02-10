@@ -115,6 +115,7 @@
 		EF60C8F22374903E0051F57F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF60C8F02374903E0051F57F /* LaunchScreen.storyboard */; };
 		EF60C8FD2374903E0051F57F /* BrokeryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF60C8FC2374903E0051F57F /* BrokeryTests.swift */; };
 		EF60C9082374903E0051F57F /* BrokeryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF60C9072374903E0051F57F /* BrokeryUITests.swift */; };
+		EF64A83523F1D050007988EB /* GetAllContactList.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF64A83423F1D050007988EB /* GetAllContactList.swift */; };
 		EF80E8E62396C6CA003A66D3 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF80E8E52396C6CA003A66D3 /* UIViewExtension.swift */; };
 		EF973A5723C77A0F00096972 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF973A5623C77A0F00096972 /* DateExtension.swift */; };
 		EFABF4AE23C3A33B00DEC27C /* RegisterationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFABF4AD23C3A33B00DEC27C /* RegisterationService.swift */; };
@@ -122,6 +123,10 @@
 		EFB50BE9238414F600188EED /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB50BE8238414F600188EED /* StringExtension.swift */; };
 		EFD5796223894612004C6808 /* LocalStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD5796123894612004C6808 /* LocalStore.swift */; };
 		EFD5796423894DB0004C6808 /* GetUserInfoByToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD5796323894DB0004C6808 /* GetUserInfoByToken.swift */; };
+		EFD58A9723EDF3EE00B07C7E /* RebsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD58A9623EDF3EE00B07C7E /* RebsListViewController.swift */; };
+		EFD58A9B23EDF5D200B07C7E /* Chat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFD58A9A23EDF5D200B07C7E /* Chat.storyboard */; };
+		EFD58A9D23EDFB2500B07C7E /* RebsListTableCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFD58A9C23EDFB2500B07C7E /* RebsListTableCustomCell.xib */; };
+		EFD58A9F23EED8C300B07C7E /* RebsListTableCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD58A9E23EED8C300B07C7E /* RebsListTableCustomCell.swift */; };
 		EFDAA2D723A2B792007D9FD8 /* AssetProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDAA2D623A2B792007D9FD8 /* AssetProtocol.swift */; };
 /* End PBXBuildFile section */
 
@@ -263,6 +268,7 @@
 		EF60C9032374903E0051F57F /* BrokeryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BrokeryUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF60C9072374903E0051F57F /* BrokeryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrokeryUITests.swift; sourceTree = "<group>"; };
 		EF60C9092374903E0051F57F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EF64A83423F1D050007988EB /* GetAllContactList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAllContactList.swift; sourceTree = "<group>"; };
 		EF80E8E52396C6CA003A66D3 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		EF973A5623C77A0F00096972 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		EFABF4AD23C3A33B00DEC27C /* RegisterationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterationService.swift; sourceTree = "<group>"; };
@@ -270,6 +276,10 @@
 		EFB50BE8238414F600188EED /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		EFD5796123894612004C6808 /* LocalStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStore.swift; sourceTree = "<group>"; };
 		EFD5796323894DB0004C6808 /* GetUserInfoByToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserInfoByToken.swift; sourceTree = "<group>"; };
+		EFD58A9623EDF3EE00B07C7E /* RebsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RebsListViewController.swift; sourceTree = "<group>"; };
+		EFD58A9A23EDF5D200B07C7E /* Chat.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Chat.storyboard; sourceTree = "<group>"; };
+		EFD58A9C23EDFB2500B07C7E /* RebsListTableCustomCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RebsListTableCustomCell.xib; sourceTree = "<group>"; };
+		EFD58A9E23EED8C300B07C7E /* RebsListTableCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RebsListTableCustomCell.swift; sourceTree = "<group>"; };
 		EFDAA2D623A2B792007D9FD8 /* AssetProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetProtocol.swift; sourceTree = "<group>"; };
 		FEED9E3D84053DC03673B09B /* Pods_BrokeryUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BrokeryUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -342,6 +352,8 @@
 				EF1BC2A623B2309B008E9D24 /* DropDownListsSelectionCustomView.swift */,
 				EF1A0ED523B91AAE00DC3976 /* AppointmentCard.xib */,
 				EF1A0ED723B924A300DC3976 /* AppointmentCard.swift */,
+				EFD58A9C23EDFB2500B07C7E /* RebsListTableCustomCell.xib */,
+				EFD58A9E23EED8C300B07C7E /* RebsListTableCustomCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -366,6 +378,7 @@
 				EF11D1C02375E2E7005C8F0C /* Login.storyboard */,
 				EF471566237D7AE90036DC1E /* Assets.storyboard */,
 				EF330EAF23A826FC00361086 /* Appointments.storyboard */,
+				EFD58A9A23EDF5D200B07C7E /* Chat.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -386,6 +399,7 @@
 				EF330EB123A8273100361086 /* AddAppointmentViewController.swift */,
 				EF330EB323A8274600361086 /* AppointmentsListViewController.swift */,
 				A23F7DD323B7AA68008F4B3A /* MoreViewController.swift */,
+				EFD58A9623EDF3EE00B07C7E /* RebsListViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -428,6 +442,7 @@
 				EF29771723C29BF1003FDAE5 /* AddAssetAggregatedService.swift */,
 				EF0C98CC23C368BD00090F74 /* ForgotPasswordService.swift */,
 				EFABF4AD23C3A33B00DEC27C /* RegisterationService.swift */,
+				EF64A83423F1D050007988EB /* GetAllContactList.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -682,9 +697,11 @@
 				EF11D1C12375E2E7005C8F0C /* Login.storyboard in Resources */,
 				EF1AC521238D2EE8004FB127 /* GoogleService-Info.plist in Resources */,
 				EF60C8F22374903E0051F57F /* LaunchScreen.storyboard in Resources */,
+				EFD58A9B23EDF5D200B07C7E /* Chat.storyboard in Resources */,
 				EF1A0ED623B91AAE00DC3976 /* AppointmentCard.xib in Resources */,
 				EF330EB023A826FC00361086 /* Appointments.storyboard in Resources */,
 				EF0B0ABB239EC27C0050BD4C /* AssetImageCollectionViewCell.xib in Resources */,
+				EFD58A9D23EDFB2500B07C7E /* RebsListTableCustomCell.xib in Resources */,
 				A29E578C23893AE2000B7F09 /* AssetCard.xib in Resources */,
 				EF471567237D7AE90036DC1E /* Assets.storyboard in Resources */,
 				EF118C7423B0A19A00632490 /* DropDownListsSelectionCustomView.xib in Resources */,
@@ -887,6 +904,7 @@
 				EF0C853D238AC033008A0C32 /* HashTagsDto.swift in Sources */,
 				EFDAA2D723A2B792007D9FD8 /* AssetProtocol.swift in Sources */,
 				EFACC9252382FB5300586134 /* ServiceError.swift in Sources */,
+				EF64A83523F1D050007988EB /* GetAllContactList.swift in Sources */,
 				EF471573237DDB130036DC1E /* Constants.swift in Sources */,
 				EF35E47523B4C14F00837871 /* GetListOfUserContactsService.swift in Sources */,
 				EF29771823C29BF1003FDAE5 /* AddAssetAggregatedService.swift in Sources */,
@@ -898,6 +916,8 @@
 				EF60C8E82374903D0051F57F /* AppDelegate.swift in Sources */,
 				EF0C8525238AC033008A0C32 /* UserProfileDto.swift in Sources */,
 				EF0C8538238AC033008A0C32 /* AssetGalleryDto.swift in Sources */,
+				EFD58A9F23EED8C300B07C7E /* RebsListTableCustomCell.swift in Sources */,
+				EFD58A9723EDF3EE00B07C7E /* RebsListViewController.swift in Sources */,
 				EF0B0ABA239EC27C0050BD4C /* AssetImageCollectionViewCell.swift in Sources */,
 				EF105E0923BD625200AE8764 /* CreateAssetPostService.swift in Sources */,
 				EF0C8537238AC033008A0C32 /* ContactDto.swift in Sources */,

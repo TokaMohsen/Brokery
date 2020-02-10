@@ -46,7 +46,7 @@ class RegisterationViewController: BaseViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+       super.viewWillAppear(animated)
         setupNavigationBar(title: "")
     }
     

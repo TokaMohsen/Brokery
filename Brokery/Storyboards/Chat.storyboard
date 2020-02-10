@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Rebs List View Controller-->
+        <scene sceneID="L5v-1p-9Oe">
+            <objects>
+                <viewController storyboardIdentifier="RebsListViewController" id="Nh2-Lu-i5T" customClass="RebsListViewController" customModule="Brokery" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="haO-Do-btC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PWi-ET-hFD">
+                                <rect key="frame" x="0.0" y="49" width="414" height="813"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ContactCard" id="mO6-Wo-yQD" customClass="RebsListTableCustomCell" customModule="Brokery" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="70"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mO6-Wo-yQD" id="XVp-MP-n1f">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="CaQ-ZZ-E2M">
+                                <rect key="frame" x="188.5" y="434.5" width="37" height="37"/>
+                                <color key="color" red="0.87589043379999998" green="0.65894764660000005" blue="0.1049104407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="PWi-ET-hFD" firstAttribute="top" secondItem="eL4-kx-gxW" secondAttribute="top" constant="5" id="Eo4-Ql-asp"/>
+                            <constraint firstItem="CaQ-ZZ-E2M" firstAttribute="centerX" secondItem="eL4-kx-gxW" secondAttribute="centerX" id="Lfs-jc-TzD"/>
+                            <constraint firstItem="eL4-kx-gxW" firstAttribute="bottom" secondItem="PWi-ET-hFD" secondAttribute="bottom" id="Vn1-0M-aAG"/>
+                            <constraint firstItem="CaQ-ZZ-E2M" firstAttribute="centerY" secondItem="eL4-kx-gxW" secondAttribute="centerY" id="ZiI-cf-vDb"/>
+                            <constraint firstItem="eL4-kx-gxW" firstAttribute="trailing" secondItem="PWi-ET-hFD" secondAttribute="trailing" id="tV3-lG-468"/>
+                            <constraint firstItem="PWi-ET-hFD" firstAttribute="leading" secondItem="eL4-kx-gxW" secondAttribute="leading" id="wZh-Gk-Z8T"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="eL4-kx-gxW"/>
+                    </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="CaQ-ZZ-E2M" id="Kl5-hT-bLV"/>
+                        <outlet property="contactsTableView" destination="PWi-ET-hFD" id="V5I-6f-w8w"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FD9-2n-1Df" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="58" y="135"/>
+        </scene>
+    </scenes>
+</document>

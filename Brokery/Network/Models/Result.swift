@@ -16,6 +16,13 @@ public struct Object: Decodable {
 
 }
 
+public struct GetContactsObject: Decodable {
+    var success: Bool
+    var data: [ContactDto]?
+    var count: Int?
+    var code: String?
+
+}
 
 public struct StatusObject: Decodable {
     var success: Bool
