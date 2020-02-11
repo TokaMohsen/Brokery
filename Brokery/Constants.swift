@@ -45,6 +45,10 @@ let getListOfContactsURL = "/api/Contact/GetContactList"
 let getListOfAppointmentsURL = "/api/Appointment/GetInterval"
 //contact list
 let getListOfALLContactsURL = "/api/Contact/GetAll"
+let followUserURL = "/api/User/Follow"
+let unfollowUserURL = "/api/User/UnFollow"
+//messanger
+let getFriendListURL = "/api/User/GetFriendsList"
 //Regex
 let MobilePhoneNumberRegex = "^[0-9]{10,18}$";
 let EmailAddressRegex = "^^([A-Za-z0-9]){1}[A-Z0-9a-z._%+-]+@([A-Za-z0-9]){1}[a-zA-Z_0-9-]+?([A-Za-z0-9]){1}(\\.[a-zA-Z]{2,})+$";
