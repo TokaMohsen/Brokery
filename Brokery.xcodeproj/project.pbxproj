@@ -11,6 +11,10 @@
 		9C2D79ABBDEDD40B64EDFAC0 /* Pods_BrokeryTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B2D43084C45313A239AFD37 /* Pods_BrokeryTests.framework */; };
 		A2390C35238321EC001B0475 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2390C34238321EC001B0475 /* BaseViewController.swift */; };
 		A23F7DD423B7AA68008F4B3A /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23F7DD323B7AA68008F4B3A /* MoreViewController.swift */; };
+		A2894E1D23F3328D00400BBD /* Messaging.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2894E1C23F3328D00400BBD /* Messaging.storyboard */; };
+		A2894E1F23F3330C00400BBD /* MessagingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2894E1E23F3330C00400BBD /* MessagingListViewController.swift */; };
+		A2894E2123F335ED00400BBD /* MassegeListViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A2894E2023F335ED00400BBD /* MassegeListViewCell.xib */; };
+		A2894E2323F335FA00400BBD /* MassegeListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2894E2223F335FA00400BBD /* MassegeListViewCell.swift */; };
 		A29E578C23893AE2000B7F09 /* AssetCard.xib in Resources */ = {isa = PBXBuildFile; fileRef = A29E578B23893AE2000B7F09 /* AssetCard.xib */; };
 		A29E578E23893AF1000B7F09 /* AssetCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29E578D23893AF1000B7F09 /* AssetCard.swift */; };
 		A29E579123894B6D000B7F09 /* AssetTable.xib in Resources */ = {isa = PBXBuildFile; fileRef = A29E579023894B6D000B7F09 /* AssetTable.xib */; };
@@ -155,6 +159,10 @@
 		8E25E3B97BDEAD9DE35EF725 /* Pods-Brokery.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Brokery.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Brokery/Pods-Brokery.debug.xcconfig"; sourceTree = "<group>"; };
 		A2390C34238321EC001B0475 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		A23F7DD323B7AA68008F4B3A /* MoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
+		A2894E1C23F3328D00400BBD /* Messaging.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Messaging.storyboard; sourceTree = "<group>"; };
+		A2894E1E23F3330C00400BBD /* MessagingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagingListViewController.swift; sourceTree = "<group>"; };
+		A2894E2023F335ED00400BBD /* MassegeListViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MassegeListViewCell.xib; sourceTree = "<group>"; };
+		A2894E2223F335FA00400BBD /* MassegeListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MassegeListViewCell.swift; sourceTree = "<group>"; };
 		A29E578B23893AE2000B7F09 /* AssetCard.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AssetCard.xib; sourceTree = "<group>"; };
 		A29E578D23893AF1000B7F09 /* AssetCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetCard.swift; sourceTree = "<group>"; };
 		A29E579023894B6D000B7F09 /* AssetTable.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AssetTable.xib; sourceTree = "<group>"; };
@@ -354,6 +362,8 @@
 				EF1A0ED723B924A300DC3976 /* AppointmentCard.swift */,
 				EFD58A9C23EDFB2500B07C7E /* RebsListTableCustomCell.xib */,
 				EFD58A9E23EED8C300B07C7E /* RebsListTableCustomCell.swift */,
+				A2894E2023F335ED00400BBD /* MassegeListViewCell.xib */,
+				A2894E2223F335FA00400BBD /* MassegeListViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -379,6 +389,7 @@
 				EF471566237D7AE90036DC1E /* Assets.storyboard */,
 				EF330EAF23A826FC00361086 /* Appointments.storyboard */,
 				EFD58A9A23EDF5D200B07C7E /* Chat.storyboard */,
+				A2894E1C23F3328D00400BBD /* Messaging.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -400,6 +411,7 @@
 				EF330EB323A8274600361086 /* AppointmentsListViewController.swift */,
 				A23F7DD323B7AA68008F4B3A /* MoreViewController.swift */,
 				EFD58A9623EDF3EE00B07C7E /* RebsListViewController.swift */,
+				A2894E1E23F3330C00400BBD /* MessagingListViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -702,7 +714,9 @@
 				EF330EB023A826FC00361086 /* Appointments.storyboard in Resources */,
 				EF0B0ABB239EC27C0050BD4C /* AssetImageCollectionViewCell.xib in Resources */,
 				EFD58A9D23EDFB2500B07C7E /* RebsListTableCustomCell.xib in Resources */,
+				A2894E2123F335ED00400BBD /* MassegeListViewCell.xib in Resources */,
 				A29E578C23893AE2000B7F09 /* AssetCard.xib in Resources */,
+				A2894E1D23F3328D00400BBD /* Messaging.storyboard in Resources */,
 				EF471567237D7AE90036DC1E /* Assets.storyboard in Resources */,
 				EF118C7423B0A19A00632490 /* DropDownListsSelectionCustomView.xib in Resources */,
 				EF0B0ABF239EC29A0050BD4C /* AssetHashtagCollectionViewCell.xib in Resources */,
@@ -852,6 +866,7 @@
 				EF60C8EA2374903D0051F57F /* ViewController.swift in Sources */,
 				A29E578E23893AF1000B7F09 /* AssetCard.swift in Sources */,
 				EF47156D237D8D380036DC1E /* MarketPlaceViewController.swift in Sources */,
+				A2894E1F23F3330C00400BBD /* MessagingListViewController.swift in Sources */,
 				EF1A0ED823B924A300DC3976 /* AppointmentCard.swift in Sources */,
 				EF35E47323B4BBDB00837871 /* CreateAppointmentService.swift in Sources */,
 				EF461962238E7E10008F453D /* WebClient.swift in Sources */,
@@ -860,6 +875,7 @@
 				EF186B5523941EA80053A706 /* MarketPlaceService.swift in Sources */,
 				EF15DF4F239039F5006BF447 /* LoginService.swift in Sources */,
 				EFD5796423894DB0004C6808 /* GetUserInfoByToken.swift in Sources */,
+				A2894E2323F335FA00400BBD /* MassegeListViewCell.swift in Sources */,
 				EF0EE96523B02C8C0073B42C /* SimpleAssetBasedCard.swift in Sources */,
 				EF0C8530238AC033008A0C32 /* ContactHashTagDto.swift in Sources */,
 				EF0C8541238AC033008A0C32 /* GalleryItemTypeDto.swift in Sources */,

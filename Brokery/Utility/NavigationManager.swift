@@ -12,6 +12,7 @@ class NavigationManager {
     
     static let assetStoryboard = UIStoryboard(name: "Assets", bundle: nil)
     static let appointmentStoryboard = UIStoryboard(name: "Appointments", bundle: nil)
+    static let messagingStoryboard = UIStoryboard(name: "Messaging", bundle: nil)
     
     static func setupTabBar() -> UITabBarController {
         
@@ -25,19 +26,20 @@ class NavigationManager {
         marketPlaceVC.tabBarItem = marketItem
         let marketPlaceNC = UINavigationController(rootViewController: marketPlaceVC)
         
-        //        let chatItem = UITabBarItem(title: "Messanger", image: UIImage(named: "messanger"), selectedImage: UIImage(named: "messanger"))
-        //        let chatVC = UIViewController()
-        //        chatVC.tabBarItem = chatItem
+        let chatItem = UITabBarItem(title: "Messenger", image: UIImage(named: "messanger"), selectedImage: UIImage(named: "messanger"))
+        let chatVC = messagingStoryboard.instantiateViewController(withIdentifier: "MessagingListViewController")
+        chatVC.tabBarItem = chatItem
+        let chatNC = UINavigationController(rootViewController: chatVC)
         
         let appointmentItem = UITabBarItem(title: "Appointments", image: UIImage(named: "appointment"), selectedImage: UIImage(named: "appointment"))
         let appointmentVC = appointmentStoryboard.instantiateViewController(withIdentifier: "AppointmentsListViewController") as! AppointmentsListViewController
         appointmentVC.tabBarItem = appointmentItem
         let appointmentNC = UINavigationController(rootViewController: appointmentVC)
         
-        let notificationItem = UITabBarItem(title: "Notifications", image: UIImage(named: "notifications"), selectedImage: UIImage(named: "notifications"))
-        let notificationVC = UIViewController()
-        notificationVC.tabBarItem = notificationItem
-        let notificationNC = UINavigationController(rootViewController: notificationVC)
+//        let notificationItem = UITabBarItem(title: "Notifications", image: UIImage(named: "notifications"), selectedImage: UIImage(named: "notifications"))
+//        let notificationVC = UIViewController()
+//        notificationVC.tabBarItem = notificationItem
+//        let notificationNC = UINavigationController(rootViewController: notificationVC)
         
         let moreItem = UITabBarItem(title: "More", image: UIImage(named: "menu"), selectedImage: UIImage(named: "menu"))
         let moreVC = assetStoryboard.instantiateViewController(withIdentifier: "MoreViewController")
@@ -49,7 +51,7 @@ class NavigationManager {
         let tabBarTintcolor = UIColor(red: 239/255, green: 180/255, blue: 28/255, alpha: 1)
         tabBarVC.tabBar.tintColor = tabBarTintcolor
         
-        tabBarVC.viewControllers = [homeNC, marketPlaceNC, appointmentNC, notificationNC, moreNC]
+        tabBarVC.viewControllers = [homeNC, marketPlaceNC, appointmentNC, chatNC, moreNC] //notificationNC
         
         return tabBarVC
     }
