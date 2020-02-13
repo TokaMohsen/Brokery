@@ -34,13 +34,14 @@ class RebsListViewController: BaseViewController {
     }
     
     func fetchUserContacts()
-    {
-        var userinfo = Resource< ContactList , CustomError>(jsonDecoder: JSONDecoder(), path: getListOfALLContactsURL, method: .get)
+    {//getListOfALLContactsURL
+        var userinfo = Resource< ContactList , CustomError>(jsonDecoder: JSONDecoder(), path: getFriendListURL, method: .get)
         
         userinfo.params = ["Page": "0",
                            "PageSize": "10"]
-        
-        self.allContactListService.fetch(params: userinfo.params, method: .get, url: getListOfALLContactsURL) { (response, error) in
+                          
+                           //"DestinationID" : "1dd71bb1-a1bb-4aba-814f-e58b794285bc"]
+        self.allContactListService.fetch(params: userinfo.params, method: .get, url: getFriendListURL) { (response, error) in
             if let mappedResponse = response
             {
                  self.contacts = mappedResponse

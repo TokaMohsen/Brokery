@@ -112,6 +112,8 @@
 		EF47156D237D8D380036DC1E /* MarketPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF47156C237D8D380036DC1E /* MarketPlaceViewController.swift */; };
 		EF471573237DDB130036DC1E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF471572237DDB130036DC1E /* Constants.swift */; };
 		EF542683239B038500E5F124 /* AssetDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF542682239B038500E5F124 /* AssetDetailsViewController.swift */; };
+		EF5F5FF823F4A7B200E21B9F /* GetMessageHistoryServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5F5FF723F4A7B200E21B9F /* GetMessageHistoryServices.swift */; };
+		EF5F5FFA23F4A8CF00E21B9F /* GetMessageFriendListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5F5FF923F4A8CF00E21B9F /* GetMessageFriendListService.swift */; };
 		EF60C8E82374903D0051F57F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF60C8E72374903D0051F57F /* AppDelegate.swift */; };
 		EF60C8EA2374903D0051F57F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF60C8E92374903D0051F57F /* ViewController.swift */; };
 		EF60C8ED2374903D0051F57F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF60C8EB2374903D0051F57F /* Main.storyboard */; };
@@ -265,6 +267,8 @@
 		EF47156C237D8D380036DC1E /* MarketPlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketPlaceViewController.swift; sourceTree = "<group>"; };
 		EF471572237DDB130036DC1E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		EF542682239B038500E5F124 /* AssetDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetDetailsViewController.swift; sourceTree = "<group>"; };
+		EF5F5FF723F4A7B200E21B9F /* GetMessageHistoryServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMessageHistoryServices.swift; sourceTree = "<group>"; };
+		EF5F5FF923F4A8CF00E21B9F /* GetMessageFriendListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMessageFriendListService.swift; sourceTree = "<group>"; };
 		EF60C8E42374903D0051F57F /* Brokery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Brokery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF60C8E72374903D0051F57F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EF60C8E92374903D0051F57F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -461,6 +465,8 @@
 				EF64A83423F1D050007988EB /* GetAllContactList.swift */,
 				EF6586BB23F346E500171989 /* FollowUserService.swift */,
 				EF6586BD23F34BC600171989 /* UnfollowUserService.swift */,
+				EF5F5FF723F4A7B200E21B9F /* GetMessageHistoryServices.swift */,
+				EF5F5FF923F4A8CF00E21B9F /* GetMessageFriendListService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -925,6 +931,7 @@
 				EF30556F23A014920053FCBC /* AssetMapViewController.swift in Sources */,
 				EF0C852F238AC033008A0C32 /* UserTypeDto.swift in Sources */,
 				EF0C853D238AC033008A0C32 /* HashTagsDto.swift in Sources */,
+				EF5F5FFA23F4A8CF00E21B9F /* GetMessageFriendListService.swift in Sources */,
 				EFDAA2D723A2B792007D9FD8 /* AssetProtocol.swift in Sources */,
 				EFACC9252382FB5300586134 /* ServiceError.swift in Sources */,
 				EF64A83523F1D050007988EB /* GetAllContactList.swift in Sources */,
@@ -935,6 +942,7 @@
 				EF0C8531238AC033008A0C32 /* FavoriteAssetDto.swift in Sources */,
 				EF0ED3E92380546800F7A7D6 /* BaseModel.swift in Sources */,
 				EF0C8533238AC033008A0C32 /* AppointmentStatus.swift in Sources */,
+				EF5F5FF823F4A7B200E21B9F /* GetMessageHistoryServices.swift in Sources */,
 				EF6586BC23F346E500171989 /* FollowUserService.swift in Sources */,
 				EF461966238E7E1E008F453D /* Resource.swift in Sources */,
 				EF60C8E82374903D0051F57F /* AppDelegate.swift in Sources */,

@@ -51,3 +51,15 @@ public struct AssetPostObject: Decodable {
     var Tages : [String]?
 
 }
+
+public struct MessageHistoryObject: Decodable
+{
+    var type : Int?
+    var fromId : String?
+    var toId : String?
+    var message : String?
+    var dateSent : String? //"2019-11-23T17:50:33.211"
+    var dateSeen : String?
+    var downloadUrl : String?
+    var fileSizeInBytes : String?
+}
