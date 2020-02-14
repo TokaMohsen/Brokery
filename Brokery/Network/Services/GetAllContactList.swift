@@ -12,11 +12,11 @@ class GetAllContactListService {
     {
         let getListOfUserContactsTask: URLSessionDataTask!
         
-        var userContactList = Resource< [ContactDto] , CustomError>(jsonDecoder: JSONDecoder(), path: url, method: .get)
+        var userContactList = Resource< GetContactsObject , CustomError>(jsonDecoder: JSONDecoder(), path: url, method: .get)
         userContactList.params = params
         
         getListOfUserContactsTask = RebsListViewController.sharedWebClient.load(resource: userContactList, urlMethod: method) {[weak self] response in
-            if let mappedResponse = response.value
+            if let mappedResponse = response.value?.data
             {
                 completion(mappedResponse , nil)
             } else if let error = response.error {

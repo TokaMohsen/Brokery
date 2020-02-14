@@ -16,6 +16,14 @@ public struct Object: Decodable {
 
 }
 
+public struct MessageFriendListObject: Decodable {
+    var success: Bool
+    var data: [UserDto]?
+    var count: Int?
+    var code: String?
+
+}
+
 public struct GetContactsObject: Decodable {
     var success: Bool
     var data: [ContactDto]?

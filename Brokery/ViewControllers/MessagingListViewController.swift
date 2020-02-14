@@ -12,6 +12,16 @@ class MessagingListViewController: BaseViewController {
     
     @IBOutlet weak var massagingTableView: UITableView!
     
+    
+    var contacts = [UserDto]()
+
+    private lazy var messageFriendListService = GetMessageFriendListService()
+
+    static let sharedWebClient = WebClient.init(baseUrl: BaseAPIURL)
+    
+    var getContactListTask: URLSessionDataTask!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -33,13 +43,31 @@ class MessagingListViewController: BaseViewController {
     
     @objc func getMeassagingList() {
 //        massagingTableView.refreshControl?.endRefreshing()
+        var userinfo = Resource< GetContactsObject , CustomError>(jsonDecoder: JSONDecoder(), path: getFriendListURL, method: .get)
+        
+        userinfo.params = ["Page": "0",
+                           "PageSize": "10"]
+        
+        //"DestinationID" : "1dd71bb1-a1bb-4aba-814f-e58b794285bc"]
+        self.messageFriendListService.fetch(params: userinfo.params, method: .get, url: getFriendListURL) { (response, error) in
+            if let mappedResponse = response
+            {
+                self.contacts = mappedResponse
+            }
+            else if error != nil {
+                DispatchQueue.main.async {
+                    self.showErrorAlert(with: "error", title: "Server Error")
+                }
+            }
+        }
     }
+    
 }
 
 extension MessagingListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return self.contacts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -47,7 +75,7 @@ extension MessagingListViewController: UITableViewDataSource {
             return UITableViewCell()
         }
         
-        cell.setup()
+        cell.setup(user: contacts[indexPath.row])
         return cell
     }
 }

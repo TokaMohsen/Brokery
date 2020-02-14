@@ -86,6 +86,7 @@
 		EF1AC521238D2EE8004FB127 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EF1AC520238D2EE8004FB127 /* GoogleService-Info.plist */; };
 		EF1BC2A723B2309B008E9D24 /* DropDownListsSelectionCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1BC2A623B2309B008E9D24 /* DropDownListsSelectionCustomView.swift */; };
 		EF1BC2A923B28741008E9D24 /* AppointmentProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1BC2A823B28741008E9D24 /* AppointmentProtocol.swift */; };
+		EF1EFA4A23F6CF09003AAD01 /* RebsListTableCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1EFA4923F6CF09003AAD01 /* RebsListTableCellProtocol.swift */; };
 		EF29771823C29BF1003FDAE5 /* AddAssetAggregatedService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF29771723C29BF1003FDAE5 /* AddAssetAggregatedService.swift */; };
 		EF30556C23A0120A0053FCBC /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF30556A23A0120A0053FCBC /* MapViewController.swift */; };
 		EF30556D23A0120A0053FCBC /* PlacesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF30556B23A0120A0053FCBC /* PlacesViewController.swift */; };
@@ -242,6 +243,7 @@
 		EF1AC520238D2EE8004FB127 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EF1BC2A623B2309B008E9D24 /* DropDownListsSelectionCustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownListsSelectionCustomView.swift; sourceTree = "<group>"; };
 		EF1BC2A823B28741008E9D24 /* AppointmentProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentProtocol.swift; sourceTree = "<group>"; };
+		EF1EFA4923F6CF09003AAD01 /* RebsListTableCellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RebsListTableCellProtocol.swift; sourceTree = "<group>"; };
 		EF29771723C29BF1003FDAE5 /* AddAssetAggregatedService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAssetAggregatedService.swift; sourceTree = "<group>"; };
 		EF30556A23A0120A0053FCBC /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		EF30556B23A0120A0053FCBC /* PlacesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlacesViewController.swift; sourceTree = "<group>"; };
@@ -387,6 +389,7 @@
 				EF1A0ED923B94CDC00DC3976 /* AppointmentListProtocol.swift */,
 				EF10A1F823C0C65400F580FB /* DropDownListsProtocol.swift */,
 				EF0B1D4B23C6006900FD3C34 /* DropDownListsSetupProtocol.swift */,
+				EF1EFA4923F6CF09003AAD01 /* RebsListTableCellProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -922,6 +925,7 @@
 				EF461968238E7E1E008F453D /* Path.swift in Sources */,
 				EF0C98CD23C368BD00090F74 /* ForgotPasswordService.swift in Sources */,
 				EF46195E238E7E03008F453D /* CustomError.swift in Sources */,
+				EF1EFA4A23F6CF09003AAD01 /* RebsListTableCellProtocol.swift in Sources */,
 				EF186B57239422930053A706 /* HomeService.swift in Sources */,
 				EF0C8536238AC033008A0C32 /* AccountStatus.swift in Sources */,
 				EF0B1C1223A1657100A644ED /* AssetTypesListGetService.swift in Sources */,
