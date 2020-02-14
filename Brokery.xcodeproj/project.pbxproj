@@ -15,6 +15,7 @@
 		A2894E1F23F3330C00400BBD /* MessagingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2894E1E23F3330C00400BBD /* MessagingListViewController.swift */; };
 		A2894E2123F335ED00400BBD /* MassegeListViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A2894E2023F335ED00400BBD /* MassegeListViewCell.xib */; };
 		A2894E2323F335FA00400BBD /* MassegeListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2894E2223F335FA00400BBD /* MassegeListViewCell.swift */; };
+		A2894E2523F348AB00400BBD /* MessagingDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2894E2423F348AB00400BBD /* MessagingDetailsViewController.swift */; };
 		A29E578C23893AE2000B7F09 /* AssetCard.xib in Resources */ = {isa = PBXBuildFile; fileRef = A29E578B23893AE2000B7F09 /* AssetCard.xib */; };
 		A29E578E23893AF1000B7F09 /* AssetCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29E578D23893AF1000B7F09 /* AssetCard.swift */; };
 		A29E579123894B6D000B7F09 /* AssetTable.xib in Resources */ = {isa = PBXBuildFile; fileRef = A29E579023894B6D000B7F09 /* AssetTable.xib */; };
@@ -167,6 +168,7 @@
 		A2894E1E23F3330C00400BBD /* MessagingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagingListViewController.swift; sourceTree = "<group>"; };
 		A2894E2023F335ED00400BBD /* MassegeListViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MassegeListViewCell.xib; sourceTree = "<group>"; };
 		A2894E2223F335FA00400BBD /* MassegeListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MassegeListViewCell.swift; sourceTree = "<group>"; };
+		A2894E2423F348AB00400BBD /* MessagingDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagingDetailsViewController.swift; sourceTree = "<group>"; };
 		A29E578B23893AE2000B7F09 /* AssetCard.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AssetCard.xib; sourceTree = "<group>"; };
 		A29E578D23893AF1000B7F09 /* AssetCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetCard.swift; sourceTree = "<group>"; };
 		A29E579023894B6D000B7F09 /* AssetTable.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AssetTable.xib; sourceTree = "<group>"; };
@@ -420,6 +422,7 @@
 				A23F7DD323B7AA68008F4B3A /* MoreViewController.swift */,
 				EFD58A9623EDF3EE00B07C7E /* RebsListViewController.swift */,
 				A2894E1E23F3330C00400BBD /* MessagingListViewController.swift */,
+				A2894E2423F348AB00400BBD /* MessagingDetailsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -936,6 +939,7 @@
 				EFACC9252382FB5300586134 /* ServiceError.swift in Sources */,
 				EF64A83523F1D050007988EB /* GetAllContactList.swift in Sources */,
 				EF471573237DDB130036DC1E /* Constants.swift in Sources */,
+				A2894E2523F348AB00400BBD /* MessagingDetailsViewController.swift in Sources */,
 				EF35E47523B4C14F00837871 /* GetListOfUserContactsService.swift in Sources */,
 				EF29771823C29BF1003FDAE5 /* AddAssetAggregatedService.swift in Sources */,
 				EF0C8529238AC033008A0C32 /* AppointmentDto.swift in Sources */,
