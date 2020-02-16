@@ -10,6 +10,12 @@ import UIKit
 
 class MessagingDetailsViewController: BaseViewController {
     
+    private lazy var createChatMessageService = CreateChatMessageService()
+
+    static let sharedWebClient = WebClient.init(baseUrl: BaseAPIURL)
+    
+    var createMsgTask: URLSessionDataTask!
+    
     override func viewDidLoad() {
             super.viewDidLoad()
             

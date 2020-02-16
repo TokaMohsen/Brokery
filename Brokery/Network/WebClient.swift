@@ -49,9 +49,22 @@ extension URLRequest {
         resource.headers.forEach{
             setValue($0.value, forHTTPHeaderField: $0.key)
         }
+        
+        var components = URLComponents(string: baseUrl)!
+               let resourceComponents = URLComponents(string: resource.path.absolutePath)!
+               
+               components.path = Path(components.path).appending(path: Path(resourceComponents.path)).absolutePath
+               components.queryItems = resourceComponents.queryItems
+        
         switch method {
         case .post, .put:
+            var queryItems = components.queryItems ?? []
+                       queryItems.append(contentsOf: resource.params.map {
+                           URLQueryItem(name: $0.key, value: String(describing: $0.value))
+                       })
+                       components.queryItems = queryItems
             httpBody = try! JSONSerialization.data(withJSONObject: resource.params, options: [])
+            self.url = components.url!
         default:
             break
         }

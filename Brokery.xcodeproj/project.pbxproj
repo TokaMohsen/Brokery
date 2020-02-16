@@ -75,6 +75,8 @@
 		EF11D1C12375E2E7005C8F0C /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF11D1C02375E2E7005C8F0C /* Login.storyboard */; };
 		EF11D1C52375E538005C8F0C /* RegisterationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF11D1C42375E538005C8F0C /* RegisterationViewController.swift */; };
 		EF11D1C72375E550005C8F0C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF11D1C62375E550005C8F0C /* LoginViewController.swift */; };
+		EF12FE8E23F9FB0500E9CF32 /* CreateChatMessageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF12FE8D23F9FB0500E9CF32 /* CreateChatMessageService.swift */; };
+		EF12FE9023F9FC0B00E9CF32 /* ChatMsgDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF12FE8F23F9FC0B00E9CF32 /* ChatMsgDto.swift */; };
 		EF15DF4F239039F5006BF447 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF15DF4E239039F5006BF447 /* LoginService.swift */; };
 		EF186B5523941EA80053A706 /* MarketPlaceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF186B5423941EA80053A706 /* MarketPlaceService.swift */; };
 		EF186B57239422930053A706 /* HomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF186B56239422930053A706 /* HomeService.swift */; };
@@ -232,6 +234,8 @@
 		EF11D1C02375E2E7005C8F0C /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		EF11D1C42375E538005C8F0C /* RegisterationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterationViewController.swift; sourceTree = "<group>"; };
 		EF11D1C62375E550005C8F0C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		EF12FE8D23F9FB0500E9CF32 /* CreateChatMessageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateChatMessageService.swift; sourceTree = "<group>"; };
+		EF12FE8F23F9FC0B00E9CF32 /* ChatMsgDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMsgDto.swift; sourceTree = "<group>"; };
 		EF15DF4E239039F5006BF447 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
 		EF186B5423941EA80053A706 /* MarketPlaceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketPlaceService.swift; sourceTree = "<group>"; };
 		EF186B56239422930053A706 /* HomeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeService.swift; sourceTree = "<group>"; };
@@ -473,6 +477,7 @@
 				EF6586BD23F34BC600171989 /* UnfollowUserService.swift */,
 				EF5F5FF723F4A7B200E21B9F /* GetMessageHistoryServices.swift */,
 				EF5F5FF923F4A8CF00E21B9F /* GetMessageFriendListService.swift */,
+				EF12FE8D23F9FB0500E9CF32 /* CreateChatMessageService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -583,6 +588,7 @@
 				EF0C850D238AC031008A0C32 /* UserTypeDto.swift */,
 				EF0ED3E82380546800F7A7D6 /* BaseModel.swift */,
 				A29E579423894E84000B7F09 /* AssetModel.swift */,
+				EF12FE8F23F9FC0B00E9CF32 /* ChatMsgDto.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -922,6 +928,7 @@
 				EF46195B238E7E03008F453D /* Cache.swift in Sources */,
 				EF1A0EDA23B94CDC00DC3976 /* AppointmentListProtocol.swift in Sources */,
 				EF11D1C52375E538005C8F0C /* RegisterationViewController.swift in Sources */,
+				EF12FE9023F9FC0B00E9CF32 /* ChatMsgDto.swift in Sources */,
 				EF461968238E7E1E008F453D /* Path.swift in Sources */,
 				EF0C98CD23C368BD00090F74 /* ForgotPasswordService.swift in Sources */,
 				EF46195E238E7E03008F453D /* CustomError.swift in Sources */,
@@ -963,6 +970,7 @@
 				EF0C8537238AC033008A0C32 /* ContactDto.swift in Sources */,
 				EF0C8526238AC033008A0C32 /* HashTagStatus.swift in Sources */,
 				EF10BCDD23C1FA5A00B08651 /* UploadAssetFilesService.swift in Sources */,
+				EF12FE8E23F9FB0500E9CF32 /* CreateChatMessageService.swift in Sources */,
 				EFB50BE9238414F600188EED /* StringExtension.swift in Sources */,
 				EF0C853B238AC033008A0C32 /* Filter.swift in Sources */,
 				EF0B1D4C23C6006900FD3C34 /* DropDownListsSetupProtocol.swift in Sources */,

@@ -73,7 +73,7 @@ class AppointmentsListViewController: BaseViewController , UITableViewDelegate ,
          DispatchQueue.main.async {
             self.activityIndicator.startAnimating()
         }
-        var userinfo = Resource<AssetObject , CustomError>(jsonDecoder: JSONDecoder(), path: getListOfAppointmentsURL, method: .get)
+        var userinfo = Resource<[AppointmentDto] , CustomError>(jsonDecoder: JSONDecoder(), path: getListOfAppointmentsURL, method: .get)
         
         userinfo.params["start"] = dateTime
          userinfo.params["end"] = dateTime

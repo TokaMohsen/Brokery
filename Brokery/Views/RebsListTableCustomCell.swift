@@ -53,6 +53,7 @@ class RebsListTableCustomCell: UITableViewCell , UpdateRebsListTableCellProtocol
                         })
                 
             }
+         rebsListVC?.updateFollowBtnProtocolDelegate = self
 
     }
     
