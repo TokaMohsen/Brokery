@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		1562E3360F5558E7945DA249 /* Pods_Brokery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA5A8FA673DCE72FC9A3D73B /* Pods_Brokery.framework */; };
 		9C2D79ABBDEDD40B64EDFAC0 /* Pods_BrokeryTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B2D43084C45313A239AFD37 /* Pods_BrokeryTests.framework */; };
+		A21E759923F6986F002EC60E /* MassegeDetailsViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A21E759823F6986F002EC60E /* MassegeDetailsViewCell.xib */; };
+		A21E759B23F6987D002EC60E /* MassegeDetailsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21E759A23F6987D002EC60E /* MassegeDetailsViewCell.swift */; };
 		A2390C35238321EC001B0475 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2390C34238321EC001B0475 /* BaseViewController.swift */; };
 		A23F7DD423B7AA68008F4B3A /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23F7DD323B7AA68008F4B3A /* MoreViewController.swift */; };
 		A2894E1D23F3328D00400BBD /* Messaging.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2894E1C23F3328D00400BBD /* Messaging.storyboard */; };
@@ -158,6 +160,8 @@
 		2B2D43084C45313A239AFD37 /* Pods_BrokeryTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BrokeryTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C25408F282BDE5719E6A6B2 /* Pods-Brokery.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Brokery.release.xcconfig"; path = "Pods/Target Support Files/Pods-Brokery/Pods-Brokery.release.xcconfig"; sourceTree = "<group>"; };
 		8E25E3B97BDEAD9DE35EF725 /* Pods-Brokery.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Brokery.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Brokery/Pods-Brokery.debug.xcconfig"; sourceTree = "<group>"; };
+		A21E759823F6986F002EC60E /* MassegeDetailsViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MassegeDetailsViewCell.xib; sourceTree = "<group>"; };
+		A21E759A23F6987D002EC60E /* MassegeDetailsViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MassegeDetailsViewCell.swift; sourceTree = "<group>"; };
 		A2390C34238321EC001B0475 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		A23F7DD323B7AA68008F4B3A /* MoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
 		A2894E1C23F3328D00400BBD /* Messaging.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Messaging.storyboard; sourceTree = "<group>"; };
@@ -366,6 +370,8 @@
 				EFD58A9E23EED8C300B07C7E /* RebsListTableCustomCell.swift */,
 				A2894E2023F335ED00400BBD /* MassegeListViewCell.xib */,
 				A2894E2223F335FA00400BBD /* MassegeListViewCell.swift */,
+				A21E759823F6986F002EC60E /* MassegeDetailsViewCell.xib */,
+				A21E759A23F6987D002EC60E /* MassegeDetailsViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -723,6 +729,7 @@
 				EF471567237D7AE90036DC1E /* Assets.storyboard in Resources */,
 				EF118C7423B0A19A00632490 /* DropDownListsSelectionCustomView.xib in Resources */,
 				EF0B0ABF239EC29A0050BD4C /* AssetHashtagCollectionViewCell.xib in Resources */,
+				A21E759923F6986F002EC60E /* MassegeDetailsViewCell.xib in Resources */,
 				EF0EE96723B02CB20073B42C /* SimpleAssetBasedCard.xib in Resources */,
 				EF60C8EF2374903E0051F57F /* Assets.xcassets in Resources */,
 				EF60C8ED2374903D0051F57F /* Main.storyboard in Resources */,
@@ -931,6 +938,7 @@
 				EF0C8529238AC033008A0C32 /* AppointmentDto.swift in Sources */,
 				EF0C8531238AC033008A0C32 /* FavoriteAssetDto.swift in Sources */,
 				EF0ED3E92380546800F7A7D6 /* BaseModel.swift in Sources */,
+				A21E759B23F6987D002EC60E /* MassegeDetailsViewCell.swift in Sources */,
 				EF0C8533238AC033008A0C32 /* AppointmentStatus.swift in Sources */,
 				EF461966238E7E1E008F453D /* Resource.swift in Sources */,
 				EF60C8E82374903D0051F57F /* AppDelegate.swift in Sources */,

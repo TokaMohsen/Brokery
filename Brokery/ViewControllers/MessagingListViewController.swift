@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MessagingListViewController: BaseViewController {
+class MessagingListViewController: BaseViewController, UISearchResultsUpdating {
     
     @IBOutlet weak var massagingTableView: UITableView!
     
@@ -23,15 +23,27 @@ class MessagingListViewController: BaseViewController {
         refreshControl.tintColor = UIColor(red: 251/255, green: 190/255, blue: 32/255, alpha: 1)
         refreshControl.addTarget(self, action: #selector(getMeassagingList), for: UIControl.Event.valueChanged)
         massagingTableView.refreshControl = refreshControl
+        
+        let search = UISearchController(searchResultsController: nil)
+        search.searchResultsUpdater = self
+        search.obscuresBackgroundDuringPresentation = false
+        search.searchBar.placeholder = "Search..."
+        navigationItem.searchController = search
+        navigationItem.hidesSearchBarWhenScrolling = false
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupNavigationBar(title: "Messenger")
-        getMeassagingList()
+        getMeassagingList(withSearchText: nil)
     }
     
-    @objc func getMeassagingList() {
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let text = searchController.searchBar.text, text.count != 0 else { return }
+        getMeassagingList(withSearchText: text)
+    }
+    
+    @objc func getMeassagingList(withSearchText search: String?) {
 //        massagingTableView.refreshControl?.endRefreshing()
     }
 }
