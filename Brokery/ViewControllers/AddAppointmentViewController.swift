@@ -138,7 +138,7 @@ class AddAppointmentViewController: BaseViewController , AppointmentDelegateProt
         
         // activityIndicator.startAnimating()
         
-        let userinfo = Resource<AssetObject , CustomError>(jsonDecoder: JSONDecoder(), path: getUsersListURL, method: .post)
+        let userinfo = Resource<AssetObject , CustomError>(jsonDecoder: JSONDecoder(), path: getUsersListURL, method: .get)
         
         self.usersListService.fetch(params: userinfo.params, method: .get, url: getUsersListURL) { (response, error) in
             if let mappedResponse = response?.data

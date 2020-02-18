@@ -16,8 +16,7 @@ public struct UserObject: Decodable {
 }
 
 public class UserDto: Decodable {
-
-
+    
     public var id: String?
 
     public var name: String?
@@ -79,7 +78,6 @@ public class UserDto: Decodable {
 
     public var userHashTag: [UserHashTagDto]?
     public var token: String?
-    //public var tokenSocialMedia : String?
 
    
 }

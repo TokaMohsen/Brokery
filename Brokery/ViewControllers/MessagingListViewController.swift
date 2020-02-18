@@ -12,6 +12,16 @@ class MessagingListViewController: BaseViewController, UISearchResultsUpdating {
     
     @IBOutlet weak var massagingTableView: UITableView!
     
+    
+    var contacts = [UserDto]()
+
+    private lazy var messageFriendListService = GetMessageFriendListService()
+
+    static let sharedWebClient = WebClient.init(baseUrl: BaseAPIURL)
+    
+    var getContactListTask: URLSessionDataTask!
+    var pageNunmber = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -36,6 +46,7 @@ class MessagingListViewController: BaseViewController, UISearchResultsUpdating {
         super.viewWillAppear(animated)
         setupNavigationBar(title: "Messenger")
         getMeassagingList(withSearchText: nil)
+        pageNunmber = 0
     }
     
     func updateSearchResults(for searchController: UISearchController) {
@@ -44,14 +55,41 @@ class MessagingListViewController: BaseViewController, UISearchResultsUpdating {
     }
     
     @objc func getMeassagingList(withSearchText search: String?) {
-//        massagingTableView.refreshControl?.endRefreshing()
+        var userinfo = Resource< GetContactsObject , CustomError>(jsonDecoder: JSONDecoder(), path: getFriendListURL, method: .post)
+        
+        userinfo.params = ["Page": pageNunmber,
+                           "PageSize": "10"]
+        
+//        if let search = search {
+//            let filter = ["key": "Title", "value": search]
+//            userinfo.params["Filter"] = filter
+//        }
+        
+        self.messageFriendListService.fetch(params: userinfo.params, method: .post, url: getFriendListURL) { (response, error) in
+            if let mappedResponse = response
+            {
+                self.contacts = mappedResponse
+                self.massagingTableView.refreshControl?.endRefreshing()
+
+            }
+            else if error != nil {
+                DispatchQueue.main.async {
+                    self.showErrorAlert(with: "error", title: "Server Error")
+                }
+            }
+        }
+    }
+    
+    func loadMore() {
+        pageNunmber += 1
+        getMeassagingList(withSearchText: nil)
     }
 }
 
 extension MessagingListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return self.contacts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -59,8 +97,17 @@ extension MessagingListViewController: UITableViewDataSource {
             return UITableViewCell()
         }
         
-        cell.setup()
+        cell.setup(user: contacts[indexPath.row])
         return cell
+    }
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        let currentOffset = scrollView.contentOffset.y
+        let maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height
+
+        if maximumOffset - currentOffset <= 40.0 {
+            loadMore()
+        }
     }
 }
 

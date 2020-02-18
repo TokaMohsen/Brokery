@@ -19,7 +19,9 @@ class MassegeListViewCell: UITableViewCell {
         super.awakeFromNib()
     }
     
-    func setup() {
+    func setup(user : UserDto) {
         self.selectionStyle = .none
+        self.name.text = user.name
+        self.jobTitle.text = user.email
     }
 }

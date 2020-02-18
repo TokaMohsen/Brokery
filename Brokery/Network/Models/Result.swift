@@ -16,6 +16,14 @@ public struct Object: Decodable {
 
 }
 
+public struct MessageFriendListObject: Decodable {
+    var success: Bool
+    var data: [UserDto]?
+    var count: Int?
+    var code: String?
+
+}
+
 public struct GetContactsObject: Decodable {
     var success: Bool
     var data: [ContactDto]?
@@ -50,4 +58,16 @@ public struct AssetPostObject: Decodable {
     var Address: String?
     var Tages : [String]?
 
+}
+
+public struct MessageHistoryObject: Decodable
+{
+    var type : Int?
+    var fromId : String?
+    var toId : String?
+    var message : String?
+    var dateSent : String? //"2019-11-23T17:50:33.211"
+    var dateSeen : String?
+    var downloadUrl : String?
+    var fileSizeInBytes : String?
 }

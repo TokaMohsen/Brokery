@@ -52,7 +52,7 @@ class HomeViewController: BaseViewController, UISearchResultsUpdating {
         DispatchQueue.main.async {
             self.activityIndicator.startAnimating()
         }
-        var userinfo = Resource<AssetObject , CustomError>(jsonDecoder: JSONDecoder(), path: AuthentactionURL, method: .post)
+        var userinfo = Resource<AssetObject , CustomError>(jsonDecoder: JSONDecoder(), path: FollowedAssetsURL, method: .get)
         userinfo.params = ["Page": pageNunmber,
                            "PageSize": "10"]
         

@@ -89,6 +89,7 @@
             <connections>
                 <outlet property="contactImage" destination="xQE-Bh-p5c" id="IT0-lF-XKj"/>
                 <outlet property="contactNameLabelText" destination="cXb-Hp-9Uc" id="fkB-4I-wcC"/>
+                <outlet property="followBtn" destination="ms9-wD-kT9" id="woH-K5-KgZ"/>
                 <outlet property="jobTiteLabelText" destination="U3g-Nh-jPf" id="2cG-wo-qqo"/>
             </connections>
             <point key="canvasLocation" x="103.62318840579711" y="369.64285714285711"/>

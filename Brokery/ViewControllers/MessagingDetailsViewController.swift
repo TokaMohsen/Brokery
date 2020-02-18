@@ -13,6 +13,11 @@ class MessagingDetailsViewController: BaseViewController {
     @IBOutlet weak var messagesTableView: UITableView!
     @IBOutlet weak var messageTextView: UITextView!
     
+    private lazy var createChatMessageService = CreateChatMessageService()
+
+    static let sharedWebClient = WebClient.init(baseUrl: BaseAPIURL)
+    
+    var createMsgTask: URLSessionDataTask!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,18 +27,18 @@ class MessagingDetailsViewController: BaseViewController {
         
         let refreshControl = UIRefreshControl()
         refreshControl.tintColor = UIColor(red: 251/255, green: 190/255, blue: 32/255, alpha: 1)
-        refreshControl.addTarget(self, action: #selector(getMeassagingList), for: UIControl.Event.valueChanged)
+        refreshControl.addTarget(self, action: #selector(getMeassages), for: UIControl.Event.valueChanged)
         messagesTableView.refreshControl = refreshControl
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupNavigationBar(title: "Messenger")
-        getMeassagingList()
+        getMeassages()
     }
     
-    @objc func getMeassagingList() {
-        //        massagingTableView.refreshControl?.endRefreshing()
+    @objc func getMeassages() {
+        //        messagesTableView.refreshControl?.endRefreshing()
     }
     
     @IBAction func sendMessage(_ sender: Any) {

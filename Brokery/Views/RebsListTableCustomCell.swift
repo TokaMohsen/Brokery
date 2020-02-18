@@ -11,17 +11,33 @@ import UIKit
 import SDWebImage
 
 
-class RebsListTableCustomCell: UITableViewCell {
-
+class RebsListTableCustomCell: UITableViewCell , UpdateRebsListTableCellProtocol {
+    @IBOutlet var followBtn: UIButton!
+    
     @IBOutlet var contactImage: UIImageView!
     @IBOutlet var contactNameLabelText: UILabel!
     @IBOutlet var jobTiteLabelText: UILabel!
 
+    var rebsListTableCellDelegate : RebsListTableCellDelegateProtocol?
+    var rebsListVC : RebsListViewController?
+    var followBtnPressed = false
+    
     override func awakeFromNib() {
     super.awakeFromNib()
+    rebsListVC?.updateFollowBtnProtocolDelegate = self
     jobTiteLabelText.sizeToFit()
 }
     @IBAction func followBtnAction(_ sender: UIButton) {
+        self.followBtnPressed = !self.followBtnPressed
+        if (self.followBtnPressed == true)
+        {
+            rebsListTableCellDelegate?.followContact()
+        }
+        else
+        {
+            rebsListTableCellDelegate?.unfollowContact()
+
+        }
     }
     
     func setup(_ contact: ContactDto ) {
@@ -37,6 +53,11 @@ class RebsListTableCustomCell: UITableViewCell {
                         })
                 
             }
+         rebsListVC?.updateFollowBtnProtocolDelegate = self
 
+    }
+    
+    func updateFollowBtn(title: String) {
+        self.followBtn.setTitle(title, for: .normal)
     }
 }
