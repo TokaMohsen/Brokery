@@ -14,20 +14,21 @@ class RebsListViewController: BaseViewController {
     
     var contacts = [ContactDto]()
     var currentContact : ContactDto?
-
+    var pageNunmber = 0
     private lazy var allContactListService = GetAllContactListService()
     private lazy var followUserService = FollowUserService()
     private lazy var unfollowUserService = UnfollowUserService()
-
+    
     var updateFollowBtnProtocolDelegate : UpdateRebsListTableCellProtocol?
-
+    
     static let sharedWebClient = WebClient.init(baseUrl: BaseAPIURL)
     
     var getContactListTask: URLSessionDataTask!
-   // var tableCustomCell : RebsListTableCustomCell? = UIView() as? RebsListTableCustomCell
-
+    // var tableCustomCell : RebsListTableCustomCell? = UIView() as? RebsListTableCustomCell
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        pageNunmber = 0
         setupNavigationBar(title: "Contact List")
     }
     override func viewDidLoad() {
@@ -36,19 +37,22 @@ class RebsListViewController: BaseViewController {
         contactsTableView.dataSource = self
         contactsTableView.delegate = self
         
-
+        
         self.activityIndicator.startAnimating()
-        fetchUserContacts()
+        fetchUserContacts(withSearchText: nil)
         // Do any additional setup after loading the view.
     }
     
-    func fetchUserContacts()
+    func fetchUserContacts(withSearchText search: String?)
     {//getListOfALLContactsURL
         var userinfo = Resource< GetContactsObject , CustomError>(jsonDecoder: JSONDecoder(), path: getListOfALLContactsURL, method: .get)
         
-        userinfo.params = ["Page": "0",
+        userinfo.params = ["Page": pageNunmber,
                            "PageSize": "10"]
-        
+        if let search = search {
+            let filter = ["key": "Title", "value": search]
+            userinfo.params["Filter"] = filter
+        }
         //"DestinationID" : "1dd71bb1-a1bb-4aba-814f-e58b794285bc"]
         self.allContactListService.fetch(params: userinfo.params, method: .get, url: getListOfALLContactsURL) { (response, error) in
             if let mappedResponse = response
@@ -66,6 +70,10 @@ class RebsListViewController: BaseViewController {
             }
         }
     }
+    func loadMore() {
+        pageNunmber += 1
+        self.fetchUserContacts(withSearchText: nil)
+    }
 }
 
 extension RebsListViewController : UITableViewDelegate , UITableViewDataSource , RebsListTableCellDelegateProtocol
@@ -82,6 +90,15 @@ extension RebsListViewController : UITableViewDelegate , UITableViewDataSource ,
         cell.rebsListTableCellDelegate = self
         currentContact = contacts[indexPath.row]
         return cell
+    }
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        let currentOffset = scrollView.contentOffset.y
+        let maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height
+
+        if maximumOffset - currentOffset <= 40.0 {
+            loadMore()
+        }
     }
     
     func followContact() {
@@ -105,35 +122,35 @@ extension RebsListViewController : UITableViewDelegate , UITableViewDataSource ,
                     self.showErrorAlert(with: "error", title: "Server Error")
                 }
                 self.updateFollowBtnProtocolDelegate?.updateFollowBtn(title: "Follow")
-
+                
             }
         }
     }
     
     func unfollowContact() {
-         var userinfo = Resource< GetContactsObject , CustomError>(jsonDecoder: JSONDecoder(), path: followUserURL, method: .get)
-         DispatchQueue.main.async {
-             self.activityIndicator.startAnimating()
-         }
-         if let userID  = currentContact?.id {
-             userinfo.params = ["ID": userID]
-         }
-         self.unfollowUserService.fetch(params: userinfo.params, method: .post, url: followUserURL) { (response, error) in
-             if  response == true
-             {
-                 DispatchQueue.main.async {
-                     self.activityIndicator.stopAnimating()
-                 }
+        var userinfo = Resource< GetContactsObject , CustomError>(jsonDecoder: JSONDecoder(), path: followUserURL, method: .get)
+        DispatchQueue.main.async {
+            self.activityIndicator.startAnimating()
+        }
+        if let userID  = currentContact?.id {
+            userinfo.params = ["ID": userID]
+        }
+        self.unfollowUserService.fetch(params: userinfo.params, method: .post, url: followUserURL) { (response, error) in
+            if  response == true
+            {
+                DispatchQueue.main.async {
+                    self.activityIndicator.stopAnimating()
+                }
                 self.updateFollowBtnProtocolDelegate?.updateFollowBtn(title: "Follow")
-
-             }
-             else if error != nil {
-                 DispatchQueue.main.async {
-                     self.showErrorAlert(with: "error", title: "Server Error")
-                 }
+                
+            }
+            else if error != nil {
+                DispatchQueue.main.async {
+                    self.showErrorAlert(with: "error", title: "Server Error")
+                }
                 self.updateFollowBtnProtocolDelegate?.updateFollowBtn(title: "UnFollow")
-
-             }
-         }
-     }
+                
+            }
+        }
+    }
 }

@@ -9,11 +9,11 @@
 import Foundation
 
 class GetMessageHistoryServices {
-    func fetch(params : JSON , method : RequestMethod , url : String , completion: @escaping ([MessageHistoryObject]?, WebError<CustomError>?) -> ())
+    func fetch(params : JSON , method : RequestMethod , url : String , completion: @escaping ([MessageDto]?, WebError<CustomError>?) -> ())
     {
         let getListOfMessagesTask: URLSessionDataTask!
         
-        var userMessageList = Resource< [MessageHistoryObject] , CustomError>(jsonDecoder: JSONDecoder(), path: url, method: .get)
+        var userMessageList = Resource< [MessageDto] , CustomError>(jsonDecoder: JSONDecoder(), path: url, method: .get)
         userMessageList.params = params
         
         getListOfMessagesTask = RebsListViewController.sharedWebClient.load(resource: userMessageList, urlMethod: method) {[weak self] response in

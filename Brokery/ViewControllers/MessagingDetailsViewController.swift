@@ -14,11 +14,13 @@ class MessagingDetailsViewController: BaseViewController {
     @IBOutlet weak var messageTextView: UITextView!
     
     private lazy var createChatMessageService = CreateChatMessageService()
+    private lazy var messageHistoryServices = GetMessageHistoryServices()
 
     static let sharedWebClient = WebClient.init(baseUrl: BaseAPIURL)
     
     var createMsgTask: URLSessionDataTask!
-    
+    var msgs = [MessageDto]()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -38,10 +40,45 @@ class MessagingDetailsViewController: BaseViewController {
     }
     
     @objc func getMeassages() {
-        //        messagesTableView.refreshControl?.endRefreshing()
+        var userinfo = Resource< [MessageHistoryObject] , CustomError>(jsonDecoder: JSONDecoder(), path: getMessageHistoryURL, method: .get)
+        
+        userinfo.params = ["Page": "0",
+                           "PageSize": "10",
+                           "DestinationID" : "1dd71bb1-a1bb-4aba-814f-e58b794285bc"]
+        self.messageHistoryServices.fetch(params: userinfo.params, method: .get, url: getMessageHistoryURL) { (response, error) in
+            if let mappedResponse = response
+            {
+                self.msgs = mappedResponse
+                DispatchQueue.main.async {
+                    self.messagesTableView.refreshControl?.endRefreshing()
+                    self.messagesTableView.reloadData()
+                }
+            }
+            else if error != nil {
+                DispatchQueue.main.async {
+                    self.showErrorAlert(with: "error", title: "Server Error")
+                }
+            }
+        }
     }
     
     @IBAction func sendMessage(_ sender: Any) {
+        var userinfo = Resource< StatusObject , CustomError>(jsonDecoder: JSONDecoder(), path: createMessagURL, method: .post)
+        
+        userinfo.params = ["Page": "0",
+                           "PageSize": "10"]
+        
+        self.createChatMessageService.fetch(params: userinfo.params, method: .post, url: createMessagURL) { (response, error) in
+            if let mappedResponse = response
+            {
+           
+            }
+            else if error != nil {
+                DispatchQueue.main.async {
+                    self.showErrorAlert(with: "error", title: "Server Error")
+                }
+            }
+        }
     }
 }
 

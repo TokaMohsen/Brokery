@@ -55,18 +55,18 @@ class MessagingListViewController: BaseViewController, UISearchResultsUpdating {
     }
     
     @objc func getMeassagingList(withSearchText search: String?) {
-        var userinfo = Resource< GetContactsObject , CustomError>(jsonDecoder: JSONDecoder(), path: getFriendListURL, method: .post)
+        var userinfo = Resource< MessageFriendListObject , CustomError>(jsonDecoder: JSONDecoder(), path: getFriendListURL, method: .post)
         
         userinfo.params = ["Page": pageNunmber,
                            "PageSize": "10"]
         
-//        if let search = search {
-//            let filter = ["key": "Title", "value": search]
-//            userinfo.params["Filter"] = filter
-//        }
+        if let search = search {
+            let filter = ["key": "Title", "value": search]
+            userinfo.params["Filter"] = filter
+        }
         
         self.messageFriendListService.fetch(params: userinfo.params, method: .post, url: getFriendListURL) { (response, error) in
-            if let mappedResponse = response
+            if let mappedResponse = response?.data
             {
                 self.contacts = mappedResponse
                 self.massagingTableView.refreshControl?.endRefreshing()

@@ -8,15 +8,15 @@
 
 import Foundation
 class GetMessageFriendListService {
-    func fetch(params : JSON , method : RequestMethod , url : String , completion: @escaping ([UserDto]?, WebError<CustomError>?) -> ())
+    func fetch(params : JSON , method : RequestMethod , url : String , completion: @escaping (UserObject?, WebError<CustomError>?) -> ())
     {
         let getListOfUserContactsTask: URLSessionDataTask!
         
-        var userContactList = Resource< MessageFriendListObject , CustomError>(jsonDecoder: JSONDecoder(), path: url, method: .post)
+        var userContactList = Resource< UserObject , CustomError>(jsonDecoder: JSONDecoder(), path: url, method: .post)
         userContactList.params = params
         
         getListOfUserContactsTask = MessagingListViewController.sharedWebClient.load(resource: userContactList, urlMethod: method) {[weak self] response in
-            if let mappedResponse = response.value?.data
+            if let mappedResponse = response.value
             {
                 completion(mappedResponse , nil)
             } else if let error = response.error {
