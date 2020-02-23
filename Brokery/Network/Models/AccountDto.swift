@@ -11,7 +11,7 @@ import Foundation
 public class AccountDto: Decodable {
 
 
-    public var id: String
+    public var id: String?
 
     public var name: String?
 

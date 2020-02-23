@@ -11,13 +11,13 @@ import Foundation
 public struct HashTagDto: Decodable {
 
 
-    public var _id: String
+    public var id: String?
 
     public var text: String?
 
-    public var isActive: Bool
+    public var isActive: Bool?
 
-    public var isDeleted: Bool
+    public var isDeleted: Bool?
 
     public var assetHashTag: [AssetHashTagDto]?
 
@@ -28,27 +28,4 @@ public struct HashTagDto: Decodable {
     public var hashTagsParentHashTag: [HashTagsDto]?
 
     public var userHashTag: [UserHashTagDto]?
-    public init(_id: String, text: String?, isActive: Bool, isDeleted: Bool, assetHashTag: [AssetHashTagDto]?, contactHashTag: [ContactHashTagDto]?, hashTagsChildHashTag: [HashTagsDto]?, hashTagsParentHashTag: [HashTagsDto]?, userHashTag: [UserHashTagDto]?) { 
-        self._id = _id
-        self.text = text
-        self.isActive = isActive
-        self.isDeleted = isDeleted
-        self.assetHashTag = assetHashTag
-        self.contactHashTag = contactHashTag
-        self.hashTagsChildHashTag = hashTagsChildHashTag
-        self.hashTagsParentHashTag = hashTagsParentHashTag
-        self.userHashTag = userHashTag
-    }
-    public enum CodingKeys: String, CodingKey { 
-        case _id = "id"
-        case text
-        case isActive
-        case isDeleted
-        case assetHashTag
-        case contactHashTag
-        case hashTagsChildHashTag
-        case hashTagsParentHashTag
-        case userHashTag
-    }
-
 }

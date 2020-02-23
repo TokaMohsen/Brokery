@@ -11,32 +11,16 @@ import Foundation
 public struct AssetHashTagDto: Decodable {
 
 
-    public var _id: Int
+    public var id: String?
 
-    public var assetId: String
+    public var assetId: String?
 
-    public var hashTagId: String
+    public var hashTagId: String?
 
-    public var isActive: Bool
+    public var isActive: Bool?
 
     public var asset: AssetDto?
 
     public var hashTag: HashTagDto?
-    public init(_id: Int, assetId: String, hashTagId: String, isActive: Bool, asset: AssetDto?, hashTag: HashTagDto?) { 
-        self._id = _id
-        self.assetId = assetId
-        self.hashTagId = hashTagId
-        self.isActive = isActive
-        self.asset = asset
-        self.hashTag = hashTag
-    }
-    public enum CodingKeys: String, CodingKey { 
-        case _id = "id"
-        case assetId
-        case hashTagId
-        case isActive
-        case asset
-        case hashTag
-    }
 
 }

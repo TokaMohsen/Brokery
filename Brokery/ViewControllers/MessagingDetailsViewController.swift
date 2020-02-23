@@ -20,6 +20,7 @@ class MessagingDetailsViewController: BaseViewController {
     
     var createMsgTask: URLSessionDataTask!
     var msgs = [MessageDto]()
+    var toContact = UserDto()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,10 +65,27 @@ class MessagingDetailsViewController: BaseViewController {
     
     @IBAction func sendMessage(_ sender: Any) {
         var userinfo = Resource< StatusObject , CustomError>(jsonDecoder: JSONDecoder(), path: createMessagURL, method: .post)
+        var timeFormatter = DateFormatter()
+           timeFormatter.dateFormat = dateTimeFormat
         
-        userinfo.params = ["Page": "0",
-                           "PageSize": "10"]
+        let now = Date()
+        timeFormatter.timeZone = TimeZone.current
+
+        let selectedDateTime = timeFormatter.string(from: now)
         
+        userinfo.params ["dateTime"] = selectedDateTime
+        if messageTextView.text != ""
+        {
+            userinfo.params["body"] = messageTextView.text
+        }
+        if let user_id = LocalStore.getUserId()
+        {
+            userinfo.params["fromUserId"] = user_id
+        }
+        if let toUser_id = toContact.id
+        {
+            userinfo.params["toUserId"] = toUser_id
+        }
         self.createChatMessageService.fetch(params: userinfo.params, method: .post, url: createMessagURL) { (response, error) in
             if let mappedResponse = response
             {

@@ -22,7 +22,7 @@ public struct Contact: Decodable {
 public struct ContactDto: Decodable {
 
 
-    public var id: String
+    public var id: String?
 
     public var fullName: String?
 

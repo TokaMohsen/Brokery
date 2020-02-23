@@ -11,32 +11,16 @@ import Foundation
 public struct UserGroupUserDto: Decodable {
 
 
-    public var _id: Int?
+    public var id: String?
 
     public var userId: String?
 
-    public var userGroupId: Int?
+    public var userGroupId: String?
 
     public var isDeleted: Bool?
 
     weak var user: UserDto?
 
     weak var userGroup: UserGroupDto?
-    public init(_id: Int?, userId: String?, userGroupId: Int?, isDeleted: Bool?, user: UserDto?, userGroup: UserGroupDto?) { 
-        self._id = _id
-        self.userId = userId
-        self.userGroupId = userGroupId
-        self.isDeleted = isDeleted
-        self.user = user
-        self.userGroup = userGroup
-    }
-    public enum CodingKeys: String, CodingKey { 
-        case _id = "id"
-        case userId
-        case userGroupId
-        case isDeleted
-        case user
-        case userGroup
-    }
 
 }

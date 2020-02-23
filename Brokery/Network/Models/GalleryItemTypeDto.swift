@@ -11,7 +11,7 @@ import Foundation
 public struct GalleryItemTypeDto: Decodable {
 
 
-    public var _id: Int
+    public var id: String?
 
     public var code: String?
 
@@ -22,21 +22,5 @@ public struct GalleryItemTypeDto: Decodable {
     public var isDeleted: Bool
 
     public var assetGallery: [AssetGalleryDto]?
-    public init(_id: Int, code: String?, text: String?, isActive: Bool, isDeleted: Bool, assetGallery: [AssetGalleryDto]?) { 
-        self._id = _id
-        self.code = code
-        self.text = text
-        self.isActive = isActive
-        self.isDeleted = isDeleted
-        self.assetGallery = assetGallery
-    }
-    public enum CodingKeys: String, CodingKey { 
-        case _id = "id"
-        case code
-        case text
-        case isActive
-        case isDeleted
-        case assetGallery
-    }
-
+   
 }

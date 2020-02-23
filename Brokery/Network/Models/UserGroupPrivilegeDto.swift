@@ -11,24 +11,12 @@ import Foundation
 public struct UserGroupPrivilegeDto: Decodable {
 
 
-    public var _id: Int
+    public var id: String?
 
-    public var privilegeId: Int
+    public var privilegeId: String?
 
-    public var userGroupId: Int
+    public var userGroupId: String?
 
     public var userGroup: UserGroupDto?
-    public init(_id: Int, privilegeId: Int, userGroupId: Int, userGroup: UserGroupDto?) { 
-        self._id = _id
-        self.privilegeId = privilegeId
-        self.userGroupId = userGroupId
-        self.userGroup = userGroup
-    }
-    public enum CodingKeys: String, CodingKey { 
-        case _id = "id"
-        case privilegeId
-        case userGroupId
-        case userGroup
-    }
-
+   
 }

@@ -11,7 +11,7 @@ import Foundation
 public struct MessageDto: Decodable {
 
 
-    public var id: String
+    public var id: String?
 
     public var dateTime: String?
 

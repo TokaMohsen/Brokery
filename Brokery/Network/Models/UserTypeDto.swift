@@ -11,7 +11,7 @@ import Foundation
 public struct UserTypeDto: Decodable {
 
 
-    public var _id: Int
+    public var id: String?
 
     public var code: String?
 
@@ -20,19 +20,4 @@ public struct UserTypeDto: Decodable {
     public var isActive: Bool?
 
     public var user: [UserDto]?
-    public init(_id: Int, code: String?, text: String?, isActive: Bool?, user: [UserDto]?) { 
-        self._id = _id
-        self.code = code
-        self.text = text
-        self.isActive = isActive
-        self.user = user
-    }
-    public enum CodingKeys: String, CodingKey { 
-        case _id = "id"
-        case code
-        case text
-        case isActive
-        case user
-    }
-
 }

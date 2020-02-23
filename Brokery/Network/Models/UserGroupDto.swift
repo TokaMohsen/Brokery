@@ -11,11 +11,11 @@ import Foundation
 public class UserGroupDto: Decodable {
 
 
-    public var _id: Int
+    public var id: String?
 
     public var name: String?
 
-    public var _description: String?
+    public var description: String?
 
     public var isActive: Bool
 
@@ -24,23 +24,4 @@ public class UserGroupDto: Decodable {
     public var userGroupPrivilege: [UserGroupPrivilegeDto]?
 
     public var userGroupUser: [UserGroupUserDto]?
-    public init(_id: Int, name: String?, _description: String?, isActive: Bool, isDeleted: Bool, userGroupPrivilege: [UserGroupPrivilegeDto]?, userGroupUser: [UserGroupUserDto]?) { 
-        self._id = _id
-        self.name = name
-        self._description = _description
-        self.isActive = isActive
-        self.isDeleted = isDeleted
-        self.userGroupPrivilege = userGroupPrivilege
-        self.userGroupUser = userGroupUser
-    }
-    public enum CodingKeys: String, CodingKey { 
-        case _id = "id"
-        case name
-        case _description = "description"
-        case isActive
-        case isDeleted
-        case userGroupPrivilege
-        case userGroupUser
-    }
-
 }

@@ -11,7 +11,7 @@ import Foundation
 public struct UserHashTagDto: Decodable {
 
 
-    public var _id: Int?
+    public var id: String?
 
     public var userId: String?
 
@@ -22,21 +22,5 @@ public struct UserHashTagDto: Decodable {
     public var hashTag: HashTagDto?
 
     public var user: UserDto?
-    public init(_id: Int?, userId: String?, hashTagId: String?, isDeleted: Bool?, hashTag: HashTagDto?, user: UserDto?) { 
-        self._id = _id
-        self.userId = userId
-        self.hashTagId = hashTagId
-        self.isDeleted = isDeleted
-        self.hashTag = hashTag
-        self.user = user
-    }
-    public enum CodingKeys: String, CodingKey { 
-        case _id = "id"
-        case userId
-        case hashTagId
-        case isDeleted
-        case hashTag
-        case user
-    }
 
 }

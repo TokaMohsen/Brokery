@@ -11,36 +11,18 @@ import Foundation
 public struct ContactHashTagDto: Decodable {
 
 
-    public var _id: Int
+    public var id: String?
 
-    public var contactId: String
+    public var contactId: String?
 
-    public var hashTagId: String
+    public var hashTagId: String?
 
-    public var isActive: Bool
+    public var isActive: Bool?
 
-    public var isDeleted: Bool
+    public var isDeleted: Bool?
 
     public var contact: ContactDto?
 
     public var hashTag: HashTagDto?
-    public init(_id: Int, contactId: String, hashTagId: String, isActive: Bool, isDeleted: Bool, contact: ContactDto?, hashTag: HashTagDto?) { 
-        self._id = _id
-        self.contactId = contactId
-        self.hashTagId = hashTagId
-        self.isActive = isActive
-        self.isDeleted = isDeleted
-        self.contact = contact
-        self.hashTag = hashTag
-    }
-    public enum CodingKeys: String, CodingKey { 
-        case _id = "id"
-        case contactId
-        case hashTagId
-        case isActive
-        case isDeleted
-        case contact
-        case hashTag
-    }
-
+   
 }
