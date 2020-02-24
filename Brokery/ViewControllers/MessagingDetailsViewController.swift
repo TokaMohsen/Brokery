@@ -15,6 +15,7 @@ class MessagingDetailsViewController: BaseViewController {
     
     private lazy var createChatMessageService = CreateChatMessageService()
     private lazy var messageHistoryServices = GetMessageHistoryServices()
+    var contact = UserDtoMessageObject()
 
     static let sharedWebClient = WebClient.init(baseUrl: BaseAPIURL)
     
@@ -44,8 +45,11 @@ class MessagingDetailsViewController: BaseViewController {
         var userinfo = Resource< [MessageHistoryObject] , CustomError>(jsonDecoder: JSONDecoder(), path: getMessageHistoryURL, method: .get)
         
         userinfo.params = ["Page": "0",
-                           "PageSize": "10",
-                           "DestinationID" : "1dd71bb1-a1bb-4aba-814f-e58b794285bc"]
+                           "PageSize": "10"]
+        if let contactId = self.contact.id
+        {
+              userinfo.params["DestinationID"] = contactId
+        }
         self.messageHistoryServices.fetch(params: userinfo.params, method: .get, url: getMessageHistoryURL) { (response, error) in
             if let mappedResponse = response
             {

@@ -13,8 +13,7 @@ class MessagingListViewController: BaseViewController, UISearchResultsUpdating {
     @IBOutlet weak var massagingTableView: UITableView!
     
     
-    var contacts = [UserDto]()
-
+    var contacts = [UserDtoMessageObject]()
     private lazy var messageFriendListService = GetMessageFriendListService()
 
     static let sharedWebClient = WebClient.init(baseUrl: BaseAPIURL)
@@ -69,7 +68,10 @@ class MessagingListViewController: BaseViewController, UISearchResultsUpdating {
             if let mappedResponse = response?.data
             {
                 self.contacts = mappedResponse
+                 DispatchQueue.main.async {
                 self.massagingTableView.refreshControl?.endRefreshing()
+                    self.massagingTableView.reloadData()
+                }
 
             }
             else if error != nil {
@@ -114,5 +116,10 @@ extension MessagingListViewController: UITableViewDataSource {
 extension MessagingListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let infoStoryboard = UIStoryboard(name: "Messaging", bundle: nil)
+             if let messageDetailsVC = infoStoryboard.instantiateViewController(withIdentifier: "MessagingDetailsViewController") as? MessagingDetailsViewController {
+                 messageDetailsVC.contact = self.contacts[indexPath.row]
+                 self.navigationController?.pushViewController(messageDetailsVC, animated: true)
+             }
     }
 }
