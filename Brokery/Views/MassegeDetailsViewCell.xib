@@ -17,7 +17,7 @@
                 <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="5j1-6S-ZPy">
                     <rect key="frame" x="16" y="44" width="240" height="813"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cbv-cv-JV3">
+                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cbv-cv-JV3">
                             <rect key="frame" x="0.0" y="0.0" width="240" height="813"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="testAvatar" translatesAutoresizingMaskIntoConstraints="NO" id="Uxs-CZ-l2q">
@@ -32,7 +32,7 @@
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                 </imageView>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Yt-0v-uxk">
+                                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Yt-0v-uxk">
                                     <rect key="frame" x="37" y="0.0" width="203" height="795.5"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jRn-pD-S2N">
@@ -98,7 +98,12 @@
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
                 <outlet property="avatar" destination="Uxs-CZ-l2q" id="QAj-8e-w1q"/>
+                <outlet property="defaultLeading" destination="vcL-DT-gme" id="CrL-oS-mUD"/>
+                <outlet property="defaultTrailing" destination="W55-MV-VjB" id="vSO-eO-Um2"/>
+                <outlet property="messageContainerView" destination="0Yt-0v-uxk" id="xuh-dB-OVd"/>
                 <outlet property="messageLabel" destination="jRn-pD-S2N" id="KBJ-ak-T4g"/>
+                <outlet property="reversedLeading" destination="q3w-Uk-G5P" id="JOg-pb-Md6"/>
+                <outlet property="reversedTrailing" destination="HGN-bQ-sUI" id="EVU-TX-zNy"/>
                 <outlet property="sentDate" destination="6Lk-lq-Dvl" id="wJq-gX-5K0"/>
             </connections>
             <point key="canvasLocation" x="139" y="138"/>

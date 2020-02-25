@@ -107,7 +107,7 @@ class MessagingDetailsViewController: BaseViewController {
 extension MessagingDetailsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return self.msgs.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -115,7 +115,7 @@ extension MessagingDetailsViewController: UITableViewDataSource {
             return UITableViewCell()
         }
         
-        cell.setup()
+        cell.setup(message: self.msgs[indexPath.row])
         return cell
     }
 }
