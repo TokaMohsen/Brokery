@@ -13,20 +13,24 @@ class MessagingDetailsViewController: BaseViewController {
     @IBOutlet weak var messagesTableView: UITableView!
     @IBOutlet weak var messageTextView: UITextView!
     
+    @IBOutlet var noDataLbl: UILabel!
+    @IBOutlet var noDataView: UIView!
     private lazy var createChatMessageService = CreateChatMessageService()
     private lazy var messageHistoryServices = GetMessageHistoryServices()
     var contact = UserDtoMessageObject()
-
+    
     static let sharedWebClient = WebClient.init(baseUrl: BaseAPIURL)
     
     var createMsgTask: URLSessionDataTask!
-    var msgs = [MessageDto]()
+    var msgs = [msgDto]()
     var toContact = UserDto()
-
+    var pageNunmber = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         messagesTableView.dataSource = self
+        noDataLbl.text = emptyMessagesTable
         messagesTableView.register(UINib(nibName: "MassegeDetailsViewCell", bundle: nil), forCellReuseIdentifier: "MassegeDetailsViewCell")
         
         let refreshControl = UIRefreshControl()
@@ -38,25 +42,35 @@ class MessagingDetailsViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupNavigationBar(title: "Messenger")
+        pageNunmber = 0
+        noDataView.isHidden = true
         getMeassages()
     }
     
     @objc func getMeassages() {
         var userinfo = Resource< [MessageHistoryObject] , CustomError>(jsonDecoder: JSONDecoder(), path: getMessageHistoryURL, method: .get)
         
-        userinfo.params = ["Page": "0",
+        userinfo.params = ["Page": pageNunmber,
                            "PageSize": "10"]
         if let contactId = self.contact.id
         {
-              userinfo.params["DestinationID"] = contactId
+            userinfo.params["DestinationID"] = contactId
         }
         self.messageHistoryServices.fetch(params: userinfo.params, method: .get, url: getMessageHistoryURL) { (response, error) in
             if let mappedResponse = response
             {
                 self.msgs = mappedResponse
                 DispatchQueue.main.async {
+                    if (self.msgs.count > 0)
+                    {
+                        self.messagesTableView.reloadData()
+                        
+                    }
+                    else
+                    {
+                        self.noDataView.isHidden = false
+                    }
                     self.messagesTableView.refreshControl?.endRefreshing()
-                    self.messagesTableView.reloadData()
                 }
             }
             else if error != nil {
@@ -66,15 +80,14 @@ class MessagingDetailsViewController: BaseViewController {
             }
         }
     }
-    
     @IBAction func sendMessage(_ sender: Any) {
         var userinfo = Resource< StatusObject , CustomError>(jsonDecoder: JSONDecoder(), path: createMessagURL, method: .post)
         var timeFormatter = DateFormatter()
-           timeFormatter.dateFormat = dateTimeFormat
+        timeFormatter.dateFormat = dateTimeFormat
         
         let now = Date()
         timeFormatter.timeZone = TimeZone.current
-
+        
         let selectedDateTime = timeFormatter.string(from: now)
         
         userinfo.params ["dateTime"] = selectedDateTime
@@ -86,14 +99,16 @@ class MessagingDetailsViewController: BaseViewController {
         {
             userinfo.params["fromUserId"] = user_id
         }
-        if let toUser_id = toContact.id
+        if let toUser_id = self.contact.id
         {
             userinfo.params["toUserId"] = toUser_id
         }
         self.createChatMessageService.fetch(params: userinfo.params, method: .post, url: createMessagURL) { (response, error) in
             if let mappedResponse = response
             {
-           
+                self.getMeassages()
+                self.messageTextView.text = ""
+                
             }
             else if error != nil {
                 DispatchQueue.main.async {
@@ -102,6 +117,12 @@ class MessagingDetailsViewController: BaseViewController {
             }
         }
     }
+    
+    func loadMore() {
+        pageNunmber += 1
+        self.getMeassages()
+    }
+    
 }
 
 extension MessagingDetailsViewController: UITableViewDataSource {
@@ -117,5 +138,14 @@ extension MessagingDetailsViewController: UITableViewDataSource {
         
         cell.setup(message: self.msgs[indexPath.row])
         return cell
+    }
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        let currentOffset = scrollView.contentOffset.y
+        let maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height
+        
+        if maximumOffset - currentOffset <= 40.0 {
+            loadMore()
+        }
     }
 }

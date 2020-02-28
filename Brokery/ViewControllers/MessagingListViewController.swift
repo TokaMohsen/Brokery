@@ -12,7 +12,9 @@ class MessagingListViewController: BaseViewController, UISearchResultsUpdating {
     
     @IBOutlet weak var massagingTableView: UITableView!
     
+    @IBOutlet var noDataView: UIView!
     
+    @IBOutlet var noDataLbl: UILabel!
     var contacts = [UserDtoMessageObject]()
     private lazy var messageFriendListService = GetMessageFriendListService()
 
@@ -23,7 +25,7 @@ class MessagingListViewController: BaseViewController, UISearchResultsUpdating {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        noDataLbl.text = emptyContactsMessagerTableMsg
         massagingTableView.dataSource = self
         massagingTableView.delegate = self
         massagingTableView.register(UINib(nibName: "MassegeListViewCell", bundle: nil), forCellReuseIdentifier: "MassegeListViewCell")
@@ -44,6 +46,7 @@ class MessagingListViewController: BaseViewController, UISearchResultsUpdating {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupNavigationBar(title: "Messenger")
+        noDataView.isHidden = true
         getMeassagingList(withSearchText: nil)
         pageNunmber = 0
     }
@@ -69,8 +72,15 @@ class MessagingListViewController: BaseViewController, UISearchResultsUpdating {
             {
                 self.contacts = mappedResponse
                  DispatchQueue.main.async {
-                self.massagingTableView.refreshControl?.endRefreshing()
-                    self.massagingTableView.reloadData()
+                    if (self.contacts.count > 0)
+                    {
+                        self.massagingTableView.reloadData()
+                    }
+                    else
+                    {
+                        self.noDataView.isHidden = false
+                    }
+                   self.massagingTableView.refreshControl?.endRefreshing()
                 }
 
             }
