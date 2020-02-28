@@ -16,7 +16,7 @@ class DropDownListsSelectionCustomView: UIView , UITextFieldDelegate , DropDownL
     
     @IBOutlet var chooseAssetMenu: DropDown!
     
-    var assetsList = [AssetDto]()
+    var assetsList = [SimpleAssetDto]()
     var assetId : String?
     var devoloperId : String?
     var devolopers = [UserDto]()
@@ -58,16 +58,17 @@ class DropDownListsSelectionCustomView: UIView , UITextFieldDelegate , DropDownL
     
     func fetchAssets()
     {
-        if let selectedItem = chooseDeveloperMenu.text
-        {
-            appointmentDelegate?.fetchUserAssets(user_id: selectedItem, completion: { (assetsList, error) in
-                if let assetsList = assetsList{
-                    self.assetsList = assetsList
-                    self.setupAssetMenu()
-                }
-            })
-            
-        }
+          if let selectedItem = self.devoloperId
+            {
+                appointmentDelegate?.fetchUserAssets(user_id: selectedItem, completion: { (assetsList, error) in
+                    if let assetsList = assetsList{
+                        self.assetsList = assetsList
+                        self.setupAssetMenu()
+                    }
+                })
+                
+            }
+        
     }
     
     func setupDevoloperMenu()
@@ -79,7 +80,7 @@ class DropDownListsSelectionCustomView: UIView , UITextFieldDelegate , DropDownL
                 self.chooseDeveloperMenu.text = selectedItem
                 self.devoloperId  = self.devolopers[index].id
                 self.dropDownListsSetupDelegate?.getDeveloperId(id: self.devoloperId ?? "")
-//                self.fetchAssets()
+                self.fetchAssets()
             }
         }
         else
@@ -95,7 +96,7 @@ class DropDownListsSelectionCustomView: UIView , UITextFieldDelegate , DropDownL
     func setupAssetMenu()
     {
         if self.assetsList.count > 0 {
-            chooseAssetMenu.optionArray = self.assetsList.compactMap({$0.title})
+            chooseAssetMenu.optionArray = self.assetsList.compactMap({$0.name})
             // self.view.bringSubviewToFront(yourView)
             chooseDeveloperMenu.selectedRowColor = .lightGray
 
@@ -138,7 +139,7 @@ class DropDownListsSelectionCustomView: UIView , UITextFieldDelegate , DropDownL
         
     }
     
-    func getUserAssetsData(assets: [AssetDto]?) {
+    func getUserAssetsData(assets: [SimpleAssetDto]?) {
         if let assets = assets {
             self.assetsList = assets
             setupAssetMenu()

@@ -161,11 +161,11 @@ class AddAppointmentViewController: BaseViewController , AppointmentDelegateProt
         //return userNames
     }
     
-    func fetchUserAssets(user_id : String , completion : @escaping ([AssetDto]?, WebError<CustomError>?) -> ())
+    func fetchUserAssets(user_id : String , completion : @escaping ([SimpleAssetDto]?, WebError<CustomError>?) -> ())
     {
-        var asset = [AssetDto]()
+        var asset = [SimpleAssetDto]()
         
-        var userinfo = Resource<AssetObject , CustomError>(jsonDecoder: JSONDecoder(), path: getUserAssetsURL, method: .get)
+        var userinfo = Resource<SimpleAssetObject , CustomError>(jsonDecoder: JSONDecoder(), path: getUserAssetsURL, method: .get)
         
         // DispatchQueue.main.async {
         userinfo.params["UserID"] = user_id

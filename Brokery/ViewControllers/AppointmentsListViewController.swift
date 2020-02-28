@@ -121,8 +121,6 @@ class AppointmentsListViewController: BaseViewController , UITableViewDelegate ,
             
             appointmentDayLbl.text = datePicker.date.dayOfWeek()
             appointmentDateLbl.text = String(day) + " " + String( DateFormatter().monthSymbols[month - 1]) + " " +  String (year)
-
-       
         }
         
         

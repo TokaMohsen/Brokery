@@ -10,5 +10,5 @@ import Foundation
 
 protocol DropDownListsProtocol {
     func getUserListData(userList : [UserDto]?)
-    func getUserAssetsData(assets: [AssetDto]?)
+    func getUserAssetsData(assets: [SimpleAssetDto]?)
 }
