@@ -12,7 +12,10 @@ let serviceFailureMsg = "service failed"
 let filterFailureMsg = "Keyword doesn't match any hashtag"
 let missingRequiredMsg = "This field is required"
 let regexErrorMsg = "This field format is not correct"
+let emptyContactsMessagerTableMsg = "It seems that you have no contacts :("
+let emptyMessagesTable = "No History , Say Hi"
 
+//////backend params
 let tokenPrefix = "bearer"
 let facebookPasswordConst = "FaceBook"
 let googlePasswordConst = "Google"

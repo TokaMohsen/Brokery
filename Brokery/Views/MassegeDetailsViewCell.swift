@@ -28,9 +28,9 @@ class MassegeDetailsViewCell: UITableViewCell {
         messageContainerView.layer.cornerRadius = 20
     }
     
-    func setup(message: MessageDto) {
+    func setup(message: msgDto) {
         
-        let isMine = message.fromUserId == LocalStore.getUserId()
+        let isMine = message.fromId == LocalStore.getUserId()
         if isMine {
             messageContainerView.backgroundColor = UIColor.white
             
@@ -48,8 +48,8 @@ class MassegeDetailsViewCell: UITableViewCell {
             reversedTrailing.priority = .defaultLow
         }
         
-        messageLabel.text = message.body
-        sentDate.text = message.dateTime
+        messageLabel.text = message.message
+        sentDate.text = message.dateSent
 //        avatar.image =
     }
 }
