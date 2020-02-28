@@ -7,6 +7,20 @@
 
 import Foundation
 
+public struct SimpleAssetObject: Decodable {
+    var success: Bool
+    var data: [SimpleAssetDto]?
+    var count: Int?
+    var code: String?
+    
+}
+
+public class SimpleAssetDto: Decodable {
+    public var id: String?
+    
+    public var name: String?
+}
+    
 public struct AssetObject: Decodable {
     var success: Bool
     var data: [AssetDto]?
