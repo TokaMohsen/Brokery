@@ -33,7 +33,7 @@ public class AssetDto: Decodable {
 
     public var title: String?
 
-    public var parentAssetId: String?
+  //  public var parentAssetId: String?
 
     public var ownerId: String?
 
@@ -55,21 +55,21 @@ public class AssetDto: Decodable {
 
    public var profilePhoto: String?
 
-    public var createdBy: String?
-
-    public var createdAt: String?
-
-    public var updatedBy: String?
-
-    public var updatedAt: String?
+//    public var createdBy: String?
+//
+//    public var createdAt: String?
+//
+//    public var updatedBy: String?
+//
+//    public var updatedAt: String?
 
     public var tages: [String]?
 
-    public var account: AccountDto?
+   // public var account: AccountDto?
 
     public var assetType: AssetTypeDto?
 
-    public var createdByNavigation: UserDto?
+  //  public var createdByNavigation: UserDto?
 
     public var owner: UserDto?
 
@@ -83,10 +83,10 @@ public class AssetDto: Decodable {
 
     public var assetHashTag: [AssetHashTagDto]?
 
-    public var inverseParentAsset: [AssetHashTagDto]?
+//    public var inverseParentAsset: [AssetHashTagDto]?
+//
+//    public var notification: [NotificationDto]?
 
-    public var notification: [NotificationDto]?
-
-    public var favoriteAsset: [FavoriteAssetDto]?
+ //   public var favoriteAsset: [FavoriteAssetDto]?
    
 }

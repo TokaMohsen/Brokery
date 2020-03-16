@@ -7,6 +7,15 @@
 //
 
 import Foundation
+
+
+public struct MsgObject: Decodable {
+    var success: Bool
+    var data: ChatMsgDto?
+    var count: Int?
+    var code: String?
+    
+}
 public struct ChatMsgDto : Decodable
 {
     public var id: String?

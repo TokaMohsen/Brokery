@@ -40,10 +40,10 @@ class RebsListTableCustomCell: UITableViewCell , UpdateRebsListTableCellProtocol
         }
     }
     
-    func setup(_ contact: ContactDto ) {
-        contactNameLabelText.text = contact.fullName
+    func setup(_ contact: UserDto ) {
+        contactNameLabelText.text = contact.name
         jobTiteLabelText.text = contact.email
-        if let image = contact.photo
+        if let image = contact.userProfile?[0].photo
             {
                 let url = URL(string: BaseAPIURL + image)
                         SDWebImageManager.shared().imageDownloader?.downloadImage(with:url , options: .continueInBackground, progress: nil, completed: {(image:UIImage?, data:Data?, error:Error?, finished:Bool) in

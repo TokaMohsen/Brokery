@@ -107,7 +107,9 @@ class MessagingDetailsViewController: BaseViewController {
             if let mappedResponse = response
             {
                 self.getMeassages()
-                self.messageTextView.text = ""
+                DispatchQueue.main.async {
+                 self.messageTextView.text = ""
+                }
                 
             }
             else if error != nil {

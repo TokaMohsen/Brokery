@@ -12,8 +12,8 @@ class RebsListViewController: BaseViewController {
     @IBOutlet var contactsTableView: UITableView!
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
     
-    var contacts = [ContactDto]()
-    var currentContact : ContactDto?
+    var contacts = [UserDto]()
+    var currentContact : UserDto?
     var pageNunmber = 0
     private lazy var allContactListService = GetAllContactListService()
     private lazy var followUserService = FollowUserService()
@@ -45,7 +45,7 @@ class RebsListViewController: BaseViewController {
     
     func fetchUserContacts(withSearchText search: String?)
     {//getListOfALLContactsURL
-        var userinfo = Resource< GetContactsObject , CustomError>(jsonDecoder: JSONDecoder(), path: getListOfALLContactsURL, method: .get)
+        var userinfo = Resource< GetContactsObject , CustomError>(jsonDecoder: JSONDecoder(), path: getListOfContactsURL, method: .get)
         
         userinfo.params = ["Page": pageNunmber,
                            "PageSize": "10"]
@@ -53,8 +53,7 @@ class RebsListViewController: BaseViewController {
             let filter = ["key": "Title", "value": search]
             userinfo.params["Filter"] = filter
         }
-        //"DestinationID" : "1dd71bb1-a1bb-4aba-814f-e58b794285bc"]
-        self.allContactListService.fetch(params: userinfo.params, method: .get, url: getListOfALLContactsURL) { (response, error) in
+        self.allContactListService.fetch(params: userinfo.params, method: .get, url: getListOfContactsURL) { (response, error) in
             if let mappedResponse = response
             {
                 self.contacts = mappedResponse

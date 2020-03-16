@@ -95,6 +95,7 @@ open class WebClient {
         
         var request = URLRequest(baseUrl: baseUrl, resource: newResouce , method : urlMethod)
         if let token = LocalStore.getUserToken(){
+            request.timeoutInterval = 120.0
         request.setValue("bearer \(token)", forHTTPHeaderField: "Authorization")
         }
         let task = URLSession.shared.dataTask(with: request) { data, response, error in

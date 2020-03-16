@@ -15,7 +15,7 @@ public struct MessageDto: Decodable {
 
     public var dateTime: String?
 
-    public var body: String?
+    public var message: String?
 
     public var toUserId: String?
 
@@ -28,3 +28,4 @@ public struct MessageDto: Decodable {
     public var toUser: UserDto?
    
 }
+

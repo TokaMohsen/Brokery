@@ -14,16 +14,8 @@ class LocalStore {
         let defaults = UserDefaults.standard
         defaults.set(token, forKey: "application_token")
         defaults.synchronize()
-        
-       // UICKeyChainStore.setString(token, forKey: "application_token")
     }
     static func getUserToken()-> String? {
-//        if let token =  UICKeyChainStore.string(forKey: "application_token") {
-//            return token
-//        }
-//
-//       return nil
-        
         let defaults = UserDefaults.standard
         if let token = defaults.string(forKey: "application_token")
         {
@@ -40,8 +32,6 @@ class LocalStore {
         let defaults = UserDefaults.standard
         defaults.set(id, forKey: "application_id")
         defaults.synchronize()
-        
-        // UICKeyChainStore.setString(token, forKey: "application_token")
     }
     
     static func getUserId()-> String? {

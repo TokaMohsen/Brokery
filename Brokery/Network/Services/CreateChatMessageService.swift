@@ -12,11 +12,11 @@ class CreateChatMessageService {
     {
         let getListOfUserContactsTask: URLSessionDataTask!
         
-        var userContactList = Resource< StatusObject , CustomError>(jsonDecoder: JSONDecoder(), path: url, method: .post)
+        var userContactList = Resource< MsgObject , CustomError>(jsonDecoder: JSONDecoder(), path: url, method: .post)
         userContactList.params = params
         
         getListOfUserContactsTask = MessagingDetailsViewController.sharedWebClient.load(resource: userContactList, urlMethod: method) {[weak self] response in
-            if let mappedResponse = response.value?.data
+            if let mappedResponse = response.value?.success
             {
                 completion(mappedResponse , nil)
             } else if let error = response.error {

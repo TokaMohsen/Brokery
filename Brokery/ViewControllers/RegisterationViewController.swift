@@ -72,6 +72,15 @@ class RegisterationViewController: BaseViewController {
         acceptTermsButton.setImage(UIImage(named: imageString), for: .normal)
     }
     
+    fileprivate func navigateToLogin() {
+        
+        let loginStoryboard = UIStoryboard(name: "Login", bundle: nil)
+        if let loginVC = loginStoryboard.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController {
+            self.navigationController?.pushViewController(loginVC, animated: true)
+        }
+        
+    }
+    
     @IBAction func registerBtnAction(_ sender: UIButton) {
         
         if !isValidInput() {
@@ -99,6 +108,7 @@ class RegisterationViewController: BaseViewController {
                 {
                     if let token = mappedResponse.token{
                         LocalStore.storeUserToken(token:token)
+                        self.navigateToLogin()
                     }
                     if let userId = mappedResponse.id {
                         LocalStore.storeUserID(id: userId)

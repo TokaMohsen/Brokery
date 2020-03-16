@@ -299,6 +299,24 @@
 		EF6586BD23F34BC600171989 /* UnfollowUserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnfollowUserService.swift; sourceTree = "<group>"; };
 		EF80E8E52396C6CA003A66D3 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		EF973A5623C77A0F00096972 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		EFA4D7A7240FED10007FBA53 /* Montserrat-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ExtraLight.ttf"; sourceTree = "<group>"; };
+		EFA4D7A8240FED10007FBA53 /* Montserrat-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-LightItalic.ttf"; sourceTree = "<group>"; };
+		EFA4D7A9240FED10007FBA53 /* Montserrat-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-MediumItalic.ttf"; sourceTree = "<group>"; };
+		EFA4D7AA240FED10007FBA53 /* Montserrat-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-BoldItalic.ttf"; sourceTree = "<group>"; };
+		EFA4D7AB240FED11007FBA53 /* Montserrat-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
+		EFA4D7AC240FED11007FBA53 /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.ttf"; sourceTree = "<group>"; };
+		EFA4D7AD240FED11007FBA53 /* Montserrat-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ExtraBold.ttf"; sourceTree = "<group>"; };
+		EFA4D7AE240FED11007FBA53 /* Montserrat-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-BlackItalic.ttf"; sourceTree = "<group>"; };
+		EFA4D7AF240FED11007FBA53 /* Montserrat-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
+		EFA4D7B0240FED12007FBA53 /* Montserrat-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Black.ttf"; sourceTree = "<group>"; };
+		EFA4D7B1240FED12007FBA53 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
+		EFA4D7B2240FED12007FBA53 /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
+		EFA4D7B3240FED12007FBA53 /* Montserrat-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Light.ttf"; sourceTree = "<group>"; };
+		EFA4D7B4240FED12007FBA53 /* Montserrat-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Thin.ttf"; sourceTree = "<group>"; };
+		EFA4D7B5240FED12007FBA53 /* Montserrat-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
+		EFA4D7B6240FED13007FBA53 /* Montserrat-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ThinItalic.ttf"; sourceTree = "<group>"; };
+		EFA4D7B7240FED13007FBA53 /* Montserrat-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Italic.ttf"; sourceTree = "<group>"; };
+		EFA4D7B8240FED13007FBA53 /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
 		EFABF4AD23C3A33B00DEC27C /* RegisterationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterationService.swift; sourceTree = "<group>"; };
 		EFACC9242382FB5300586134 /* ServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceError.swift; sourceTree = "<group>"; };
 		EFB50BE8238414F600188EED /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
@@ -513,6 +531,7 @@
 		EF60C8E62374903D0051F57F /* Brokery */ = {
 			isa = PBXGroup;
 			children = (
+				EFA4D7A5240FECF6007FBA53 /* Resources */,
 				EF0B1C0E23A10F3700A644ED /* Protocols */,
 				EF461970238E8099008F453D /* Utility */,
 				EF0C8501238AAEA7008A0C32 /* Brokery.entitlements */,
@@ -597,6 +616,39 @@
 				EF12FE8F23F9FC0B00E9CF32 /* ChatMsgDto.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		EFA4D7A5240FECF6007FBA53 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				EFA4D7A6240FECFE007FBA53 /* Fonts */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		EFA4D7A6240FECFE007FBA53 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				EFA4D7B0240FED12007FBA53 /* Montserrat-Black.ttf */,
+				EFA4D7AE240FED11007FBA53 /* Montserrat-BlackItalic.ttf */,
+				EFA4D7AC240FED11007FBA53 /* Montserrat-Bold.ttf */,
+				EFA4D7AA240FED10007FBA53 /* Montserrat-BoldItalic.ttf */,
+				EFA4D7AD240FED11007FBA53 /* Montserrat-ExtraBold.ttf */,
+				EFA4D7B5240FED12007FBA53 /* Montserrat-ExtraBoldItalic.ttf */,
+				EFA4D7A7240FED10007FBA53 /* Montserrat-ExtraLight.ttf */,
+				EFA4D7AF240FED11007FBA53 /* Montserrat-ExtraLightItalic.ttf */,
+				EFA4D7B7240FED13007FBA53 /* Montserrat-Italic.ttf */,
+				EFA4D7B3240FED12007FBA53 /* Montserrat-Light.ttf */,
+				EFA4D7A8240FED10007FBA53 /* Montserrat-LightItalic.ttf */,
+				EFA4D7B8240FED13007FBA53 /* Montserrat-Medium.ttf */,
+				EFA4D7A9240FED10007FBA53 /* Montserrat-MediumItalic.ttf */,
+				EFA4D7B1240FED12007FBA53 /* Montserrat-Regular.ttf */,
+				EFA4D7B2240FED12007FBA53 /* Montserrat-SemiBold.ttf */,
+				EFA4D7AB240FED11007FBA53 /* Montserrat-SemiBoldItalic.ttf */,
+				EFA4D7B4240FED12007FBA53 /* Montserrat-Thin.ttf */,
+				EFA4D7B6240FED13007FBA53 /* Montserrat-ThinItalic.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		EFACC9232382FB2C00586134 /* Network */ = {

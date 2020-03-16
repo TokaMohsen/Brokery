@@ -33,9 +33,9 @@ class AppointmentsListViewController: BaseViewController , UITableViewDelegate ,
         datePicker.addTarget(self, action: #selector(handlePicker(sender:)), for: UIControl.Event.valueChanged)
         
         var timeFormatter = DateFormatter()
-        timeFormatter.dateFormat = dateTimeFormat
+        timeFormatter.dateFormat = listDateTimeFormat
         let selectedDateTime = timeFormatter.string(from:  datePicker.date);
-
+        
         appointmentDate = selectedDateTime
         
         //appointmentDate = datePicker.date
@@ -43,8 +43,11 @@ class AppointmentsListViewController: BaseViewController , UITableViewDelegate ,
         appointmentsTableView.delegate = self
         
         
-        
-       fetchData(dateTime: appointmentDate)
+        if  let endDate =  Calendar.current.date(byAdding: .day, value: 1, to: datePicker.date)
+        {
+            let endDateTime = timeFormatter.string(from: endDate);
+            fetchData(startDateTime: selectedDateTime , endDateTime: appointmentDate)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -67,56 +70,60 @@ class AppointmentsListViewController: BaseViewController , UITableViewDelegate ,
     }
     
     
-    private func fetchData(dateTime : String)
+    private func fetchData(startDateTime : String , endDateTime : String)
     {
         getappointmentsListTask?.cancel()
-         DispatchQueue.main.async {
+        DispatchQueue.main.async {
             self.activityIndicator.startAnimating()
         }
         var userinfo = Resource<[AppointmentDto] , CustomError>(jsonDecoder: JSONDecoder(), path: getListOfAppointmentsURL, method: .get)
         
-        userinfo.params["start"] = dateTime
-         userinfo.params["end"] = dateTime
+        userinfo.params["start"] = startDateTime
+        userinfo.params["end"] = endDateTime
         
         self.appointmentsListService.fetch(params: userinfo.params, method: .get, url: getListOfAppointmentsURL) { (response, error) in
             if let mappedResponse = response
             {
                 self.appointmentList = mappedResponse
-
+                
                 DispatchQueue.main.async {
                     self.activityIndicator.stopAnimating()
                     if ( self.appointmentList.count > 0){
-                    self.appointmentsTableView.reloadData()
+                        self.appointmentsTableView.reloadData()
                     }
                     else{
                         self.appointmentsTableView.isHidden = true
                         self.noDataLbl.isHidden = false
                     }
-                    }
-
+                }
+                
                 //}
-                 // cell.setup(appointmentList[indexPath.row])
-                 //self.assetTableCustomView.assetDelegate = self
+                // cell.setup(appointmentList[indexPath.row])
+                //self.assetTableCustomView.assetDelegate = self
                 
             } else if error != nil {
                 //controller.handleError(error)
-                 DispatchQueue.main.async {
-                self.activityIndicator.stopAnimating()
-                self.showErrorAlert(with: "error")
+                DispatchQueue.main.async {
+                    self.activityIndicator.stopAnimating()
+                    self.showErrorAlert(with: "error")
                 }
             }
         }
     }
-   
+    
     
     @objc  func handlePicker(sender: UIDatePicker) {
         var timeFormatter = DateFormatter()
-        timeFormatter.dateFormat = dateTimeFormat
+        timeFormatter.dateFormat = listDateTimeFormat
         let selectedDateTime = timeFormatter.string(from:  datePicker.date);
         
-        fetchData (dateTime: selectedDateTime)
+        if  let endDate =  Calendar.current.date(byAdding: .day, value: 1, to: datePicker.date)
+        {
+            let endDateTime = timeFormatter.string(from: endDate);
+            fetchData (startDateTime: selectedDateTime, endDateTime: endDateTime)
+        }
         let dateComponents = NSCalendar.current.dateComponents([.year, .month, .day], from: self.datePicker.date)
-     
+        
         if let day = dateComponents.day , let month = dateComponents.month , let year = dateComponents.year{
             
             appointmentDayLbl.text = datePicker.date.dayOfWeek()
@@ -125,7 +132,7 @@ class AppointmentsListViewController: BaseViewController , UITableViewDelegate ,
         
         
     }
-
+    
     private func showErrorAlert(with message: String) {
         let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)

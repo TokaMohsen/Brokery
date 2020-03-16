@@ -15,7 +15,7 @@ class CreateAssetPostService {
         
         var userinfo = Resource<PostObject , CustomError>(jsonDecoder: JSONDecoder(), path: url, method: .post)
         userinfo.params = params
-        
+        //senf file in data not array of bytes
         postUserLoginInfoTask = LoginViewController.sharedWebClient.load(resource: userinfo, urlMethod: method) {[weak self] response in
             if let mappedResponse = response.value
             {
