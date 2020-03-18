@@ -298,7 +298,7 @@
                                 <rect key="frame" x="30" y="211" width="315" height="451"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="bhR-QS-oRC" customClass="AppointmentCard" customModule="Brokery" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AppointmentCard" id="bhR-QS-oRC" customClass="AppointmentCard" customModule="Brokery" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="315" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bhR-QS-oRC" id="Dqh-Pc-8ka">

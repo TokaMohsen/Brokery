@@ -239,7 +239,7 @@ class LoginViewController: BaseViewController , GIDSignInDelegate {
                 
                 self.activityIndicator.startAnimating()
                 
-                var userinfo = Resource<Object , CustomError>(jsonDecoder: JSONDecoder(), path: loginWithFacebookURL, method: .post)
+                var userinfo = Resource<Object , CustomError>(jsonDecoder: JSONDecoder(), path: LoginWithGoogleURL, method: .post)
                 userinfo.params = ["email": user?.profile.email ,
                                    "password": googlePasswordConst,
                                    "tokenSocialMedia": token
@@ -268,12 +268,6 @@ class LoginViewController: BaseViewController , GIDSignInDelegate {
                     }
                     
                 }
-                
-                //                LocalStore.storeUserToken(token: token)
-                //                let homeStoryboard = UIStoryboard(name: "Assets", bundle: nil)
-                //                if let HomeVC = homeStoryboard.instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController {
-                //                    self.navigationController?.pushViewController(HomeVC, animated: true)
-                //                }
             }
         }
     }

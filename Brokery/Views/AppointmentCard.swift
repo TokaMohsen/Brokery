@@ -33,7 +33,7 @@ class AppointmentCard: UITableViewCell {
     
     override func awakeFromNib() {
     super.awakeFromNib()
-    descriptionLabelText.sizeToFit()
+    //descriptionLabelText.sizeToFit()
 }
 
     func setup(_ appointment: AppointmentDto , coloredCard : Bool) {

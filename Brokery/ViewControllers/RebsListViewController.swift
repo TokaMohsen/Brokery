@@ -45,7 +45,7 @@ class RebsListViewController: BaseViewController {
     
     func fetchUserContacts(withSearchText search: String?)
     {//getListOfALLContactsURL
-        var userinfo = Resource< GetContactsObject , CustomError>(jsonDecoder: JSONDecoder(), path: getListOfContactsURL, method: .get)
+        var userinfo = Resource< GetContactsObject , CustomError>(jsonDecoder: JSONDecoder(), path: getUsersListURL, method: .get)
         
         userinfo.params = ["Page": pageNunmber,
                            "PageSize": "10"]
@@ -53,7 +53,7 @@ class RebsListViewController: BaseViewController {
             let filter = ["key": "Title", "value": search]
             userinfo.params["Filter"] = filter
         }
-        self.allContactListService.fetch(params: userinfo.params, method: .get, url: getListOfContactsURL) { (response, error) in
+        self.allContactListService.fetch(params: userinfo.params, method: .get, url: getUsersListURL) { (response, error) in
             if let mappedResponse = response
             {
                 self.contacts = mappedResponse

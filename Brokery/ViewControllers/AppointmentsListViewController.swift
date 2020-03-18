@@ -42,7 +42,7 @@ class AppointmentsListViewController: BaseViewController , UITableViewDelegate ,
         appointmentsTableView.dataSource = self
         appointmentsTableView.delegate = self
         
-        
+        appointmentsTableView.register(UINib(nibName: "AppointmentCard", bundle: nil), forCellReuseIdentifier: "AppointmentCard")
         if  let endDate =  Calendar.current.date(byAdding: .day, value: 1, to: datePicker.date)
         {
             let endDateTime = timeFormatter.string(from: endDate);

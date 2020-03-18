@@ -77,11 +77,11 @@ public class AssetDto: Decodable {
 
     public var updatedByNavigation: UserDto?
 
-    public var appointment: [AppointmentDto]?
+   // public var appointment: [AppointmentDto]?
 
     public var assetGallery: [AssetGalleryDto]?
 
-    public var assetHashTag: [AssetHashTagDto]?
+   // public var assetHashTag: [AssetHashTagDto]?
 
 //    public var inverseParentAsset: [AssetHashTagDto]?
 //

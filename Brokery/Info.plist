@@ -23,7 +23,7 @@
 		<dict>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>fb2507412822856068</string>
+				<string>fb676938432825827</string>
 			</array>
 		</dict>
 		<dict>
@@ -38,7 +38,7 @@
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>FacebookAppID</key>
-	<string>2507412822856068</string>
+	<string>676938432825827</string>
 	<key>FacebookDisplayName</key>
 	<string>Brokery</string>
 	<key>LSApplicationQueriesSchemes</key>
