@@ -35,7 +35,7 @@ class AddAssetViewController: BaseViewController, UIPickerViewDelegate ,UINaviga
     var assetImages = [UIImage]()
     var assetModel : AssetDto?
     var assetTypeList : [AssetType]?
-
+    
     let hashtagCollectionViewIdentifier = "hashtagCell"
     let assetImagesCollectionViewIdentifier = "imageCell"
     
@@ -133,7 +133,7 @@ class AddAssetViewController: BaseViewController, UIPickerViewDelegate ,UINaviga
     
     @IBAction func saveBtnAction(_ sender: UIButton) {
         // activityIndicator.startAnimating()
-
+        
         createAsset()
     }
     
@@ -145,10 +145,10 @@ class AddAssetViewController: BaseViewController, UIPickerViewDelegate ,UINaviga
     func editAssetModel(asset : AssetDto)
     {
         if let title = asset.title{
-        assetNameTextField.text = title
+            assetNameTextField.text = title
         }
         if let address = asset.address {
-        assetAddressTextField.text = address
+            assetAddressTextField.text = address
         }
         if let description = asset.description
         {
@@ -167,12 +167,12 @@ class AddAssetViewController: BaseViewController, UIPickerViewDelegate ,UINaviga
         if let image = asset.photo
         {
             let url = URL(string: BaseAPIURL + image)
-                    SDWebImageManager.shared().imageDownloader?.downloadImage(with:url , options: .continueInBackground, progress: nil, completed: {(image:UIImage?, data:Data?, error:Error?, finished:Bool) in
-                        if let image = image {
-                            self.assetImages.append(image)
-                            self.imageCollectionView.reloadData()
-                        }
-                    })
+            SDWebImageManager.shared().imageDownloader?.downloadImage(with:url , options: .continueInBackground, progress: nil, completed: {(image:UIImage?, data:Data?, error:Error?, finished:Bool) in
+                if let image = image {
+                    self.assetImages.append(image)
+                    self.imageCollectionView.reloadData()
+                }
+            })
             
         }
     }
@@ -201,7 +201,7 @@ class AddAssetViewController: BaseViewController, UIPickerViewDelegate ,UINaviga
                 self.assetTypeDropdownTextField.optionArray = [ "Types are unavailable"]
                 self.assetTypeDropdownTextField.selectedRowColor = .lightGray
                 DispatchQueue.main.async {
-                self.showErrorAlert(with: "server error while getting asset types" , title: "Error")
+                    self.showErrorAlert(with: "server error while getting asset types" , title: "Error")
                 }
             }
         }
@@ -254,7 +254,7 @@ class AddAssetViewController: BaseViewController, UIPickerViewDelegate ,UINaviga
             else
             {
                 DispatchQueue.main.async {
-                self.showErrorAlert(with: "Server error, Please try again later" , title: "Error")
+                    self.showErrorAlert(with: "Server error, Please try again later" , title: "Error")
                 }
             }
         }
@@ -287,11 +287,6 @@ extension AddAssetViewController {
         guard let selectedImage = info[.originalImage] as? UIImage else {
             fatalError("Expected a dictionary containing an image, but was provided the following: \(info)")
         }
-        // imageViewPic.contentMode = .scaleToFill
-        
-        //imageViewPic.image = pickedImage
-        //tempPickedImg = selectedImage
-        
         picker.dismiss(animated: true, completion: nil)
         assetImages.append(selectedImage)
         imageCollectionView.reloadData()
@@ -347,7 +342,6 @@ extension AddAssetViewController {
     
     func updateAssetDetailsLocation(assetLocation: CLLocationCoordinate2D) {
         assetlocationCoord = CLLocationCoordinate2D(latitude: assetLocation.latitude , longitude: assetLocation.longitude)
-       
     }
     
 }

@@ -29,15 +29,30 @@ class AssetCard: UITableViewCell {
         companyName.text = asset.owner?.name
         jobTitle.text =  asset.owner?.mobile
         if let tages = asset.tages{
-           setupHashtag(tages: tages)
+            setupHashtag(tages : tages)
         }
+        else
+        {
+            setupHashtag(tages: ["new" , "tag" , "explore"] )
+        }
+        
     }
     private func setupHashtag(tages : [String])
     {
+        hashtag.lineBreakMode = .byWordWrapping
         if tages.count > 2 {
-            let hashtagStr = tages[0] + "/n" + tages[0] + "/n" + "+" + String ((tages.count - 2)) + "tages"
+            let hashtagStr = "#" + tages[0] + "\n" + "#" + tages[1] + "\n" + "+" + String ((tages.count - 2)) + " tages"
             hashtag.text = hashtagStr
-
+        }
+        else if tages.count > 1
+        {
+            let hashtagStr = tages[0] + "\n" + tages[1]
+             hashtag.text = hashtagStr
+        }
+        else
+        {
+            let hashtagStr = tages[0]
+             hashtag.text = hashtagStr
         }
     }
 }

@@ -54,7 +54,7 @@ public class UserDtoMessageObject: Decodable {
     public var updatedBy: String?
     public var updatedAt: String?
     //public var account: [AccountDto]?
-   // public var userProfile: [UserProfileDto]?
+    public var userProfile: UserProfileDto?
     public var userType: [UserTypeDto]?
     public var assetGalleryIdNavigation: [AssetGalleryDto]?
     public var accountAdmin: [AccountDto]?

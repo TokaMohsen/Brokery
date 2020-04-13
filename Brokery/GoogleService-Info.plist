@@ -7,7 +7,7 @@
 	<key>REVERSED_CLIENT_ID</key>
 	<string>com.googleusercontent.apps.949854548604-5geood4nlc35m64fok5hr711k0plat7p</string>
 	<key>API_KEY</key>
-	<string>AIzaSyBnu-04cuIIjfeU6r1kyKpCqyMsAEnhgBQ</string>
+	<string>AIzaSyB4ZQQHSyPdVdY3q4rK5SZ1zlXdeAT9S1w</string>
 	<key>GCM_SENDER_ID</key>
 	<string>949854548604</string>
 	<key>PLIST_VERSION</key>
@@ -29,7 +29,7 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:949854548604:ios:262f62d6acdcfacab18ff9</string>
+	<string>1:949854548604:ios:9c21f8a4072155d2b18ff9</string>
 	<key>DATABASE_URL</key>
 	<string>https://borkersystem-252220.firebaseio.com</string>
 </dict>

@@ -52,15 +52,15 @@ public struct AppointmentDto: Decodable {
 
     public var asset: AssetDto?
 
-    //weak var broker: UserDto?
+    public var broker : UserDtoMessageObject?
 
-    //public var contact: ContactDto?
+    public var contact: ContactDto?
 
    // weak var createdByNavigation: UserDto?
 
    // public var customer: UserDto?
 
-   // public var developer: UserDto?
+    public var developer: UserDtoMessageObject?
 
   //  public var updatedByNavigation: UserDto?
    

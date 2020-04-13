@@ -11,7 +11,7 @@ import UIKit
 import SDWebImage
 
 
-class RebsListTableCustomCell: UITableViewCell , UpdateRebsListTableCellProtocol {
+class RebsListTableCustomCell: UITableViewCell {
     @IBOutlet var followBtn: UIButton!
     
     @IBOutlet var contactImage: UIImageView!
@@ -24,7 +24,6 @@ class RebsListTableCustomCell: UITableViewCell , UpdateRebsListTableCellProtocol
     
     override func awakeFromNib() {
     super.awakeFromNib()
-    rebsListVC?.updateFollowBtnProtocolDelegate = self
     jobTiteLabelText.sizeToFit()
 }
     @IBAction func followBtnAction(_ sender: UIButton) {
@@ -40,7 +39,7 @@ class RebsListTableCustomCell: UITableViewCell , UpdateRebsListTableCellProtocol
         }
     }
     
-    func setup(_ contact: UserDto ) {
+    func setup(_ contact: UserDto , followBtnEnabled : Bool ) {
         contactNameLabelText.text = contact.name
         jobTiteLabelText.text = contact.email
         if let image = contact.userProfile?[0].photo
@@ -53,11 +52,14 @@ class RebsListTableCustomCell: UITableViewCell , UpdateRebsListTableCellProtocol
                         })
                 
             }
-         rebsListVC?.updateFollowBtnProtocolDelegate = self
+        self.updateFollowBtn(follow: followBtnEnabled)
 
     }
     
-    func updateFollowBtn(title: String) {
-        self.followBtn.setTitle(title, for: .normal)
+    func updateFollowBtn(follow: Bool) {
+        let title = follow ? "Follow" : "Unfollow"
+        DispatchQueue.main.async {
+         self.followBtn.setTitle(title, for: .normal)
+        }
     }
 }

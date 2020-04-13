@@ -146,7 +146,7 @@ class AssetDetailsViewController: BaseViewController {
             if let imageGallery =  asset.assetGallery
             {
                 let Paths = imageGallery.compactMap({return $0.path})
-                self.assetGallery = Paths.map({return BaseAPIURL + $0 })
+                self.assetGallery = Paths.map({return BaseAPIURL + "/" + $0 })
             }
         }
     }
@@ -202,8 +202,10 @@ class AssetDetailsViewController: BaseViewController {
 //            self.activityIndicator.startAnimating()
 //        }
         var userinfo = Resource<FavoriteAssetObject , CustomError>(jsonDecoder: JSONDecoder(), path: favouriteAssetURL, method: .post)
-        
-        userinfo.params = ["AssetID": self.assetModel?.id]
+        if let assetId = self.assetModel?.id
+        {
+            userinfo.params = ["AssetID": assetId]
+        }
     
         
         self.favouriteAssetService.fetch(params: userinfo.params, method: .post, url: favouriteAssetURL) { (response, error) in
@@ -214,7 +216,9 @@ class AssetDetailsViewController: BaseViewController {
             
             if let mappedResponse = response
             {
+               DispatchQueue.main.async {
                 self.showConfirmationAlert(with: "Asset has been added to favorite list successfully")
+                }
 
             } else if error != nil {
                 //controller.handleError(error)

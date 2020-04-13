@@ -7,14 +7,21 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Montserrat-Regular.ttf">
+            <string>Montserrat-Regular</string>
+        </array>
+        <array key="Montserrat-SemiBold.ttf">
+            <string>Montserrat-SemiBold</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AppointmentCard" customModule="Brokery" customModuleProvider="target">
-            <connections>
-                <outlet property="appointmentTimeLabelText" destination="Sqg-XE-T1a" id="GyH-u9-HeE"/>
-                <outlet property="colorMarkView" destination="h3Y-fh-kha" id="uPh-ew-kdC"/>
-                <outlet property="descriptionLabelText" destination="ABC-ml-hpQ" id="ymC-vB-vca"/>
-                <outlet property="titleLabelText" destination="EKA-RQ-mo3" id="aGf-LW-I1k"/>
-            </connections>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="number" keyPath="CornerRadius">
+                    <integer key="value" value="10"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="AppointmentCard" customModule="Brokery" customModuleProvider="target">
@@ -22,7 +29,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lZa-hV-UBS" userLabel="HeaderView">
-                    <rect key="frame" x="20" y="0.0" width="425" height="25"/>
+                    <rect key="frame" x="20" y="0.0" width="420" height="25"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11.00 Am- 01.00 Pm" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sqg-XE-T1a" userLabel="appointmentTime">
                             <rect key="frame" x="0.0" y="10" width="96" height="15"/>
@@ -31,7 +38,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dYM-4O-buV" userLabel="morebtn">
-                            <rect key="frame" x="400" y="0.0" width="25" height="25"/>
+                            <rect key="frame" x="395" y="0.0" width="25" height="25"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="25" id="kca-tO-QMm"/>
                                 <constraint firstAttribute="width" constant="25" id="zKp-D2-fFv"/>
@@ -39,7 +46,7 @@
                             <color key="tintColor" red="0.20389500260000001" green="0.20393687490000001" blue="0.20389232039999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <state key="normal" title="Button" image="ellipsis" catalog="system"/>
                             <connections>
-                                <action selector="moreBtnAction:" destination="-1" eventType="touchUpInside" id="vzX-bw-xlj"/>
+                                <action selector="moreBtnAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="0yw-6Q-RzE"/>
                             </connections>
                         </button>
                     </subviews>
@@ -54,24 +61,24 @@
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EKA-RQ-mo3" userLabel="titleLabel">
-                    <rect key="frame" x="20" y="30" width="425" height="18"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <rect key="frame" x="20" y="30" width="420" height="17.5"/>
+                    <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="14"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ABC-ml-hpQ" userLabel="descriptionLabel">
-                    <rect key="frame" x="20" y="53" width="425" height="32"/>
+                    <rect key="frame" x="20" y="52.5" width="420" height="32.5"/>
                     <string key="text">Some Data About the Appiontment
 which could be two line of words</string>
-                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                    <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="12"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h3Y-fh-kha" userLabel="colorMarkView">
-                    <rect key="frame" x="460" y="0.0" width="15" height="100"/>
+                    <rect key="frame" x="455" y="0.0" width="20" height="100"/>
                     <color key="backgroundColor" red="0.87589043379999998" green="0.65894764660000005" blue="0.1049104407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="15" id="6k2-az-OXl"/>
+                        <constraint firstAttribute="width" constant="20" id="6k2-az-OXl"/>
                     </constraints>
                 </view>
             </subviews>
@@ -93,6 +100,17 @@ which could be two line of words</string>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="number" keyPath="CornerRadius">
+                    <integer key="value" value="10"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
+            <connections>
+                <outlet property="appointmentTimeLabelText" destination="Sqg-XE-T1a" id="XPl-XZ-6O2"/>
+                <outlet property="colorMarkView" destination="h3Y-fh-kha" id="DUe-mz-jhl"/>
+                <outlet property="descriptionLabelText" destination="ABC-ml-hpQ" id="qtc-tP-VgT"/>
+                <outlet property="titleLabelText" destination="EKA-RQ-mo3" id="J8p-Jr-9t6"/>
+            </connections>
             <point key="canvasLocation" x="181.8840579710145" y="310.71428571428572"/>
         </view>
     </objects>

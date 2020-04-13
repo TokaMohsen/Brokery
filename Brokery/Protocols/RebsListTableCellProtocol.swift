@@ -12,6 +12,6 @@ protocol RebsListTableCellDelegateProtocol {
     func unfollowContact()
 }
 
-protocol UpdateRebsListTableCellProtocol {
-    func updateFollowBtn(title : String)
-}
+//protocol UpdateRebsListTableCellProtocol {
+//    func updateFollowBtn(title : String)
+//}

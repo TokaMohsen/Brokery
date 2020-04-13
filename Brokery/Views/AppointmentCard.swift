@@ -38,8 +38,22 @@ class AppointmentCard: UITableViewCell {
 
     func setup(_ appointment: AppointmentDto , coloredCard : Bool) {
         appointmentTimeLabelText.text = appointment.dateTime
-        titleLabelText.text = appointment.asset?.title
-        descriptionLabelText.text = appointment.description
+        if let brokerName = appointment.broker?.userProfile?.fullName , let contactName = appointment.contact?.fullName , let developerName = appointment.developer?.userProfile?.fullName
+        {
+            titleLabelText.text = brokerName + " +" + contactName + " +" + developerName
+        }
+        else
+        {
+             titleLabelText.text = "Title"
+        }
+        if let description = appointment.description
+        {
+          descriptionLabelText.text = description
+        }
+        else
+        {
+            descriptionLabelText.text  = "Description"
+        }
         colorMarkView.backgroundColor = coloredCard ? goldcolor : UIColor.black
     }
 }

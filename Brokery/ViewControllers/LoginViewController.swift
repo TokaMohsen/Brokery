@@ -85,18 +85,24 @@ class LoginViewController: BaseViewController , GIDSignInDelegate {
                     }
                     
                 } else {
-                    self?.emailErrorLabel.text = "The email or Password you entered is incorrect"
-                    self?.passwordErrorLabel.text = "The email or Password you entered is incorrect"
+                    DispatchQueue.main.async {
+                        self?.emailErrorLabel.text = "The email or Password you entered is incorrect"
+                        self?.passwordErrorLabel.text = "The email or Password you entered is incorrect"
+                    }
                     self?.showErrorLabels()
                 }
             }
         } else {
             if let emailTxt = emailTextField.text, !emailTxt.isValidEmail() {
-                emailErrorLabel.text = "Enter a valid Email"
+                DispatchQueue.main.async {
+                    self.emailErrorLabel.text = "Enter a valid Email"
+                }
             }
             
             if let passwordTxt = passwordTextField.text, !passwordTxt.isValidString() {
-                passwordErrorLabel.text = "Enter your password"
+                DispatchQueue.main.async {
+                    self.passwordErrorLabel.text = "Enter your password"
+                }
             }
             showErrorLabels()
         }
@@ -114,20 +120,20 @@ class LoginViewController: BaseViewController , GIDSignInDelegate {
         {
             userinfo.params = ["Email": emailTxt]
             self.forgotPasswordService.fetch(params: userinfo.params, method: .get, url: forgotPasswordURL) { (response, error) in
-                            DispatchQueue.main.async {
-                                //            self.activityIndicator.hidesWhenStopped = true
-                                self.activityIndicator.stopAnimating()
-                            }
+                DispatchQueue.main.async {
+                    //            self.activityIndicator.hidesWhenStopped = true
+                    self.activityIndicator.stopAnimating()
+                }
                 
                 if let mappedResponse = response
                 {
                     DispatchQueue.main.async {
-                    self.showErrorAlert(with: "Email has been sent to you successfully", title: "Confirmation")
+                        self.showErrorAlert(with: "Email has been sent to you successfully", title: "Confirmation")
                     }
                     
                 } else if error != nil {
                     DispatchQueue.main.async {
-                    self.showErrorAlert(with: "Server error", title: "Error")
+                        self.showErrorAlert(with: "Server error", title: "Error")
                     }
                 }
             }
@@ -150,11 +156,10 @@ class LoginViewController: BaseViewController , GIDSignInDelegate {
                 return
             }
             
-            guard let accessToken = AccessToken.current else {
+            guard let accessToken = result?.token else {
                 print("Failed to get access token")
                 return
             }
-            
             guard let currentUser = Auth.auth().currentUser else {
                 print("Failed to get email")
                 return
@@ -192,17 +197,16 @@ class LoginViewController: BaseViewController , GIDSignInDelegate {
                                 if let userId = mappedResponse.id {
                                     LocalStore.storeUserID(id: userId)
                                 }
-
+                                
                                 let homeStoryboard = UIStoryboard(name: "Assets", bundle: nil)
                                 if let HomeVC = homeStoryboard.instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController {
                                     UIApplication.shared.keyWindow?.rootViewController = HomeVC
                                     self.dismiss(animated: true, completion: nil)
                                 }
                             } else if error != nil {
-                                 DispatchQueue.main.async {
+                                DispatchQueue.main.async {
                                     self.showErrorAlert(with: "Error", title: "Server Error")
                                 }
-                                //controller.handleError(error)
                             }
                         }
                     }
@@ -218,13 +222,17 @@ class LoginViewController: BaseViewController , GIDSignInDelegate {
     }
     
     private func hideErrorLabels() {
-        emailErrorLabel.isHidden = true
-        passwordErrorLabel.isHidden = true
+        DispatchQueue.main.async {
+            self.emailErrorLabel.isHidden = true
+            self.passwordErrorLabel.isHidden = true
+        }
     }
     
     private func showErrorLabels() {
-        emailErrorLabel.isHidden = false
-        passwordErrorLabel.isHidden = false
+        DispatchQueue.main.async {
+            self.emailErrorLabel.isHidden = false
+            self.passwordErrorLabel.isHidden = false
+        }
     }
     
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
@@ -240,11 +248,12 @@ class LoginViewController: BaseViewController , GIDSignInDelegate {
                 self.activityIndicator.startAnimating()
                 
                 var userinfo = Resource<Object , CustomError>(jsonDecoder: JSONDecoder(), path: LoginWithGoogleURL, method: .post)
-                userinfo.params = ["email": user?.profile.email ,
-                                   "password": googlePasswordConst,
-                                   "tokenSocialMedia": token
-                ]
-                
+                if let email = user?.profile.email , let name = user?.profile.name {
+                    userinfo.params = ["email": email ,
+                                       "password": googlePasswordConst,
+                                       "tokenSocialMedia": token
+                    ]
+                }
                 DispatchQueue.main.async {
                     self.activityIndicator.stopAnimating()
                     self.userLoginInService.signIn(params: userinfo.params, method: .post, url: LoginWithGoogleURL) { (response, error) in
@@ -263,7 +272,6 @@ class LoginViewController: BaseViewController , GIDSignInDelegate {
                             DispatchQueue.main.async {
                                 self.showErrorAlert(with: "Error", title: "Server Error")
                             }
-                            //controller.handleError(error)
                         }
                     }
                     
@@ -271,15 +279,4 @@ class LoginViewController: BaseViewController , GIDSignInDelegate {
             }
         }
     }
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
 }

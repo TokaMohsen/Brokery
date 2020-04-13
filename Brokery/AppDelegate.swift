@@ -28,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate , GIDSignInDelegate {
         // Initialize sign-in
         GIDSignIn.sharedInstance().clientID = "949854548604-5geood4nlc35m64fok5hr711k0plat7p.apps.googleusercontent.com"
         GIDSignIn.sharedInstance().delegate = self
-        
+        GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
         
         //google maps AIzaSyB4ZQQHSyPdVdY3q4rK5SZ1zlXdeAT9S1w
         GMSServices.provideAPIKey("AIzaSyB4ZQQHSyPdVdY3q4rK5SZ1zlXdeAT9S1w")

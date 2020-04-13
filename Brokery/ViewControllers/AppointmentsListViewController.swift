@@ -29,7 +29,7 @@ class AppointmentsListViewController: BaseViewController , UITableViewDelegate ,
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        appointmentsTableView.register(UINib(nibName: "AppointmentCard", bundle: nil), forCellReuseIdentifier: "AppointmentCard")
         datePicker.addTarget(self, action: #selector(handlePicker(sender:)), for: UIControl.Event.valueChanged)
         
         var timeFormatter = DateFormatter()
@@ -37,12 +37,13 @@ class AppointmentsListViewController: BaseViewController , UITableViewDelegate ,
         let selectedDateTime = timeFormatter.string(from:  datePicker.date);
         
         appointmentDate = selectedDateTime
-        
+        showDatePicked()
+
         //appointmentDate = datePicker.date
         appointmentsTableView.dataSource = self
         appointmentsTableView.delegate = self
         
-        appointmentsTableView.register(UINib(nibName: "AppointmentCard", bundle: nil), forCellReuseIdentifier: "AppointmentCard")
+        
         if  let endDate =  Calendar.current.date(byAdding: .day, value: 1, to: datePicker.date)
         {
             let endDateTime = timeFormatter.string(from: endDate);
@@ -56,8 +57,8 @@ class AppointmentsListViewController: BaseViewController , UITableViewDelegate ,
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        numberOfAppointmentsLbl.text = String(appointmentList.count ) + "Appointments"
-        return appointmentList.count
+        numberOfAppointmentsLbl.text = String(appointmentList.count ) + " Appointments"
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -69,9 +70,20 @@ class AppointmentsListViewController: BaseViewController , UITableViewDelegate ,
         return cell
     }
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+           return self.appointmentList.count
+       }
+
+
+    // Set the spacing between sections
+       func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+           return 15
+       }
     
     private func fetchData(startDateTime : String , endDateTime : String)
     {
+        self.noDataLbl.isHidden = true
+
         getappointmentsListTask?.cancel()
         DispatchQueue.main.async {
             self.activityIndicator.startAnimating()
@@ -85,8 +97,8 @@ class AppointmentsListViewController: BaseViewController , UITableViewDelegate ,
             if let mappedResponse = response
             {
                 self.appointmentList = mappedResponse
-                
                 DispatchQueue.main.async {
+                    self.appointmentsTableView.isHidden = false
                     self.activityIndicator.stopAnimating()
                     if ( self.appointmentList.count > 0){
                         self.appointmentsTableView.reloadData()
@@ -96,10 +108,6 @@ class AppointmentsListViewController: BaseViewController , UITableViewDelegate ,
                         self.noDataLbl.isHidden = false
                     }
                 }
-                
-                //}
-                // cell.setup(appointmentList[indexPath.row])
-                //self.assetTableCustomView.assetDelegate = self
                 
             } else if error != nil {
                 //controller.handleError(error)
@@ -112,6 +120,16 @@ class AppointmentsListViewController: BaseViewController , UITableViewDelegate ,
     }
     
     
+    fileprivate func showDatePicked() {
+        let dateComponents = NSCalendar.current.dateComponents([.year, .month, .day], from: self.datePicker.date)
+        
+        if let day = dateComponents.day , let month = dateComponents.month , let year = dateComponents.year{
+            
+            appointmentDayLbl.text = datePicker.date.dayOfWeek()
+            appointmentDateLbl.text = String(day) + " " + String( DateFormatter().monthSymbols[month - 1]) + " " +  String (year)
+        }
+    }
+    
     @objc  func handlePicker(sender: UIDatePicker) {
         var timeFormatter = DateFormatter()
         timeFormatter.dateFormat = listDateTimeFormat
@@ -122,13 +140,7 @@ class AppointmentsListViewController: BaseViewController , UITableViewDelegate ,
             let endDateTime = timeFormatter.string(from: endDate);
             fetchData (startDateTime: selectedDateTime, endDateTime: endDateTime)
         }
-        let dateComponents = NSCalendar.current.dateComponents([.year, .month, .day], from: self.datePicker.date)
-        
-        if let day = dateComponents.day , let month = dateComponents.month , let year = dateComponents.year{
-            
-            appointmentDayLbl.text = datePicker.date.dayOfWeek()
-            appointmentDateLbl.text = String(day) + " " + String( DateFormatter().monthSymbols[month - 1]) + " " +  String (year)
-        }
+        showDatePicked()
         
         
     }

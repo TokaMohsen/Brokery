@@ -15,11 +15,11 @@ class RebsListViewController: BaseViewController {
     var contacts = [UserDto]()
     var currentContact : UserDto?
     var pageNunmber = 0
+    var followBtnTitleFlag = true
     private lazy var allContactListService = GetAllContactListService()
     private lazy var followUserService = FollowUserService()
     private lazy var unfollowUserService = UnfollowUserService()
     
-    var updateFollowBtnProtocolDelegate : UpdateRebsListTableCellProtocol?
     
     static let sharedWebClient = WebClient.init(baseUrl: BaseAPIURL)
     
@@ -37,14 +37,13 @@ class RebsListViewController: BaseViewController {
         contactsTableView.dataSource = self
         contactsTableView.delegate = self
         
-        
         self.activityIndicator.startAnimating()
         fetchUserContacts(withSearchText: nil)
         // Do any additional setup after loading the view.
     }
     
     func fetchUserContacts(withSearchText search: String?)
-    {//getListOfALLContactsURL
+    {
         var userinfo = Resource< GetContactsObject , CustomError>(jsonDecoder: JSONDecoder(), path: getUsersListURL, method: .get)
         
         userinfo.params = ["Page": pageNunmber,
@@ -69,6 +68,7 @@ class RebsListViewController: BaseViewController {
             }
         }
     }
+    
     func loadMore() {
         pageNunmber += 1
         self.fetchUserContacts(withSearchText: nil)
@@ -85,8 +85,7 @@ extension RebsListViewController : UITableViewDelegate , UITableViewDataSource ,
         guard let cell = contactsTableView.dequeueReusableCell(withIdentifier: "ContactCard", for: indexPath) as? RebsListTableCustomCell else {
             return UITableViewCell()
         }
-        cell.setup(contacts[indexPath.row])
-        cell.rebsListTableCellDelegate = self
+        cell.setup(contacts[indexPath.row] , followBtnEnabled: followBtnTitleFlag)
         currentContact = contacts[indexPath.row]
         return cell
     }
@@ -113,15 +112,16 @@ extension RebsListViewController : UITableViewDelegate , UITableViewDataSource ,
             {
                 DispatchQueue.main.async {
                     self.activityIndicator.stopAnimating()
+                    //to set btn title to "unFollow"
+                    self.followBtnTitleFlag = false
+                   // self.updateFollowBtnProtocolDelegate?.updateFollowBtn(title: "UnFollow")
+
                 }
-                self.updateFollowBtnProtocolDelegate?.updateFollowBtn(title: "UnFollow")
             }
             else if error != nil {
                 DispatchQueue.main.async {
                     self.showErrorAlert(with: "error", title: "Server Error")
                 }
-                self.updateFollowBtnProtocolDelegate?.updateFollowBtn(title: "Follow")
-                
             }
         }
     }
@@ -140,14 +140,13 @@ extension RebsListViewController : UITableViewDelegate , UITableViewDataSource ,
                 DispatchQueue.main.async {
                     self.activityIndicator.stopAnimating()
                 }
-                self.updateFollowBtnProtocolDelegate?.updateFollowBtn(title: "Follow")
-                
+                //to set btn title to "Follow" again
+                self.followBtnTitleFlag = true
             }
             else if error != nil {
                 DispatchQueue.main.async {
                     self.showErrorAlert(with: "error", title: "Server Error")
                 }
-                self.updateFollowBtnProtocolDelegate?.updateFollowBtn(title: "UnFollow")
                 
             }
         }

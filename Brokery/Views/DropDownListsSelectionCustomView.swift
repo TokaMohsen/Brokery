@@ -97,7 +97,6 @@ class DropDownListsSelectionCustomView: UIView , UITextFieldDelegate , DropDownL
     {
         if self.assetsList.count > 0 {
             chooseAssetMenu.optionArray = self.assetsList.compactMap({$0.name})
-            // self.view.bringSubviewToFront(yourView)
             chooseDeveloperMenu.selectedRowColor = .lightGray
 
             chooseAssetMenu.didSelect { (selectedItem, index, id) in

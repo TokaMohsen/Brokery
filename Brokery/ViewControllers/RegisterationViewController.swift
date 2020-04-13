@@ -46,7 +46,7 @@ class RegisterationViewController: BaseViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-       super.viewWillAppear(animated)
+        super.viewWillAppear(animated)
         setupNavigationBar(title: "")
     }
     
@@ -96,7 +96,7 @@ class RegisterationViewController: BaseViewController {
             }
             var userinfo = Resource<Object , CustomError>(jsonDecoder: JSONDecoder(), path: RegisterAccountURL, method: .post)
             
-            let user =  UserProfileDto(id: nil, fullName: fullName, gender: nil, address: nil, photo: "testImage", createdBy: nil, createdAt: nil, updatedBy: nil, updatedAt: nil)
+            let user =  UserProfileDto(id: nil, fullName : fullName, gender: nil, address: nil, photo: "testImage", createdBy: nil, createdAt: nil, updatedBy: nil, updatedAt: nil)
             
             userinfo.params = ["email": email,
                                "password": password,
@@ -113,25 +113,27 @@ class RegisterationViewController: BaseViewController {
                     if let userId = mappedResponse.id {
                         LocalStore.storeUserID(id: userId)
                     }
-                   
+                    
                 }
                 else if error != nil {
                     self.showErrorAlert(with: "server error", title: "Error")
                 }
                 DispatchQueue.main.async {
-                                       self.activityIndicator.stopAnimating()
-                                   }
+                    self.activityIndicator.stopAnimating()
+                }
             }
         }
         
     }
-
+    
     private func hideErrorsLabel() {
-        fullNameErrorlabel.isHidden = true
-        emailErrorLabel.isHidden = true
-        passwordErrorLabel.isHidden = true
-        confirmPasswordErrorLabel.isHidden = true
-        mobileErrorLabel.isHidden = true
+        DispatchQueue.main.async {
+            self.fullNameErrorlabel.isHidden = true
+            self.emailErrorLabel.isHidden = true
+            self.passwordErrorLabel.isHidden = true
+            self.confirmPasswordErrorLabel.isHidden = true
+            self.mobileErrorLabel.isHidden = true
+        }
     }
     
     private func isValidInput() -> Bool{
